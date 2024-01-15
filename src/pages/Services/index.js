@@ -1,17 +1,9 @@
 
-
 function Services() {
   return (
-    <div >
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Services
-        </a>
-    </div>
+      <div style={{height:'80%'}}>
+        <h1>Services</h1>
+      </div>
   );
 }
 

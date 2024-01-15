@@ -1,17 +1,9 @@
 
-
 function NotFound() {
   return (
-    <div >
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          NotFound
-        </a>
-    </div>
+      <div style={{height:'80%'}}>
+        <h1>NotFound</h1>
+      </div>
   );
 }
 
