@@ -1,0 +1,22 @@
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #F5F7FB;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Cairo', cursive;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  display: 'flex';
+  flex: '1 1 auto';
+  flex-direction: 'column';
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
