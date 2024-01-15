@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 import { styled, alpha } from '@mui/material/styles';
 
-const pages = ['Home','Services'];
+const pages = ['Home','Services','Projects','Awards','Talent','Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
@@ -92,11 +92,12 @@ function Header() {
 
   return (
     <AppBar position="static" sx={{backgroundColor:'transparent', boxShadow:0}} >
-      <Container sx={{justifyContent:{ xs: 'left', sm: 'center' },display:'flex'}}>
-        <Toolbar disableGutters>
+      <Container sx={{justifyContent:{ xs: 'left', sm: 'center' },display:'flex',marginTop:2}}>
+        <Toolbar disableGutters sx={{justifyContent:{ xs: 'left',width:'100%' }}}>
           {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }} />*/}
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
+          <Box sx={{display: { xs: 'none', sm: 'flex'} ,width:"10%"}}>
+          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' }}}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -132,7 +133,7 @@ function Header() {
               ))}
             </CssMenu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex'} }}>
+          <Box sx={{display: { xs: 'none', sm: 'flex'},width:"100%",justifyContent:'center'}}>
             {pages.map((page) => (
               <Button variant="menu"
                 key={page}
@@ -142,35 +143,12 @@ function Header() {
               </Button>
             ))}
           </Box>
+          <Box sx={{ display: { xs: 'none', sm: 'flex',width:"10%"}}}>
 
-          <Box sx={{ flexGrow: 0 }}>
-{/*            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>*/}
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+              <Button variant="menu"
+              >
+                {"En"}
+              </Button>
           </Box>
         </Toolbar>
       </Container>

@@ -48,7 +48,6 @@ const theme = createTheme({
             backgroundColor:'transparent',
             color:colors.primary,
             border:0,
-            marginRight:20,
             display: 'block',
             fontSize:"16px",
           },

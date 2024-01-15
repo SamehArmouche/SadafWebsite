@@ -1,9 +1,13 @@
 
+
+import { motion } from "framer-motion"
+
+
 function Home() {
   return (
-      <div style={{height:'80%'}}>
-        <h1>Home</h1>
-      </div>
+      <motion.div exit={{ opacity: 0 }}>
+          <h1>Home</h1>
+      </motion.div> 
   );
 }
 
