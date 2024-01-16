@@ -1,5 +1,13 @@
 {
   "home": {
-    "title": "Welcome to the app!"
+    "title": "Be the star of the future, Talent Road, the largest Arab project to discover actresses and actors"
+  },
+  "header": {
+    "home": "Home",
+    "services":"Services",
+    "projects":"Projects",
+    "awards":"Awards",
+    "talent":"Talent",
+    "contact":"Contact us"
   }
 }

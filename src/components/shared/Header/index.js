@@ -13,9 +13,16 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 import { styled, alpha } from '@mui/material/styles';
+import { useTranslation } from 'react-i18next';
+import {
+  usePopupState,
+  bindTrigger,
+  bindMenu,
+} from 'material-ui-popup-state/hooks'
+
 
 const pages = ['Home','Services','Projects','Awards','Talent','Contact'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+//const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 
@@ -32,11 +39,11 @@ const CssMenu = styled((props: MenuProps) => (
     }}
     {...props}
   />
-))(({ theme }) => ({
+))(({ theme,type="lang" }) => ({
   '& .MuiPaper-root': {
     borderRadius: 6,
     marginTop: theme.spacing(1),
-    width: "100%",
+    width: type==="lang"?"20%":"100%",
     backgroundColor:'rgba(0, 0, 0,0.6)',
     boxShadow:
       'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
@@ -64,8 +71,16 @@ const CssMenu = styled((props: MenuProps) => (
 function Header() {
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  //const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const { t, i18n } = useTranslation();
+  const popupState = usePopupState({ variant: 'popover', popupId: 'demoMenu' })
 
+  function handleClick(lang) {
+    i18n.changeLanguage(lang);
+    //document.dir = 'rtl';
+    popupState.close()
+    
+  }
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -77,9 +92,9 @@ function Header() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  /*const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-  };
+  };*/
 
   const handleRoute = (route) =>{
     if(route.toLowerCase()==="home"){
@@ -108,6 +123,7 @@ function Header() {
               <MenuIcon />
             </IconButton>
             <CssMenu
+              type="menu"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
@@ -127,7 +143,7 @@ function Header() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={(e)=>{handleRoute(page)}}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center"> {t(`header.${page.toLowerCase()}`)}</Typography>
                 </MenuItem>
               ))}
             </CssMenu>
@@ -138,16 +154,20 @@ function Header() {
                 key={page}
                 onClick={(e)=>{handleRoute(page)}}
               >
-                {page}
+                {t(`header.${page.toLowerCase()}`)}
               </Button>
             ))}
           </Box>
           <Box sx={{width:"10%",paddingRight:2}}>
-
-              <Button variant="menu"
-              >
-                {"En"}
+            <React.Fragment>
+              <Button variant="menu" {...bindTrigger(popupState)}>
+              {i18n.language.toUpperCase()}
               </Button>
+              <CssMenu {...bindMenu(popupState)} type="lang">
+                <MenuItem onClick={()=>handleClick('en')}>En</MenuItem>
+                <MenuItem onClick={()=>handleClick('ar')}>Ar</MenuItem>
+              </CssMenu>
+            </React.Fragment>
           </Box>
         </Toolbar>
       </Container>
