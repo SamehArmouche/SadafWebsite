@@ -2,6 +2,11 @@ import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AppContainer from './pages/index.js'
 import colors from './assets/theme/colors/'
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import { useSelector } from 'react-redux'
+
+
 const theme = createTheme({
   components: {
     MuiTableCell: {
@@ -82,12 +87,16 @@ const theme = createTheme({
 
 
 function App() {
+  const {loading } = useSelector(
+    (state) => state.preferences
+  )
+  
   return (
-    <ThemeProvider theme={theme}>
     <div className="App">
-      <AppContainer />
+      <ThemeProvider theme={theme}>
+        <AppContainer />
+      </ThemeProvider>
     </div>
-    </ThemeProvider>
   );
 }
 
