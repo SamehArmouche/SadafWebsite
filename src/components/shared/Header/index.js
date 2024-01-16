@@ -158,14 +158,14 @@ function Header() {
               </Button>
             ))}
           </Box>
-          <Box sx={{width:"10%",paddingRight:2}}>
+          <Box sx={{width:"10%",paddingRight:5}}>
             <React.Fragment>
               <Button variant="menu" {...bindTrigger(popupState)}>
-              {i18n.language.toUpperCase()}
+                {t(`dropdown.lang`)}
               </Button>
               <CssMenu {...bindMenu(popupState)} type="lang">
-                <MenuItem onClick={()=>handleClick('en')}>En</MenuItem>
-                <MenuItem onClick={()=>handleClick('ar')}>Ar</MenuItem>
+                <MenuItem onClick={()=>handleClick('en')}>English</MenuItem>
+                <MenuItem onClick={()=>handleClick('ar')}>العربية</MenuItem>
               </CssMenu>
             </React.Fragment>
           </Box>

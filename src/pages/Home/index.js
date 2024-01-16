@@ -19,7 +19,7 @@ function Home() {
         <Grid item xs={8} sx={{p:0}}>
         <Button variant="home"
         >
-        {"Join us"}
+          {t('button.joinUs')}
         </Button>
         </Grid>
       </Grid>

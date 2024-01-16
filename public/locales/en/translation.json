@@ -9,5 +9,11 @@
     "awards":"Awards",
     "talent":"Talent",
     "contact":"Contact us"
+  },
+  "dropdown": {
+    "lang":"English"
+  },
+  "button": {
+    "joinUs": "Join us"
   }
 }

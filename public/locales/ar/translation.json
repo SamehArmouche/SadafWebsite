@@ -4,10 +4,16 @@
   },
   "header": {
     "home": "الرئيسية",
-    "services":"الخدمات",
-    "projects":"أعمالنا",
-    "awards":"الجوائز",
-    "talent":"المواهب",
-    "contact":"تواصل معنا"
+    "services": "الخدمات",
+    "projects": "أعمالنا",
+    "awards": "الجوائز",
+    "talent": "المواهب",
+    "contact": "تواصل معنا"
+  },
+  "dropdown": {
+    "lang":"العربية"
+  },
+  "button": {
+    "joinUs": "أنضم إلينا"
   }
 }
