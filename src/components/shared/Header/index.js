@@ -100,11 +100,10 @@ function Header() {
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' }}}>
             <IconButton
               size="large"
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              sx={{ color:'#f7d89f'}}
             >
               <MenuIcon />
             </IconButton>
@@ -143,7 +142,7 @@ function Header() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ display: { xs: 'none', sm: 'flex',width:"10%"}}}>
+          <Box sx={{width:"10%",paddingRight:2}}>
 
               <Button variant="menu"
               >

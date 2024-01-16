@@ -52,6 +52,20 @@ const theme = createTheme({
             fontSize:"16px",
           },
         },
+        {
+          props: { variant: 'home' },
+          style: {
+            backgroundColor:'rgba(0, 0, 0,0.6)',
+            color:colors.primary,
+            border:0,
+            marginTop:20,
+            padding:0,
+            width:220,
+            borderRadius:20,
+            display: 'block',
+            fontSize:"20px",
+          },
+        },
       ],
 
     },
