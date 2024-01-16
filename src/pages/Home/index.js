@@ -6,6 +6,9 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import { useTranslation } from 'react-i18next';
+
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -16,6 +19,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 function Home() {
+  const { t } = useTranslation();
+
   return (
     <Box sx={{height:'75.5%',alignItems:'center',justifyContent:'center',display:'flex'}}>
       <Grid container sx={{margin:0,p:{xs:0,md:0},width:"80%"}}>
@@ -24,7 +29,7 @@ function Home() {
               {"Be the star of the future, Talent Road."}
           </Typography>
           <Typography textAlign="left" sx={{fontSize:{xs:18,sm:30}}}>
-              {"The largest Arab project to discover actresses and actors"}
+          {t('home.title')}
           </Typography>
         </Grid>
         <Grid item xs={8} sx={{p:0}}>
