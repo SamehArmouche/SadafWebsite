@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Carousel from '../../components/Carousel';
 
 function Services() {
-  const dispatch: Dispatch = useDispatch()
+  const dispatch: Dispatch = useDispatch();
   const { services } = useSelector(
     (state) => state.services
   )
