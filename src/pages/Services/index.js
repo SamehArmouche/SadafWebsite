@@ -1,16 +1,13 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { useTranslation } from 'react-i18next';
 import { fetchServices } from '../../redux/thunks';
 import { useDispatch, useSelector } from 'react-redux'
+import Carousel from '../../components/Carousel';
 
 function Services() {
-  const { t } = useTranslation();
   const dispatch: Dispatch = useDispatch()
-  const { services, error } = useSelector(
+  const { services } = useSelector(
     (state) => state.services
   )
 
@@ -18,10 +15,10 @@ function Services() {
     dispatch(fetchServices());
   }, [dispatch]);
 
-
   return (
-    <Box sx={{height:'75.5%',alignItems:'center',justifyContent:'center',display:'flex'}}>
-    </Box>
+    <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',height:"75%",width:'100%'}}>
+      <Carousel items={services}/>
+    </Grid>
   );
 }
 

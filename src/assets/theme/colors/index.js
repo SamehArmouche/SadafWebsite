@@ -6,7 +6,7 @@ const colors = {
   success: '#4cc9f0',
   grey: '#878f96',
   white: '#ffffff',
-  background:'#0A0A0A',
+  background:'rgba(0, 0, 0,0.6)',
   hover: 'rgba(247, 216, 159, 0.4)',
   divder:"rgba(247, 216, 159, 0.4)"
 };

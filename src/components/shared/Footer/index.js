@@ -6,12 +6,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import colors from '../../../assets/theme/colors/'
-const footerHeight = 60;
-const footerEltMarginTop = 5;
 
 const divStyle = {
-  height: `${footerHeight + footerEltMarginTop}px`,
-  backgroundColor:'transparent',
   justifyContent:'center',
   alignItems:'center',
   display:'flex',
@@ -28,6 +24,9 @@ export default function Footer() {
           <FacebookIcon sx={{color:colors.divder,fontSize:26,p:2}} />
           <YouTubeIcon sx={{color:colors.divder,fontSize:26,p:2}} />
           <InstagramIcon sx={{color:colors.divder,fontSize:26,p:2}} />
+        </Box>
+        <Box sx={{width:'70%',justifyContent:'center',alignItems:'center'}}>
+          <h5 style={{color:colors.divder,margin:0}}>Powered by <a href="https://www.sameh-armouche.com/" style={{color:colors.divder}}>Sameh Armouche</a></h5>
         </Box>
       </Box>
    </>
