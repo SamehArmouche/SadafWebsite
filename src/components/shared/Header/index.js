@@ -19,7 +19,7 @@ import {
   bindTrigger,
   bindMenu,
 } from 'material-ui-popup-state/hooks'
-
+import { useTheme } from '@mui/material/styles';
 
 const pages = ['Home','Services','Projects','Awards','Talent','Contact'];
 //const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -74,10 +74,12 @@ function Header() {
   //const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { t, i18n } = useTranslation();
   const popupState = usePopupState({ variant: 'popover', popupId: 'demoMenu' })
-
+  const theme = useTheme();
+  document.body.dir = i18n.dir();
   function handleClick(lang) {
-    i18n.changeLanguage(lang);
-    //document.dir = 'rtl';
+    i18n.changeLanguage(lang)
+    document.body.dir = i18n.dir();
+    theme.direction = i18n.dir();
     popupState.close()
     
   }
@@ -158,7 +160,7 @@ function Header() {
               </Button>
             ))}
           </Box>
-          <Box sx={{width:"10%",paddingRight:5}}>
+          <Box sx={{width:"20%",padding:0}}>
             <React.Fragment>
               <Button variant="menu" {...bindTrigger(popupState)}>
                 {t(`dropdown.lang`)}

@@ -17,7 +17,15 @@ const theme = createTheme({
         fontSize:15,
         whiteSpace: "nowrap",
         textOverflow: "ellipsis",
+        
       }
+      }
+    },
+    MuiDivider:{
+      styleOverrides:{
+        root: {
+          backgroundColor:colors.divder
+        }
       }
     },
     MuiTable: {
@@ -73,6 +81,7 @@ const theme = createTheme({
         },
       ],
 
+
     },
   },
   typography: {
@@ -83,6 +92,7 @@ const theme = createTheme({
       color:colors.primary
     },
   },
+  direction:"rtl"
 });
 
 

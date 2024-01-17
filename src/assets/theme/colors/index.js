@@ -8,6 +8,7 @@ const colors = {
   white: '#ffffff',
   background:'#0A0A0A',
   hover: 'rgba(247, 216, 159, 0.4)',
+  divder:"rgba(247, 216, 159, 0.4)"
 };
 
 
