@@ -91,8 +91,7 @@ const theme = createTheme({
       fontSize: "15px",
       color:colors.primary
     },
-  },
-  direction:"rtl"
+  }
 });
 
 

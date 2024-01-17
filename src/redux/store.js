@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import {preferencesSlice} from './slices/preferencesSlice'
 import {servicesSlice} from './slices/servicesSlice'
 import {projectsSlice} from './slices/projectsSlice'
+import {awardsSlice} from './slices/awardsSlice'
 import storageSession from 'redux-persist/lib/storage/session'
 import {
   persistStore,
@@ -27,6 +28,7 @@ export const store = configureStore({
     preferences: persistedReducer,
     services: servicesSlice.reducer,
     projects: projectsSlice.reducer,
+    awards: awardsSlice.reducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>

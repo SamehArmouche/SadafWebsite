@@ -6,6 +6,7 @@ import {
 import NotFound from './NotFound'
 import Services from './Services'
 import Projects from './Projects'
+import Awards from './Awards'
 import Home from './Home'
 import Layout from '../components/shared/Layout';
 
@@ -16,6 +17,7 @@ const AppContainer = () => (
       <Route path="/" index element={<Home />} />
       <Route path="/services" element={<Services />} />
       <Route path="/projects" element={<Projects />} />
+      <Route path="/awards" element={<Awards />} />
       <Route path="*" element={<NotFound />} />
     </Route>
     </Routes>

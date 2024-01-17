@@ -32,9 +32,27 @@ export const fetchServices = createAsyncThunk(
 
 //////////////// Projects /////////////////////////////
 export const fetchProjects = createAsyncThunk(
-  'projects/Projects',
+  'projects/fetchProjects',
   async () =>{
     const response = await fetch(`/sadaf/project`,{
+    method : 'GET',
+    headers: {
+      'Content-Type':'application/json'
+    }
+    });
+    const data = await response.json();
+    if(response.status!==200){
+      throw new Error(data.msg);
+    }
+    return data;
+  }
+)
+
+//////////////// Awards /////////////////////////////
+export const fetchAwards = createAsyncThunk(
+  'awards/fetchAwards',
+  async () =>{
+    const response = await fetch(`/sadaf/award`,{
     method : 'GET',
     headers: {
       'Content-Type':'application/json'
