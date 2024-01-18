@@ -110,7 +110,7 @@ function Header() {
 
   return (
     <AppBar position="static" sx={{backgroundColor:'transparent', boxShadow:0}} >
-      <Box sx={{justifyContent:'center',display:{xs:'none',md:'flex'},height:64,opacity:0.8}}>
+      <Box sx={{justifyContent:'center',display:{xs:'none',md:'flex'},opacity:0.8}}>
         <img src = {myImg}  alt={"sadaf logo"} onClick={()=>handleRoute("home")} style={{height:20,paddingTop:18}}></img> 
       </Box>
       <Container sx={{justifyContent:{ xs: 'left', sm: 'center' },display:'flex',marginTop:2}}>
