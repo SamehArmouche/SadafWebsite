@@ -20,7 +20,7 @@ function Layout() {
     width: '100vw',
     height: '100vh',
     p:0,
-    m:0
+    m:0,
   }
   const style = {
     width: '100vw',

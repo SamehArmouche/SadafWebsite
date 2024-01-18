@@ -1,14 +1,13 @@
 import * as React from 'react';
 import Carousel from 'react-material-ui-carousel'
-import {Box, Button, CardActionArea, CardActions, Paper, Typography, CardMedia, CardContent, Card } from '@mui/material';
+import {Box, CardActionArea, Typography, CardMedia, Card } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors/'
 import CircularProgress from '@mui/material/CircularProgress';
-import useWindowDimensions from '../../helpers/useWindowDimensions'
 
 function MyCarousel({items, type}){
 
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
     const [loading, setLoading] = React.useState(true);
     const [slides, setSlides] = React.useState([]);
     const [countPerSlide, setCountPerSlide] = React.useState(4);
@@ -35,8 +34,8 @@ function MyCarousel({items, type}){
             <CardActionArea>
             <CardMedia
               component="img"
-              height={400}
-              width={400}
+              height={300}
+              width={300}
               image={props.item.img}
               alt="service_img"
               sx={{borderRadius:2}}
@@ -97,7 +96,7 @@ function MyCarousel({items, type}){
     return (
       <Box sx={{width:{xs:'100%',md:'90%'}}}>
         {loading ? (
-          <CircularProgress/>
+          <CircularProgress style={{color: colors.primary}}/>
         ) : (
           <Carousel animation={"fade"} 
           navButtonsAlwaysVisible={true}
@@ -114,11 +113,12 @@ function MyCarousel({items, type}){
             }
         }}
           sx={{
-            width:"100%",height:type==="success"?250:500,
+            width:"100%",height:type==="success"?250:350,
             justifyContent:'center',
             display:'flex',
             flexDirection:'column',
-            alignItems:'center'
+            alignItems:'center',
+            top:20
             }}>
               {
                 slides.map(slide => <OneSlide key={slide} items ={slide}/>)

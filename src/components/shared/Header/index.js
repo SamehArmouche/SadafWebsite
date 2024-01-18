@@ -20,6 +20,7 @@ import {
   bindMenu,
 } from 'material-ui-popup-state/hooks'
 import { useTheme } from '@mui/material/styles';
+import myImg from '../../../assets/images/logo.png';
 
 const pages = ['Home','Services','Projects','Awards','Successes','Talent','Contact'];
 //const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -109,6 +110,9 @@ function Header() {
 
   return (
     <AppBar position="static" sx={{backgroundColor:'transparent', boxShadow:0}} >
+      <Box sx={{justifyContent:'center',display:{xs:'none',md:'flex'},height:64,opacity:0.8}}>
+        <img src = {myImg}  alt={"sadaf logo"} onClick={()=>handleRoute("home")} style={{height:20,paddingTop:18}}></img> 
+      </Box>
       <Container sx={{justifyContent:{ xs: 'left', sm: 'center' },display:'flex',marginTop:2}}>
         <Toolbar disableGutters sx={{justifyContent:{ xs: 'left',width:'100%' }}}>
           {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }} />*/}
