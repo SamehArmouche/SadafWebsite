@@ -21,7 +21,7 @@ import {
 } from 'material-ui-popup-state/hooks'
 import { useTheme } from '@mui/material/styles';
 
-const pages = ['Home','Services','Projects','Awards','Talent','Contact'];
+const pages = ['Home','Services','Projects','Awards','Successes','Talent','Contact'];
 //const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 

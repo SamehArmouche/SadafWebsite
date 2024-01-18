@@ -6,7 +6,7 @@ import colors from '../../assets/theme/colors/'
 import CircularProgress from '@mui/material/CircularProgress';
 import useWindowDimensions from '../../helpers/useWindowDimensions'
 
-function MyCarousel({items}){
+function MyCarousel({items, type}){
 
     const { t, i18n } = useTranslation();
     const [loading, setLoading] = React.useState(true);
@@ -30,11 +30,13 @@ function MyCarousel({items}){
     }, []);
     const MyCard = (props) => {
       return (
-        <Card sx={{maxWidth:500,borderRadius:2,margin:2}}>
-          <CardActionArea>
+        <Card sx={{maxWidth:500,borderRadius:2,margin:2,backgroundColor:'black'}}>
+          { props.item.img ? 
+            <CardActionArea>
             <CardMedia
               component="img"
               height={400}
+              width={400}
               image={props.item.img}
               alt="service_img"
               sx={{borderRadius:2}}
@@ -44,6 +46,18 @@ function MyCarousel({items}){
               {`${props.item[`title_${i18n.language}`]}`}
             </Typography>
           </CardActionArea>
+          :
+          <CardActionArea>
+            <Box sx={{width:200,height:200 ,backgroundColor:'black',borderRadius:2}}>
+              <Typography sx={{fontSize:40,position:"absolute",top:20,backgroundColor:colors.background,borderRadius:0,width:"100%"}} gutterBottom>
+                  {`+ ${props.item[`count`]}`}
+              </Typography>
+              <Typography sx={{fontSize:20,position:"absolute",bottom:20,backgroundColor:colors.background,borderRadius:0,width:"100%"}} gutterBottom>
+                {`${props.item[`title_${i18n.language}`]}`}
+              </Typography>
+            </Box>
+          </CardActionArea>  
+        }
         </Card>
       );
     }
@@ -100,7 +114,7 @@ function MyCarousel({items}){
             }
         }}
           sx={{
-            width:"100%",height:500,
+            width:"100%",height:type==="success"?250:500,
             justifyContent:'center',
             display:'flex',
             flexDirection:'column',

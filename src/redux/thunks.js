@@ -65,3 +65,21 @@ export const fetchAwards = createAsyncThunk(
     return data;
   }
 )
+
+//////////////// Success /////////////////////////////
+export const fetchSuccess = createAsyncThunk(
+  'success/fetchSuccess',
+  async () =>{
+    const response = await fetch(`/sadaf/success`,{
+    method : 'GET',
+    headers: {
+      'Content-Type':'application/json'
+    }
+    });
+    const data = await response.json();
+    if(response.status!==200){
+      throw new Error(data.msg);
+    }
+    return data;
+  }
+)
