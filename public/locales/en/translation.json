@@ -2,13 +2,16 @@
   "home": {
     "title": "Be the star of the future, Talent Road, the largest Arab project to discover actresses and actors"
   },
+  "talent": {
+    "title":"Al-Sadaf Company is a Saudi production company that was established in 1988 AD, and has so far produced more than 300 projects, over a period of 30 years. It has been considered the most powerful and influential company in the Arabic content industry around the world."
+  },
   "header": {
     "home": "Home",
     "services":"Services",
     "projects":"Projects",
     "awards":"Awards",
     "successes":"Successes",
-    "talent":"Talent",
+    "talents":"Talent",
     "contact":"Contact us"
   },
   "dropdown": {

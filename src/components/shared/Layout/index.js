@@ -1,5 +1,6 @@
 
-import myImg from '../../../assets/images/home.jpg';
+import homeImg from '../../../assets/images/home.jpg';
+import talentImg from '../../../assets/images/talent.jpg';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Header from '../Header';
@@ -13,7 +14,17 @@ function Layout() {
 
 
   const styleHome = {
-    backgroundImage:`url(${myImg})`,
+    backgroundImage:`url(${homeImg})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    width: '100vw',
+    height: '100vh',
+    p:0,
+    m:0,
+  }
+  const styleTalent = {
+    backgroundImage:`url(${talentImg})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -28,6 +39,15 @@ function Layout() {
     p:0,
     m:0
   }
+  const getBackground = () =>{
+    if(location.pathname==="/"){
+      return styleHome;
+    }else if(location.pathname==="/talents"){
+      return styleTalent
+    }else{
+      return style;
+    }
+  }
 
   return (
   <React.Suspense fallback={
@@ -36,7 +56,7 @@ function Layout() {
     </Box>
   }>
     <Container         
-      sx={location.pathname==="/"?styleHome:style} maxWidth="false">
+      sx={getBackground} maxWidth="false">
         <Header/>
         <Outlet />
         <Footer/>

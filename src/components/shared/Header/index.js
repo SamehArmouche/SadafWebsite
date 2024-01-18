@@ -22,7 +22,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 import myImg from '../../../assets/images/logo.png';
 
-const pages = ['Home','Services','Projects','Awards','Successes','Talent','Contact'];
+const pages = ['Home','Services','Projects','Awards','Successes','Talents','Contact'];
 //const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
