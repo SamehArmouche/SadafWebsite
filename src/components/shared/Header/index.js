@@ -11,9 +11,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 //import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { styled, alpha } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
+import colors from '../../../assets/theme/colors/'
 import {
   usePopupState,
   bindTrigger,
@@ -148,7 +149,9 @@ function Header() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={(e)=>{handleRoute(page)}}>
+                <MenuItem key={page} onClick={(e)=>{handleRoute(page)}}
+                selected={`/${page.toLowerCase()}` === window.location.pathname}
+                >
                   <Typography textAlign="center"> {t(`header.${page.toLowerCase()}`)}</Typography>
                 </MenuItem>
               ))}
@@ -156,12 +159,14 @@ function Header() {
           </Box>
           <Box sx={{display: { xs: 'none', sm: 'flex'},width:"100%",justifyContent:'center'}}>
             {pages.map((page) => (
-              <Button variant="menu"
+              <MenuItem variant="menu"
+                selected={`/${page.toLowerCase()}` === window.location.pathname}
+                sx={{borderRadius:1}}
                 key={page}
                 onClick={(e)=>{handleRoute(page)}}
               >
                 {t(`header.${page.toLowerCase()}`)}
-              </Button>
+              </MenuItem>
             ))}
           </Box>
           <Box sx={{width:"20%",padding:0}}>
@@ -170,8 +175,8 @@ function Header() {
                 {t(`dropdown.lang`)}
               </Button>
               <CssMenu {...bindMenu(popupState)} type="lang">
-                <MenuItem onClick={()=>handleClick('en')}>English</MenuItem>
-                <MenuItem onClick={()=>handleClick('ar')}>العربية</MenuItem>
+                <MenuItem selected={i18n.language==="en"} onClick={()=>handleClick('en')}>English</MenuItem>
+                <MenuItem selected={i18n.language==="ar"} onClick={()=>handleClick('ar')}>العربية</MenuItem>
               </CssMenu>
             </React.Fragment>
           </Box>

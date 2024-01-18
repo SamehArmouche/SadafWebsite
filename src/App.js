@@ -8,7 +8,24 @@ import { useSelector } from 'react-redux'
 
 
 const theme = createTheme({
+  palette: {
+    action: {
+        selectedOpacity:0.1,
+        hover: colors.hover,
+    },
+    primary: {
+      main: colors.hover
+    }
+  },
   components: {
+    MuiMenuItem: { // For ListItem, change this to MuiListItem
+      styleOverrides:{
+        root: {
+        "&$selected": {       // this is to refer to the prop provided by M-UI
+          backgroundColor: "black", // updated backgroundColor
+        },
+      }},
+    },
     MuiTableCell: {
       styleOverrides:{
       root: {
