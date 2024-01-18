@@ -16,5 +16,8 @@
   },
   "button": {
     "joinUs": "Join us"
+  },
+  "msg": {
+    "404":"Page not found !"
   }
 }
