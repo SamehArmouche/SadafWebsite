@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import { Button, Box, Typography, TextField } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux'
-
+import colors from '../../assets/theme/colors';
 
 function ContactUs() {
   const dispatch: Dispatch = useDispatch();
@@ -25,25 +25,28 @@ function ContactUs() {
       }}
       
       >
-        <Typography textAlign={i18n.dir()==="rtl"?"right":"left"} sx={{fontSize:{xs:18,sm:30},m:4}} >
+        <Typography textAlign={i18n.dir()==="rtl"?"right":"left"} sx={{fontSize:{xs:18,sm:20},m:4}} >
           {t('contact.title')}
         </Typography>
         <TextField id="filled-basic" label={t('contact.name')} variant="filled"
-        sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+          inputProps={{ style: { color: colors.primary } }}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
         
         />
         <TextField id="filled-basic" label={t('contact.companyName')} variant="filled"
-        sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+          inputProps={{ style: { color: colors.primary } }}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
         
         />
         
         <TextField id="filled-basic" label={t('contact.city')} variant="filled"
-        sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+          inputProps={{ style: { color: colors.primary } }}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
         
         />
         <TextField id="filled-basic" label={t('contact.email')} variant="filled"
-        sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
-        
+          inputProps={{ style: { color: colors.primary } }}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
         />
         <Button variant="contact"
         >
