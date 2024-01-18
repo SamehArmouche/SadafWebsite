@@ -79,6 +79,21 @@ const theme = createTheme({
             fontSize:"20px",
           },
         },
+        {
+          props: { variant: 'contact' },
+          style: {
+            backgroundColor:'rgba(247, 216, 159, 0.1)',
+            color:colors.primary,
+            border:0,
+            height:40,
+            margin:30,
+            padding:0,
+            width:220,
+            borderRadius:20,
+            display: 'block',
+            fontSize:"16px",
+          },
+        }
       ],
 
 

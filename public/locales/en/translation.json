@@ -15,9 +15,17 @@
     "lang":"English"
   },
   "button": {
-    "joinUs": "Join us"
+    "joinUs": "Join us",
+    "sendMsg":"Send a message"
   },
   "msg": {
     "404":"Page not found !"
+  },
+  "contact" :{
+    "title":"Contact information",
+    "name":"Full name",
+    "companyName":"Company name",
+    "city":"City",
+    "email":"Email"
   }
 }
