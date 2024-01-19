@@ -83,3 +83,21 @@ export const fetchSuccess = createAsyncThunk(
     return data;
   }
 )
+
+//////////////// Informations /////////////////////////////
+export const fetchInformations = createAsyncThunk(
+  'informations/fetchInformations',
+  async () =>{
+    const response = await fetch(`/sadaf/information`,{
+    method : 'GET',
+    headers: {
+      'Content-Type':'application/json'
+    }
+    });
+    const data = await response.json();
+    if(response.status!==200){
+      throw new Error(data.msg);
+    }
+    return data;
+  }
+)

@@ -4,6 +4,7 @@ import {servicesSlice} from './slices/servicesSlice'
 import {projectsSlice} from './slices/projectsSlice'
 import {awardsSlice} from './slices/awardsSlice'
 import {successSlice} from './slices/successSlice'
+import {informationsSlice} from './slices/informationsSlice'
 import storageSession from 'redux-persist/lib/storage/session'
 import {
   persistStore,
@@ -31,6 +32,7 @@ export const store = configureStore({
     projects: projectsSlice.reducer,
     awards: awardsSlice.reducer,
     success: successSlice.reducer,
+    informations: informationsSlice.reducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>

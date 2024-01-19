@@ -2,8 +2,15 @@ import * as React from 'react';
 import {Box, Typography, Grid, Slide, Button} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
+import { fetchInformations } from '../../redux/thunks';
+import { useDispatch } from 'react-redux'
 
 function Home() {
+  const dispatch: Dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchInformations());
+  }, [dispatch]);
+
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   return (
