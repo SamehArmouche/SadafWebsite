@@ -58,6 +58,9 @@ const theme = createTheme({
       }
     },
     MuiButton: {
+      styleOverrides: { 
+        root: { minWidth: 0 } 
+      } ,
       variants: [
 
         {
