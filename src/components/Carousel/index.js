@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Carousel from 'react-material-ui-carousel'
-import {Box, CardActionArea, Typography, CardMedia, Card } from '@mui/material';
+import {Box, CardActionArea, Typography, CardMedia, Card, CircularProgress } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors/'
-import CircularProgress from '@mui/material/CircularProgress';
+import Details from '../../components/shared/Details';
 
 function MyCarousel({items, type}){
 
@@ -11,6 +11,7 @@ function MyCarousel({items, type}){
     const [loading, setLoading] = React.useState(true);
     const [slides, setSlides] = React.useState([]);
     const [countPerSlide, setCountPerSlide] = React.useState(4);
+    const [open, setOpen] = React.useState(false)
     const [windowSize, setWindowSize] = React.useState([
       window.innerWidth,
       window.innerHeight,
@@ -29,7 +30,7 @@ function MyCarousel({items, type}){
     }, []);
     const MyCard = (props) => {
       return (
-        <Card sx={{maxWidth:500,borderRadius:2,margin:2,backgroundColor:'black'}}>
+        <Card sx={{maxWidth:500,borderRadius:2,margin:2,backgroundColor:'black'}} onClick={()=>setOpen(!open)}>
           { props.item.img ? 
             <CardActionArea>
             <CardMedia
@@ -95,6 +96,7 @@ function MyCarousel({items, type}){
 
     return (
       <Box sx={{width:{xs:'100%',md:'90%'}}}>
+        <Details open={open} handleClose={()=> setOpen(!open)}/>
         {loading ? (
           <CircularProgress style={{color: colors.primary}}/>
         ) : (
