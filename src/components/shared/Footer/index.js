@@ -8,6 +8,9 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import colors from '../../../assets/theme/colors/'
 import { useSelector } from 'react-redux'
+import { fetchInformations } from '../../../redux/thunks';
+import { useDispatch } from 'react-redux'
+
 const divStyle = {
   justifyContent:'center',
   alignItems:'center',
@@ -24,6 +27,10 @@ export default function Footer() {
       window.open(url, "_blank", "noreferrer");
   };
 
+  const dispatch: Dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchInformations());
+  }, [dispatch]);
 
   const getUrl = (type) => {
    return informations.filter((item)=> item.type===type)[0]?.value;
