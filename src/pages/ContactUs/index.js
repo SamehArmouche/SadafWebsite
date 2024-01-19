@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import { Button, Box, Typography, TextField } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import colors from '../../assets/theme/colors';
 
 function ContactUs() {
@@ -14,7 +14,7 @@ function ContactUs() {
   }, [dispatch]);
 
   return (
-    <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',height:"75%",width:'100%'}}>
+    <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',minHeight:"75%",width:'100%'}}>
       <Box 
       border={1} 
       sx={{
@@ -46,6 +46,12 @@ function ContactUs() {
         />
         <TextField id="filled-basic" label={t('contact.email')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+        />
+        <TextField id="filled-basic" label={t('contact.msg')} variant="filled"
+          inputProps={{ style: { color: colors.primary } }}
+          multiline
+          maxRows={4}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
         />
         <Button variant="contact"

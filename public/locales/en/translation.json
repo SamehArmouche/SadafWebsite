@@ -29,6 +29,7 @@
     "name":"Full name",
     "companyName":"Company name",
     "city":"City",
-    "email":"Email"
+    "email":"Email",
+    "msg":"Message text"
   }
 }
