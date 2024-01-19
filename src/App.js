@@ -38,6 +38,15 @@ const theme = createTheme({
       }
       }
     },
+    MuiPaper: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          backgroundColor:'black',
+          //boxShadow: "10px 10px 5px 0px rgba(0,0,0,0.75)",
+        },
+      },
+    },
     MuiDivider:{
       styleOverrides:{
         root: {
