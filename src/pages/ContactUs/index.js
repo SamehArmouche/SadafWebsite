@@ -9,6 +9,7 @@ function ContactUs() {
   const dispatch: Dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const [ form, setForm ] = React.useState({});
+  const [ error, setError ] = React.useState(false);
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
@@ -22,7 +23,11 @@ function ContactUs() {
   }
 
   const onSubmit = () => {
-    console.log(form)
+    if(Object.values(form).length<5 || !validateEmail(form['email'])){
+      setError(true)
+    }else{
+      setError(false)
+    }
   }
 
   const handleError = (value)=>{
@@ -90,6 +95,13 @@ function ContactUs() {
           required
           autoComplete='nope'
         />
+        <Box sx={{height:24,width:'100%',justifyContent:'center',display:'flex'}}>
+          {error &&
+          <Typography textAlign={"left"} sx={{fontSize:{xs:14,sm:16,color:colors.error}}} >
+            {t('contact.errors.onsubmit')}
+          </Typography>
+          }
+        </Box>
         <Button variant="contact" onClick={onSubmit}>
           {t('button.sendMsg')}
         </Button>

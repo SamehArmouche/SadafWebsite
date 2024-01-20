@@ -32,7 +32,8 @@
     "email":"Email",
     "msg":"Message text",
     "errors": {
-      "email":"Invalid email"
+      "email":"Invalid email",
+      "onsubmit":"All fields are mandatory"
     }
   }
 }
