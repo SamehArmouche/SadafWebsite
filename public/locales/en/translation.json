@@ -26,10 +26,13 @@
   },
   "contact" :{
     "title":"Contact information",
-    "name":"Full name",
+    "fullname":"Full name",
     "companyName":"Company name",
     "city":"City",
     "email":"Email",
-    "msg":"Message text"
+    "msg":"Message text",
+    "errors": {
+      "email":"Invalid email"
+    }
   }
 }

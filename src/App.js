@@ -12,10 +12,15 @@ const theme = createTheme({
     action: {
         selectedOpacity:0.1,
         hover: colors.hover,
+        disabled: colors.divder,
+        disabledBackground:'red'
     },
     primary: {
-      main: colors.hover
-    }
+      main: colors.hover,
+    },
+    error: {
+      main: colors.error,
+    },
   },
   components: {
     MuiMenuItem: { // For ListItem, change this to MuiListItem
@@ -69,7 +74,11 @@ const theme = createTheme({
     },
     MuiButton: {
       styleOverrides: { 
-        root: { minWidth: 0 } 
+        root: { minWidth: 0 } ,
+        "&.Mui-disabled": {
+          background: "#f3f3f3",
+          color: "#dadada"
+        }
       } ,
       variants: [
 

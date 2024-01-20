@@ -8,10 +8,28 @@ import colors from '../../assets/theme/colors';
 function ContactUs() {
   const dispatch: Dispatch = useDispatch();
   const { t, i18n } = useTranslation();
-  
-  React.useEffect(() => {
+  const [ form, setForm ] = React.useState({});
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
 
-  }, [dispatch]);
+  const onChange = ({name, value}) => {
+    setForm({...form, [name]: value});
+  }
+
+  const onSubmit = () => {
+    console.log(form)
+  }
+
+  const handleError = (value)=>{
+    if(value==="email")
+      return !validateEmail(form[value]);
+    return !form[value]?.length>0
+  }
 
   return (
     <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',minHeight:"75%",width:'100%'}}>
@@ -28,37 +46,53 @@ function ContactUs() {
         <Typography textAlign={i18n.dir()==="rtl"?"right":"left"} sx={{fontSize:{xs:18,sm:20},m:4}} >
           {t('contact.title')}
         </Typography>
-        <TextField id="filled-basic" label={t('contact.name')} variant="filled"
+        <TextField id="filled-basic" label={t('contact.fullname')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+          error={handleError("fullname")}
+          onChange={(e) => {onChange({name:"fullname",value:e.target.value})}}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%',direction:'ltr'}}}
+          required
+          autoComplete='nope'
         
         />
         <TextField id="filled-basic" label={t('contact.companyName')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
+          
+          error={handleError("companyName")}
+          onChange={(e) => {onChange({name:"companyName",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
-        
+          required
+          autoComplete='nope'
         />
         
         <TextField id="filled-basic" label={t('contact.city')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
+          error={handleError("city")}
+          onChange={(e) => {onChange({name:"city",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
-        
+          autoComplete='nope'
         />
         <TextField id="filled-basic" label={t('contact.email')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
+          onChange={(e) => {onChange({name:"email",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+          required
+          error={handleError("email")}
+          autoComplete='nope'
         />
         <TextField id="filled-basic" label={t('contact.msg')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
           multiline
           maxRows={4}
+          error={handleError("msg")}
+          onChange={(e) => {onChange({name:"msg",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+          required
+          autoComplete='nope'
         />
-        <Button variant="contact"
-        >
+        <Button variant="contact" onClick={onSubmit}>
           {t('button.sendMsg')}
         </Button>
-        
       </Box> 
     </Grid>
   );

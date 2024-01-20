@@ -2,7 +2,7 @@ const colors = {
   primary: '#f7d89f',
   secondary: '#c7a567',
   accent: '#4895ef',
-  danger: 'red',
+  error: '#cf5757',
   success: '#4cc9f0',
   grey: '#878f96',
   white: '#ffffff',

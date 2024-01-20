@@ -1,8 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import myImg from '../../assets/images/404.png';
 import colors from '../../assets/theme/colors';
 import { useTranslation } from 'react-i18next';
