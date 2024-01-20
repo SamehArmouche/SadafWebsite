@@ -5,11 +5,21 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux'
 import colors from '../../assets/theme/colors';
 import { sendContactForm } from '../../redux/thunks';
+import { useSnackbar } from 'notistack';
+import { useNavigate } from "react-router-dom";
+
 function ContactUs() {
   const dispatch: Dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const [ form, setForm ] = React.useState({});
   const [ error, setError ] = React.useState(false);
+  const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();  
+
+  const handleClickVariant = (msg, variant) => {
+    enqueueSnackbar(msg, { variant });
+  };
+
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
@@ -22,12 +32,19 @@ function ContactUs() {
     setForm({...form, [name]: value});
   }
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if(Object.values(form).length<5 || !validateEmail(form['email'])){
       setError(true)
     }else{
       setError(false)
-      dispatch(sendContactForm(form));
+      const response = await dispatch(sendContactForm(form));
+      if(!response.error){
+        handleClickVariant(t('contact.response.200'),'success');
+        setForm({});
+        navigate("/")
+      }else{
+        handleClickVariant(t('contact.response.400'),'error')
+      }
     }
   }
 

@@ -5,8 +5,23 @@ import colors from './assets/theme/colors/'
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector } from 'react-redux'
+import { SnackbarProvider } from 'notistack';
+import { MaterialDesignContent } from 'notistack'
+import { styled } from '@mui/material/styles';
+import { Fade } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
-
+const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
+  '&.notistack-MuiContent-success': {
+    backgroundColor: colors.primary,
+    color:'black',
+    fontWeight:'bold',
+  },
+  '&.notistack-MuiContent-error': {
+    backgroundColor: '#970C0C',
+    fontWeight:'bold'
+  },
+}));
 const theme = createTheme({
   palette: {
     action: {
@@ -150,16 +165,38 @@ const theme = createTheme({
 
 
 function App() {
-  const {loading } = useSelector(
-    (state) => state.preferences
+
+  const {loadingContactForm } = useSelector(
+    (state) => state.contactForm
   )
+  const { t } = useTranslation();
   
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
+        <Fade in={true}>
+        <div className="App">
+          <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1, backdropFilter: 'blur(3px)'}}
+            open={loadingContactForm}>
+            <CircularProgress sx={{color: colors.primary,m:2}} />
+            <h4 style={{color:colors.primary}}> {t('loading')} </h4>
+          </Backdrop>
+          <ThemeProvider theme={theme}>
+      <SnackbarProvider maxSnack={1}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        autoHideDuration={3000}
+        Components={{
+          success: StyledMaterialDesignContent,
+          error: StyledMaterialDesignContent,
+        }}
+      >
         <AppContainer />
+        </SnackbarProvider>
       </ThemeProvider>
-    </div>
+        </div>
+        </Fade>
   );
 }
 
