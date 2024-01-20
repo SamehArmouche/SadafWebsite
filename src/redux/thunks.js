@@ -101,3 +101,22 @@ export const fetchInformations = createAsyncThunk(
     return data;
   }
 )
+
+//////////////// ContactForm /////////////////////////////
+export const sendContactForm = createAsyncThunk(
+  'contactForm/sendContactForm',
+  async (message) =>{
+    const response = await fetch(`/sadaf/message`,{
+    method : 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify({Message:message}),
+    });
+    const data = await response.json();
+    if(response.status!==200){
+      throw new Error(data.msg);
+    }
+    return data;
+  }
+)

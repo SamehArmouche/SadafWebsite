@@ -4,7 +4,7 @@ import { Button, Box, Typography, TextField } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux'
 import colors from '../../assets/theme/colors';
-
+import { sendContactForm } from '../../redux/thunks';
 function ContactUs() {
   const dispatch: Dispatch = useDispatch();
   const { t, i18n } = useTranslation();
@@ -27,6 +27,7 @@ function ContactUs() {
       setError(true)
     }else{
       setError(false)
+      dispatch(sendContactForm(form));
     }
   }
 
@@ -89,8 +90,8 @@ function ContactUs() {
           inputProps={{ style: { color: colors.primary } }}
           multiline
           maxRows={4}
-          error={handleError("msg")}
-          onChange={(e) => {onChange({name:"msg",value:e.target.value})}}
+          error={handleError("messageBody")}
+          onChange={(e) => {onChange({name:"messageBody",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
           required
           autoComplete='nope'
