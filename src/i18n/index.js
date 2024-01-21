@@ -9,5 +9,8 @@ i18n
   .init({
     debug: true,
     fallbackLng: 'en',
+    react: { 
+      useSuspense: false //   <---- this will do the magic
+    }
   });
 export default i18n;
