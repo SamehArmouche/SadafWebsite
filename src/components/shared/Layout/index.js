@@ -42,7 +42,7 @@ function Layout() {
   const getBackground = () =>{
     if(location.pathname==="/"){
       return styleHome;
-    }else if(location.pathname==="/talents"){
+    }else if(location.pathname==="/talents" || location.pathname==="/talents/register" ){
       return styleTalent
     }else{
       return style;

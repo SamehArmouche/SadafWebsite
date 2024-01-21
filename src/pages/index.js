@@ -11,6 +11,7 @@ import Success from './Success'
 import Home from './Home'
 import ContactUs from './ContactUs'
 import Talent from './Talent'
+import RegisterTalent from './Talent/RegisterTalent'
 import Layout from '../components/shared/Layout';
 
 const AppContainer = () => (
@@ -23,6 +24,7 @@ const AppContainer = () => (
       <Route path="/awards" element={<Awards />} />
       <Route path="/successes" element={<Success />} />
       <Route path="/talents" element={<Talent />} />
+      <Route path="/talents/register" element={<RegisterTalent />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="*" element={<NotFound />} />
     </Route>

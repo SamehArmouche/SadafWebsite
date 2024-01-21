@@ -3,11 +3,13 @@ import {Box, Typography, Grid, Slide, Button, TextField} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors';
 import {validateEmail} from '../../helpers/validations';
+import { useNavigate } from "react-router-dom";
 
 function Talent() {
   const { t, i18n } = useTranslation();
-  const [form, setForm]= React.useState({email:''});
+  const [ form, setForm ]= React.useState({email:''});
   const [ error, setError ] = React.useState(false);
+  const navigate = useNavigate(); 
 
   const handleError = (value)=>{
     if(value==="email")
@@ -20,7 +22,14 @@ function Talent() {
       setError(true)
     }else{
       setError(false)
-      //navigate("/")
+      navigate('/talents/register',
+        {
+          state: {
+            form:form
+          }
+        }
+      )
+
     }
   }
 
