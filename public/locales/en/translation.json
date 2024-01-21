@@ -19,7 +19,8 @@
   },
   "button": {
     "joinUs": "Join us",
-    "sendMsg":"Send a message"
+    "sendMsg":"Send a message",
+    "registerNow":"Register now"
   },
   "msg": {
     "404":"Page not found !"

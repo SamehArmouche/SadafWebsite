@@ -7,6 +7,7 @@ import colors from '../../assets/theme/colors';
 import { sendContactForm } from '../../redux/thunks';
 import { useSnackbar } from 'notistack';
 import { useNavigate } from "react-router-dom";
+import {validateEmail} from '../../helpers/validations';
 
 function ContactUs() {
   const dispatch: Dispatch = useDispatch();
@@ -18,14 +19,6 @@ function ContactUs() {
 
   const handleClickVariant = (msg, variant) => {
     enqueueSnackbar(msg, { variant });
-  };
-
-  const validateEmail = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
   };
 
   const onChange = ({name, value}) => {
@@ -73,7 +66,7 @@ function ContactUs() {
           inputProps={{ style: { color: colors.primary } }}
           error={handleError("fullname")}
           onChange={(e) => {onChange({name:"fullname",value:e.target.value})}}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%',direction:'ltr'}}}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
           required
           autoComplete='nope'
         
@@ -98,7 +91,7 @@ function ContactUs() {
         <TextField id="filled-basic" label={t('contact.email')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
           onChange={(e) => {onChange({name:"email",value:e.target.value})}}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:2,width:{xs:'80%',md:'70%'}, direction:'ltr'}}
           required
           error={handleError("email")}
           autoComplete='nope'
