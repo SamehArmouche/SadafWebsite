@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import colors from '../../../assets/theme/colors';
 import { useLocation } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
+import MultiForm from '../../../components/MultiForm';
 
 function RegisterTalent() {
   const { t, i18n } = useTranslation();
@@ -22,9 +23,7 @@ function RegisterTalent() {
       <Grid container sx={{margin:0,p:{xs:0,md:0},marginBottom:5 ,justifyContent:'center'}}>
         <Slide direction={i18n.language==="ar"?"left":"right"} in={true}  mountOnEnter unmountOnExit>
           <Grid item sx={{p:0,width:{xs:'90%',md:500}}}>
-            <Typography textAlign={i18n.dir()==="rtl"?"right":"left"} sx={{fontSize:{xs:18,md:30}}}>
-              {state?.form?.email}
-            </Typography>
+            <MultiForm />
           </Grid>
         </Slide>
       </Grid>
