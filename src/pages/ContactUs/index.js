@@ -91,7 +91,7 @@ function ContactUs() {
         <TextField id="filled-basic" label={t('contact.email')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
           onChange={(e) => {onChange({name:"email",value:e.target.value})}}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:2,width:{xs:'80%',md:'70%'}, direction:'ltr'}}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}, direction:'ltr'}}
           required
           error={handleError("email")}
           autoComplete='nope'

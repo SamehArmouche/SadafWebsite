@@ -2,7 +2,7 @@ import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AppContainer from './pages/index.js'
 import colors from './assets/theme/colors/'
-import Backdrop from '@mui/material/Backdrop';
+import {Backdrop,CssBaseline} from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector } from 'react-redux'
 import { SnackbarProvider } from 'notistack';
@@ -181,6 +181,7 @@ function App() {
             <h4 style={{color:colors.primary}}> {t('loading')} </h4>
           </Backdrop>
           <ThemeProvider theme={theme}>
+
       <SnackbarProvider maxSnack={1}
         anchorOrigin={{
           vertical: 'top',

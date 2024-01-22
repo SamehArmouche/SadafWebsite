@@ -39,7 +39,7 @@ function Talent() {
       <Grid container sx={{margin:0,p:{xs:0,md:0},marginBottom:5 ,justifyContent:'center'}}>
         <Slide direction={i18n.language==="ar"?"left":"right"} in={true}  mountOnEnter unmountOnExit>
           <Grid item sx={{p:0,width:{xs:'90%',md:500}}}>
-            <Typography textAlign={i18n.dir()==="rtl"?"right":"left"} sx={{fontSize:{xs:18,md:30}}}>
+            <Typography textAlign={i18n.dir()==="rtl"?"right":"left"} sx={{fontSize:{xs:18,md:25}}}>
               {t('talent.title')}
             </Typography>
           </Grid>
@@ -50,7 +50,7 @@ function Talent() {
       <Box 
         border={1} 
         sx={{
-          backgroundColor:'black',width:{xs:'90%'},maxWidth:400,height:200,
+          backgroundColor:'black',width:{xs:'90%'},maxWidth:400,height:280,
           borderColor: 'rgba(247, 216, 159, 0.1)', borderWidth: '0.1em',borderRadius:1,
           alignItems:'center',display:'flex',
           justifyContent:'center',
