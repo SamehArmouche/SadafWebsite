@@ -1,74 +1,63 @@
 import {
   Grid,
-  TextField,
-  FormHelperText
+  Box,
+  Typography
 } from "@mui/material";
 
-const AccountDetails = (props) => {
-  const { formik } = props;
+
+const categories = [
+  "Actor",
+  "Scriptwriter",
+  "Montage",
+  "Photography",
+  "TV Director",
+  "Music",
+  "Model",
+  "VFX graphics",
+  "Interior design"
+]
+
+const AccountDetails = ({
+  handleSubmit
+}) => {
+
   return (
     <Grid
       container
-      spacing={2}
-    >
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="email"
-          label="Email"
-          variant="outlined"
-          type="email"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.email && formik.errors.email)}
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="password"
-          label="Password"
-          variant="outlined"
-          size='small'
-          type="password"
-          fullWidth
-          error={Boolean(formik.touched.password && formik.errors.password)}
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="confirmPassword"
-          label="Confirm Password"
-          variant="outlined"
-          size="small"
-          type="password"
-          fullWidth
-          error={Boolean(formik.touched.confirmPassword && formik.errors.confirmPassword)}
-          onChange={formik.handleChange}
-          value={formik.values.confirmPassword}
-        />
-      </Grid>
-      {formik.errors.submit && (
-        <Grid
-          item
-          xs={12}
-        >
-          <FormHelperText error>
-            {formik.errors.submit}
-          </FormHelperText>
-        </Grid>
-      )}
+      sx={{
+        height:'100%',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+      }}>
+        {
+         categories.map((c)=>{
+          return (
+            <Grid
+              sx={{
+              width:{xs:75,md:130},
+              height:{xs:75,md:130},
+              borderRadius:20,
+              justifyContent:'center',
+              alignItems:'center',
+              display:'flex',
+              m:1,
+              bgcolor: 'primary.main',
+              '&:hover': {
+                bgcolor: 'primary.dark',
+              },
+              }}
+              key={c}
+              onClick={()=>handleSubmit("cateogry",c)}
+              >
+                <Typography sx={{fontSize:{xs:13,md:18}}}>
+                  {c}
+                </Typography>
+              </Grid>
+            )
+          })
+        }
+    
     </Grid>
   )
 }

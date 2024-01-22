@@ -5,8 +5,8 @@ import {
   ListItemText
 } from '@mui/material';
 
-const ReviewInfo = ({ formik }) => {
-  const { values } = formik;
+const ReviewInfo = () => {
+  //const { values } = formik;
   return (
     <>
       <Typography variant="overline" >
@@ -16,7 +16,7 @@ const ReviewInfo = ({ formik }) => {
         <ListItem>
           <ListItemText
             primary="Email"
-            secondary={values.email}
+            //secondary={values.email}
           />
         </ListItem>
       </List>
@@ -27,25 +27,19 @@ const ReviewInfo = ({ formik }) => {
         <ListItem>
           <ListItemText
             primary="First Name"
-            secondary={values.firstName}
+            //secondary={values.firstName}
           />
         </ListItem>
         <ListItem>
           <ListItemText
             primary="Last Name"
-            secondary={values.lastName}
+            //secondary={values.lastName}
           />
         </ListItem>
         <ListItem>
           <ListItemText
             primary="Phone Number"
-            secondary={values.phone}
-          />
-        </ListItem>
-        <ListItem>
-          <ListItemText
-            primary="Residence"
-            secondary={values.residence}
+            //secondary={values.phone}
           />
         </ListItem>
       </List>

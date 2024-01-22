@@ -34,7 +34,7 @@ function Talent() {
   }
 
   return (
-    <Box sx={{height:'75.5%',alignItems:'center',justifyContent:'center',display:'flex',flexDirection:{xs:'column',md:'row'}}}>
+    <Box sx={{height:'75%',alignItems:'center',justifyContent:'center',display:'flex',flexDirection:{xs:'column',md:'row'}}}>
 
       <Grid container sx={{margin:0,p:{xs:0,md:0},marginBottom:5 ,justifyContent:'center'}}>
         <Slide direction={i18n.language==="ar"?"left":"right"} in={true}  mountOnEnter unmountOnExit>

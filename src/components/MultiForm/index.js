@@ -14,9 +14,10 @@ import { useLocation } from 'react-router-dom'
 import AccountDetails from './AccountDetails';
 import ReviewInfo from './ReviewInfo';
 
-const steps = [' Account Details', 'Review and Submit'];
+const steps = [' Category', 'Review and Submit'];
 
 const MultiForm = () => {
+  
   const { state } = useLocation();
   const [activeStep, setActiveStep] = useState(0);
 
@@ -24,48 +25,26 @@ const MultiForm = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
 
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-      confirmPassword: '',
-      firstName: '',
-      lastName: '',
-      phone: '',
-      residence: ''
-    },
-    validationSchema: Yup.object().shape({
-      email: Yup.string()
-        .required('Email is required')
-        .email('Invalid email'),
-      password: Yup.string()
-        .min(8),
-      confirmPassword: Yup.string()
-        .min(8)
-        .oneOf([Yup.ref('password')], 'Passwords do not match'),
-      firstName: Yup.string()
-        .required('First Name is required'),
-      lastName: Yup.string()
-        .required('Last Name is required'),
-    })
-  });
 
 
-  const handleSubmit = () =>{
-    console.log(state?.form?.email)
-    if (activeStep === steps.length - 1) {
-      console.log('last step');
-    } else {
-      setActiveStep((prevStep) => prevStep + 1);
+  const handleSubmit = (name,value) =>{
+    if(name && value){
+      state[name]=value
+      if (activeStep === steps.length - 1) {
+        console.log('last step');
+      } else {
+        setActiveStep((prevStep) => prevStep + 1);
+      }
     }
   }
+  console.log(state)
 
   const formContent = (step) => {
     switch(step) {
       case 0:
-        return <AccountDetails formik={formik} />;
+        return <AccountDetails handleSubmit={handleSubmit} />;
       case 1:
-        return <ReviewInfo formik={formik} />;
+        return <ReviewInfo />;
       default:
         return <div>404: Not Found</div>
     }
@@ -74,18 +53,19 @@ const MultiForm = () => {
   return (
     <Box
       sx={{
-        maxWidth: '600px',
-        padding: 2,
-        backgroundColor:'grey'
+        backgroundColor:'black',
+        minHeight:'65vh'
       }}
     >
       <Stepper
         activeStep={activeStep}
         orientation="horizontal"
+        sx={{backgroundColor:'transparent'}}
       >
         {steps.map((label, index) => (
           <Step key={index}>
-            <StepLabel>{label}</StepLabel>
+            <StepLabel
+            >{label}</StepLabel>
           </Step>
         ))}
       </Stepper>
@@ -93,20 +73,10 @@ const MultiForm = () => {
         <Grid
           item
           xs={12}
-          sx={{ padding: '20px' }}
+          sx={{ padding: '20px',height:'60vh' }}
         >
           {formContent(activeStep)}
         </Grid>
-        {formik.errors.submit && (
-          <Grid
-            item
-            xs={12}
-          >
-            <FormHelperText error>
-              {formik.errors.submit}
-            </FormHelperText>
-          </Grid>
-        )}
         <Grid
           item
           xs={12}
