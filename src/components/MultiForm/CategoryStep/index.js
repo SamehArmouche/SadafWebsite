@@ -18,7 +18,7 @@ const categories = [
   "Interior design"
 ]
 
-const AccountDetails = ({
+const CategoryStep = ({
   handleSubmit
 }) => {
 
@@ -43,4 +43,4 @@ const AccountDetails = ({
   )
 }
 
-export default AccountDetails
+export default CategoryStep

@@ -9,13 +9,15 @@ import {
   Typography
 } from '@mui/material';
 import { useLocation } from 'react-router-dom'
-import AccountDetails from './AccountDetails';
+import CategoryStep from './CategoryStep';
 import ReviewInfo from './ReviewInfo';
+import { useTranslation } from 'react-i18next';
 
-const steps = [' Category', 'Review and Submit'];
+const steps = ['Category', 'Review'];
 
 const MultiForm = () => {
   
+  const { t } = useTranslation();
   const { state } = useLocation();
   const [activeStep, setActiveStep] = useState(0);
 
@@ -35,12 +37,11 @@ const MultiForm = () => {
       }
     }
   }
-  console.log(state)
 
   const formContent = (step) => {
     switch(step) {
       case 0:
-        return <AccountDetails handleSubmit={handleSubmit} />;
+        return <CategoryStep handleSubmit={handleSubmit} />;
       case 1:
         return <ReviewInfo />;
       default:
@@ -48,15 +49,19 @@ const MultiForm = () => {
     }
   };
 
+
   return (
     <Box>
-      <Box style={{alignItems:'center',display:'flex',justifyContent:'space-between',width:'100%',marginTop:40}}>
+      <Typography sx={{display:{md:'none',xs:'auto'},fontSize:26}}>
+        {t(`talent.stepper.${steps[activeStep].toLowerCase()}.title`)}
+      </Typography>
+      <Box sx={{alignItems:'center',display:'flex',justifyContent:'space-between',width:'100%',mt:{xs:0,md:5}}}>
         <Button
           disabled={activeStep === 0}
           onClick={handleBack}
           variant="menu"
         >
-          Back
+          {t('talent.stepper.buttons.back')}
         </Button>
         <Stepper
           activeStep={activeStep}
@@ -70,7 +75,7 @@ const MultiForm = () => {
             <Step key={index}>
               <StepLabel>
                 <Typography>
-                  {label}
+                  {t(`talent.stepper.${label.toLowerCase()}.title`)}
                 </Typography>
               </StepLabel>
             </Step>
@@ -82,7 +87,7 @@ const MultiForm = () => {
           </Button>
         ) : (
           <Button onClick={handleSubmit} variant="menu">
-            Next
+          {t('talent.stepper.buttons.next')}
           </Button>
         ) }
       </Box>

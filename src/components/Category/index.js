@@ -3,13 +3,14 @@ import {
   Box,
   Typography
 } from "@mui/material";
+import { useTranslation } from 'react-i18next';
 
 const Category = ({handleSubmit, title, key, i}) => {
+  const { t, i18n } = useTranslation();
   return (
     <Box
       sx={{
         m:1,
-        //height:{md:200},
         display:'flex',
         alignItems:{md:(i%2!=0?'end':'start'),xs:"center"}
       
@@ -34,7 +35,7 @@ const Category = ({handleSubmit, title, key, i}) => {
       onClick={()=>handleSubmit("cateogry",title)}
       >
       <Typography sx={{fontSize:{xs:13,md:18}}}>
-        {title}
+      {t(`talent.stepper.category.types.${title.replaceAll(" ","")}`)}
       </Typography>
     </Grid>
     </Box>
