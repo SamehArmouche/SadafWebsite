@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import {
   Box,
   Stepper,
   Step,
   StepLabel,
   Grid,
-  FormHelperText,
-  Button
+  Button,
+  Typography
 } from '@mui/material';
 import { useLocation } from 'react-router-dom'
 import AccountDetails from './AccountDetails';
@@ -46,56 +44,56 @@ const MultiForm = () => {
       case 1:
         return <ReviewInfo />;
       default:
-        return <div>404: Not Found</div>
+        return <div></div>
     }
   };
 
   return (
-    <Box
-      sx={{
-        backgroundColor:'black',
-        minHeight:'65vh'
-      }}
-    >
-      <Stepper
-        activeStep={activeStep}
-        orientation="horizontal"
-        sx={{backgroundColor:'transparent'}}
-      >
-        {steps.map((label, index) => (
-          <Step key={index}>
-            <StepLabel
-            >{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-      <Grid container>
+    <Box>
+      <Box style={{alignItems:'center',display:'flex',justifyContent:'space-between',width:'100%',marginTop:40}}>
+        <Button
+          disabled={activeStep === 0}
+          onClick={handleBack}
+          variant="menu"
+        >
+          Back
+        </Button>
+        <Stepper
+          activeStep={activeStep}
+          orientation="horizontal"
+          sx={{
+            display:{xs:'none',md:'flex'},
+            width:'100%'
+          }}
+        >
+          {steps.map((label, index) => (
+            <Step key={index}>
+              <StepLabel>
+                <Typography>
+                  {label}
+                </Typography>
+              </StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        {activeStep === steps.length - 1 ? (
+          <Button variant="menu">
+            Submit
+          </Button>
+        ) : (
+          <Button onClick={handleSubmit} variant="menu">
+            Next
+          </Button>
+        ) }
+      </Box>
+      <Grid container sx={{justifyContent:'center'}}>
         <Grid
           item
           xs={12}
-          sx={{ padding: '20px',height:'60vh' }}
+          sx={{
+            padding: '20px',height:'60vh' }}
         >
           {formContent(activeStep)}
-        </Grid>
-        <Grid
-          item
-          xs={12}
-        >
-          <Button
-            disabled={activeStep === 0}
-            onClick={handleBack}
-          >
-            Back
-          </Button>
-          {activeStep === steps.length - 1 ? (
-            <Button>
-              Submit
-            </Button>
-          ) : (
-            <Button onClick={handleSubmit}>
-              Next
-            </Button>
-          ) }
         </Grid>
       </Grid>
     </Box>

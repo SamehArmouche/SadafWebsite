@@ -2,7 +2,7 @@ import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AppContainer from './pages/index.js'
 import colors from './assets/theme/colors/'
-import {Backdrop,CssBaseline} from '@mui/material';
+import {Backdrop} from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector } from 'react-redux'
 import { SnackbarProvider } from 'notistack';
@@ -75,16 +75,52 @@ const theme = createTheme({
         }
       }
     },
-    MuiTable: {
-      styleOverrides:{
+    MuiStepper: {
+      defaultProps: {
+        alternativeLabel: true
+      },
+      styleOverrides: {
         root: {
-            
-            //boxShadow: '0px 5px 22px rgba(0, 0, 0, 0.04), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.03)',
-            //width:'100%',
-            //margin:18,
-            
+          padding: 0
+        }
+      }
+    },
+    MuiStep: {
+      styleOverrides: {
+        alternativeLabel: {
+          minWidth: 64
+        }
+      }
+    },
+    MuiStepConnector: {
+      styleOverrides: {
+        alternativeLabel: {
+          top: 14,
+          height: 2,
+          minWidth: 10,
+          left: "calc(-50% + 32px)",
+          right: "calc(50% + 32px)"
+        }
+      }
+    },
+    MuiStepLabel: {
+      styleOverrides: {
+        iconContainer: {
+          // NOT APPLIED
+          "&.Mui-active": {
+            color: "black",
+            background: colors.primary
+          },
 
-        },
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: colors.secondary,
+          width: 28,
+          height: 28,
+          borderRadius: "50%",
+        }
       }
     },
     MuiButton: {
@@ -172,7 +208,6 @@ function App() {
   const { t } = useTranslation();
   
   return (
-        <Fade in={true}>
         <div className="App">
           <Backdrop
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1, backdropFilter: 'blur(3px)'}}
@@ -197,7 +232,6 @@ function App() {
         </SnackbarProvider>
       </ThemeProvider>
         </div>
-        </Fade>
   );
 }
 
