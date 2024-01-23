@@ -20,7 +20,7 @@ const Category = ({handleSubmit, title, key, i}) => {
       sx={{
         width:{xs:75,md:130},
         height:{xs:75,md:130},
-        borderRadius:20,
+        borderRadius:2,
         justifyContent:'center',
         alignItems:'center',
         display:'flex',

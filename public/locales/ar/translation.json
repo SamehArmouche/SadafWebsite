@@ -9,14 +9,15 @@
         "title":"النوع",
         "types":{
           "Actor":"ممثل",
-          "Scriptwriter":":كاتب سيناريو",
+          "Scriptwriter":"كاتب سيناريو",
           "Montage":"مونتاج",
           "Photography":"مصور",
           "TVDirector":"مخرج تلفزيوني",
           "Music":"موسيقي",
           "Model":"عارض ازياء",
           "VFXgraphics":"رسومات المؤثرات البصرية",
-          "Interiordesign":"مصمم داخلي"
+          "Interiordesign":"مصمم داخلي",
+          "Other": "أخرى"
         }
       },
       "buttons":{

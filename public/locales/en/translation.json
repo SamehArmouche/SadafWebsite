@@ -16,7 +16,8 @@
           "Music":"Music",
           "Model":"Model",
           "VFXgraphics":"VFX graphics",
-          "Interiordesign":"Interior design"
+          "Interiordesign":"Interior design",
+          "Other": "Other"
         }
       },
       "buttons":{

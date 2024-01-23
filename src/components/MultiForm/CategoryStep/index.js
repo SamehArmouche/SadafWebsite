@@ -15,7 +15,8 @@ const categories = [
   "Music",
   "Model",
   "VFX graphics",
-  "Interior design"
+  "Interior design",
+  "Other"
 ]
 
 const CategoryStep = ({
