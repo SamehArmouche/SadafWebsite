@@ -5,15 +5,15 @@ import {
 } from "@mui/material";
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors/'
-const Category = ({handleSubmit, title, key, i, currentCat}) => {
-  const { t, i18n } = useTranslation();
+const Category = ({handleSubmit, title, i, currentCat}) => {
+  const { t } = useTranslation();
   
   return (
     <Box
       sx={{
         m:1,
         display:'flex',
-        alignItems:{md:(i%2!=0?'end':'start'),xs:"center"},
+        alignItems:{md:(i%2!==0?'end':'start'),xs:"center"},
         ".css-60kf82-MuiGrid-root": {
           backgroundColor: currentCat===title?colors.secondary:"inheret",
         },
@@ -33,7 +33,6 @@ const Category = ({handleSubmit, title, key, i, currentCat}) => {
           bgcolor: 'primary.dark',
         },
       }}
-      key={key}
       onClick={()=>handleSubmit("category",title)}
       >
       <Typography sx={{fontSize:{xs:13,md:18},color: currentCat===title?"black":"inheret",}}>
