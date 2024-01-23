@@ -17,6 +17,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { styled } from '@mui/material/styles';
+import CountrySelect from './CountrySelect'
 
 const CssMobileDatePicker = styled(DatePicker)({
   '& .MuiInput-underline:after': {
@@ -34,7 +35,7 @@ const PersonalInfoStep = ({
   handleSubmit
 }) => {
   const { state } = useLocation();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [form, setForm] = React.useState(false);
 
   const handleChange = (name,value) => {
@@ -94,7 +95,7 @@ const PersonalInfoStep = ({
           justifyContent:'center'
         }}
         >
-          <FormControl sx={{ m: 1, minWidth: 120 }} required >
+          <FormControl sx={{ marginLeft: 1,marginTop:1, width: 128 }} required >
             <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.personalinfo.inputs.gender.title')}</InputLabel>
             <Select
               sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",
@@ -114,18 +115,19 @@ const PersonalInfoStep = ({
               sx={{marginTop:1,direction:'ltr'}}
               slotProps ={{
                 textField: {
-                  required: true,
+                  required: false,
+                  error:false
                 },
                 actionBar: {
                   actions: ['accept']
                 },
               }}
-              defaultValue={dayjs(state?.form?.birthday)}
+              defaultValue={state?.form?.birthday?dayjs(state?.form?.birthday):''}
               label={t('talent.stepper.personalinfo.inputs.birthday')}
               onChange={(e) => handleChange("birthday",e.format("YYYY-MM-DD"))}
             />
           </LocalizationProvider>
-          <FormControl sx={{ mt: 1, minWidth: 180}} required >
+          <FormControl sx={{ m: 1, width:220}} required >
             <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.personalinfo.inputs.relationship.title')}</InputLabel>
             <Select
               sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",
@@ -141,6 +143,10 @@ const PersonalInfoStep = ({
                 <MenuItem value={"أرمل"}>{t('talent.stepper.personalinfo.inputs.relationship.widowed')}</MenuItem>
             </Select>
           </FormControl>
+          <FormControl sx={{ m: 1, width:220,justifyContent:"center"}} required >
+            <CountrySelect lang={i18n.language} t={t}/>
+          </FormControl>
+
         </Box>
     </Grid>
   )

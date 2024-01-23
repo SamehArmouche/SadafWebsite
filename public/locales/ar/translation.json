@@ -38,7 +38,8 @@
             "married": "متزوج/ة",
             "divorced": "مطلق/ة",
             "widowed": "أرمل/ة" 
-          }
+          },
+          "nacionality": "الجنسية"
         }
       },
       "buttons":{

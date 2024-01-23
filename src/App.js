@@ -97,6 +97,16 @@ function App() {
           }
         }
       },
+      MuiAutocomplete: {
+        defaultProps: {
+          slotProps: {
+            paper: {
+              elevation: 6,
+              backgroundColor:'red'
+            }
+          }
+        }
+      },
       MuiStepper: {
         defaultProps: {
           alternativeLabel: true

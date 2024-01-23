@@ -38,7 +38,8 @@
             "married": "Married",
             "divorced": "Divorced",
             "widowed": "Widowed" 
-          }
+          },
+          "nacionality": "Nacionality"
         }
       },
       "buttons":{
