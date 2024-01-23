@@ -21,7 +21,18 @@
         }
       },
       "personalinfo": {
-        "title": "المعلومات الشخصية"
+        "title": "المعلومات الشخصية",
+        "inputs": {
+          "firstname":"الإسم الاول",
+          "fathername": "اسم الأب",
+          "lastname": "الإسم الأخير",
+          "gender": {
+            "title":"الجنس",
+            "male": "ذكر",
+            "female" :"أنثى"
+          },
+          "birthday": "تاريخ الميلاد"
+        }
       },
       "buttons":{
         "next":"التالي",
@@ -45,7 +56,8 @@
   "button": {
     "joinUs": "أنضم إلينا",
     "sendMsg":"أرسل رسالة",
-    "registerNow":"سجل الان"
+    "registerNow":"سجل الان",
+    "ok":"موافق"
   },
   "msg": {
     "404":"الصفحة غير متوفرة !"

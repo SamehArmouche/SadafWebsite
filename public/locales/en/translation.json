@@ -21,7 +21,18 @@
         }
       },
       "personalinfo":{
-        "title": "Personal info"
+        "title": "Personal info",
+        "inputs": {
+          "firstname":"First name",
+          "fathername": "Father name",
+          "lastname": "Last name",
+          "gender": {
+            "title":"Gender",
+            "male": "male",
+            "female" :"female"
+          },
+          "birthday": "Date of birth"
+        }
       },
       "buttons":{
         "next":"Next",
@@ -45,7 +56,8 @@
   "button": {
     "joinUs": "Join us",
     "sendMsg":"Send a message",
-    "registerNow":"Registernow"
+    "registerNow":"Register now",
+    "ok":"Ok"
   },
   "msg": {
     "404":"Page not found !"

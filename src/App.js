@@ -76,10 +76,24 @@ function App() {
           },
         },
       },
+      MuiPickersDay:{
+        styleOverrides:{
+          root: {
+            color:colors.primary
+          }
+        }
+      },
       MuiDivider:{
         styleOverrides:{
           root: {
             backgroundColor:colors.divder
+          }
+        }
+      },
+      MuiSvgIcon:{
+        styleOverrides:{
+          root: {
+            color:colors.primary
           }
         }
       },
