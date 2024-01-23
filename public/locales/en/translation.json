@@ -20,6 +20,9 @@
           "Other": "Other"
         }
       },
+      "personalinfo":{
+        "title": "Personal info"
+      },
       "buttons":{
         "next":"Next",
         "back":"Back",

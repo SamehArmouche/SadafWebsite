@@ -32,7 +32,7 @@ const Category = ({handleSubmit, title, key, i}) => {
         },
       }}
       key={key}
-      onClick={()=>handleSubmit("cateogry",title)}
+      onClick={()=>handleSubmit("category",title)}
       >
       <Typography sx={{fontSize:{xs:13,md:18}}}>
       {t(`talent.stepper.category.types.${title.replaceAll(" ","")}`)}

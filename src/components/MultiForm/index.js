@@ -10,10 +10,11 @@ import {
 } from '@mui/material';
 import { useLocation } from 'react-router-dom'
 import CategoryStep from './CategoryStep';
+import PersonalInfoStep from './PersonalInfoStep';
 import ReviewInfo from './ReviewInfo';
 import { useTranslation } from 'react-i18next';
 
-const steps = ['Category', 'Review'];
+const steps = ['Category','PersonalInfo', 'Review'];
 
 const MultiForm = () => {
   
@@ -29,7 +30,7 @@ const MultiForm = () => {
 
   const handleSubmit = (name,value) =>{
     if(name && value){
-      state[name]=value
+      state.form[name]=value
       if (activeStep === steps.length - 1) {
         console.log('last step');
       } else {
@@ -43,9 +44,9 @@ const MultiForm = () => {
       case 0:
         return <CategoryStep handleSubmit={handleSubmit} />;
       case 1:
-        return <ReviewInfo />;
+        return <PersonalInfoStep handleSubmit={handleSubmit} />;
       default:
-        return <div></div>
+        return <ReviewInfo />;
     }
   };
 
