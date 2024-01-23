@@ -28,10 +28,17 @@
           "lastname": "Last name",
           "gender": {
             "title":"Gender",
-            "male": "male",
-            "female" :"female"
+            "male": "Male",
+            "female" :"Female"
           },
-          "birthday": "Date of birth"
+          "birthday": "Date of birth",
+          "relationship": {
+            "title": "ٌRelationship status",
+            "single": "Single",
+            "married": "Married",
+            "divorced": "Divorced",
+            "widowed": "Widowed" 
+          }
         }
       },
       "buttons":{

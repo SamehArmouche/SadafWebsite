@@ -31,7 +31,14 @@
             "male": "ذكر",
             "female" :"أنثى"
           },
-          "birthday": "تاريخ الميلاد"
+          "birthday": "تاريخ الميلاد",
+          "relationship": {
+            "title":"الحالة الإجتماعية",
+            "single": "أعزب/عزباء",
+            "married": "متزوج/ة",
+            "divorced": "مطلق/ة",
+            "widowed": "أرمل/ة" 
+          }
         }
       },
       "buttons":{
