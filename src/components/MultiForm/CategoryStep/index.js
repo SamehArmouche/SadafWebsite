@@ -1,11 +1,9 @@
 import {
-  Grid,
-  Box,
-  Typography
+  Grid
 } from "@mui/material";
 
 import Category from '../../Category'
-
+import { useLocation } from 'react-router-dom'
 const categories = [
   "Actor",
   "Scriptwriter",
@@ -23,6 +21,7 @@ const CategoryStep = ({
   handleSubmit
 }) => {
 
+  const { state } = useLocation();
   return (
     <Grid
       container
@@ -35,11 +34,10 @@ const CategoryStep = ({
         {
          categories.map((c, i)=>{
           return (
-            <Category handleSubmit={handleSubmit} i={i} title={c} key={c}/>
+            <Category handleSubmit={handleSubmit} i={i} title={c} key={c} currentCat={state.form.category}/>
             )
           })
         }
-    
     </Grid>
   )
 }

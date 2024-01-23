@@ -4,16 +4,19 @@ import {
   Typography
 } from "@mui/material";
 import { useTranslation } from 'react-i18next';
-
-const Category = ({handleSubmit, title, key, i}) => {
+import colors from '../../assets/theme/colors/'
+const Category = ({handleSubmit, title, key, i, currentCat}) => {
   const { t, i18n } = useTranslation();
+  
   return (
     <Box
       sx={{
         m:1,
         display:'flex',
-        alignItems:{md:(i%2!=0?'end':'start'),xs:"center"}
-      
+        alignItems:{md:(i%2!=0?'end':'start'),xs:"center"},
+        ".css-60kf82-MuiGrid-root": {
+          backgroundColor: currentCat===title?colors.secondary:"inheret",
+        },
       }}
     >
     <Grid
@@ -25,7 +28,6 @@ const Category = ({handleSubmit, title, key, i}) => {
         alignItems:'center',
         display:'flex',
         m:1,
-        
         bgcolor: 'primary.main',
         '&:hover': {
           bgcolor: 'primary.dark',
@@ -34,7 +36,7 @@ const Category = ({handleSubmit, title, key, i}) => {
       key={key}
       onClick={()=>handleSubmit("category",title)}
       >
-      <Typography sx={{fontSize:{xs:13,md:18}}}>
+      <Typography sx={{fontSize:{xs:13,md:18},color: currentCat===title?"black":"inheret",}}>
       {t(`talent.stepper.category.types.${title.replaceAll(" ","")}`)}
       </Typography>
     </Grid>
