@@ -4,9 +4,10 @@ import {
   ListItem,
   ListItemText
 } from '@mui/material';
+import { useLocation } from 'react-router-dom'
 
 const ReviewInfo = () => {
-  //const { values } = formik;
+  const { state } = useLocation();
   return (
     <>
       <Typography variant="overline" >
@@ -14,10 +15,10 @@ const ReviewInfo = () => {
       </Typography>
       <List>
         <ListItem>
-          <ListItemText
-            primary="Email"
-            //secondary={values.email}
-          />
+        <ListItemText
+        primary={"Email"}
+        secondary={<Typography style={{  }}>{state.form.email}</Typography>}
+        />
         </ListItem>
       </List>
       <Typography variant="overline">
@@ -27,19 +28,19 @@ const ReviewInfo = () => {
         <ListItem>
           <ListItemText
             primary="First Name"
-            //secondary={values.firstName}
+            secondary={<Typography style={{  }}>{state.form.firstname}</Typography>}
           />
         </ListItem>
         <ListItem>
           <ListItemText
             primary="Last Name"
-            //secondary={values.lastName}
+            secondary={<Typography style={{  }}>{state.form.lastname}</Typography>}
           />
         </ListItem>
         <ListItem>
           <ListItemText
             primary="Phone Number"
-            //secondary={values.phone}
+            secondary={<Typography style={{  }}>+{state.form.phoneCode} - {state.form.phonenumber}</Typography>}
           />
         </ListItem>
       </List>
