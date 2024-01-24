@@ -69,7 +69,10 @@ const MultiForm = () => {
           orientation="horizontal"
           sx={{
             display:{xs:'none',md:'flex'},
-            width:'100%'
+            width:'100%',
+            ".css-paz51n-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed": {
+              color: "black"
+            }
           }}
         >
           {steps.map((label, index) => (

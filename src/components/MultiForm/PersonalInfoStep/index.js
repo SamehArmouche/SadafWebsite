@@ -6,7 +6,7 @@ import {
   MenuItem,
   FormControl,
   Select,
-  InputLabel,
+  InputLabel
 } from "@mui/material";
 import * as React from 'react'
 import dayjs from 'dayjs';
@@ -25,7 +25,6 @@ const CssMobileDatePicker = styled(DatePicker)({
   },
   '& .MuiOutlinedInput-root': {
     backgroundColor: "rgba(247, 216, 159, 0.1)",
-    width:160,
     alignItems:"center",
     color:colors.primary
   }
@@ -43,95 +42,78 @@ const PersonalInfoStep = ({
     setForm(!form);
   };
 
-
   return (
-    <Grid
-      sx={{
-        height:'100%',
-        justifyContent:'center',
-        flexWrap: 'wrap',
-        
-      }}>
-
+    <Box sx={{ flexGrow: 1,height:'100%',flexWrap: 'wrap', }}>
+      <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
+        <Grid item>
         <TextField id="filled-basic" label={t('talent.stepper.personalinfo.inputs.firstname')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
           value={state.form?.firstname || ''}
           //error={handleError("companyName")}
           onChange={(e) => handleChange("firstname",e.target.value)}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,height:55,width:300}}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:300}}
           required
           autoComplete='nope'
         />
+        </Grid>
+        <Grid item>
         <TextField id="filled-basic" label={t('talent.stepper.personalinfo.inputs.fathername')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
           value={state.form?.fathername || ''}
           //error={handleError("companyName")}
           onChange={(e) => handleChange("fathername",e.target.value)}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,height:55,width:300}}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:300}}
           required
           autoComplete='nope'
         />
+        </Grid>
+        <Grid item>
         <TextField id="filled-basic" label={t('talent.stepper.personalinfo.inputs.lastname')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
           value={state.form?.lastname || ''}
           //error={handleError("companyName")}
           onChange={(e) => handleChange("lastname",e.target.value)}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,height:55,width:300}}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:300}}
           required
           autoComplete='nope'
         />
-        <Box sx={{
+        </Grid> 
+      </Grid>
+      <Box sx={{
           height:'1%',
           display:'flex',
-          mt:1.5,
+          m:{xs:1.5,md:3},
           justifyContent:'center',
         }}>
-          <Divider  sx={{width:{xs:'80%',md:'70%'},height:'1%'}}  />
+        <Divider  sx={{width:{xs:'80%',md:'70%'},height:'1%'}}  />
         </Box>
-        <Box sx={{          display: 'flex',
-          flexWrap: 'wrap',
-          p: 1,
-          m: 1,
-          justifyContent:'center'
-        }}
-        >
-          <FormControl sx={{ marginLeft: 1,marginTop:1, width: 128 }} required >
+      <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
+        <Grid item>
+          <FormControl sx={{borderRadius:1,m:1,height:55,width:90}} required >
             <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.personalinfo.inputs.gender.title')}</InputLabel>
             <Select
               sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",
-                ".css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select": {
-                  color: colors.primary,
-                }
-              }}
+              ".css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select": {
+                color: colors.primary,
+              },
+              ".css-m7y6qn-MuiSvgIcon-root-MuiSelect-icon":{
+                color: colors.primary,
+              }
+            }}
               value={state?.form?.gender || ''}
               onChange={(e)=>handleChange("gender",e.target.value)}>
                 <MenuItem value={"ذكر"}>{t('talent.stepper.personalinfo.inputs.gender.male')}</MenuItem>
                 <MenuItem value={"أنثى"}>{t('talent.stepper.personalinfo.inputs.gender.female')}</MenuItem>
             </Select>
           </FormControl>
-          <LocalizationProvider dateAdapter={AdapterDayjs} localeText={{okButtonLabel: `${t('button.ok')}`}}>
-            <CssMobileDatePicker
-              format="DD/MM/YYYY"
-              sx={{marginTop:1,direction:'ltr'}}
-              slotProps ={{
-                textField: {
-                  required: false,
-                  error:false
-                },
-                actionBar: {
-                  actions: ['accept']
-                },
-              }}
-              defaultValue={state?.form?.birthday?dayjs(state?.form?.birthday):''}
-              label={t('talent.stepper.personalinfo.inputs.birthday')}
-              onChange={(e) => handleChange("birthday",e.format("YYYY-MM-DD"))}
-            />
-          </LocalizationProvider>
-          <FormControl sx={{ m: 1, width:220}} required >
+          <FormControl sx={{borderRadius:1,m:1,height:55,width:195}} required >
             <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.personalinfo.inputs.relationship.title')}</InputLabel>
             <Select
               sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",
                 ".css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select": {
+                  color: colors.primary,
+                },
+                ".css-m7y6qn-MuiSvgIcon-root-MuiSelect-icon":{
                   color: colors.primary,
                 }
               }}
@@ -143,13 +125,37 @@ const PersonalInfoStep = ({
                 <MenuItem value={"أرمل"}>{t('talent.stepper.personalinfo.inputs.relationship.widowed')}</MenuItem>
             </Select>
           </FormControl>
-          <FormControl sx={{ m: 1, width:220,justifyContent:"center"}} required >
-            <CountrySelect lang={i18n.language} t={t}/>
-          </FormControl>
-
-        </Box>
-    </Grid>
-  )
+        </Grid>
+        <Grid item>
+        <FormControl sx={{borderRadius:1,m:1,height:55,width:300}} required >
+        <LocalizationProvider dateAdapter={AdapterDayjs} localeText={{okButtonLabel: `${t('button.ok')}`}}>
+          <CssMobileDatePicker
+            format="DD/MM/YYYY"
+            sx={{direction:'ltr'}}
+            slotProps ={{
+              textField: {
+                required: false,
+                error:false
+              },
+              actionBar: {
+                actions: ['accept']
+              },
+            }}
+            defaultValue={state?.form?.birthday?dayjs(state?.form?.birthday):''}
+            label={t('talent.stepper.personalinfo.inputs.birthday')}
+            onChange={(e) => handleChange("birthday",e.format("YYYY-MM-DD"))}
+          />
+        </LocalizationProvider>
+        </FormControl>
+        </Grid>
+        <Grid item>
+        <FormControl sx={{borderRadius:1,m:1,height:55,width:300}} required >
+          <CountrySelect lang={i18n.language} t={t} onChange={handleChange}/>
+        </FormControl>
+        </Grid>
+      </Grid>
+    </Box>
+  );
 }
 
 export default PersonalInfoStep

@@ -97,7 +97,7 @@ function App() {
           }
         }
       },
-      MuiAutocomplete: {
+      /*MuiAutocomplete: {
         defaultProps: {
           slotProps: {
             paper: {
@@ -106,7 +106,7 @@ function App() {
             }
           }
         }
-      },
+      },*/
       MuiStepper: {
         defaultProps: {
           alternativeLabel: true
