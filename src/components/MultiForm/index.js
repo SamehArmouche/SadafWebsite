@@ -11,10 +11,11 @@ import {
 import { useLocation } from 'react-router-dom'
 import CategoryStep from './CategoryStep';
 import PersonalInfoStep from './PersonalInfoStep';
+import ContactInfoStep from './ContactInfoStep';
 import ReviewInfo from './ReviewInfo';
 import { useTranslation } from 'react-i18next';
 
-const steps = ['Category','PersonalInfo', 'Review'];
+const steps = ['Category','PersonalInfo','ContactInfoStep', 'Review'];
 
 const MultiForm = () => {
   
@@ -31,11 +32,12 @@ const MultiForm = () => {
   const handleSubmit = (name,value) =>{
     if(name && value){
       state.form[name]=value
-      if (activeStep === steps.length - 1) {
-        console.log('last step');
-      } else {
-        setActiveStep((prevStep) => prevStep + 1);
-      }
+
+    }
+    if (activeStep === steps.length - 1) {
+      console.log('last step');
+    } else {
+      setActiveStep((prevStep) => prevStep + 1);
     }
   }
 
@@ -45,6 +47,8 @@ const MultiForm = () => {
         return <CategoryStep handleSubmit={handleSubmit} />;
       case 1:
         return <PersonalInfoStep handleSubmit={handleSubmit} />;
+      case 2:
+        return <ContactInfoStep handleSubmit={handleSubmit} />;
       default:
         return <ReviewInfo />;
     }

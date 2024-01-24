@@ -41,7 +41,7 @@ const PersonalInfoStep = ({
     state.form[name]=value;
     setForm(!form);
   };
-console.log(state.form)
+
   return (
     <Box sx={{ flexGrow: 1,height:'100%',flexWrap: 'wrap', }}>
       <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
