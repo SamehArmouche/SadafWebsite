@@ -27,7 +27,7 @@ const MultiForm = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
 
-
+  console.log(state?.form)
 
   const handleSubmit = (name,value) =>{
     if(name && value){

@@ -52,13 +52,23 @@
         "phonenumber":"رقم الجوال",
         "fixnumber":"رقم المنزل",
         "phoneCode": "الرمز الدولي",
-        "website": "الموقع الإلكتروني"
+        "website": "الموقع الإلكتروني",
+        "communicationType":{
+          "title": "وسيلة الاتصال المفضلة",
+          "mobile":"الجوال",
+          "email":"البريد الإلكتروني",
+          "whatsapp":"الواتس اب"
+        }
         }
       },
       "buttons":{
         "next":"التالي",
         "back":"السابق",
-        "submit":"تقديم"
+        "submit":"تقديم",
+        "none": "غير محدد"
+      },
+      "review":{
+        "title":"مراجعة المعلومات"
       }
     }
   },
