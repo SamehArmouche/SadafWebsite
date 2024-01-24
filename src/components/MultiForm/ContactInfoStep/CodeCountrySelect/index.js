@@ -30,11 +30,11 @@ export default function CountrySelect({lang, t, onChange, value}) {
       getOptionLabel={(c) => {return (lang!=="en"?c.arabic_name:c.english_name)}}
       onChange={(event, newValue) => {
         if(newValue)
-          onChange(value,newValue.arabic_name)
+          onChange(value,newValue.phone_code)
       }}
       renderOption={(props, option) => (
         <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-          {lang==="en"?option.english_name:option.arabic_name}
+          {lang==="en"?option.english_name:option.arabic_name} -  {option.phone_code}
         </Box>
       )}
       renderInput={(params) => {
@@ -42,7 +42,7 @@ export default function CountrySelect({lang, t, onChange, value}) {
         <TextField
           {...params}
           required 
-          label={value==="nacionality"?t('talent.stepper.personalinfo.inputs.nacionality'):t('talent.stepper.personalinfo.inputs.address.country')}
+          label={t('talent.stepper.contactinfostep.inputs.phoneCode')}
           inputProps={{
             ...params.inputProps,
             autoComplete: 'new-password',

@@ -47,7 +47,13 @@
         }
       },
       "contactinfostep":{
-        "title":"معلومات التواصل"
+        "title":"معلومات التواصل",
+        "inputs": {
+        "phonenumber":"رقم الجوال",
+        "fixnumber":"رقم المنزل",
+        "phoneCode": "الرمز الدولي",
+        "website": "الموقع الإلكتروني"
+        }
       },
       "buttons":{
         "next":"التالي",
