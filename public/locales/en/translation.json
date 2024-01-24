@@ -39,7 +39,11 @@
             "divorced": "Divorced",
             "widowed": "Widowed" 
           },
-          "nacionality": "Nacionality"
+          "nacionality": "Nacionality",
+          "address":{
+            "country": "Country of Residence",
+            "city" : "City"
+          }
         }
       },
       "buttons":{

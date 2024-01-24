@@ -41,7 +41,7 @@ const PersonalInfoStep = ({
     state.form[name]=value;
     setForm(!form);
   };
-
+console.log(state.form)
   return (
     <Box sx={{ flexGrow: 1,height:'100%',flexWrap: 'wrap', }}>
       <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
@@ -127,32 +127,45 @@ const PersonalInfoStep = ({
           </FormControl>
         </Grid>
         <Grid item>
-        <FormControl sx={{borderRadius:1,m:1,height:55,width:300}} required >
-        <LocalizationProvider dateAdapter={AdapterDayjs} localeText={{okButtonLabel: `${t('button.ok')}`}}>
-          <CssMobileDatePicker
-            format="DD/MM/YYYY"
-            sx={{direction:'ltr'}}
-            slotProps ={{
-              textField: {
-                required: false,
-                error:false
-              },
-              actionBar: {
-                actions: ['accept']
-              },
-            }}
-            defaultValue={state?.form?.birthday?dayjs(state?.form?.birthday):''}
-            label={t('talent.stepper.personalinfo.inputs.birthday')}
-            onChange={(e) => handleChange("birthday",e.format("YYYY-MM-DD"))}
-          />
-        </LocalizationProvider>
-        </FormControl>
+          <FormControl sx={{borderRadius:1,m:1,height:55,width:165}} required >
+          <LocalizationProvider dateAdapter={AdapterDayjs} localeText={{okButtonLabel: `${t('button.ok')}`}}>
+            <CssMobileDatePicker
+              format="DD/MM/YYYY"
+              sx={{direction:'ltr'}}
+              slotProps ={{
+                textField: {
+                  required: false,
+                  error:false
+                },
+                actionBar: {
+                  actions: ['accept']
+                },
+              }}
+              defaultValue={state?.form?.birthday?dayjs(state?.form?.birthday):''}
+              label={t('talent.stepper.personalinfo.inputs.birthday')}
+              onChange={(e) => handleChange("birthday",e.format("YYYY-MM-DD"))}
+            />
+          </LocalizationProvider>
+          </FormControl>
+          <FormControl sx={{borderRadius:1,m:1,height:55,width:120}} required >
+            <CountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"nacionality"}/>
+          </FormControl>
         </Grid>
+
         <Grid item>
-        <FormControl sx={{borderRadius:1,m:1,height:55,width:300}} required >
-          <CountrySelect lang={i18n.language} t={t} onChange={handleChange}/>
-        </FormControl>
+          <FormControl sx={{borderRadius:1,m:1,height:55,width:180}} required >
+            <CountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"country"}/>
+          </FormControl>
+          <TextField id="filled-basic" label={t('talent.stepper.personalinfo.inputs.address.city')} variant="filled"
+            inputProps={{ style: { color: colors.primary } }}
+            value={state.form?.city || ''}
+            onChange={(e) => handleChange("city",e.target.value)}
+            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:100}}
+            required
+            autoComplete='nope'
+          />
         </Grid>
+
       </Grid>
     </Box>
   );

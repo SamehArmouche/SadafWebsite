@@ -39,7 +39,11 @@
             "divorced": "مطلق/ة",
             "widowed": "أرمل/ة" 
           },
-          "nacionality": "الجنسية"
+          "nacionality": "الجنسية",
+          "address":{
+            "country": "بلد الإقامة",
+            "city" : "المدينة"
+          }
         }
       },
       "buttons":{

@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import {countries} from '../../../../helpers/data';
 
-export default function CountrySelect({lang, t, onChange}) {
+export default function CountrySelect({lang, t, onChange, value}) {
   
   return (
     <Autocomplete
@@ -30,7 +30,7 @@ export default function CountrySelect({lang, t, onChange}) {
       getOptionLabel={(c) => {return (lang!=="en"?c.arabic_name:c.english_name)}}
       onChange={(event, newValue) => {
         if(newValue)
-          onChange("country",newValue.arabic_name)
+          onChange(value,newValue.arabic_name)
       }}
       renderOption={(props, option) => (
         <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
@@ -41,7 +41,7 @@ export default function CountrySelect({lang, t, onChange}) {
         return (
         <TextField
           {...params}
-          label={t('talent.stepper.personalinfo.inputs.nacionality')}
+          label={value==="nacionality"?t('talent.stepper.personalinfo.inputs.nacionality'):t('talent.stepper.personalinfo.inputs.address.country')}
           inputProps={{
             ...params.inputProps,
             autoComplete: 'new-password',
