@@ -46,6 +46,9 @@
           }
         }
       },
+      "contactinfostep":{
+        "title":"معلومات التواصل"
+      },
       "buttons":{
         "next":"التالي",
         "back":"السابق",
