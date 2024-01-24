@@ -98,13 +98,13 @@ function MyCarousel({items, type, handleChange}){
             navButtonsAlwaysVisible={true}
             navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
               style: {
-                  backgroundColor: colors.primary,
+                  backgroundColor: "black",
                   color:"black",
               }
             }} 
           navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
             style: {
-                bottom: '0',
+                bottom: 4,
                 top: 'unset',
             }
           }}
