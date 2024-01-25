@@ -8,7 +8,7 @@ function Home() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   return (
-    <Box sx={{height:'75%',alignItems:'center',justifyContent:'center',display:'flex'}}>
+    <Box sx={{minHeight:'72vh',alignItems:'center',justifyContent:'center',display:'flex'}}>
       <Slide direction={i18n.language==="ar"?"left":"right"} in={true} mountOnEnter unmountOnExit>
       <Grid container sx={{margin:0,p:{xs:0,md:0},width:"80%"}}>
         <Grid item xs={7} sx={{p:0}}>

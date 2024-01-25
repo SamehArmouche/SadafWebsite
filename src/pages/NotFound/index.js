@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 function NotFound() {
   const { t } = useTranslation();
   return (
-    <Box sx={{height:'75.5%',alignItems:'center',justifyContent:'center',display:'flex',flexDirection:'column'}}>
+    <Box sx={{minHeight:'72vh',alignItems:'center',justifyContent:'center',display:'flex',flexDirection:'column'}}>
       <img src = {myImg}  alt={"notfound.png"} style={{width: 420,height:420}}></img>  
       <h1 style={{color:colors.primary}}>{t('msg.404')}</h1>
     </Box>

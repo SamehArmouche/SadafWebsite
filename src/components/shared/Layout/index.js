@@ -58,7 +58,9 @@ function Layout() {
     <Container         
       sx={getBackground} maxWidth="false">
         <Header/>
-        <Outlet />
+        <main style={{minHeight:'72vh'}}>
+          <Outlet />
+        </main>
         <Footer/>
       </Container>
   </React.Suspense>

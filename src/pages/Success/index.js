@@ -24,7 +24,7 @@ function Success() {
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
-      <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',height:"75%",width:'100%'}}>
+      <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',minHeight:'72vh',width:'100%'}}>
       <Carousel items={success} onClick={()=>setOpen(!open)} handleChange={handleChange} />
         <Details open={open} handleClose={()=> setOpen(!open)} 
           title={`${s[`title_${i18n.language}`]}`}

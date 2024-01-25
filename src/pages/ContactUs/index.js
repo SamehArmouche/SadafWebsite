@@ -42,13 +42,12 @@ function ContactUs() {
   }
 
   const handleError = (value)=>{
-    if(value==="email")
       return !validateEmail(form[value]);
     return !form[value]?.length>0
   }
 
   return (
-    <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',minHeight:"75%",width:'100%'}}>
+    <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',minHeight:'72vh',width:'100%'}}>
       <Box 
       border={1} 
       sx={{

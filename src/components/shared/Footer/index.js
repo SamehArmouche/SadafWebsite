@@ -15,7 +15,9 @@ const divStyle = {
   justifyContent:'center',
   alignItems:'center',
   display:'flex',
-  flexDirection:'column'
+  flexDirection:'column',
+  height:120,
+  backgroundColor:'black'
 };
 
 export default function Footer() {
@@ -37,20 +39,18 @@ export default function Footer() {
   };
 
   return (
-    <>
-      <Box style={divStyle}>
-        <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
-        <Box sx={{width:'70%',justifyContent:'center',alignItems:'center'}}>
-          <AlternateEmailIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(`mailto:${getUrl('5')}`)} />
-          <TwitterIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(getUrl('3'))} />
-          <FacebookIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(getUrl('2'))} />
-          <YouTubeIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(getUrl('1'))} />
-          <InstagramIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(getUrl('4'))} />
-        </Box>
-        <Box sx={{width:'70%',justifyContent:'center',alignItems:'center'}}>
-          <h5 style={{color:colors.divder,margin:0}}>Powered by <a href="https://www.facebook.com/sameh.armouche.12/" style={{color:colors.divder}}>Sameh Armouche</a></h5>
-        </Box>
+    <footer style={divStyle}>
+      <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
+      <Box sx={{width:'70%',justifyContent:'center',alignItems:'center'}}>
+        <AlternateEmailIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(`mailto:${getUrl('5')}`)} />
+        <TwitterIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(getUrl('3'))} />
+        <FacebookIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(getUrl('2'))} />
+        <YouTubeIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(getUrl('1'))} />
+        <InstagramIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(getUrl('4'))} />
       </Box>
-   </>
+      <Box sx={{width:'70%',justifyContent:'center',alignItems:'center'}}>
+        <h5 style={{color:colors.divder,margin:0}}>Powered by <a href="https://www.facebook.com/sameh.armouche.12/" style={{color:colors.divder}}>Sameh Armouche</a></h5>
+      </Box>
+    </footer>
   );
 }

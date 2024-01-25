@@ -19,7 +19,7 @@ function RegisterTalent() {
   })
 
   return (
-    <Box sx={{height:'75%',alignItems:'center',justifyContent:'center',display:'flex',flexDirection:{xs:'column',md:'row'}}}>
+    <Box sx={{minHeight:'72vh',alignItems:'center',justifyContent:'center',display:'flex',flexDirection:{xs:'column',md:'row'}}}>
       <Grid item sx={{p:0,width:{xs:'90%'}}}>
         <MultiForm />
       </Grid>
