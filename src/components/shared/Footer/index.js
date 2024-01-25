@@ -16,8 +16,7 @@ const divStyle = {
   alignItems:'center',
   display:'flex',
   flexDirection:'column',
-  height:120,
-  backgroundColor:'black'
+  height:120
 };
 
 export default function Footer() {

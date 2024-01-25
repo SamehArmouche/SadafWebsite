@@ -104,7 +104,7 @@ const MultiForm = () => {
           item
           xs={12}
           sx={{
-            padding: '20px',height:'60vh' }}
+            padding: '20px' }}
         >
           {formContent(activeStep)}
         </Grid>

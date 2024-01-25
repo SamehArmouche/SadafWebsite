@@ -43,7 +43,7 @@ const PersonalInfoStep = ({
   };
 
   return (
-    <Box sx={{ flexGrow: 1,height:'100%',flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
+    <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
       <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
         <Grid item>
         <TextField id="filled-basic" label={t('talent.stepper.personalinfo.inputs.firstname')} variant="filled"
