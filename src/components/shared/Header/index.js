@@ -11,10 +11,9 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 //import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { styled, alpha } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
-import colors from '../../../assets/theme/colors/'
 import {
   usePopupState,
   bindTrigger,
@@ -24,7 +23,6 @@ import { useTheme } from '@mui/material/styles';
 import myImg from '../../../assets/images/logo.png';
 
 const pages = ['Home','Services','Projects','Awards','Successes','Talents','Contact'];
-//const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 
@@ -73,7 +71,6 @@ const CssMenu = styled((props: MenuProps) => (
 function Header() {
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  //const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { t, i18n } = useTranslation();
   const popupState = usePopupState({ variant: 'popover', popupId: 'demoMenu' })
   const theme = useTheme();
@@ -96,6 +93,13 @@ function Header() {
     setAnchorElNav(null);
   };
 
+  const getCurrentPageName = () =>{
+    if(window.location.pathname==="/")
+      return "home"
+    const currentPage = pages.filter(p => p.toLowerCase()===window.location.pathname.replace("/",""))[0]?.toLowerCase();
+    return (currentPage===undefined?"":currentPage);
+  }
+
   /*const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };*/
@@ -115,11 +119,9 @@ function Header() {
         <img src = {myImg}  alt={"sadaf logo"} onClick={()=>handleRoute("home")} style={{height:20,paddingTop:18}}></img> 
       </Box>
       <Container sx={{justifyContent:{ xs: 'left', sm: 'center' },display:'flex',marginTop:2}}>
-        <Toolbar disableGutters sx={{justifyContent:{ xs: 'left',width:'100%' }}}>
-          {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }} />*/}
-          <Box sx={{display: { xs: 'none', sm: 'flex'} ,width:"10%"}}>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' }}}>
+
+        <Toolbar disableGutters sx={{width:'100%',display:'flex' ,justifyContent:'space-between'}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' },maxWidth:74,maxHeight:40}}>
             <IconButton
               size="large"
               aria-controls="menu-appbar"
@@ -169,7 +171,10 @@ function Header() {
               </MenuItem>
             ))}
           </Box>
-          <Box sx={{width:"20%",padding:0}}>
+          <Box sx={{padding:0,display: { xs: 'flex', sm: 'none'}}} >
+              <Typography sx={{fontSize: 20}}> {getCurrentPageName()!==""?t(`header.${getCurrentPageName()}`):""} </Typography>
+          </Box>
+          <Box sx={{padding:0}} >
             <React.Fragment>
               <Button variant="menu" {...bindTrigger(popupState)}>
                 {t(`dropdown.lang`)}
