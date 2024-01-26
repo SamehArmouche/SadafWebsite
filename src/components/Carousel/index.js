@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Carousel from 'react-material-ui-carousel'
-import {Box, CardActionArea, Typography, CardMedia, Card, CircularProgress } from '@mui/material';
+import Loading from '../Loading'
+import {Box, CardActionArea, Typography, CardMedia, Card } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors/'
 
@@ -92,7 +93,7 @@ function MyCarousel({items, type, handleChange}){
     return (
       <Box sx={{width:{xs:'100%',md:'90%'}}}>
         {loading ? (
-          <CircularProgress style={{color: colors.primary}}/>
+          <Loading style={{color: colors.primary}}/>
         ) : (
           <Carousel animation={"fade"} 
             navButtonsAlwaysVisible={true}

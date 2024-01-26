@@ -1,14 +1,17 @@
 import './App.css';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AppContainer from './pages/index.js'
 import colors from './assets/theme/colors/'
-import {Backdrop} from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
+import {
+  Backdrop,
+  createTheme,
+  ThemeProvider,
+  Fade,
+  styled
+} from '@mui/material';
 import { useSelector } from 'react-redux'
 import { SnackbarProvider } from 'notistack';
 import { MaterialDesignContent } from 'notistack'
-import { styled } from '@mui/material/styles';
-import { Fade } from '@mui/material';
+import Loading from './components/Loading'
 import { useTranslation } from 'react-i18next';
 
 const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
@@ -236,13 +239,15 @@ function App() {
   return (
     <Fade in={true}>
       <div className="App">
+      <ThemeProvider theme={theme}>
         <Backdrop
-          sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1, backdropFilter: 'blur(3px)'}}
+          sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1, backdropFilter: 'blur(3px)',
+          flexDirection:'column',
+          }}
           open={loadingContactForm}>
-          <CircularProgress sx={{color: colors.primary,m:2}} />
+          <Loading/>
           <h4 style={{color:colors.primary}}> {t('loading')} </h4>
         </Backdrop>
-        <ThemeProvider theme={theme}>
           <SnackbarProvider maxSnack={1}
             anchorOrigin={{
               vertical: 'top',

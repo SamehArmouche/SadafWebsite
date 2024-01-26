@@ -2,16 +2,14 @@
 import homeImg from '../../../assets/images/home.jpg';
 import talentImg from '../../../assets/images/talent.jpg';
 import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
 import Header from '../Header';
 import Footer from '../Footer';
+import Loading from '../../Loading';
 import React from "react";
 import { Outlet, useLocation } from 'react-router-dom'
-import CircularProgress from '@mui/material/CircularProgress';
 
 function Layout() {
   const location = useLocation();
-
 
   const styleHome = {
     backgroundImage:`url(${homeImg})`,
@@ -50,20 +48,16 @@ function Layout() {
   }
 
   return (
-  <React.Suspense fallback={
-    <Box sx={{ display: 'flex',height:"100vh",backgroundColor:'transparent',justifyContent:'center',alignItems:'center' }}>
-        <CircularProgress color="inherit" />
-    </Box>
-  }>
     <Container         
       sx={getBackground} maxWidth="false">
+      <React.Suspense fallback={<Loading/>}>
         <Header/>
         <main style={{minHeight:'72vh'}}>
           <Outlet />
         </main>
         <Footer/>
-      </Container>
-  </React.Suspense>
+      </React.Suspense>
+   </Container>
   );
 };
 
