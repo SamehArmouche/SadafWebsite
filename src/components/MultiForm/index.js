@@ -57,7 +57,7 @@ const MultiForm = () => {
 
   return (
     <Box>
-      <Typography sx={{display:{md:'none',xs:'auto'},fontSize:26}}>
+      <Typography sx={{display:{md:'none',xs:'auto'},fontSize:16,mt:2,mb:4}}>
         {t(`talent.stepper.${steps[activeStep].toLowerCase()}.title`)}
       </Typography>
       <Box sx={{alignItems:'center',display:'flex',justifyContent:'space-between',width:'100%',mt:{xs:0,md:5}}}>
@@ -101,10 +101,10 @@ const MultiForm = () => {
       </Box>
       <Grid container sx={{justifyContent:'center'}}>
         <Grid
-          item
-          xs={12}
+          
+          
           sx={{
-            padding: '20px', height:"64vh"}}
+            padding: '20px', height:"62vh"}}
         >
           {formContent(activeStep)}
         </Grid>

@@ -36,7 +36,7 @@ const ContactInfoStep = ({ handleSubmit }) => {
             value={state.form?.phonenumber || ''}
             //error={handleError("companyName")}
             onChange={(e) => handleChange("phonenumber",e.target.value)}
-            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:300, direction:'ltr'}}
+            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,maxwidth:300, direction:'ltr',width:{xs:300,md:150}}}
             required
             autoComplete='nope'
           />
@@ -45,7 +45,7 @@ const ContactInfoStep = ({ handleSubmit }) => {
             value={state.form?.fixnumber || ''}
             //error={handleError("companyName")}
             onChange={(e) => handleChange("fixnumber",e.target.value)}
-            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:300, direction:'ltr'}}
+            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,maxwidth:300, direction:'ltr',width:{xs:300,md:150}}}
             required
             autoComplete='nope'
           />
@@ -54,18 +54,9 @@ const ContactInfoStep = ({ handleSubmit }) => {
             value={state.form?.website || ''}
             //error={handleError("companyName")}
             onChange={(e) => handleChange("website",e.target.value)}
-            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:300, direction:'ltr'}}
+            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,maxwidth:300, direction:'ltr',width:{xs:300,md:150}}}
             autoComplete='nope'
           />
-      </Grid>
-      <Box sx={{
-        height:'1%',
-        display:'flex',
-        m:{xs:1.5,md:3},
-        justifyContent:'center',
-      }}>
-        <Divider  sx={{width:{xs:'80%',md:'70%'},height:'1%'}}  />
-      </Box>
       <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:250}}} >
         <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.contactinfostep.inputs.communicationType.title')}</InputLabel>
         <Select
@@ -87,6 +78,11 @@ const ContactInfoStep = ({ handleSubmit }) => {
             <MenuItem value={"whatsapp"}>{t('talent.stepper.contactinfostep.inputs.communicationType.whatsapp')}</MenuItem>
         </Select>
       </FormControl>
+      </Grid>
+      
+      <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
+        <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
+      </Grid>
     </Box>
   )
 }

@@ -79,14 +79,9 @@ const PersonalInfoStep = ({
         />
         </Grid> 
       </Grid>
-      <Box sx={{
-          height:'1%',
-          display:'flex',
-          m:{xs:1.5,md:3},
-          justifyContent:'center',
-        }}>
-        <Divider  sx={{width:{xs:'80%',md:'70%'},height:'1%'}}  />
-        </Box>
+      <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
+        <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
+      </Grid>
       <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
         <Grid item>
           <FormControl sx={{borderRadius:1,m:1,height:55,width:90}} required >
