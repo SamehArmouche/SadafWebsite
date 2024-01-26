@@ -26,7 +26,7 @@ const ContactInfoStep = ({ handleSubmit }) => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1,height:'100%',flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
+    <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
       <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
         <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:150}}} required >
           <CodeCountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"phoneCode"}/>
