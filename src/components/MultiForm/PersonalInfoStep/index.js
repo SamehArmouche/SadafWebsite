@@ -18,6 +18,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { styled } from '@mui/material/styles';
 import CountrySelect from './CountrySelect'
+import Input from '../../Input'
 
 const CssMobileDatePicker = styled(DatePicker)({
   '& .MuiInput-underline:after': {
@@ -45,39 +46,9 @@ const PersonalInfoStep = ({
   return (
     <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
       <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
-        <Grid item>
-        <TextField id="filled-basic" label={t('talent.stepper.personalinfo.inputs.firstname')} variant="filled"
-          inputProps={{ style: { color: colors.primary } }}
-          value={state.form?.firstname || ''}
-          //error={handleError("companyName")}
-          onChange={(e) => handleChange("firstname",e.target.value)}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:300}}
-          required
-          autoComplete='nope'
-        />
-        </Grid>
-        <Grid item>
-        <TextField id="filled-basic" label={t('talent.stepper.personalinfo.inputs.fathername')} variant="filled"
-          inputProps={{ style: { color: colors.primary } }}
-          value={state.form?.fathername || ''}
-          //error={handleError("companyName")}
-          onChange={(e) => handleChange("fathername",e.target.value)}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:300}}
-          required
-          autoComplete='nope'
-        />
-        </Grid>
-        <Grid item>
-        <TextField id="filled-basic" label={t('talent.stepper.personalinfo.inputs.lastname')} variant="filled"
-          inputProps={{ style: { color: colors.primary } }}
-          value={state.form?.lastname || ''}
-          //error={handleError("companyName")}
-          onChange={(e) => handleChange("lastname",e.target.value)}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:300}}
-          required
-          autoComplete='nope'
-        />
-        </Grid> 
+        <Input direction={i18n.dir()} handleChange={handleChange} name ={"firstname"} value = {state.form?.firstname} label={t('talent.stepper.personalinfo.inputs.firstname')} />
+        <Input direction={i18n.dir()} handleChange={handleChange} name ={"fathername"} value = {state.form?.fathername} label={t('talent.stepper.personalinfo.inputs.fathername')}  />
+        <Input direction={i18n.dir()} handleChange={handleChange} name ={"lastname"} value = {state.form?.lastname} label={t('talent.stepper.personalinfo.inputs.lastname')} />
       </Grid>
       <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
         <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />

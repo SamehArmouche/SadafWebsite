@@ -44,9 +44,9 @@ const ContactInfoStep = ({ handleSubmit }) => {
         <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:150}}} required >
           <CodeCountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"phoneCode"}/>
         </FormControl>
-        <Input handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} type={'numeric'} />
-        <Input handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} type={'numeric'} />
-        <Input handleChange={handleChange} name ={"website"} value = {state.form?.website} label={t('talent.stepper.contactinfostep.inputs.website')} type={'numeric'} />
+        <Input direction={"ltr"} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
+        <Input direction={"ltr"} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} />
+        <Input direction={"ltr"} handleChange={handleChange} name ={"website"} value = {state.form?.website} label={t('talent.stepper.contactinfostep.inputs.website')} />
         <ComunicationTypeSelect  
           label={t('talent.stepper.contactinfostep.inputs.communicationType.title')} 
           noneItem={t('talent.stepper.buttons.none')}
