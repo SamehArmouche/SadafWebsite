@@ -1,18 +1,17 @@
 import {
   Grid,
   Box,
-  TextField,
   FormControl,
-  Divider,
-  InputLabel,
-  Select,
-  MenuItem
+  Divider
 } from "@mui/material";
 import * as React from 'react'
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom'
-import colors from '../../../assets/theme/colors/'
 import CodeCountrySelect from './CodeCountrySelect'
+import ComunicationTypeSelect from './ComunicationTypeSelect'
+import Input from '../../Input'
+
+
 
 const ContactInfoStep = ({ handleSubmit }) => {
 
@@ -24,6 +23,20 @@ const ContactInfoStep = ({ handleSubmit }) => {
     state.form[name]=value;
     setForm(!form);
   };
+  const options = [
+    {
+      value:"mobile",
+      label:t('talent.stepper.contactinfostep.inputs.communicationType.mobile')
+    },
+    {
+      value:"email",
+      label:t('talent.stepper.contactinfostep.inputs.communicationType.email')
+    },
+    {
+      value:"whatsapp",
+      label:t('talent.stepper.contactinfostep.inputs.communicationType.whatsapp')
+    }
+  ]
 
   return (
     <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
@@ -31,55 +44,17 @@ const ContactInfoStep = ({ handleSubmit }) => {
         <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:150}}} required >
           <CodeCountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"phoneCode"}/>
         </FormControl>
-        <TextField id="filled-basic" label={t('talent.stepper.contactinfostep.inputs.phonenumber')} variant="filled"
-            inputProps={{ style: { color: colors.primary }}}
-            value={state.form?.phonenumber || ''}
-            //error={handleError("companyName")}
-            onChange={(e) => handleChange("phonenumber",e.target.value)}
-            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,maxwidth:300, direction:'ltr',width:{xs:300,md:150}}}
-            required
-            autoComplete='nope'
-          />
-          <TextField id="filled-basic" label={t('talent.stepper.contactinfostep.inputs.fixnumber')} variant="filled"
-            inputProps={{ style: { color: colors.primary } }}
-            value={state.form?.fixnumber || ''}
-            //error={handleError("companyName")}
-            onChange={(e) => handleChange("fixnumber",e.target.value)}
-            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,maxwidth:300, direction:'ltr',width:{xs:300,md:150}}}
-            required
-            autoComplete='nope'
-          />
-          <TextField id="filled-basic" label={t('talent.stepper.contactinfostep.inputs.website')} variant="filled"
-            inputProps={{ style: { color: colors.primary } }}
-            value={state.form?.website || ''}
-            //error={handleError("companyName")}
-            onChange={(e) => handleChange("website",e.target.value)}
-            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,maxwidth:300, direction:'ltr',width:{xs:300,md:150}}}
-            autoComplete='nope'
-          />
-      <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:250}}} >
-        <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.contactinfostep.inputs.communicationType.title')}</InputLabel>
-        <Select
-          sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",
-          ".css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select": {
-            color: colors.primary,
-          },
-          ".css-m7y6qn-MuiSvgIcon-root-MuiSelect-icon":{
-            color: colors.primary,
-          }
-        }}
+        <Input handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} type={'numeric'} />
+        <Input handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} type={'numeric'} />
+        <Input handleChange={handleChange} name ={"website"} value = {state.form?.website} label={t('talent.stepper.contactinfostep.inputs.website')} type={'numeric'} />
+        <ComunicationTypeSelect  
+          label={t('talent.stepper.contactinfostep.inputs.communicationType.title')} 
+          noneItem={t('talent.stepper.buttons.none')}
           value={state?.form?.communicationtype || ''}
-          onChange={(e)=>handleChange("communicationtype",e.target.value)}>
-              <MenuItem value="">
-                <em>{t('talent.stepper.buttons.none')}</em>
-              </MenuItem>
-            <MenuItem value={"mobile"}>{t('talent.stepper.contactinfostep.inputs.communicationType.mobile')}</MenuItem>
-            <MenuItem value={"email"}>{t('talent.stepper.contactinfostep.inputs.communicationType.email')}</MenuItem>
-            <MenuItem value={"whatsapp"}>{t('talent.stepper.contactinfostep.inputs.communicationType.whatsapp')}</MenuItem>
-        </Select>
-      </FormControl>
+          options={options}
+          onChange={handleChange}
+        />
       </Grid>
-      
       <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
         <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
       </Grid>
