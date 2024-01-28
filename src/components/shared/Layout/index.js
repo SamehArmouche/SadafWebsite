@@ -16,7 +16,6 @@ function Layout() {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    width: '100vw',
     height: '100vh',
     p:0,
     m:0,
@@ -26,13 +25,11 @@ function Layout() {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    width: '100vw',
     height: '100vh',
     p:0,
     m:0,
   }
   const style = {
-    width: '100vw',
     height: '100vh',
     p:0,
     m:0

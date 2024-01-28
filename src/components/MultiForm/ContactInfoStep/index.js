@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom'
 import CodeCountrySelect from './CodeCountrySelect'
 import ComunicationTypeSelect from './ComunicationTypeSelect'
+import SocialNetworksList from './SocialNetworksList'
 import Input from '../../Input'
 
 
@@ -47,6 +48,7 @@ const ContactInfoStep = ({ handleSubmit }) => {
         <Input direction={"ltr"} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
         <Input direction={"ltr"} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} />
         <Input direction={"ltr"} handleChange={handleChange} name ={"website"} value = {state.form?.website} label={t('talent.stepper.contactinfostep.inputs.website')} />
+ 
         <ComunicationTypeSelect  
           label={t('talent.stepper.contactinfostep.inputs.communicationType.title')} 
           noneItem={t('talent.stepper.buttons.none')}
@@ -57,6 +59,10 @@ const ContactInfoStep = ({ handleSubmit }) => {
       </Grid>
       <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
         <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
+      </Grid>
+      
+      <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
+        <SocialNetworksList/>
       </Grid>
     </Box>
   )
