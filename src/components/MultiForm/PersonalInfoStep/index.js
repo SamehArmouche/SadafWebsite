@@ -47,16 +47,17 @@ const PersonalInfoStep = ({
     <Fade  in={true} mountOnEnter unmountOnExit>
       <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
-          <Input direction={i18n.dir()} required={true}  handleChange={handleChange} name ={"firstname"} value = {state.form?.firstname} label={t('talent.stepper.personalinfo.inputs.firstname')} />
+          <Input direction={i18n.dir()} required={true} handleChange={handleChange} name ={"firstname"} value = {state.form?.firstname} label={t('talent.stepper.personalinfo.inputs.firstname')} />
           <Input direction={i18n.dir()} required={true} handleChange={handleChange} name ={"fathername"} value = {state.form?.fathername} label={t('talent.stepper.personalinfo.inputs.fathername')}  />
           <Input direction={i18n.dir()} required={true} handleChange={handleChange} name ={"lastname"} value = {state.form?.lastname} label={t('talent.stepper.personalinfo.inputs.lastname')} />
         </Grid>
         <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
           <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
         </Grid>
-        <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
+        <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
+
           <Grid item>
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:90}} required >
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:155}}} required >
               <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.personalinfo.inputs.gender.title')}</InputLabel>
               <Select
                 sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",
@@ -73,7 +74,8 @@ const PersonalInfoStep = ({
                   <MenuItem value={"أنثى"}>{t('talent.stepper.personalinfo.inputs.gender.female')}</MenuItem>
               </Select>
             </FormControl>
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:195}} required >
+
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:250}}} required >
               <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.personalinfo.inputs.relationship.title')}</InputLabel>
               <Select
                 sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",
@@ -92,9 +94,7 @@ const PersonalInfoStep = ({
                   <MenuItem value={"أرمل"}>{t('talent.stepper.personalinfo.inputs.relationship.widowed')}</MenuItem>
               </Select>
             </FormControl>
-          </Grid>
-          <Grid item>
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:165}} required >
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:165}}} required >
             <LocalizationProvider dateAdapter={AdapterDayjs} localeText={{okButtonLabel: `${t('button.ok')}`}}>
               <CssMobileDatePicker
                 format="DD/MM/YYYY"
@@ -114,19 +114,18 @@ const PersonalInfoStep = ({
               />
             </LocalizationProvider>
             </FormControl>
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:120}} required >
+          </Grid>
+
+          <Grid item>
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:153}}} required >
               <CountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"nacionality"}/>
             </FormControl>
-          </Grid>
-
-          <Grid item >
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:200}}} required >
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:250}}} required >
               <CountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"country"}/>
             </FormControl>
-            <Input direction={i18n.dir()} required={true} handleChange={handleChange} name ={"city"} value = {state.form?.city} label={t('talent.stepper.personalinfo.inputs.address.city')} />
+            <Input direction={i18n.dir()} width={160} required={true} handleChange={handleChange} name ={"city"} value = {state.form?.city} label={t('talent.stepper.personalinfo.inputs.address.city')} /> 
           </Grid>
-
-        </Grid>
+        </Grid> 
       </Box>
     </Fade>
   );

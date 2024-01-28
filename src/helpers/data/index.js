@@ -1,3 +1,18 @@
+const options = [
+  {
+    value:"mobile",
+    label:'talent.stepper.contactinfostep.inputs.communicationType.mobile'
+  },
+  {
+    value:"email",
+    label:'talent.stepper.contactinfostep.inputs.communicationType.email'
+  },
+  {
+    value:"whatsapp",
+    label:'talent.stepper.contactinfostep.inputs.communicationType.whatsapp'
+  }
+]
+
 const countries = 
 [
     {
@@ -1752,4 +1767,4 @@ const countries =
     }
   ]
 
-module.exports = {countries}
+module.exports = {countries, options}
