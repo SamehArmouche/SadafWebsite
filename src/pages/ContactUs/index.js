@@ -14,6 +14,7 @@ function ContactUs() {
   const { t, i18n } = useTranslation();
   const [ form, setForm ] = React.useState({});
   const [ error, setError ] = React.useState(false);
+  const [ errors, setErrors ] = React.useState({});
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();  
 
@@ -23,10 +24,12 @@ function ContactUs() {
 
   const onChange = ({name, value}) => {
     setForm({...form, [name]: value});
+    setErrors({...errors, [name]: handleError(value)});
   }
+  //console.log(errors)
 
   const onSubmit = async () => {
-    if(Object.values(form).length<5 || !validateEmail(form['email'])){
+    if(Object.values(form).length<5 || Object.values(form).includes("") || !validateEmail(form['email'])){
       setError(true)
     }else{
       setError(false)
@@ -40,13 +43,16 @@ function ContactUs() {
       }
     }
   }
+  console.log(errors)
 
   const handleError = (value)=>{
+    //console.log(form[value])
     if(form[value]!==undefined){
       if(value==='email')
         return !validateEmail(form[value]);
       return !form[value]?.length>0
     }
+    //return true;
   }
 
   return (
@@ -67,6 +73,7 @@ function ContactUs() {
         <TextField id="filled-basic" label={t('contact.fullname')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
           error={handleError("fullname")}
+          //helperText={handleError("fullname")?t('contact.errors.empty'):""}
           onChange={(e) => {onChange({name:"fullname",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
           required
@@ -80,6 +87,7 @@ function ContactUs() {
           onChange={(e) => {onChange({name:"companyName",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
           required
+          //helperText={handleError("companyName")?t('contact.errors.empty'):""}
           autoComplete='nope'
         />
         
@@ -88,6 +96,7 @@ function ContactUs() {
           error={handleError("city")}
           onChange={(e) => {onChange({name:"city",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+          //helperText={handleError("city")?t('contact.errors.empty'):""}
           autoComplete='nope'
         />
         <TextField id="filled-basic" label={t('contact.email')} variant="filled"
@@ -96,6 +105,7 @@ function ContactUs() {
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}, direction:'ltr'}}
           required
           error={handleError("email")}
+          helperText={handleError("email")?t('contact.errors.email'):""}
           autoComplete='nope'
         />
         <TextField id="filled-basic" label={t('contact.msg')} variant="filled"
@@ -105,6 +115,7 @@ function ContactUs() {
           error={handleError("messageBody")}
           onChange={(e) => {onChange({name:"messageBody",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+          //helperText={errors.messageBody?t('contact.errors.empty'):""}
           required
           autoComplete='nope'
         />

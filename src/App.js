@@ -250,7 +250,7 @@ function App() {
         </Backdrop>
           <SnackbarProvider maxSnack={1}
             anchorOrigin={{
-              vertical: 'top',
+              vertical: 'bottom',
               horizontal: 'center',
             }}
             autoHideDuration={3000}
