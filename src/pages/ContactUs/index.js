@@ -42,6 +42,7 @@ function ContactUs() {
   }
 
   const handleError = (value)=>{
+    if(value==='email')
       return !validateEmail(form[value]);
     return !form[value]?.length>0
   }
