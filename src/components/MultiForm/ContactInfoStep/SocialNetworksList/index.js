@@ -95,7 +95,6 @@ export default function SocialNetworksList() {
     setFruitsInBasket((prev) => [ ...prev, value]);
   };
 
-  console.log(state?.form)
   const addFruitButton = (
     <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:250}}} >
       <InputLabel id="demo-simple-select-helper-label">{"Add more social media"}</InputLabel>

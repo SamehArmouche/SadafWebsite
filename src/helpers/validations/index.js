@@ -6,4 +6,13 @@ const validateEmail = (email) => {
     );
 };
 
-module.exports = {validateEmail}
+const validateField = (form ,value)=>{
+  console.log(form)
+  if(form[value]!==undefined){
+    if(value==='email')
+      return !validateEmail(form[value]);
+    return !form[value]?.length>0
+  }
+}
+
+module.exports = {validateEmail, validateField}

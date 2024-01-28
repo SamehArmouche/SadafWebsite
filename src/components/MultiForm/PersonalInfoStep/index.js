@@ -1,7 +1,6 @@
 import {
   Grid,
   Box,
-  TextField,
   Divider,
   MenuItem,
   FormControl,
@@ -46,9 +45,9 @@ const PersonalInfoStep = ({
   return (
     <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
       <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
-        <Input direction={i18n.dir()} handleChange={handleChange} name ={"firstname"} value = {state.form?.firstname} label={t('talent.stepper.personalinfo.inputs.firstname')} />
-        <Input direction={i18n.dir()} handleChange={handleChange} name ={"fathername"} value = {state.form?.fathername} label={t('talent.stepper.personalinfo.inputs.fathername')}  />
-        <Input direction={i18n.dir()} handleChange={handleChange} name ={"lastname"} value = {state.form?.lastname} label={t('talent.stepper.personalinfo.inputs.lastname')} />
+        <Input direction={i18n.dir()} required={true}  handleChange={handleChange} name ={"firstname"} value = {state.form?.firstname} label={t('talent.stepper.personalinfo.inputs.firstname')} />
+        <Input direction={i18n.dir()} required={true} handleChange={handleChange} name ={"fathername"} value = {state.form?.fathername} label={t('talent.stepper.personalinfo.inputs.fathername')}  />
+        <Input direction={i18n.dir()} required={true} handleChange={handleChange} name ={"lastname"} value = {state.form?.lastname} label={t('talent.stepper.personalinfo.inputs.lastname')} />
       </Grid>
       <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
         <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
@@ -118,18 +117,11 @@ const PersonalInfoStep = ({
           </FormControl>
         </Grid>
 
-        <Grid item>
-          <FormControl sx={{borderRadius:1,m:1,height:55,width:180}} required >
+        <Grid item >
+          <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:200}}} required >
             <CountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"country"}/>
           </FormControl>
-          <TextField id="filled-basic" label={t('talent.stepper.personalinfo.inputs.address.city')} variant="filled"
-            inputProps={{ style: { color: colors.primary } }}
-            value={state.form?.city || ''}
-            onChange={(e) => handleChange("city",e.target.value)}
-            sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,width:100}}
-            required
-            autoComplete='nope'
-          />
+          <Input direction={i18n.dir()} required={true} handleChange={handleChange} name ={"city"} value = {state.form?.city} label={t('talent.stepper.personalinfo.inputs.address.city')} />
         </Grid>
 
       </Grid>

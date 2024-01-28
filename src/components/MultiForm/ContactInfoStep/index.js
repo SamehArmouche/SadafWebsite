@@ -45,8 +45,8 @@ const ContactInfoStep = ({ handleSubmit }) => {
         <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:150}}} required >
           <CodeCountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"phoneCode"}/>
         </FormControl>
-        <Input direction={"ltr"} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
-        <Input direction={"ltr"} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} />
+        <Input direction={"ltr"} required={true} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
+        <Input direction={"ltr"} required={true} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} />
         <Input direction={"ltr"} handleChange={handleChange} name ={"website"} value = {state.form?.website} label={t('talent.stepper.contactinfostep.inputs.website')} />
  
         <ComunicationTypeSelect  
