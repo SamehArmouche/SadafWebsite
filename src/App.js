@@ -127,6 +127,15 @@ function App() {
           }
         }
       },
+      MuiListItem: {
+        styleOverrides: {
+          root: {
+            paddingTop:0,
+            paddingBottom:0,
+            marginBottom:5
+          }
+        }
+      },
       MuiStepConnector: {
         styleOverrides: {
           alternativeLabel: {

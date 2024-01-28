@@ -50,6 +50,8 @@ const ContactInfoStep = ({ handleSubmit }) => {
               noneItem={t('talent.stepper.buttons.none')}
               value={state?.form?.communicationtype || ''}
               options={options}
+              onChange={handleChange}
+              t={t}
             />
             </Grid>
             <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>

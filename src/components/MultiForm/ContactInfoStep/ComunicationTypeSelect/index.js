@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import colors from '../../../../assets/theme/colors/'
 
-export default function ComunicationTypeSelect({onChange, value, label, noneItem, options}) {
+export default function ComunicationTypeSelect({onChange, value, label, noneItem, options, t}) {
   
   return (
     <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:250}}} >
@@ -28,7 +28,7 @@ export default function ComunicationTypeSelect({onChange, value, label, noneItem
           </MenuItem>
           {
             options.map((o)=>{
-              return <MenuItem key={o.value} value={o.value}>{o.label}</MenuItem>
+              return <MenuItem key={o.value} value={o.value}>{t(o.label)}</MenuItem>
             })
           }
       </Select>
