@@ -7,14 +7,12 @@ import { useNavigate } from "react-router-dom";
 
 function Talent() {
   const { t, i18n } = useTranslation();
-  const [ form, setForm ]= React.useState({email:''});
+  const [ form, setForm ]= React.useState({});
   const [ error, setError ] = React.useState(false);
   const navigate = useNavigate(); 
 
   const handleError = (value)=>{
-    if(value==="email")
-      return !validateEmail(form[value]);
-    return !form[value]?.length>0
+    return (form[value]!==undefined?!validateEmail(form[value]):false)
   }
 
   const onSubmit = async () => {
@@ -66,6 +64,7 @@ function Talent() {
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, mt:3.5,width:{xs:'80%',md:'70%'},direction:'ltr'}}
           required
           autoComplete='nope'
+          helperText={handleError("email")?t('contact.errors.email'):""}
         />
         <Box sx={{height:24,width:'100%',justifyContent:'center',display:'flex'}}>
           {error &&

@@ -43,16 +43,13 @@ function ContactUs() {
       }
     }
   }
-  console.log(errors)
 
   const handleError = (value)=>{
-    //console.log(form[value])
     if(form[value]!==undefined){
       if(value==='email')
         return !validateEmail(form[value]);
       return !form[value]?.length>0
     }
-    //return true;
   }
 
   return (
