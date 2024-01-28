@@ -1,5 +1,6 @@
 import {
-  Grid
+  Grid,
+  Fade
 } from "@mui/material";
 
 import Category from '../../Category'
@@ -23,22 +24,24 @@ const CategoryStep = ({
 
   const { state } = useLocation();
   return (
-    <Grid
-      container
-      sx={{
-        height:'100%',
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
-      }}>
-        {
-         categories.map((c, i)=>{
-          return (
-            <Category handleSubmit={handleSubmit} key={i} i={i} title={c} currentCat={state?.form?.category}/>
-            )
-          })
-        }
-    </Grid>
+    <Fade  in={true} mountOnEnter unmountOnExit>
+      <Grid
+        container
+        sx={{
+          height:'100%',
+          display:'flex',
+          justifyContent:'center',
+          alignItems:'center',
+        }}>
+          {
+          categories.map((c, i)=>{
+            return (
+              <Category handleSubmit={handleSubmit} key={i} i={i} title={c} currentCat={state?.form?.category}/>
+              )
+            })
+          }
+      </Grid>
+    </Fade>
   )
 }
 

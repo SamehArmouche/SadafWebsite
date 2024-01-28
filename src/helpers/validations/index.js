@@ -7,7 +7,6 @@ const validateEmail = (email) => {
 };
 
 const validateField = (form ,value)=>{
-  console.log(form)
   if(form[value]!==undefined){
     if(value==='email')
       return !validateEmail(form[value]);

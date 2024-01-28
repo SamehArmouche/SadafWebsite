@@ -2,7 +2,8 @@ import {
   Grid,
   Box,
   FormControl,
-  Divider
+  Divider,
+  Fade
 } from "@mui/material";
 import * as React from 'react'
 import { useTranslation } from 'react-i18next';
@@ -40,6 +41,7 @@ const ContactInfoStep = ({ handleSubmit }) => {
   ]
 
   return (
+    <Fade  in={true} mountOnEnter unmountOnExit>
     <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
       <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
         <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:150}}} required >
@@ -65,6 +67,7 @@ const ContactInfoStep = ({ handleSubmit }) => {
         <SocialNetworksList/>
       </Grid>
     </Box>
+    </Fade>
   )
 }
 
