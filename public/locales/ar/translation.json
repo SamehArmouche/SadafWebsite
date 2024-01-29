@@ -82,6 +82,10 @@
             "french":"فرنسي",
             "italian":"إيطالي",
             "spanish":"إسباني"
+          },
+          "preparticipation":{
+            "title":"هل شاركت من قبل مع صدف?",
+            "summary":"شرح"
           }
         }
       },

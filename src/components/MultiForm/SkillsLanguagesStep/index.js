@@ -6,11 +6,11 @@ import {
 import * as React from 'react'
 import EducationalLevelSelect from './EducationalLevelSelect'
 import LanguagesSelect from './LanguagesSelect'
+import Switch from '../../../components/Switch'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
-import { studies } from '../../../helpers/data';
-import { languages } from '../../../helpers/data';
-
+import { studies, languages } from '../../../helpers/data';
+import Input from '../../Input'
 const SkillsLanguagesStep = ({
   handleSubmit
 }) => {
@@ -22,12 +22,18 @@ const SkillsLanguagesStep = ({
     state.form[name]=value;
     setForm(!form);
   };
+  const [preparticipation, setPreparticipation] = React.useState(false);
+
+  const switchHandler = (e) => {
+    setPreparticipation(e.target.checked);
+  };
+
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
       <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
-          <Grid item sx={{}}>
-
+          
+          <Grid item>
             <EducationalLevelSelect  
               label={t('talent.stepper.skillslanguagesstep.inputs.studies.title')} 
               noneItem={t('talent.stepper.buttons.none')}
@@ -36,8 +42,19 @@ const SkillsLanguagesStep = ({
               onChange={handleChange}
               t={t}
             />
-              <LanguagesSelect t={t} languages={languages}/>
-            </Grid>
+            <LanguagesSelect t={t} languages={languages}/>
+          </Grid>
+
+          <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex'}}>
+            <Switch t={t} preparticipation={preparticipation} handleChange={switchHandler}/>
+          </Grid>
+          {preparticipation &&
+            <Fade  in={true} mountOnEnter unmountOnExit>
+              <Grid item>
+                <Input handleChange={handleChange} multiline={true} name ={"summary"} value = {state.form?.summary} label={t('talent.stepper.skillslanguagesstep.inputs.preparticipation.summary')} /> 
+              </Grid>
+            </Fade>
+          }
         </Grid> 
       </Box>
     </Fade>
