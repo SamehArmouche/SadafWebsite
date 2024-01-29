@@ -13,6 +13,38 @@ const options = [
   }
 ]
 
+const studies = [
+  {
+    value:"primary",
+    label:'talent.stepper.skillslanguagesstep.inputs.studies.primary'
+  },
+  {
+    value:"متوسط",
+    label:'talent.stepper.skillslanguagesstep.inputs.studies.middle'
+  },
+  {
+    value:"ثانوي",
+    label:'talent.stepper.skillslanguagesstep.inputs.studies.secondary'
+  },
+  {
+    value:"دبلوم",
+    label:'talent.stepper.skillslanguagesstep.inputs.studies.diploma'
+  },
+  {
+    value:"بكالوريوس",
+    label:'talent.stepper.skillslanguagesstep.inputs.studies.bachelor'
+  },
+  {
+    value:"دراسات عليا",
+    label:'talent.stepper.skillslanguagesstep.inputs.studies.postgraduate'
+  },
+  {
+    value:"بدون",
+    label:'talent.stepper.skillslanguagesstep.inputs.studies.without'
+  }
+]
+
+
 const countries = 
 [
     {
@@ -1767,4 +1799,4 @@ const countries =
     }
   ]
 
-module.exports = {countries, options}
+module.exports = {countries, options, studies}

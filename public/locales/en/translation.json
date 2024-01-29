@@ -62,7 +62,19 @@
         }
       },
       "skillslanguagesstep":{
-        "title":"Skills and languages"
+        "title":"Skills and languages",
+        "inputs": {
+          "studies":{
+              "title": "Educational level",
+              "primary":"Primary",
+              "middle":"Middle",
+              "secondary":"secondary",
+              "diploma":"Diploma",
+              "bachelor":"Bachelor's",
+              "postgraduate":"Postgraduate",
+              "without":"Without"
+          }
+        }
       },
       "buttons":{
         "next":"Next",

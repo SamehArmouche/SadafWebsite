@@ -62,7 +62,20 @@
         }
       },
       "skillslanguagesstep":{
-        "title":"المهارات واللغات"
+        "title":"المهارات واللغات",
+        "inputs": {
+          "studies":{
+              "title": "المستوى التعليمي",
+              "primary":"إبتدائي",
+              "middle":"متوسط",
+              "whatsapp":"الواتس اب",
+              "secondary":"الثانوية",
+              "diploma":"دبلوم",
+              "bachelor":"بكالوريوس",
+              "postgraduate":"دراسات عليا",
+              "without":"بدون"
+          }
+        }
       },
       "buttons":{
         "next":"التالي",
