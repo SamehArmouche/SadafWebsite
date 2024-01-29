@@ -47,39 +47,11 @@ const TYPES = [
 ];
 
 
-function renderItem({ item, handleRemoveFruit, i }) {
-  return (
 
-    <ListItem
-      sx={{direction:'rtl',backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,width:300,justifyContent:'center'}}
-      secondaryAction={
-        <IconButton
-          edge="end"
-          aria-label="delete"
-          title="Delete"
-          onClick={() => handleRemoveFruit(item.value)}
-        >
-          <DeleteIcon />
-        </IconButton>
-      }
-    >
-      <TextField id="filled-basic" label={"Link"} variant="filled"
-        inputProps={{ style: { color: colors.primary }}}
-        //value={value || ''}
-        //error={handleError("companyName")}
-        //onChange={(e) => handleChange(name,e.target.value)}
-        //sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,maxwidth:300, direction:'ltr',width:{xs:300,md:150}}}
-        sx={{backgroundColor:'rgba(247, 216, 159, 0.2)',borderRadius:1,height:55,width:260, direction:"ltr"}}
-        autoComplete='nope'
-      />
-      {item.icon}
-    </ListItem>
-  );
-}
 
 export default function SocialNetworksList() {
-  const [fruitsInBasket, setFruitsInBasket] = React.useState([]);
   const { state } = useLocation();
+  const [fruitsInBasket, setFruitsInBasket] = React.useState([]);
   const availbleOptions = () =>{
     return TYPES.filter(function(e) {
       return fruitsInBasket.indexOf(e) < 0;
@@ -87,13 +59,42 @@ export default function SocialNetworksList() {
   }
   const handleRemoveFruit = (item) => {
     setFruitsInBasket((prev) => [...prev.filter((i) => i.value !== item)]);
-
   };
 
   const handleAddFruit = (value) => {
-    //state.form['links']={...state.form['links'],[value.value]:"jefefjbef"}
     setFruitsInBasket((prev) => [ ...prev, value]);
   };
+
+  const renderItem = ({ item, handleRemoveFruit, i }) => {
+    return (
+  
+      <ListItem
+        sx={{direction:'rtl',backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,width:300,justifyContent:'center'}}
+        secondaryAction={
+          <IconButton
+            edge="end"
+            aria-label="delete"
+            title="Delete"
+            onClick={() => handleRemoveFruit(item.value)}
+          >
+            <DeleteIcon />
+          </IconButton>
+        }
+      >
+        <TextField id="filled-basic" label={"Link"} variant="filled"
+          inputProps={{ style: { color: colors.primary }}}
+          //value={value || ''}
+          
+          //error={handleError("companyName")}
+          onChange={(e) => {state.form['links'] = {...state.form['links'],[item.value]:e.target.value}}}
+          //sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,maxwidth:300, direction:'ltr',width:{xs:300,md:150}}}
+          sx={{backgroundColor:'rgba(247, 216, 159, 0.2)',borderRadius:1,height:55,width:260, direction:"ltr"}}
+          autoComplete='nope'
+        />
+        {item.icon}
+      </ListItem>
+    );
+  }
 
   const addFruitButton = (
     <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:250}}} >

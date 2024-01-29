@@ -80,7 +80,7 @@ const MultiForm = () => {
           {steps.map((label, index) => (
             <Step key={index}>
               <StepLabel>
-                <Typography>
+                <Typography style={{fontWeight:activeStep===index?'bold':''}}>
                   {t(`talent.stepper.${label.toLowerCase()}.title`)}
                 </Typography>
               </StepLabel>

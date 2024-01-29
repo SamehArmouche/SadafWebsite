@@ -57,7 +57,7 @@ const PersonalInfoStep = ({
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
 
           <Grid item>
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:155}}} required >
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:153}}} required >
               <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.personalinfo.inputs.gender.title')}</InputLabel>
               <Select
                 sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",
@@ -101,7 +101,7 @@ const PersonalInfoStep = ({
                 sx={{direction:'ltr'}}
                 slotProps ={{
                   textField: {
-                    required: false,
+                    required: true,
                     error:false
                   },
                   actionBar: {
@@ -123,7 +123,7 @@ const PersonalInfoStep = ({
             <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:250}}} required >
               <CountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"country"}/>
             </FormControl>
-            <Input direction={i18n.dir()} width={160} required={true} handleChange={handleChange} name ={"city"} value = {state.form?.city} label={t('talent.stepper.personalinfo.inputs.address.city')} /> 
+            <Input direction={i18n.dir()} width={165} required={true} handleChange={handleChange} name ={"city"} value = {state.form?.city} label={t('talent.stepper.personalinfo.inputs.address.city')} /> 
           </Grid>
         </Grid> 
       </Box>
