@@ -23,21 +23,95 @@ const MultiForm = () => {
   const { t } = useTranslation();
   const { state } = useLocation();
   const [activeStep, setActiveStep] = useState(0);
-
+  const [error, setError] = useState(false);
   const handleBack = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
 
+
+  
+  const validateFields = (step) => {
+    if(step===2){
+      let fieldsToValidate = [
+        "phonenumber",
+        "fixnumber",
+        "phoneCode",
+      ]
+  
+      let error = false;
+      for (let index = 0; index < fieldsToValidate.length && !error; index++) {
+        if(!state.form.hasOwnProperty(fieldsToValidate[index])){
+          error=true;
+        }else{
+          error=(state.form[fieldsToValidate[index]]?.length>0?false:true);
+        }
+      }
+      return !error;
+    }
+
+    return true;
+  }
+
+  const changeStep = () => {
+    //console.log(Object.values(state.form).length)
+    switch (activeStep) {
+      case 0:
+
+          if(Object.values(state.form).length > 1){
+            setActiveStep((prevStep) => prevStep + 1);
+          }else{
+            setError(true)
+          }
+
+        break;
+      case 1:
+
+          if(Object.values(state.form).length > 1 && validateFields(1)){
+            setActiveStep((prevStep) => prevStep + 1);
+          }else{
+            setError(true)
+          }
+
+        break;
+      case 2:
+
+          if(Object.values(state.form).length > 0 && validateFields(2)){
+            setActiveStep((prevStep) => prevStep + 1);
+          }else{
+            setError(true)
+          }
+
+        break;
+      case 3:
+
+          if(Object.values(state.form).length > 0 && validateFields(3)){
+            setActiveStep((prevStep) => prevStep + 1);
+          }else{
+            setError(true)
+          }
+
+        break;
+      default:
+        break;
+    }
+
+
+
+    /*if(Object.values(state.form).length<20 && !Object.values(state.form).includes("")){
+      console.log("error")
+    }else{
+      if (activeStep === steps.length - 1) {
+        console.log('last step');
+      } else {
+        setActiveStep((prevStep) => prevStep + 1);
+      }
+    }*/
+  }
   const handleSubmit = (name,value) =>{
     if(name && value){
       state.form[name]=value
-
     }
-    if (activeStep === steps.length - 1) {
-      console.log('last step');
-    } else {
-      setActiveStep((prevStep) => prevStep + 1);
-    }
+    changeStep();
   }
 
   const formContent = (step) => {

@@ -33,7 +33,7 @@
           },
           "birthday": "Date of birth",
           "relationship": {
-            "title": "ٌRelationship status",
+            "title": "Relationship status",
             "single": "Single",
             "married": "Married",
             "divorced": "Divorced",

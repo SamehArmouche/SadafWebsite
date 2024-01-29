@@ -34,7 +34,6 @@ export default function CountrySelect({lang, t, onChange, value, defaultValue}) 
       autoHighlight
       getOptionLabel={(c) => {return (lang!=="en"?c.arabic_name:c.english_name)}}
       onChange={(event, newValue) => {
-        console.log(newValue)
         if(newValue)
           onChange(value,newValue.arabic_name)
         else
