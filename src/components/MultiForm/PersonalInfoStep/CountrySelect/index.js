@@ -4,8 +4,12 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import {countries} from '../../../../helpers/data';
 
-export default function CountrySelect({lang, t, onChange, value}) {
-  
+export default function CountrySelect({lang, t, onChange, value, defaultValue}) {
+
+  const getCurrentValue = () =>{
+    return countries[countries.findIndex((e)=> { return e.arabic_name === defaultValue}) ] || null
+  }
+
   return (
     <Autocomplete
       sx={{
@@ -25,12 +29,16 @@ export default function CountrySelect({lang, t, onChange, value}) {
           actions: ['accept']
         },
       }}
+      value={getCurrentValue()}
       options={countries}
       autoHighlight
       getOptionLabel={(c) => {return (lang!=="en"?c.arabic_name:c.english_name)}}
       onChange={(event, newValue) => {
+        console.log(newValue)
         if(newValue)
           onChange(value,newValue.arabic_name)
+        else
+          onChange(value,'')
       }}
       renderOption={(props, option) => (
         <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>

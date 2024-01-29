@@ -5,6 +5,14 @@ import colors from '../../assets/theme/colors';
 import {validateEmail} from '../../helpers/validations';
 import { useNavigate } from "react-router-dom";
 
+const state = {
+  form: {
+    email:'',
+
+  }
+}
+
+
 function Talent() {
   const { t, i18n } = useTranslation();
   const [ form, setForm ]= React.useState({});
@@ -19,12 +27,11 @@ function Talent() {
     if(Object.values(form).length<1 || !validateEmail(form['email'])){
       setError(true)
     }else{
+      state.form.email=form.email;
       setError(false)
       navigate('/talents/register',
         {
-          state: {
-            form:form
-          }
+          state:state
         }
       )
 
