@@ -67,6 +67,14 @@ const styles = (i18n) => ({
         }
       }
     },
+    MuiChip:{
+      styleOverrides:{
+        root: {
+          color:colors.primary
+        }
+      }
+    },
+
     /*MuiAutocomplete: {
       defaultProps: {
         slotProps: {

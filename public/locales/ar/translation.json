@@ -74,6 +74,14 @@
               "bachelor":"بكالوريوس",
               "postgraduate":"دراسات عليا",
               "without":"بدون"
+          },
+          "languages":{
+            "title":"اللغات",
+            "arabic":"عربي",
+            "english":"إنجليزي",
+            "french":"فرنسي",
+            "italian":"إيطالي",
+            "spanish":"إسباني"
           }
         }
       },

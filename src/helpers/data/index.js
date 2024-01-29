@@ -44,7 +44,23 @@ const studies = [
   }
 ]
 
-
+const languages = [
+  { value: 'arabic',
+    label:'talent.stepper.skillslanguagesstep.inputs.languages.arabic'
+  },
+  { value: 'english',
+    label:'talent.stepper.skillslanguagesstep.inputs.languages.english'
+  },
+  { value: 'french',
+    label:'talent.stepper.skillslanguagesstep.inputs.languages.french'
+  },
+  { value: 'italian',
+    label:'talent.stepper.skillslanguagesstep.inputs.languages.italian'
+  },
+  { value: 'spanish',
+    label:'talent.stepper.skillslanguagesstep.inputs.languages.spanish'
+  }
+];
 const countries = 
 [
     {
@@ -1799,4 +1815,4 @@ const countries =
     }
   ]
 
-module.exports = {countries, options, studies}
+module.exports = {countries, options, studies,languages}

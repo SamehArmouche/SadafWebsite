@@ -73,6 +73,14 @@
               "bachelor":"Bachelor's",
               "postgraduate":"Postgraduate",
               "without":"Without"
+          },
+          "languages":{
+            "title":"Languages",
+            "arabic":"Arabic",
+            "english":"English",
+            "french":"French",
+            "italian":"Italian",
+            "spanish":"Spanish"
           }
         }
       },
