@@ -26,7 +26,6 @@ const ContactInfoStep = ({ handleSubmit }) => {
     setForm(!form);
   };
 
-  console.log(state.form)
 
   return (
 

@@ -18,6 +18,7 @@ const SkillsLanguagesStep = ({
   const { state } = useLocation();
   const { t } = useTranslation();
   const [form, setForm] = React.useState(false);
+
   const handleChange = (name,value) => {
     state.form[name]=value;
     setForm(!form);
@@ -27,6 +28,7 @@ const SkillsLanguagesStep = ({
   const switchHandler = (e) => {
     setPreparticipation(e.target.checked);
   };
+
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
@@ -45,13 +47,18 @@ const SkillsLanguagesStep = ({
             <LanguagesSelect t={t} languages={languages}/>
           </Grid>
 
-          <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex'}}>
+          <Grid item sx={{justifyContent:{xs:'center',md:"center"},display:'flex'}}>
             <Switch t={t} preparticipation={preparticipation} handleChange={switchHandler}/>
           </Grid>
           {preparticipation &&
             <Fade  in={true} mountOnEnter unmountOnExit>
               <Grid item>
-                <Input handleChange={handleChange} multiline={true} name ={"summary"} value = {state.form?.summary} label={t('talent.stepper.skillslanguagesstep.inputs.preparticipation.summary')} /> 
+                <Input 
+                  required={true}
+                  handleChange={handleChange} multiline={true} name ={"summary"} 
+                  value = {state.form?.summary} 
+                  width={515}
+                  label={t('talent.stepper.skillslanguagesstep.inputs.preparticipation.summary')} /> 
               </Grid>
             </Fade>
           }
