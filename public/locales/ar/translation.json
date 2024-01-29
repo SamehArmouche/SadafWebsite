@@ -49,17 +49,20 @@
       "contactinfostep":{
         "title":"معلومات التواصل",
         "inputs": {
-        "phonenumber":"رقم الجوال",
-        "fixnumber":"رقم المنزل",
-        "phoneCode": "الرمز الدولي",
-        "website": "الموقع الإلكتروني",
-        "communicationType":{
-          "title": "وسيلة الاتصال المفضلة",
-          "mobile":"الجوال",
-          "email":"البريد الإلكتروني",
-          "whatsapp":"الواتس اب"
+          "phonenumber":"رقم الجوال",
+          "fixnumber":"رقم المنزل",
+          "phoneCode": "الرمز الدولي",
+          "website": "الموقع الإلكتروني",
+          "communicationType":{
+              "title": "وسيلة الاتصال المفضلة",
+              "mobile":"الجوال",
+              "email":"البريد الإلكتروني",
+              "whatsapp":"الواتس اب"
+          }
         }
-        }
+      },
+      "skillslanguagesstep":{
+        "title":"المهارات واللغات"
       },
       "buttons":{
         "next":"التالي",

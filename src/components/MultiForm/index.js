@@ -12,10 +12,11 @@ import { useLocation } from 'react-router-dom'
 import CategoryStep from './CategoryStep';
 import PersonalInfoStep from './PersonalInfoStep';
 import ContactInfoStep from './ContactInfoStep';
+import SkillsLanguagesStep from './SkillsLanguagesStep';
 import ReviewInfo from './ReviewInfo';
 import { useTranslation } from 'react-i18next';
 
-const steps = ['Category','PersonalInfo','ContactInfoStep', 'Review'];
+const steps = ['Category','PersonalInfo','ContactInfoStep','SkillsLanguagesStep', 'Review'];
 
 const MultiForm = () => {
   
@@ -47,6 +48,8 @@ const MultiForm = () => {
         return <PersonalInfoStep handleSubmit={handleSubmit} />;
       case 2:
         return <ContactInfoStep handleSubmit={handleSubmit} />;
+      case 3:
+        return <SkillsLanguagesStep handleSubmit={handleSubmit} />;
       default:
         return <ReviewInfo />;
     }

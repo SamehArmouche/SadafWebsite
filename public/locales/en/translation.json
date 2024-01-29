@@ -49,17 +49,20 @@
       "contactinfostep":{
         "title":"Contact info",
         "inputs": {
-        "phonenumber":"Mobile number",
-        "fixnumber":"Fix number",
-        "phoneCode": "Code",
-        "website": "Website",
-        "communicationType": {
-          "title": "Preferred communication type",
-          "mobile":"Mobile",
-          "email":"Email",
-          "whatsapp":"WhatsApp"
+          "phonenumber":"Mobile number",
+          "fixnumber":"Fix number",
+          "phoneCode": "Code",
+          "website": "Website",
+          "communicationType": {
+            "title": "Preferred communication type",
+            "mobile":"Mobile",
+            "email":"Email",
+            "whatsapp":"WhatsApp"
+          }
         }
-        }
+      },
+      "skillslanguagesstep":{
+        "title":"Skills and languages"
       },
       "buttons":{
         "next":"Next",
