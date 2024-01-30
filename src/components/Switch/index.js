@@ -52,9 +52,9 @@ const SwitchButton = ({label, handleChange, checked, field}) => {
   const { state } = useLocation();
 
   return(
-    <Box sx={{justifyContent:'center',display:"flex",alignItems:'center'}}>
+    <Box sx={{display:"flex",alignItems:'center'}}>
       <Android12Switch checked={checked} onChange={(e)=> {handleChange(e, field)}} />
-      <Typography>
+      <Typography align={'left'}>
         {label}
       </Typography>
     </Box>

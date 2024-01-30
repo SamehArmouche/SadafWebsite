@@ -26,7 +26,8 @@ const SkillsLanguagesStep = ({
   const [preparticipation, setPreparticipation] = React.useState(false);
 
   const switchHandler = (e, field) => {
-    setPreparticipation(e.target.checked);
+    if(field==='preparticipation')
+      setPreparticipation(e.target.checked);
   };
 
 
@@ -49,7 +50,11 @@ const SkillsLanguagesStep = ({
             <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.talents.title"} items={talents}/>
           </Grid>
 
-          <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex'}}>
+          <Grid item sx={{justifyContent:"flex-start",display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0}}}>
+            <Switch label={t("talent.stepper.skillslanguagesstep.inputs.cantravel.title")} handleChange={switchHandler} field={"cantravel"}/>
+          </Grid>
+          
+          <Grid item sx={{justifyContent:"flex-start",display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0}}}>
             <Switch label={t("talent.stepper.skillslanguagesstep.inputs.preparticipation.title")} handleChange={switchHandler} field={"preparticipation"}/>
           </Grid>
           {preparticipation &&

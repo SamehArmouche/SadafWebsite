@@ -86,6 +86,9 @@
             "title":"Have you ever partnered with Sadaf?",
             "details":"Details"
           },
+          "cantravel":{
+            "title":"Can you travel outside your place of residence?"
+          },
           "talents":{
             "title":"Talents",
             "0":"التمثيل",
