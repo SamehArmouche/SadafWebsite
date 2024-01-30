@@ -8,7 +8,7 @@ import DataSelect from '../../../components/DataSelect'
 import Switch from '../../../components/Switch'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
-import { hairColors, eyeColors, skinColors } from '../../../helpers/data';
+import { hairColors, eyeColors, skinColors, bodyTypes } from '../../../helpers/data';
 import { validateNumber } from '../../../helpers/validations';
 import Input from '../../Input'
 const BodyInfoStep = ({
@@ -29,10 +29,10 @@ const BodyInfoStep = ({
     }
     setForm(!form);
   };
-  const [preparticipation, setPreparticipation] = React.useState(false);
+  const [diseases, setDiseases] = React.useState(false);
 
-  const switchHandler = (e) => {
-    setPreparticipation(e.target.checked);
+  const switchHandler = (e, field) => {
+    setDiseases(e.target.checked);
   };
   
   return (
@@ -40,7 +40,7 @@ const BodyInfoStep = ({
       <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
           
-          <Grid item>
+        <Grid item sx={{}}>
             <DataSelect  
               label={t('talent.stepper.bodyinfostep.inputs.haircolors.title')} 
               noneItem={t('talent.stepper.buttons.none')}
@@ -67,21 +67,34 @@ const BodyInfoStep = ({
             />
           </Grid>
           
-          <Grid item sx={{backgroundColor:'black'}}>
+          <Grid item sx={{display:'flex',flexWrap:'wrap',justifyContent:{md:'flex-start',xs:'center'}}}>
             <Input 
               required={true}
               handleChange={handleChange} name ={"height"} 
               type={"number"}
-              value = {state.form?.height} 
-              width={120}
+              value = {state.form?.height}
+              direction={"ltr"}
+              width={117}
               label={t('talent.stepper.bodyinfostep.inputs.height')} /> 
             <Input 
               required={true}
               handleChange={handleChange} name ={"weight"} 
               type={"number"}
               value = {state.form?.weight} 
-              width={120}
+              direction={"ltr"}
+              width={117}
               label={t('talent.stepper.bodyinfostep.inputs.weight')} />
+            <DataSelect  
+              label={t('talent.stepper.bodyinfostep.inputs.bodytypes.title')} 
+              noneItem={t('talent.stepper.buttons.none')}
+              value={state?.form?.bodyType || ''}
+              options={bodyTypes}
+              onChange={(e)=>handleChange("bodyType",e.target.value)}
+              t={t}
+            />
+          </Grid>
+          <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex'}}>
+            <Switch label={t("talent.stepper.bodyinfostep.inputs.diseases.title")} handleChange={switchHandler} field={"diseases"}/>
           </Grid>
         </Grid> 
       </Box>

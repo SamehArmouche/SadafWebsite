@@ -84,7 +84,7 @@
             "spanish":"إسباني"
           },
           "preparticipation":{
-            "title":"هل شاركت من قبل مع صدف?",
+            "title":"هل شاركت من قبل مع صدف؟",
             "summary":"شرح"
           },
           "talents":{
@@ -135,7 +135,19 @@
             "other":"أخرى"
           },
           "weight":"الوزن - كغ",
-          "height":"الطول - سم"
+          "height":"الطول - سم",
+          "bodytypes":{
+            "title":"نوع الجسم",
+            "small":"صغير",
+            "skinny":"نحيل",
+            "athletic":"رياضي",
+            "normal":"عادي",
+            "big":"ضخم",
+            "fattish":"قليل من الوزن الزائد"
+          },
+          "diseases":{
+            "title":"هل تعاني من أمراض؟"
+          }
         }
       },
       "buttons":{

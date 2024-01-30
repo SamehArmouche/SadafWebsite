@@ -128,6 +128,27 @@ const skinColors= [
   }
 ];
 
+const bodyTypes= [
+  { value: 'صغير',
+    label:'talent.stepper.bodyinfostep.inputs.bodytypes.small'
+  },
+  { value: 'نحيل',
+    label:'talent.stepper.bodyinfostep.inputs.bodytypes.skinny'
+  },
+  { value: 'رياضي',
+    label:'talent.stepper.bodyinfostep.inputs.bodytypes.athletic'
+  },
+  { value: 'عادي',
+    label:'talent.stepper.bodyinfostep.inputs.bodytypes.normal'
+  },
+  { value: 'ضخم',
+    label:'talent.stepper.bodyinfostep.inputs.bodytypes.big'
+  },
+  { value: 'قليل من الوزن الزائد',
+    label:'talent.stepper.bodyinfostep.inputs.bodytypes.fattish'
+  }
+];
+
 const talents = [
   { value: 'التمثيل',
     label:'talent.stepper.skillslanguagesstep.inputs.talents.0'
@@ -1919,4 +1940,4 @@ const countries =
     }
   ]
 
-module.exports = {countries, options, studies, languages, talents, hairColors, eyeColors, skinColors}
+module.exports = {countries, options, studies, languages, talents, hairColors, eyeColors, skinColors, bodyTypes}

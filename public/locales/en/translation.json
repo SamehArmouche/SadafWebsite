@@ -134,7 +134,19 @@
             "other":"Other"
           },
           "weight":"Weight - Kg",
-          "height":"Height - cm"
+          "height":"Height - cm",
+          "bodytypes":{
+            "title":"Body type",
+            "small":"Small",
+            "skinny":"Skinny",
+            "athletic":"Athletic",
+            "normal":"Normal",
+            "big":"Big",
+            "fattish":"Fattish"
+          },
+          "diseases":{
+            "title":"Do you suffer from diseases?"
+          }
         }
       },
       "buttons":{

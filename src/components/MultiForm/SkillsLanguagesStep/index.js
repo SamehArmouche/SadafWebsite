@@ -25,7 +25,7 @@ const SkillsLanguagesStep = ({
   };
   const [preparticipation, setPreparticipation] = React.useState(false);
 
-  const switchHandler = (e) => {
+  const switchHandler = (e, field) => {
     setPreparticipation(e.target.checked);
   };
 
@@ -50,7 +50,7 @@ const SkillsLanguagesStep = ({
           </Grid>
 
           <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex'}}>
-            <Switch t={t} preparticipation={preparticipation} handleChange={switchHandler}/>
+            <Switch label={t("talent.stepper.skillslanguagesstep.inputs.preparticipation.title")} handleChange={switchHandler} field={"preparticipation"}/>
           </Grid>
           {preparticipation &&
             <Fade  in={true} mountOnEnter unmountOnExit>

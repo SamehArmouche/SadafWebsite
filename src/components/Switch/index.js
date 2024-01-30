@@ -48,14 +48,14 @@ const Android12Switch = styled(Switch)(({ theme }) => ({
 }));
 
 
-const SwitchButton = ({t, handleChange, checked}) => {
+const SwitchButton = ({label, handleChange, checked, field}) => {
   const { state } = useLocation();
 
   return(
     <Box sx={{justifyContent:'center',display:"flex",alignItems:'center'}}>
-      <Android12Switch checked={checked} onChange={handleChange} />
+      <Android12Switch checked={checked} onChange={(e)=> {handleChange(e, field)}} />
       <Typography>
-        {t("talent.stepper.skillslanguagesstep.inputs.preparticipation.title")}
+        {label}
       </Typography>
     </Box>
   )
