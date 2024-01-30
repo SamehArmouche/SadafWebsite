@@ -5,7 +5,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
-export default function LanguagesSelect({t, languages}) {
+export default function MultipleSelect({label, t , items}) {
   return (
     <FormControl sx={{borderRadius:1,m:1,width:{xs:300,md:250}}} >
       <Autocomplete
@@ -19,7 +19,7 @@ export default function LanguagesSelect({t, languages}) {
             color: "red"
           }
         }}
-        options={languages.map((option) => t(option.label))}
+        options={items.map((option) => t(option.label))}
         defaultValue={[]}
         freeSolo
         disableCloseOnSelect
@@ -30,7 +30,7 @@ export default function LanguagesSelect({t, languages}) {
         }
         onChange={(event, value) => console.log(value)}
         renderOption={(props, option, { selected }) => (
-          <li style={{color:'red'}} {...props}>
+          <li {...props}>
             <Checkbox
               icon={icon}
               checkedIcon={checkedIcon}
@@ -45,7 +45,7 @@ export default function LanguagesSelect({t, languages}) {
           <TextField
             {...params}
             required 
-            label={t('talent.stepper.skillslanguagesstep.inputs.languages.title')}
+            label={t(label)}
             inputProps={{
               sx:{color:colors.primary},
               ...params.inputProps,

@@ -61,6 +61,44 @@ const languages = [
     label:'talent.stepper.skillslanguagesstep.inputs.languages.spanish'
   }
 ];
+
+const talents = [
+  { value: 'التمثيل',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.0'
+  },
+  { value: 'كتابة',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.1'
+  },
+  { value: 'مساعد إنتاج',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.2'
+  },
+  { value: 'معد موسيقي',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.3'
+  },
+  { value: 'إخراج',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.4'
+  },
+  { value: 'موننير (محرر فيديو)',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.5'
+  },
+  { value: 'VFX جرافيكس',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.6'
+  },
+  { value: 'تصميم ديكور',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.7'
+  },
+  { value: 'تصميم أزياء',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.8'
+  },
+  { value: 'تصوير',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.9'
+  },
+  { value: 'مكياج',
+    label:'talent.stepper.skillslanguagesstep.inputs.talents.10'
+  }
+];
+
+
 const countries = 
 [
     {
@@ -1815,4 +1853,4 @@ const countries =
     }
   ]
 
-module.exports = {countries, options, studies,languages}
+module.exports = {countries, options, studies, languages, talents}

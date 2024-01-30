@@ -5,11 +5,11 @@ import {
 } from "@mui/material";
 import * as React from 'react'
 import EducationalLevelSelect from './EducationalLevelSelect'
-import LanguagesSelect from './LanguagesSelect'
+import MultipleSelect from './MultipleSelect'
 import Switch from '../../../components/Switch'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
-import { studies, languages } from '../../../helpers/data';
+import { studies, languages, talents } from '../../../helpers/data';
 import Input from '../../Input'
 const SkillsLanguagesStep = ({
   handleSubmit
@@ -44,10 +44,14 @@ const SkillsLanguagesStep = ({
               onChange={handleChange}
               t={t}
             />
-            <LanguagesSelect t={t} languages={languages}/>
+            <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.languages.title"}  items={languages}/>
           </Grid>
 
-          <Grid item sx={{justifyContent:{xs:'center',md:"center"},display:'flex'}}>
+          <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex'}}>
+            <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.talents.title"} items={talents}/>
+          </Grid>
+
+          <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex'}}>
             <Switch t={t} preparticipation={preparticipation} handleChange={switchHandler}/>
           </Grid>
           {preparticipation &&
