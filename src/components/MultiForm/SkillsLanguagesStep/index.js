@@ -59,7 +59,7 @@ const SkillsLanguagesStep = ({
                   required={true}
                   handleChange={handleChange} multiline={true} name ={"summary"} 
                   value = {state.form?.summary} 
-                  width={515}
+                  width={'100%'}
                   label={t('talent.stepper.skillslanguagesstep.inputs.preparticipation.summary')} /> 
               </Grid>
             </Fade>

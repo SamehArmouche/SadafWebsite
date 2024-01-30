@@ -132,7 +132,9 @@
             "brown":"Brown",
             "wheat":"Wheat",
             "other":"Other"
-          }
+          },
+          "weight":"Weight - Kg",
+          "height":"Height - cm"
         }
       },
       "buttons":{

@@ -9,6 +9,7 @@ import Switch from '../../../components/Switch'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
 import { hairColors, eyeColors, skinColors } from '../../../helpers/data';
+import { validateNumber } from '../../../helpers/validations';
 import Input from '../../Input'
 const BodyInfoStep = ({
   handleSubmit
@@ -18,8 +19,14 @@ const BodyInfoStep = ({
   const { t } = useTranslation();
   const [form, setForm] = React.useState(false);
 
-  const handleChange = (name,value) => {
-    state.form[name]=value;
+  const handleChange = (name,value, type) => {
+    if(type==='number'&& value!==''){
+      if(validateNumber(value)){
+        state.form[name]=value;
+      }
+    }else{
+      state.form[name]=value;
+    }
     setForm(!form);
   };
   const [preparticipation, setPreparticipation] = React.useState(false);
@@ -27,8 +34,7 @@ const BodyInfoStep = ({
   const switchHandler = (e) => {
     setPreparticipation(e.target.checked);
   };
-
-
+  
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
       <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
@@ -59,6 +65,23 @@ const BodyInfoStep = ({
               onChange={(e)=>handleChange("skincolors",e.target.value)}
               t={t}
             />
+          </Grid>
+          
+          <Grid item sx={{backgroundColor:'black'}}>
+            <Input 
+              required={true}
+              handleChange={handleChange} name ={"height"} 
+              type={"number"}
+              value = {state.form?.height} 
+              width={120}
+              label={t('talent.stepper.bodyinfostep.inputs.height')} /> 
+            <Input 
+              required={true}
+              handleChange={handleChange} name ={"weight"} 
+              type={"number"}
+              value = {state.form?.weight} 
+              width={120}
+              label={t('talent.stepper.bodyinfostep.inputs.weight')} />
           </Grid>
         </Grid> 
       </Box>

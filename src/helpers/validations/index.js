@@ -6,12 +6,22 @@ const validateEmail = (email) => {
     );
 };
 
-const validateField = (form ,value)=>{
+const validateNumber = (number) => {
+  return String(number)
+    .toLowerCase()
+    .match(
+      /^\d*\.?\d*$/
+    );
+};
+
+const validateField = (form ,value, type)=>{
   if(form[value]!==undefined){
     if(value==='email')
       return !validateEmail(form[value]);
+    /*if(type==="number")
+      return !validateNumber(form[value]);*/
     return !form[value]?.length>0
   }
 }
 
-module.exports = {validateEmail, validateField}
+module.exports = {validateEmail, validateField,validateNumber}
