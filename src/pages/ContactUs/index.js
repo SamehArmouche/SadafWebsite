@@ -93,6 +93,7 @@ function ContactUs() {
           error={handleError("city")}
           onChange={(e) => {onChange({name:"city",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
+          required
           //helperText={handleError("city")?t('contact.errors.empty'):""}
           autoComplete='nope'
         />

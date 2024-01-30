@@ -41,7 +41,7 @@ const styles = (i18n) => ({
         // Name of the slot
         root: {
           backgroundColor:'black',
-          borderRadius:2,
+          borderRadius:10,
           boxShadow: "10px 10px 5px 0px rgba(0,0,0,0.1)",
         },
       },
