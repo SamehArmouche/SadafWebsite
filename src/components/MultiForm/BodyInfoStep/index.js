@@ -98,16 +98,13 @@ const BodyInfoStep = ({
               t={t}
             />
           </Grid>
-          <Grid item sx={{justifyContent:"flex-start",display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0}}}>
+          <Grid item sx={{display:'flex',flexDirection:'column',alignItems:{xs:'center',md:"flex-start"}}}>
             <Switch label={t("talent.stepper.bodyinfostep.inputs.diseases.title")} handleChange={switchHandler} field={"diseases"}/>
-          </Grid>
-
-          <Grid item sx={{justifyContent:"flex-start",display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0}}}>
             <Switch label={t("talent.stepper.bodyinfostep.inputs.healthcare.title")} handleChange={switchHandler} field={"healthcare"}/>
           </Grid>
           {healthcare &&
             <Fade  in={true} mountOnEnter unmountOnExit>
-              <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex',pl:{xs:1.5,md:0},pr:{xs:1.5,md:0}}}>
+              <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex',pl:{xs:0.5,md:0},pr:{xs:0.5,md:0}}}>
                 <Input 
                   required={true}
                   handleChange={handleChange} multiline={true} name ={"details"} 

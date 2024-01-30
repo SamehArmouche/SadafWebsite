@@ -9,7 +9,7 @@ import MultipleSelect from './MultipleSelect'
 import Switch from '../../../components/Switch'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
-import { studies, languages, talents } from '../../../helpers/data';
+import { studies, languages, talents, dialects } from '../../../helpers/data';
 import Input from '../../Input'
 const SkillsLanguagesStep = ({
   handleSubmit
@@ -37,29 +37,25 @@ const SkillsLanguagesStep = ({
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
           
           <Grid item>
-
             <DataSelect  
               label={t('talent.stepper.skillslanguagesstep.inputs.studies.title')} 
               noneItem={t('talent.stepper.buttons.none')}
               value={state?.form?.studies || ''}
               options={studies}
               onChange={(e)=>handleChange("studies",e.target.value)}
-              t={t}
-            />
+              t={t}/>
             <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.languages.title"}  items={languages}/>
+            <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.dialects.title"}  items={dialects}/>
             <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.talents.title"} items={talents}/>
           </Grid>
 
-          <Grid item sx={{justifyContent:"flex-start",display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0}}}>
+          <Grid item sx={{display:'flex',flexDirection:'column',alignItems:{xs:'center',md:"flex-start"}}}>
             <Switch label={t("talent.stepper.skillslanguagesstep.inputs.cantravel.title")} handleChange={switchHandler} field={"cantravel"}/>
-          </Grid>
-          
-          <Grid item sx={{justifyContent:"flex-start",display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0}}}>
             <Switch label={t("talent.stepper.skillslanguagesstep.inputs.preparticipation.title")} handleChange={switchHandler} field={"preparticipation"}/>
           </Grid>
           {preparticipation &&
             <Fade  in={true} mountOnEnter unmountOnExit>
-              <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex',pl:{xs:1.5,md:0},pr:{xs:1.5,md:0}}}>
+              <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex',pl:{xs:0.5,md:0},pr:{xs:0.5,md:0}}}>
                 <Input 
                   required={true}
                   handleChange={handleChange} multiline={true} name ={"details"} 
@@ -69,6 +65,7 @@ const SkillsLanguagesStep = ({
               </Grid>
             </Fade>
           }
+        
         </Grid> 
       </Box>
     </Fade>

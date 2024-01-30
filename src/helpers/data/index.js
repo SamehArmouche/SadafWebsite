@@ -62,6 +62,29 @@ const languages = [
   }
 ];
 
+const dialects = [
+  { value: 'اللهجة السعودية',
+    label:'talent.stepper.skillslanguagesstep.inputs.dialects.saudi'
+  },
+  { value: 'اللهجة الخليجية',
+    label:'talent.stepper.skillslanguagesstep.inputs.dialects.gulf'
+  },
+  { value: 'اللهجة الحجازية الحضرية',
+    label:'talent.stepper.skillslanguagesstep.inputs.dialects.urbanhijazi'
+  },
+  { value: 'اللهجة الحجازية بدوية',
+    label:'talent.stepper.skillslanguagesstep.inputs.dialects.bedouinhijazi'
+  },
+  { value: 'اللهجة الجنوبية',
+    label:'talent.stepper.skillslanguagesstep.inputs.dialects.southern'
+  },
+  {
+    value: 'اللهجة التهامية',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.tehama'
+  }
+];
+
+
 const hairColors = [
   { value: 'أسود',
     label:'talent.stepper.bodyinfostep.inputs.haircolors.black'
@@ -1940,4 +1963,4 @@ const countries =
     }
   ]
 
-module.exports = {countries, options, studies, languages, talents, hairColors, eyeColors, skinColors, bodyTypes}
+module.exports = {countries, options, studies, languages, talents, hairColors, eyeColors, skinColors, bodyTypes, dialects}

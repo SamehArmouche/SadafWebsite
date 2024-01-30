@@ -82,6 +82,15 @@
             "italian":"Italian",
             "spanish":"Spanish"
           },
+          "dialects":{
+            "title":"Dialects",
+            "saudi":"Saudi dialect",
+            "gulf":"Gulf dialect",
+            "urbanhijazi":"Urban Hijazi dialect",
+            "bedouinhijazi":"Hijazi Bedouin dialect",
+            "southern":"Southern dialect",
+            "tehama":"Tehama dialect"
+          },
           "preparticipation":{
             "title":"Have you ever partnered with Sadaf?",
             "details":"Details"
