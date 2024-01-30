@@ -62,6 +62,34 @@ const languages = [
   }
 ];
 
+const hairColors = [
+  { value: 'أسود',
+    label:'talent.stepper.bodyinfostep.inputs.haircolors.black'
+  },
+  { value: 'بني',
+    label:'talent.stepper.bodyinfostep.inputs.haircolors.brown'
+  },
+  { value: 'بني فاتح',
+    label:'talent.stepper.bodyinfostep.inputs.haircolors.lightbrown'
+  },
+  { value: 'أشقر',
+    label:'talent.stepper.bodyinfostep.inputs.haircolors.blonde'
+  },
+  { value: 'رمادي',
+    label:'talent.stepper.bodyinfostep.inputs.haircolors.grey'
+  },
+  { value: 'أحمر',
+    label:'talent.stepper.bodyinfostep.inputs.haircolors.red'
+  },
+  { value: 'أبيض',
+    label:'talent.stepper.bodyinfostep.inputs.haircolors.white'
+  },
+  { value: 'أصلع/محلوق',
+    label:'talent.stepper.bodyinfostep.inputs.haircolors.shaved'
+  }
+];
+
+
 const talents = [
   { value: 'التمثيل',
     label:'talent.stepper.skillslanguagesstep.inputs.talents.0'
@@ -1853,4 +1881,4 @@ const countries =
     }
   ]
 
-module.exports = {countries, options, studies, languages, talents}
+module.exports = {countries, options, studies, languages, talents, hairColors}

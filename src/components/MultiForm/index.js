@@ -13,10 +13,11 @@ import CategoryStep from './CategoryStep';
 import PersonalInfoStep from './PersonalInfoStep';
 import ContactInfoStep from './ContactInfoStep';
 import SkillsLanguagesStep from './SkillsLanguagesStep';
+import BodyInfoStep from './BodyInfoStep';
 import ReviewInfo from './ReviewInfo';
 import { useTranslation } from 'react-i18next';
 
-const steps = ['Category','PersonalInfo','ContactInfoStep','SkillsLanguagesStep', 'Review'];
+const steps = ['Category','PersonalInfo','ContactInfoStep','SkillsLanguagesStep', 'BodyInfoStep', 'Review'];
 
 const MultiForm = () => {
   
@@ -89,8 +90,17 @@ const MultiForm = () => {
           }else{
             setError(true)
           }
-
         break;
+        
+      case 4:
+
+          if(Object.values(state.form).length > 0 && validateFields(3)){
+            setActiveStep((prevStep) => prevStep + 1);
+          }else{
+            setError(true)
+          }
+        break;
+
       default:
         break;
     }
@@ -124,6 +134,8 @@ const MultiForm = () => {
         return <ContactInfoStep handleSubmit={handleSubmit} />;
       case 3:
         return <SkillsLanguagesStep handleSubmit={handleSubmit} />;
+      case 4:
+        return <BodyInfoStep handleSubmit={handleSubmit} />;
       default:
         return <ReviewInfo />;
     }

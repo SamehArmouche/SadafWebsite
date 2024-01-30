@@ -103,6 +103,22 @@
           }
         }
       },
+      "bodyinfostep" : {
+        "title":"المواصفات البدنية",
+        "inputs":{
+          "haircolors":{
+            "title": "لون الشعر",
+            "black":"أسود",
+            "brown":"بني",
+            "lightbrown":"بني فاتح",
+            "blonde":"أشقر",
+            "grey":"رمادي",
+            "red":"أحمر",
+            "white":"أبيض",
+            "shaved":"أصلع/محلوق"
+          }
+        }
+      },
       "buttons":{
         "next":"التالي",
         "back":"السابق",

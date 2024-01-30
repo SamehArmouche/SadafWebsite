@@ -102,6 +102,22 @@
           }
         }
       },
+      "bodyinfostep" : {
+        "title":"Physical specifications",
+        "inputs":{
+          "haircolors":{
+            "title": "Hair color",
+            "black":"Black",
+            "brown":"Brown",
+            "lightbrown":"Light Brown",
+            "blonde":"Blonde",
+            "grey":"Grey",
+            "red":"Red",
+            "white":"White",
+            "shaved":"Bold/Shaved"
+          }
+        }
+      },
       "buttons":{
         "next":"Next",
         "back":"Back",

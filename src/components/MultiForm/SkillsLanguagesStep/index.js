@@ -4,7 +4,7 @@ import {
   Box
 } from "@mui/material";
 import * as React from 'react'
-import EducationalLevelSelect from './EducationalLevelSelect'
+import DataSelect from '../../../components/DataSelect'
 import MultipleSelect from './MultipleSelect'
 import Switch from '../../../components/Switch'
 import { useLocation } from 'react-router-dom'
@@ -36,12 +36,13 @@ const SkillsLanguagesStep = ({
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
           
           <Grid item>
-            <EducationalLevelSelect  
+
+            <DataSelect  
               label={t('talent.stepper.skillslanguagesstep.inputs.studies.title')} 
               noneItem={t('talent.stepper.buttons.none')}
               value={state?.form?.studies || ''}
               options={studies}
-              onChange={handleChange}
+              onChange={(e)=>handleChange("studies",e.target.value)}
               t={t}
             />
             <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.languages.title"}  items={languages}/>

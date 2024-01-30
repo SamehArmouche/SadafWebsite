@@ -5,9 +5,9 @@ import {
   Select,
   MenuItem
 } from "@mui/material";
-import colors from '../../../../assets/theme/colors/'
+import colors from '../../assets/theme/colors/'
 
-export default function EducationalLevelSelect({onChange, value, label, noneItem, options, t}) {
+export default function DataSelect({onChange, value, label, options, t}) {
   
   return (
     <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:250}}} required >
@@ -22,7 +22,7 @@ export default function EducationalLevelSelect({onChange, value, label, noneItem
           }
         }}
         value={value || ''}
-        onChange={(e)=>onChange("studies",e.target.value)}>
+        onChange={onChange}>
           {
             options.map((o)=>{
               return <MenuItem key={o.value} value={o.value}>{t(o.label)}</MenuItem>
