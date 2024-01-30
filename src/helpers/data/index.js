@@ -89,6 +89,44 @@ const hairColors = [
   }
 ];
 
+const eyeColors = [
+  { value: 'أسود',
+    label:'talent.stepper.bodyinfostep.inputs.eyecolors.black'
+  },
+  { value: 'عسلي',
+    label:'talent.stepper.bodyinfostep.inputs.eyecolors.hazelbrown'
+  },
+  { value: 'بندقي',
+    label:'talent.stepper.bodyinfostep.inputs.eyecolors.hazelnut'
+  },
+  { value: 'أخضر',
+    label:'talent.stepper.bodyinfostep.inputs.eyecolors.green'
+  },
+  { value: 'أزرق',
+    label:'talent.stepper.bodyinfostep.inputs.eyecolors.blue'
+  },
+  { value: 'رمادي',
+    label:'talent.stepper.bodyinfostep.inputs.eyecolors.grey'
+  },
+  { value: 'أخرى',
+    label:'talent.stepper.bodyinfostep.inputs.eyecolors.other'
+  }
+];
+
+const skinColors= [
+  { value: 'أبيض',
+    label:'talent.stepper.bodyinfostep.inputs.skincolors.white'
+  },
+  { value: 'أسمر',
+    label:'talent.stepper.bodyinfostep.inputs.skincolors.brown'
+  },
+  { value: 'قمحي',
+    label:'talent.stepper.bodyinfostep.inputs.skincolors.wheat'
+  },
+  { value: 'أخرى',
+    label:'talent.stepper.bodyinfostep.inputs.skincolors.other'
+  }
+];
 
 const talents = [
   { value: 'التمثيل',
@@ -1881,4 +1919,4 @@ const countries =
     }
   ]
 
-module.exports = {countries, options, studies, languages, talents, hairColors}
+module.exports = {countries, options, studies, languages, talents, hairColors, eyeColors, skinColors}

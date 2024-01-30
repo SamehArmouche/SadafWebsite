@@ -115,6 +115,23 @@
             "red":"Red",
             "white":"White",
             "shaved":"Bold/Shaved"
+          },
+          "eyecolors":{
+            "title": "Eyes color",
+            "black":"Black",
+            "hazelbrown":"Hazel Brown",
+            "hazelnut":"Hazelnut",
+            "green":"Green",
+            "blue":"Blue",
+            "grey":"Grey",
+            "other":"Other"
+          },
+          "skincolors":{
+            "title": "Skin Colour",
+            "white":"White",
+            "brown":"Brown",
+            "wheat":"Wheat",
+            "other":"Other"
           }
         }
       },

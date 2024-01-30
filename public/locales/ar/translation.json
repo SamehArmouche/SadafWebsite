@@ -116,6 +116,23 @@
             "red":"أحمر",
             "white":"أبيض",
             "shaved":"أصلع/محلوق"
+          },
+          "eyecolors":{
+            "title": "لون العينين",
+            "black":"أسود",
+            "hazelbrown":"عسلي",
+            "hazelnut":"بندقي",
+            "green":"أخضر",
+            "blue":"أزرق",
+            "grey":"رمادي",
+            "other":"أخرى"
+          },
+          "skincolors":{
+            "title": "لون البشرة",
+            "white":"أبيض",
+            "brown":"أسمر",
+            "wheat":"قمحي",
+            "other":"أخرى"
           }
         }
       },
