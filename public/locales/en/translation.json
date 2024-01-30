@@ -84,7 +84,7 @@
           },
           "preparticipation":{
             "title":"Have you ever partnered with Sadaf?",
-            "summary":"Summary"
+            "details":"Details"
           },
           "talents":{
             "title":"Talents",
@@ -146,6 +146,10 @@
           },
           "diseases":{
             "title":"Do you suffer from diseases?"
+          },
+          "healthcare":{
+            "title":"Do you need special care while working?",
+            "details":"Details"
           }
         }
       },

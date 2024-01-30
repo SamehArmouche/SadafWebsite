@@ -57,10 +57,10 @@ const SkillsLanguagesStep = ({
               <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex',pl:{xs:1.5,md:0},pr:{xs:1.5,md:0}}}>
                 <Input 
                   required={true}
-                  handleChange={handleChange} multiline={true} name ={"summary"} 
-                  value = {state.form?.summary} 
+                  handleChange={handleChange} multiline={true} name ={"details"} 
+                  value = {state.form?.details} 
                   width={'100%'}
-                  label={t('talent.stepper.skillslanguagesstep.inputs.preparticipation.summary')} /> 
+                  label={t('talent.stepper.skillslanguagesstep.inputs.preparticipation.details')} /> 
               </Grid>
             </Fade>
           }
