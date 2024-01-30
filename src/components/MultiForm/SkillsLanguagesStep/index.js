@@ -46,9 +46,6 @@ const SkillsLanguagesStep = ({
               t={t}
             />
             <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.languages.title"}  items={languages}/>
-          </Grid>
-
-          <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex'}}>
             <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.talents.title"} items={talents}/>
           </Grid>
 
@@ -57,7 +54,7 @@ const SkillsLanguagesStep = ({
           </Grid>
           {preparticipation &&
             <Fade  in={true} mountOnEnter unmountOnExit>
-              <Grid item>
+              <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex',pl:{xs:1.5,md:0},pr:{xs:1.5,md:0}}}>
                 <Input 
                   required={true}
                   handleChange={handleChange} multiline={true} name ={"summary"} 
