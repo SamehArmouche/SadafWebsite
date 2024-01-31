@@ -72,7 +72,7 @@ const dialects = [
   { value: 'اللهجة الحجازية الحضرية',
     label:'talent.stepper.skillslanguagesstep.inputs.dialects.urbanhijazi'
   },
-  { value: 'اللهجة الحجازية بدوية',
+  { value: 'اللهجة الحجازية البدوية',
     label:'talent.stepper.skillslanguagesstep.inputs.dialects.bedouinhijazi'
   },
   { value: 'اللهجة الجنوبية',
@@ -81,6 +81,46 @@ const dialects = [
   {
     value: 'اللهجة التهامية',
     label: 'talent.stepper.skillslanguagesstep.inputs.dialects.tehama'
+  },
+  {
+    value: 'اللهجة النجدية',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.najdi'
+  },
+  {
+    value: 'اللهجة الحضرية',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.urban'
+  },
+  {
+    value: 'اللهجة البدوية',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.bedouin'
+  },
+  {
+    value: 'اللهجة القصيمية',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.qassimi'
+  },
+  {
+    value: 'لهجة حوطه',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.hota'
+  },
+  {
+    value: 'لهجة كوينه',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.quynh'
+  },
+  {
+    value: 'اللهجة الشمالية',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.northern'
+  },
+  {
+    value: 'اللهجة الحساوية',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.hasawi'
+  },
+  {
+    value: 'اللهجة القطيفية',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.qatifi'
+  },
+  {
+    value: 'اللهجة القحطانية',
+    label: 'talent.stepper.skillslanguagesstep.inputs.dialects.qahtani'
   }
 ];
 

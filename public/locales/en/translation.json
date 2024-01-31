@@ -89,7 +89,17 @@
             "urbanhijazi":"Urban Hijazi dialect",
             "bedouinhijazi":"Hijazi Bedouin dialect",
             "southern":"Southern dialect",
-            "tehama":"Tehama dialect"
+            "tehama":"Tehama dialect",
+            "najdi":"Najdi dialect",
+            "urban":"Urban dialect",
+            "bedouin":"Bedouin dialect",
+            "qassimi":"Qassimi dialect",
+            "hota":"Hota dialect",
+            "quynh":"Quynh dialect",
+            "northern":"Northern dialect",
+            "hasawi":"Hasawi dialect",
+            "qatifi":"Qatifi dialect",
+            "qahtani":"Qahtani dialect"
           },
           "preparticipation":{
             "title":"Have you ever partnered with Sadaf?",
