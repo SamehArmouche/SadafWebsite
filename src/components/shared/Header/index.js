@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 //import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -21,7 +20,7 @@ import {
 } from 'material-ui-popup-state/hooks'
 import { useTheme } from '@mui/material/styles';
 import myImg from '../../../assets/images/logo.png';
-
+import { Turn as Hamburger } from 'hamburger-react'
 const pages = ['Home','Services','Projects','Awards','Successes','Talents','Contact'];
 
 
@@ -72,6 +71,7 @@ function Header() {
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const { t, i18n } = useTranslation();
+  const [isOpen, setOpen] = React.useState(false)
   const popupState = usePopupState({ variant: 'popover', popupId: 'demoMenu' })
   const theme = useTheme();
   document.body.dir = i18n.dir();
@@ -82,14 +82,18 @@ function Header() {
     popupState.close()
     
   }
+
   const handleOpenNavMenu = (event) => {
+    setOpen(!isOpen)
     setAnchorElNav(event.currentTarget);
+
   };
   /*const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };*/
 
   const handleCloseNavMenu = () => {
+    setOpen(!isOpen)
     setAnchorElNav(null);
   };
 
@@ -123,14 +127,15 @@ function Header() {
         <Toolbar disableGutters sx={{width:'100%',display:'flex' ,justifyContent:'space-between'}}>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },maxWidth:74,maxHeight:40}}>
             <IconButton
-              size="large"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              sx={{ color:'#f7d89f'}}
-            >
-              <MenuIcon />
+            
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                sx={{ p:0,color:'#f7d89f',width:50,height:50}}
+              >
+                <Hamburger toggled={isOpen} toggle={handleOpenNavMenu} duration={0.8} size={25}  direction={i18n.dir()==='rtl'?"left":"right"}/>
             </IconButton>
+
             <CssMenu
               type="menu"
               anchorEl={anchorElNav}
