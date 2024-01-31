@@ -18,7 +18,8 @@
           "VFXgraphics":"VFX graphics",
           "Interiordesign":"Interior design",
           "Other": "Other"
-        }
+        },
+        "error":"Choose the category of talent"
       },
       "personalinfo":{
         "title": "Personal info",
@@ -44,7 +45,8 @@
             "country": "Country of Residence",
             "city" : "City"
           }
-        }
+        },
+        "error":"Make sure to fill out all required fields"
       },
       "contactinfostep":{
         "title":"Contact info",

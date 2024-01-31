@@ -3,7 +3,8 @@ import {
   Box,
   FormControl,
   Divider,
-  Fade
+  Fade,
+  Typography
 } from "@mui/material";
 import * as React from 'react'
 import { useTranslation } from 'react-i18next';
@@ -13,35 +14,41 @@ import ComunicationTypeSelect from './ComunicationTypeSelect'
 import SocialNetworksList from './SocialNetworksList'
 import Input from '../../Input'
 import {options} from '../../../helpers/data';
-
-
-const ContactInfoStep = ({ handleSubmit, errors, handleError }) => {
+import { validatePhoneNumber } from '../../../helpers/validations';
+import colors from '../../../assets/theme/colors/'
+const ContactInfoStep = ({ handleSubmit, errors, handleError, error, errorMsg }) => {
 
   const { state } = useLocation();
   const { t, i18n } = useTranslation();
   const [form, setForm] = React.useState(false);
 
-  const handleChange = (name,value) => {
+  const handleChange = (name,value, type) => {
     handleError(name, value)
-    state.form[name]=value;
-    if(name==="phoneCode"){
-      state.form["phonenumber"]=(value?`${value} ${' '}`:'')
-      state.form["fixnumber"]=(value?`${value} ${' '}`:'')
+    if(type==='tel'&& value!==''){
+      if(validatePhoneNumber(value)){
+        state.form[name]=value;
+      }
+    }else{
+      state.form[name]=value;
     }
     setForm(!form);
   };
+  
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
-      <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
+      <Box sx={{ flexGrow: 1, flexWrap: 'wrap' }}>
+          <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
+            {error && <Typography sx={{color:colors.error}}> {errorMsg} </Typography>}
+          </Grid>
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
 
           <Grid item>
             <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:150}}} required >
-              <CodeCountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"phoneCode"} defaultValue={state.form.phoneCode}/>
+              <CodeCountrySelect  error={errors?.phoneCode?.error} lang={i18n.language} t={t} onChange={handleChange} value={"phoneCode"} defaultValue={state.form.phoneCode}/>
             </FormControl>
-            <Input direction={"ltr"} error={errors?.phonenumber?.error} required={true} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
-            <Input direction={"ltr"} error={errors?.fixnumber?.error} required={true} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} /> 
+            <Input direction={"ltr"} type ={'tel'} preValue={state.form.phoneCode} error={errors?.phonenumber?.error} required={true} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
+            <Input direction={"ltr"} type ={'tel'} preValue={state.form.phoneCode} error={errors?.fixnumber?.error} required={true} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} /> 
           </Grid>
 
           <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>

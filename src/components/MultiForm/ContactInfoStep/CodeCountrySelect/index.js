@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import {countries} from '../../../../helpers/data';
 
-export default function CountrySelect({lang, t, onChange, value, defaultValue}) {
+export default function CountrySelect({lang, t, onChange, value, defaultValue, error}) {
   const getCurrentValue = () =>{
     return countries[countries.findIndex((e)=> { return e.phone_code === defaultValue}) ] || null
   }
@@ -50,6 +50,7 @@ export default function CountrySelect({lang, t, onChange, value, defaultValue}) 
         <TextField
           {...params}
           required 
+          error={error}
           label={t('talent.stepper.contactinfostep.inputs.phoneCode')}
           inputProps={{
             ...params.inputProps,

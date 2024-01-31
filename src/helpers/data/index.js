@@ -212,6 +212,19 @@ const bodyTypes= [
   }
 ];
 
+const categories = [
+  "Actor",
+  "Scriptwriter",
+  "Montage",
+  "Photography",
+  "TV Director",
+  "Music",
+  "Model",
+  "VFX graphics",
+  "Interior design",
+  "Other"
+]
+
 const talents = [
   { value: 'التمثيل',
     label:'talent.stepper.skillslanguagesstep.inputs.talents.0'
@@ -247,7 +260,24 @@ const talents = [
     label:'talent.stepper.skillslanguagesstep.inputs.talents.10'
   }
 ];
+const steps = ['Category','PersonalInfo','ContactInfoStep','SkillsLanguagesStep', 'BodyInfoStep','OtherInfoStep', 'Review'];
+const fieldsMandatoryPersonalStep = [
+  "firstname",
+  "fathername",
+  "lastname",
+  "gender",
+  "relationship",
+  "birthday",
+  "nacionality",
+  "country",
+  "city"
+]
 
+const fieldsMandatoryContactStep = [
+  "phonenumber",
+  "fixnumber",
+  "phoneCode",
+]
 
 const countries = 
 [
@@ -2003,4 +2033,9 @@ const countries =
     }
   ]
 
-module.exports = {countries, options, studies, languages, talents, hairColors, eyeColors, skinColors, bodyTypes, dialects}
+module.exports = {
+  countries, options, studies, languages, talents,
+  hairColors, eyeColors, skinColors, bodyTypes,
+  dialects, categories, fieldsMandatoryPersonalStep,
+  fieldsMandatoryContactStep, steps
+}

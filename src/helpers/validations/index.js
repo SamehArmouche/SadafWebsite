@@ -14,14 +14,21 @@ const validateNumber = (number) => {
     );
 };
 
+const validatePhoneNumber = (number) => {
+  return String(number)
+    .toLowerCase()
+    .match(
+      /^\d+$/
+    );
+};
+
+
 const validateField = (form ,value, type)=>{
   if(form[value]!==undefined){
     if(value==='email')
       return !validateEmail(form[value]);
-    /*if(type==="number")
-      return !validateNumber(form[value]);*/
     return !form[value]?.length>0
   }
 }
 
-module.exports = {validateEmail, validateField,validateNumber}
+module.exports = {validateEmail, validateField,validateNumber,validatePhoneNumber}

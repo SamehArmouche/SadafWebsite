@@ -17,8 +17,8 @@ import BodyInfoStep from './BodyInfoStep';
 import OtherInfoStep from './OtherInfoStep';
 import ReviewInfo from './ReviewInfo';
 import { useTranslation } from 'react-i18next';
+import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep, steps } from '../../helpers/data'
 
-const steps = ['Category','PersonalInfo','ContactInfoStep','SkillsLanguagesStep', 'BodyInfoStep','OtherInfoStep', 'Review'];
 
 const MultiForm = () => {
   
@@ -27,35 +27,29 @@ const MultiForm = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [error, setError] = useState(false);
   const [errors, setErrors] = useState({});
+  
   const handleBack = () => {
     setActiveStep((prevStep) => prevStep - 1);
+    setError(false)
   };
-
-
   
   const validateFields = (step) => {
     let errorsFields = {}
+    let fieldsToValidate= null;
+    if(step===1){
+      fieldsToValidate = fieldsMandatoryPersonalStep;
+    }
     if(step===2){
-      let fieldsToValidate = [
-        "phonenumber",
-        "fixnumber",
-        "phoneCode",
-      ]
-      let error = false;
-      for (let index = 0; index < fieldsToValidate.length; index++) {
-        if(!state.form.hasOwnProperty(fieldsToValidate[index])){
-          error=true;
-          errorsFields[fieldsToValidate[index]]={error:true}
+      fieldsToValidate = fieldsMandatoryContactStep
+    }
 
-        }else{
-          error=true;
-          errorsFields[fieldsToValidate[index]]={error:state.form[fieldsToValidate[index]]?.length<1}
-
-        }
+    for (let index = 0; index < fieldsToValidate?.length; index++) {
+      if(!state.form.hasOwnProperty(fieldsToValidate[index])){
+        errorsFields[fieldsToValidate[index]]={error:true}
+      }else{
+        errorsFields[fieldsToValidate[index]]={error:state.form[fieldsToValidate[index]]?.length<1}
       }
-
       setErrors({...errors,...errorsFields});
-  
     }
 
     return !Object.values(errorsFields).some(item => item.error === true);
@@ -63,61 +57,60 @@ const MultiForm = () => {
 
 
   const changeStep = () => {
-    //console.log(Object.values(state.form).length)
+    setError(false)
     switch (activeStep) {
       case 0:
-
-          if(Object.values(state.form).length > 1){
-            setActiveStep((prevStep) => prevStep + 1);
-          }else{
-            setError(true)
-          }
-
+        if(Object.values(state.form).length > 1){
+          setActiveStep((prevStep) => prevStep + 1);
+        }else{
+          setError(true)
+        }
         break;
+
       case 1:
 
-          if(Object.values(state.form).length > 1 && validateFields(1)){
-            setActiveStep((prevStep) => prevStep + 1);
-          }else{
-
-            setError(true)
-          }
-
+        if(validateFields(0)){
+          setActiveStep((prevStep) => prevStep + 1);
+        }else{
+          setError(true)
+        }
         break;
+
       case 2:
 
-          if(Object.values(state.form).length > 0 && validateFields(2)){
-            setActiveStep((prevStep) => prevStep + 1);
-          }else{
-            setError(true)
-          }
-
+        if(validateFields(0)){
+          setActiveStep((prevStep) => prevStep + 1);
+        }else{
+          setError(true)
+        }
         break;
+      
       case 3:
 
-          if(Object.values(state.form).length > 0 && validateFields(3)){
-            setActiveStep((prevStep) => prevStep + 1);
-          }else{
-            setError(true)
-          }
+        if(Object.values(state.form).length > 0 && validateFields(3)){
+          setActiveStep((prevStep) => prevStep + 1);
+        }else{
+          setError(true)
+        }
         break;
         
       case 4:
 
-          if(Object.values(state.form).length > 0 && validateFields(3)){
-            setActiveStep((prevStep) => prevStep + 1);
-          }else{
-            setError(true)
-          }
+        if(Object.values(state.form).length > 0 && validateFields(3)){
+          setActiveStep((prevStep) => prevStep + 1);
+        }else{
+          setError(true)
+        }
         break;
-      case 5:
 
+      case 5:
         if(Object.values(state.form).length > 0){
           setActiveStep((prevStep) => prevStep + 1);
         }else{
           setError(true)
         }
         break;
+
       default:
         break;
     }
@@ -144,14 +137,15 @@ const MultiForm = () => {
   }
 
 
+  console.log(state.form)
   const formContent = (step) => {
     switch(step) {
       case 0:
-        return <CategoryStep handleSubmit={handleSubmit} />;
+        return <CategoryStep handleSubmit={handleSubmit} error={error} errorMsg={t("talent.stepper.category.error")}/>;
       case 1:
-        return <PersonalInfoStep handleSubmit={handleSubmit} />;
+        return <PersonalInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />;
       case 2:
-        return <ContactInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} />;
+        return <ContactInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />;
       case 3:
         return <SkillsLanguagesStep handleSubmit={handleSubmit} />;
       case 4:

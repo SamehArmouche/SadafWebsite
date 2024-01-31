@@ -6,8 +6,10 @@ import {
   FormControl,
   Select,
   InputLabel,
-  Fade
+  Fade,
+  Typography
 } from "@mui/material";
+import EventIcon from '@mui/icons-material/Event';
 import * as React from 'react'
 import dayjs from 'dayjs';
 import { useLocation } from 'react-router-dom'
@@ -20,19 +22,14 @@ import { styled } from '@mui/material/styles';
 import CountrySelect from './CountrySelect'
 import Input from '../../Input'
 
-const CssMobileDatePicker = styled(DatePicker)({
-  '& .MuiInput-underline:after': {
-    borderBottomColor: '#B2BAC2',
-  },
-  '& .MuiOutlinedInput-root': {
-    backgroundColor: "rgba(247, 216, 159, 0.1)",
-    alignItems:"center",
-    color:colors.primary
-  }
-});
+
 
 const PersonalInfoStep = ({
-  handleSubmit
+  handleSubmit,
+  error,
+  errorMsg,
+  errors,
+  handleError
 }) => {
   const { state } = useLocation();
   const { t, i18n } = useTranslation();
@@ -40,16 +37,31 @@ const PersonalInfoStep = ({
 
   const handleChange = (name,value) => {
     state.form[name]=value;
+    handleError(name, value);
     setForm(!form);
   };
+  const CssMobileDatePicker = styled(DatePicker)({
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#B2BAC2',
+    },
+    '& .MuiOutlinedInput-root': {
+      backgroundColor: "rgba(247, 216, 159, 0.1)",
+      alignItems:"center",
+      color:errors?.birthday?.error?colors.error:colors.primary
+      
+    }
+  });
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
-      <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
+      <Box sx={{ flexGrow: 1, flexWrap: 'wrap'}}>
+          <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
+            {error && <Typography sx={{color:colors.error}}> {errorMsg} </Typography>}
+          </Grid>
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
-          <Input direction={i18n.dir()} required={true} handleChange={handleChange} name ={"firstname"} value = {state.form?.firstname} label={t('talent.stepper.personalinfo.inputs.firstname')} />
-          <Input direction={i18n.dir()} required={true} handleChange={handleChange} name ={"fathername"} value = {state.form?.fathername} label={t('talent.stepper.personalinfo.inputs.fathername')}  />
-          <Input direction={i18n.dir()} required={true} handleChange={handleChange} name ={"lastname"} value = {state.form?.lastname} label={t('talent.stepper.personalinfo.inputs.lastname')} />
+          <Input direction={i18n.dir()} width={220} error={errors?.firstname?.error} required={true} handleChange={handleChange} name ={"firstname"} value = {state.form?.firstname} label={t('talent.stepper.personalinfo.inputs.firstname')} />
+          <Input direction={i18n.dir()} width={220} error={errors?.fathername?.error} required={true} handleChange={handleChange} name ={"fathername"} value = {state.form?.fathername} label={t('talent.stepper.personalinfo.inputs.fathername')}  />
+          <Input direction={i18n.dir()} width={220} error={errors?.lastname?.error} required={true} handleChange={handleChange} name ={"lastname"} value = {state.form?.lastname} label={t('talent.stepper.personalinfo.inputs.lastname')} />
         </Grid>
         <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
           <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
@@ -57,7 +69,7 @@ const PersonalInfoStep = ({
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
 
           <Grid item>
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:153}}} required >
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:153}}} required error={errors?.gender?.error} >
               <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.personalinfo.inputs.gender.title')}</InputLabel>
               <Select
                 sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",
@@ -75,7 +87,7 @@ const PersonalInfoStep = ({
               </Select>
             </FormControl>
 
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:250}}} required >
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:250}}} required error={errors?.relationship?.error}>
               <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.personalinfo.inputs.relationship.title')}</InputLabel>
               <Select
                 sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",
@@ -86,6 +98,7 @@ const PersonalInfoStep = ({
                     color: colors.primary,
                   }
                 }}
+
                 value={state?.form?.relationship || ''}
                 onChange={(e)=>handleChange("relationship",e.target.value)}>
                   <MenuItem value={"أعزب"}>{t('talent.stepper.personalinfo.inputs.relationship.single')}</MenuItem>
@@ -94,20 +107,26 @@ const PersonalInfoStep = ({
                   <MenuItem value={"أرمل"}>{t('talent.stepper.personalinfo.inputs.relationship.widowed')}</MenuItem>
               </Select>
             </FormControl>
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:165}}} required >
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:165}}} required>
             <LocalizationProvider dateAdapter={AdapterDayjs} localeText={{okButtonLabel: `${t('button.ok')}`}}>
               <CssMobileDatePicker
                 format="DD/MM/YYYY"
                 sx={{direction:'ltr'}}
+
                 slotProps ={{
                   textField: {
-                    required: true,
-                    error:false
+                    variant: 'outlined',
+                    error: errors?.birthday?.error?errors.birthday.error:false
                   },
                   actionBar: {
                     actions: ['accept']
                   },
                 }}
+                slots={{
+                  openPickerIcon: ()=> <EventIcon sx={{color:errors?.birthday?.error?colors.error:colors.primary}}/>,
+                }}
+
+
                 defaultValue={state?.form?.birthday?dayjs(state?.form?.birthday):''}
                 label={t('talent.stepper.personalinfo.inputs.birthday')}
                 onChange={(e) => handleChange("birthday",e.format("YYYY-MM-DD"))}
@@ -118,12 +137,12 @@ const PersonalInfoStep = ({
 
           <Grid item>
             <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:153}}} required >
-              <CountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"nacionality"} defaultValue={state.form.nacionality}/>
+              <CountrySelect error={errors?.nacionality?.error} lang={i18n.language} t={t} onChange={handleChange} value={"nacionality"} defaultValue={state.form.nacionality}/>
             </FormControl>
             <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:250}}} required >
-              <CountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"country"} defaultValue={state.form.country}/>
+              <CountrySelect error={errors?.country?.error} lang={i18n.language} t={t} onChange={handleChange} value={"country"} defaultValue={state.form.country}/>
             </FormControl>
-            <Input direction={i18n.dir()} width={165} required={true} handleChange={handleChange} name ={"city"} value = {state.form?.city} label={t('talent.stepper.personalinfo.inputs.address.city')} /> 
+            <Input direction={i18n.dir()} error={errors?.city?.error} width={165} required={true} handleChange={handleChange} name ={"city"} value = {state.form?.city} label={t('talent.stepper.personalinfo.inputs.address.city')} /> 
           </Grid>
         </Grid> 
       </Box>

@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import {countries} from '../../../../helpers/data';
 
-export default function CountrySelect({lang, t, onChange, value, defaultValue}) {
+export default function CountrySelect({lang, t, onChange, value, defaultValue, error}) {
 
   const getCurrentValue = () =>{
     return countries[countries.findIndex((e)=> { return e.arabic_name === defaultValue}) ] || null
@@ -48,6 +48,7 @@ export default function CountrySelect({lang, t, onChange, value, defaultValue}) 
         return (
         <TextField
           {...params}
+          error={error}
           required 
           label={value==="nacionality"?t('talent.stepper.personalinfo.inputs.nacionality'):t('talent.stepper.personalinfo.inputs.address.country')}
           inputProps={{
