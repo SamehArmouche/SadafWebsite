@@ -18,6 +18,9 @@ export default function CountrySelect({lang, t, onChange, value, defaultValue}) 
           color: "red"
         }
       }}
+      ListboxProps={{
+        className: "myCustomList"
+      }}
       slotProps ={{
         textField: {
           required: false,

@@ -19,6 +19,9 @@ export default function MultipleSelect({label, t , items}) {
             color: "red"
           }
         }}
+        ListboxProps={{
+          className: "myCustomList"
+        }}
         options={items.map((option) => t(option.label))}
         defaultValue={[]}
         freeSolo

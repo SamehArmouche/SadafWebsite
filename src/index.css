@@ -32,3 +32,14 @@ code {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
 }
+
+.myCustomList::-webkit-scrollbar {
+  width: 10px;
+  background-color: black;
+}
+
+.myCustomList::-webkit-scrollbar-thumb {
+  border-radius: 1px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(247, 216, 159, 1);
+}
