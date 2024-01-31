@@ -127,13 +127,12 @@ function Header() {
         <Toolbar disableGutters sx={{width:'100%',display:'flex' ,justifyContent:'space-between'}}>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },maxWidth:74,maxHeight:40}}>
             <IconButton
-            
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                sx={{ p:0,color:'#f7d89f',width:50,height:50}}
-              >
-                <Hamburger toggled={isOpen} toggle={setOpen} duration={0.8} size={25}  direction={i18n.dir()==='rtl'?"left":"right"}/>
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              sx={{ p:0,color:'#f7d89f',width:50,height:50}}
+            >
+              <Hamburger toggled={isOpen} toggle={setOpen} duration={0.8} size={20} direction={i18n.dir()==='rtl'?"left":"right"}/>
             </IconButton>
 
             <CssMenu

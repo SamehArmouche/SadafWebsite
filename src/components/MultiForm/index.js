@@ -69,7 +69,7 @@ const MultiForm = () => {
 
       case 1:
 
-        if(validateFields(0)){
+        if(validateFields(1)){
           setActiveStep((prevStep) => prevStep + 1);
         }else{
           setError(true)
@@ -78,7 +78,7 @@ const MultiForm = () => {
 
       case 2:
 
-        if(validateFields(0)){
+        if(validateFields(2)){
           setActiveStep((prevStep) => prevStep + 1);
         }else{
           setError(true)
@@ -114,30 +114,19 @@ const MultiForm = () => {
       default:
         break;
     }
-
-
-    /*if(Object.values(state.form).length<20 && !Object.values(state.form).includes("")){
-      console.log("error")
-    }else{
-      if (activeStep === steps.length - 1) {
-        console.log('last step');
-      } else {
-        setActiveStep((prevStep) => prevStep + 1);
-      }
-    }*/
   }
+  
   const handleSubmit = (name,value) =>{
     if(name && value){
       state.form[name]=value
     }
     changeStep();
   }
+
   const handleError = (name, value) => {
     setErrors({...errors,[name]:{error:false}});
   }
 
-
-  console.log(state.form)
   const formContent = (step) => {
     switch(step) {
       case 0:
