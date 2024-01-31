@@ -15,13 +15,14 @@ import Input from '../../Input'
 import {options} from '../../../helpers/data';
 
 
-const ContactInfoStep = ({ handleSubmit }) => {
+const ContactInfoStep = ({ handleSubmit, errors, handleError }) => {
 
   const { state } = useLocation();
   const { t, i18n } = useTranslation();
   const [form, setForm] = React.useState(false);
 
   const handleChange = (name,value) => {
+    handleError(name, value)
     state.form[name]=value;
     if(name==="phoneCode"){
       state.form["phonenumber"]=(value?`${value} ${' '}`:'')
@@ -39,8 +40,8 @@ const ContactInfoStep = ({ handleSubmit }) => {
             <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:150}}} required >
               <CodeCountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"phoneCode"} defaultValue={state.form.phoneCode}/>
             </FormControl>
-            <Input direction={"ltr"} required={true} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
-            <Input direction={"ltr"} required={true} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} /> 
+            <Input direction={"ltr"} error={errors?.phonenumber?.error} required={true} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
+            <Input direction={"ltr"} error={errors?.fixnumber?.error} required={true} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} /> 
           </Grid>
 
           <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>

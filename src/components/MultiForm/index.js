@@ -26,6 +26,7 @@ const MultiForm = () => {
   const { state } = useLocation();
   const [activeStep, setActiveStep] = useState(0);
   const [error, setError] = useState(false);
+  const [errors, setErrors] = useState({});
   const handleBack = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
@@ -33,26 +34,33 @@ const MultiForm = () => {
 
   
   const validateFields = (step) => {
+    let errorsFields = {}
     if(step===2){
       let fieldsToValidate = [
         "phonenumber",
         "fixnumber",
         "phoneCode",
       ]
-  
       let error = false;
-      for (let index = 0; index < fieldsToValidate.length && !error; index++) {
+      for (let index = 0; index < fieldsToValidate.length; index++) {
         if(!state.form.hasOwnProperty(fieldsToValidate[index])){
           error=true;
+          errorsFields[fieldsToValidate[index]]={error:true}
+
         }else{
-          error=(state.form[fieldsToValidate[index]]?.length>0?false:true);
+          error=true;
+          errorsFields[fieldsToValidate[index]]={error:state.form[fieldsToValidate[index]]?.length<1}
+
         }
       }
-      return !error;
+
+      setErrors({...errors,...errorsFields});
+  
     }
 
-    return true;
+    return !Object.values(errorsFields).some(item => item.error === true);
   }
+
 
   const changeStep = () => {
     //console.log(Object.values(state.form).length)
@@ -71,6 +79,7 @@ const MultiForm = () => {
           if(Object.values(state.form).length > 1 && validateFields(1)){
             setActiveStep((prevStep) => prevStep + 1);
           }else{
+
             setError(true)
           }
 
@@ -114,7 +123,6 @@ const MultiForm = () => {
     }
 
 
-
     /*if(Object.values(state.form).length<20 && !Object.values(state.form).includes("")){
       console.log("error")
     }else{
@@ -131,6 +139,10 @@ const MultiForm = () => {
     }
     changeStep();
   }
+  const handleError = (name, value) => {
+    setErrors({...errors,[name]:{error:false}});
+  }
+
 
   const formContent = (step) => {
     switch(step) {
@@ -139,7 +151,7 @@ const MultiForm = () => {
       case 1:
         return <PersonalInfoStep handleSubmit={handleSubmit} />;
       case 2:
-        return <ContactInfoStep handleSubmit={handleSubmit} />;
+        return <ContactInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} />;
       case 3:
         return <SkillsLanguagesStep handleSubmit={handleSubmit} />;
       case 4:
