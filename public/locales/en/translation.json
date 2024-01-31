@@ -175,6 +175,9 @@
           }
         }
       },
+      "otherinfostep" : {
+        "title":"Other information"
+      },
       "buttons":{
         "next":"Next",
         "back":"Back",

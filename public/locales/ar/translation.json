@@ -176,6 +176,9 @@
           }
         }
       },
+      "otherinfostep" : {
+        "title":"معلومات أخرى"
+      },
       "buttons":{
         "next":"التالي",
         "back":"السابق",
