@@ -117,13 +117,13 @@ const PersonalInfoStep = ({
           </Grid>
 
           <Grid item>
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:210}}} required >
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:153}}} required >
               <CountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"nacionality"} defaultValue={state.form.nacionality}/>
             </FormControl>
-            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:210}}} required >
+            <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:250}}} required >
               <CountrySelect lang={i18n.language} t={t} onChange={handleChange} value={"country"} defaultValue={state.form.country}/>
             </FormControl>
-            <Input direction={i18n.dir()} width={148} required={true} handleChange={handleChange} name ={"city"} value = {state.form?.city} label={t('talent.stepper.personalinfo.inputs.address.city')} /> 
+            <Input direction={i18n.dir()} width={165} required={true} handleChange={handleChange} name ={"city"} value = {state.form?.city} label={t('talent.stepper.personalinfo.inputs.address.city')} /> 
           </Grid>
         </Grid> 
       </Box>

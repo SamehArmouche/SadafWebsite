@@ -114,7 +114,7 @@ function Header() {
     }else{
       navigate(`/${route.replace(" ","").toLowerCase()}`);
     }
-    setAnchorElNav(null);
+    handleCloseNavMenu();
   }
 
   return (
@@ -133,7 +133,7 @@ function Header() {
                 onClick={handleOpenNavMenu}
                 sx={{ p:0,color:'#f7d89f',width:50,height:50}}
               >
-                <Hamburger toggled={isOpen} toggle={handleOpenNavMenu} duration={0.8} size={25}  direction={i18n.dir()==='rtl'?"left":"right"}/>
+                <Hamburger toggled={isOpen} toggle={setOpen} duration={0.8} size={25}  direction={i18n.dir()==='rtl'?"left":"right"}/>
             </IconButton>
 
             <CssMenu

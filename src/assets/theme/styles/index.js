@@ -46,6 +46,13 @@ const styles = (i18n) => ({
         },
       },
     },
+    MuiFormHelperText: {
+      styleOverrides: {
+          root: {
+              fontSize: 11
+          }
+      }
+  },
     MuiPickersDay:{
       styleOverrides:{
         root: {

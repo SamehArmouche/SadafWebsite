@@ -176,7 +176,19 @@
         }
       },
       "otherinfostep" : {
-        "title":"Other information"
+        "title":"Other information",
+        "inputs":{
+          "image1":"Long full body selfie",
+          "image2":"Selfie from head to waist",
+          "image3":"Close-to-face selfie without filter",
+          "about":"Talk about your self ...",
+          "video":{
+            "title":"You can put a link to the video clip, it will increase your chances of acceptance",
+            "titlepass":"If there is a password for the video link, please write it here",
+            "url":"Video Link",
+            "password":"Password"
+          }
+        }
       },
       "buttons":{
         "next":"Next",

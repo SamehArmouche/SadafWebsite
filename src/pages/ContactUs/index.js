@@ -109,7 +109,6 @@ function ContactUs() {
         <TextField id="filled-basic" label={t('contact.msg')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
           multiline
-          maxRows={4}
           error={handleError("messageBody")}
           onChange={(e) => {onChange({name:"messageBody",value:e.target.value})}}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}

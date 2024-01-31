@@ -24,3 +24,11 @@ code {
   padding: 7.5px 4px 7.5px 5px;
   color: rgba(247, 216, 159, 1);
 }
+
+.img-upload{
+  width: 300px;
+  height: 150px;
+  object-fit:cover;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
