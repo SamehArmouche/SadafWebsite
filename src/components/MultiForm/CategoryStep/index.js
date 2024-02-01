@@ -1,14 +1,15 @@
 import {
   Grid,
   Fade,
-  Typography
+  Typography,
+  Box
 } from "@mui/material";
 
 import Category from '../../Category'
 import { useLocation } from 'react-router-dom'
 import colors from '../../../assets/theme/colors/';
 import {categories} from '../../../helpers/data'
-
+import ErrorIcon from '@mui/icons-material/Error';
 
 const CategoryStep = ({
   handleSubmit,
@@ -30,7 +31,12 @@ const CategoryStep = ({
           flexDirection:'column'
         }}>
           <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
-            {error && <Typography sx={{color:colors.error}}> {errorMsg} </Typography>}
+            {error && 
+              <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
+                <Typography sx={{color:colors.error,m:1}}> {errorMsg}</Typography>
+                <ErrorIcon sx={{color:colors.error,fontSize:17}}/>
+              </Box>
+            }
           </Grid>
 
           <Grid sx={{display:'flex',width:'100%',flexWrap:'wrap',justifyContent:'center'}}>

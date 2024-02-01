@@ -10,7 +10,6 @@ import ImageIcon from '@mui/icons-material/Image';
 import React from 'react';
 import { useLocation } from 'react-router-dom'
 import colors from '../../assets/theme/colors/'
-import defaultImage from '../../assets/images/default.png';
 
 const ImagePicker = ({label, handleOnChange, image, field, align}) => {
   
@@ -20,7 +19,8 @@ const ImagePicker = ({label, handleOnChange, image, field, align}) => {
         <img
           style={{borderRadius:6,  opacity:image?1:0.4}}
           className="img-upload"
-          src={image||defaultImage}
+          alt={'default picker'}
+          src={image || '/images/default.png' }
         />
       </Grid>
       <input

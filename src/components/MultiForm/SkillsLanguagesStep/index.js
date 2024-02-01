@@ -14,6 +14,7 @@ import { useTranslation } from 'react-i18next';
 import { studies, languages, talents, dialects } from '../../../helpers/data';
 import Input from '../../Input'
 import colors from '../../../assets/theme/colors/'
+import ErrorIcon from '@mui/icons-material/Error';
 
 const SkillsLanguagesStep = ({
   handleSubmit,
@@ -48,8 +49,13 @@ const SkillsLanguagesStep = ({
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
       <Box sx={{ flexGrow: 1, flexWrap: 'wrap' }}>
-          <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
-            {error && <Typography sx={{color:colors.error}}> {errorMsg} </Typography>}
+        <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
+            {error && 
+              <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
+                <Typography sx={{color:colors.error,m:1}}> {errorMsg}</Typography>
+                <ErrorIcon sx={{color:colors.error,fontSize:17}}/>
+              </Box>
+            }
           </Grid>
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
           

@@ -1,6 +1,4 @@
 
-import homeImg from '../../../assets/images/home.jpg';
-import talentImg from '../../../assets/images/talent.jpg';
 import Container from '@mui/material/Container';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -12,7 +10,7 @@ function Layout() {
   const location = useLocation();
 
   const styleHome = {
-    backgroundImage:`url(${homeImg})`,
+    backgroundImage:`url(/images/home.jpg)`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -21,7 +19,7 @@ function Layout() {
     m:0,
   }
   const styleTalent = {
-    backgroundImage:`url(${talentImg})`,
+    backgroundImage:`url(/images/talent.jpg)`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',

@@ -19,7 +19,6 @@ import {
   bindMenu,
 } from 'material-ui-popup-state/hooks'
 import { useTheme } from '@mui/material/styles';
-import myImg from '../../../assets/images/logo.png';
 import { Turn as Hamburger } from 'hamburger-react'
 const pages = ['Home','Services','Projects','Awards','Successes','Talents','Contact'];
 
@@ -120,7 +119,7 @@ function Header() {
   return (
     <AppBar position="static" sx={{backgroundColor:'transparent', boxShadow:0}} >
       <Box sx={{justifyContent:'center',display:{xs:'none',md:'flex'},opacity:0.8}}>
-        <img src = {myImg}  alt={"sadaf logo"} onClick={()=>handleRoute("home")} style={{height:20,paddingTop:18}}></img> 
+        <img src = {"/images/logo.png"}  alt={"sadaf logo"} onClick={()=>handleRoute("home")} style={{height:20,paddingTop:18}}></img> 
       </Box>
       <Container sx={{justifyContent:{ xs: 'left', md: 'center' },display:'flex',marginTop:2}}>
 
@@ -178,7 +177,7 @@ function Header() {
           <Box sx={{padding:0,display: { xs: 'flex', md: 'none'}}} >
             <Typography sx={{fontSize: 20}}> {getCurrentPageName()!==""?t(`header.${getCurrentPageName()}`):""} </Typography>
           </Box>
-          <Box sx={{padding:0}} >
+          <Box sx={{marginTop:1}} >
             <React.Fragment>
               <Button variant="menu" {...bindTrigger(popupState)}>
                 {t(`dropdown.lang`)}

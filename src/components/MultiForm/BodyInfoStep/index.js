@@ -14,6 +14,7 @@ import { hairColors, eyeColors, skinColors, bodyTypes } from '../../../helpers/d
 import { validateNumber } from '../../../helpers/validations';
 import Input from '../../Input'
 import colors from '../../../assets/theme/colors/'
+import ErrorIcon from '@mui/icons-material/Error';
 
 const BodyInfoStep = ({
   handleSubmit, errors, handleError, error, errorMsg
@@ -56,9 +57,14 @@ const BodyInfoStep = ({
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
       <Box sx={{ flexGrow: 1, flexWrap: 'wrap' }}>
-          <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
-            {error && <Typography sx={{color:colors.error}}> {errorMsg} </Typography>}
-          </Grid>
+        <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
+          {error && 
+            <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
+              <Typography sx={{color:colors.error,m:1}}> {errorMsg}</Typography>
+              <ErrorIcon sx={{color:colors.error,fontSize:17}}/>
+            </Box>
+          }
+        </Grid>
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
           
         <Grid item sx={{}}>

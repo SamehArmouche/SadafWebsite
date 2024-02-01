@@ -16,6 +16,8 @@ import Input from '../../Input'
 import {options} from '../../../helpers/data';
 import { validatePhoneNumber } from '../../../helpers/validations';
 import colors from '../../../assets/theme/colors/'
+import ErrorIcon from '@mui/icons-material/Error';
+
 const ContactInfoStep = ({ handleSubmit, errors, handleError, error, errorMsg }) => {
 
   const { state } = useLocation();
@@ -38,9 +40,14 @@ const ContactInfoStep = ({ handleSubmit, errors, handleError, error, errorMsg })
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
       <Box sx={{ flexGrow: 1, flexWrap: 'wrap' }}>
-          <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
-            {error && <Typography sx={{color:colors.error}}> {errorMsg} </Typography>}
-          </Grid>
+        <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
+          {error && 
+            <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
+              <Typography sx={{color:colors.error,m:1}}> {errorMsg}</Typography>
+              <ErrorIcon sx={{color:colors.error,fontSize:17}}/>
+            </Box>
+          }
+        </Grid>
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
 
         <Grid item sx={{justifyContent:{xs:"center",md:"flex-start"},display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0},flexWrap:'wrap'}}>

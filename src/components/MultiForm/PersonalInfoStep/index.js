@@ -21,8 +21,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { styled } from '@mui/material/styles';
 import CountrySelect from './CountrySelect'
 import Input from '../../Input'
-
-
+import ErrorIcon from '@mui/icons-material/Error';
 
 const PersonalInfoStep = ({
   handleSubmit,
@@ -56,7 +55,12 @@ const PersonalInfoStep = ({
     <Fade  in={true} mountOnEnter unmountOnExit>
       <Box sx={{ flexGrow: 1, flexWrap: 'wrap'}}>
         <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
-          {error && <Typography sx={{color:colors.error}}> {errorMsg} </Typography>}
+          {error && 
+            <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
+              <Typography sx={{color:colors.error,m:1}}> {errorMsg}</Typography>
+              <ErrorIcon sx={{color:colors.error,fontSize:17}}/>
+            </Box>
+          }
         </Grid>
 
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
