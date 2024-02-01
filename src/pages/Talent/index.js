@@ -28,6 +28,10 @@ function Talent() {
       setError(true)
     }else{
       state.form.email=form.email;
+      state.form.diseases='لا';
+      state.form.healthcare='لا';
+      state.form.preparticipation='لا'
+      state.form.cantravel='لا'
       setError(false)
       navigate('/talents/register',
         {

@@ -275,7 +275,6 @@ const fieldsMandatoryPersonalStep = [
 
 const fieldsMandatoryContactStep = [
   "phonenumber",
-  //"fixnumber",
   "phoneCode",
 ]
 
@@ -284,6 +283,15 @@ const fieldsMandatorySkillsStep = [
   "languages",
   "talents",
   "dialects"
+]
+const fieldsMandatoryBodyStep = [
+  "haircolor",
+  "eyecolor",
+  "skincolor",
+  "weight",
+  "height",
+  "bodytype",
+  //"details"
 ]
 
 const countries = 
@@ -2044,5 +2052,6 @@ module.exports = {
   countries, options, studies, languages, talents,
   hairColors, eyeColors, skinColors, bodyTypes,
   dialects, categories, fieldsMandatoryPersonalStep,
-  fieldsMandatoryContactStep, fieldsMandatorySkillsStep, steps
+  fieldsMandatoryContactStep, fieldsMandatorySkillsStep,
+  fieldsMandatoryBodyStep, steps
 }

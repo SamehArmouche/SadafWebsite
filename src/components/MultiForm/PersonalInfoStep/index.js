@@ -55,10 +55,12 @@ const PersonalInfoStep = ({
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
       <Box sx={{ flexGrow: 1, flexWrap: 'wrap'}}>
-          <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
-            {error && <Typography sx={{color:colors.error}}> {errorMsg} </Typography>}
-          </Grid>
-        <Grid container spacing={0} sx={{display:'flex',justifyContent:'center'}}>
+        <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
+          {error && <Typography sx={{color:colors.error}}> {errorMsg} </Typography>}
+        </Grid>
+
+        <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
+        <Grid item>
           <Input direction={i18n.dir()} width={220} error={errors?.firstname?.error} required={true} handleChange={handleChange} name ={"firstname"} value = {state.form?.firstname} label={t('talent.stepper.personalinfo.inputs.firstname')} />
           <Input direction={i18n.dir()} width={220} error={errors?.fathername?.error} required={true} handleChange={handleChange} name ={"fathername"} value = {state.form?.fathername} label={t('talent.stepper.personalinfo.inputs.fathername')}  />
           <Input direction={i18n.dir()} width={220} error={errors?.lastname?.error} required={true} handleChange={handleChange} name ={"lastname"} value = {state.form?.lastname} label={t('talent.stepper.personalinfo.inputs.lastname')} />
@@ -66,8 +68,6 @@ const PersonalInfoStep = ({
         <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
           <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
         </Grid>
-        <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
-
           <Grid item>
             <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:153}}} required error={errors?.gender?.error} >
               <InputLabel id="demo-simple-select-helper-label">{t('talent.stepper.personalinfo.inputs.gender.title')}</InputLabel>

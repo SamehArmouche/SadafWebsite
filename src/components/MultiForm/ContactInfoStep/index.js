@@ -43,7 +43,7 @@ const ContactInfoStep = ({ handleSubmit, errors, handleError, error, errorMsg })
           </Grid>
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
 
-          <Grid item>
+        <Grid item sx={{justifyContent:{xs:"center",md:"flex-start"},display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0},flexWrap:'wrap'}}>
             <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:150}}} required >
               <CodeCountrySelect  error={errors?.phoneCode?.error} lang={i18n.language} t={t} onChange={handleChange} value={"phoneCode"} defaultValue={state.form.phoneCode}/>
             </FormControl>
@@ -52,7 +52,7 @@ const ContactInfoStep = ({ handleSubmit, errors, handleError, error, errorMsg })
           </Grid>
 
           <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
-            <Divider  sx={{width:{xs:'80%',md:'70%'}}}  />
+            <Divider  sx={{width:{xs:'80%',md:'58%'}}}  />
           </Grid>
 
           <Grid item sx={{justifyContent:{xs:"center",md:"flex-start"},display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0},flexWrap:'wrap'}}>

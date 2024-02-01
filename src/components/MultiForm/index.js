@@ -17,7 +17,7 @@ import BodyInfoStep from './BodyInfoStep';
 import OtherInfoStep from './OtherInfoStep';
 import ReviewInfo from './ReviewInfo';
 import { useTranslation } from 'react-i18next';
-import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep, fieldsMandatorySkillsStep, steps } from '../../helpers/data'
+import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep, fieldsMandatorySkillsStep, fieldsMandatoryBodyStep, steps } from '../../helpers/data'
 
 
 const MultiForm = () => {
@@ -45,6 +45,9 @@ const MultiForm = () => {
     if(step===3){
       fieldsToValidate = fieldsMandatorySkillsStep
     }
+    if(step===4){
+      fieldsToValidate = fieldsMandatoryBodyStep
+    }
 
     for (let index = 0; index < fieldsToValidate?.length; index++) {
       if(!state.form.hasOwnProperty(fieldsToValidate[index])){
@@ -63,7 +66,7 @@ const MultiForm = () => {
     setError(false)
     switch (activeStep) {
       case 0:
-        if(Object.values(state.form).length > 1){
+        if(Object.values(state.form).length > 5){
           setActiveStep((prevStep) => prevStep + 1);
         }else{
           setError(true)
@@ -90,7 +93,7 @@ const MultiForm = () => {
       
       case 3:
 
-        if(validateFields(3)){
+        if(validateFields(0)){
           setActiveStep((prevStep) => prevStep + 1);
         }else{
           setError(true)
@@ -99,7 +102,7 @@ const MultiForm = () => {
         
       case 4:
 
-        if(Object.values(state.form).length > 0 && validateFields(3)){
+        if(validateFields(0)){
           setActiveStep((prevStep) => prevStep + 1);
         }else{
           setError(true)
@@ -107,7 +110,7 @@ const MultiForm = () => {
         break;
 
       case 5:
-        if(Object.values(state.form).length > 0){
+        if(validateFields(5)){
           setActiveStep((prevStep) => prevStep + 1);
         }else{
           setError(true)
@@ -127,7 +130,6 @@ const MultiForm = () => {
   }
 
   const handleError = (name, value) => {
-    console.log(value)
     setErrors({...errors,[name]:{error:false}});
   }
 
@@ -142,7 +144,7 @@ const MultiForm = () => {
       case 3:
         return <SkillsLanguagesStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />;
       case 4:
-        return <BodyInfoStep handleSubmit={handleSubmit} />;
+        return <BodyInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />;
       case 5:
         return <OtherInfoStep handleSubmit={handleSubmit} />;
       default:
