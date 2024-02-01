@@ -35,7 +35,7 @@ const MultiForm = () => {
   
   const validateFields = (step) => {
     let errorsFields = {}
-    let fieldsToValidate= formComponents()[step].mandatoryFields;
+    let fieldsToValidate = formComponents()[step].mandatoryFields;
     for (let index = 0; index < fieldsToValidate?.length; index++) {
       if(!state.form.hasOwnProperty(fieldsToValidate[index])){
         errorsFields[fieldsToValidate[index]]={error:true}

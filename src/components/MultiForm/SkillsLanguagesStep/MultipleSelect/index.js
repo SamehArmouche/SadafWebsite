@@ -26,16 +26,16 @@ export default function MultipleSelect({label, t , items, onChange, currentValue
         ListboxProps={{
           className: "myCustomList"
         }}
-        options={items.map((option) => t(option.label))}
+        options={items.map((option) => option)}
         defaultValue={defaultValues}
         freeSolo
         disableCloseOnSelect
         renderTags={(value, getTagProps) =>
           value?.map((option, index) => (
-            <Chip variant="outlined" sx={{backgroundColor:"rgba(247, 216, 159, 0.3)",direction:'ltr',border:0,fontFamily:'Cairo'}} label={option} {...getTagProps({ index })} />
+            <Chip variant="outlined" sx={{backgroundColor:"rgba(247, 216, 159, 0.3)",direction:'ltr',border:0,fontFamily:'Cairo'}} label={t(option.label)} {...getTagProps({ index })} />
           ))
         }
-        onChange={(event, value) => onChange(name, value) }
+        onChange={(event, value,i,j) => onChange(name, value,i,j) }
         
         renderOption={(props, option, { selected }) => (
           <li {...props}>
@@ -45,7 +45,7 @@ export default function MultipleSelect({label, t , items, onChange, currentValue
               checked={selected}
             />
             <Typography>
-              {option}
+              {t(option.label)}
             </Typography>
           </li>
         )}

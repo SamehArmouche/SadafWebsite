@@ -26,12 +26,13 @@ const SkillsLanguagesStep = ({
   const { state } = useLocation();
   const { t } = useTranslation();
   const [form, setForm] = React.useState(false);
-
-  const handleChange = (name,value) => {
+  const handleChange = (name,value, i,j) => {
     state.form[name]=value;
     handleError(name,value)
     setForm(!form);
   };
+
+  console.log(state.form)
   const [preparticipation, setPreparticipation] = React.useState(state?.form?.preparticipation==="نعم");
 
   const switchHandler = (e, field) => {
