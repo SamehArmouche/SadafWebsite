@@ -70,7 +70,8 @@ const MultiForm = () => {
 
 
   const formComponents = ()=>{ 
-    return [
+    let result =
+    [
       {
         'name':'Category',
         'element': <CategoryStep handleSubmit={handleSubmit} error={error} errorMsg={t("talent.stepper.category.error")}/>,
@@ -107,6 +108,11 @@ const MultiForm = () => {
         'element':<ReviewInfo />
       }
     ];
+
+    if(state.form.category!=='Actor'){
+      return result.filter((e) => e.name!=="BodyInfoStep")
+    }
+    return result;
   }
 
   const formContent = (step) => { return formComponents()[step].element };
@@ -124,32 +130,34 @@ const MultiForm = () => {
         >
           {t('talent.stepper.buttons.back')}
         </Button>
-        <Stepper
-          activeStep={activeStep}
-          orientation="horizontal"
-          sx={{
-            display:{xs:'none',md:'flex'},
-            width:'100%',
-            ".css-paz51n-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed": {
-              color: "black"
-            }
-          }}
-        >
-          {formComponents().map((label, index) => 
+        { state.form.category &&
+            <Stepper
+            activeStep={activeStep}
+            orientation="horizontal"
+            sx={{
+              display:{xs:'none',md:'flex'},
+              width:'100%',
+              ".css-paz51n-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed": {
+                color: "black"
+              }
+            }}
+          >
+            {formComponents().map((label, index) => 
 
-          {
-            return (
-            <Step key={index}>
-              <StepLabel>
-                <Typography style={{fontWeight:activeStep===index?'bold':''}}>
-                  {t(`talent.stepper.${formComponents()[index]?.name.toLowerCase()}.title`)}
-                </Typography>
-              </StepLabel>
-            </Step>
-          )}
-          
-          )}
-        </Stepper>
+            {
+              return (
+              <Step key={index}>
+                <StepLabel>
+                  <Typography style={{fontWeight:activeStep===index?'bold':''}}>
+                    {t(`talent.stepper.${formComponents()[index]?.name.toLowerCase()}.title`)}
+                  </Typography>
+                </StepLabel>
+              </Step>
+            )}
+            
+            )}
+          </Stepper>
+        }
         {activeStep === formComponents.length - 1 ? (
           <Button variant="menu">
             Submit
