@@ -7,10 +7,10 @@ import {
 } from "@mui/material";
 import colors from '../../assets/theme/colors/'
 
-export default function DataSelect({onChange, value, label, options, t}) {
+export default function DataSelect({onChange, value, label, options, t, error}) {
   
   return (
-    <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:250}}} required >
+    <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:250}}} required error={error} >
       <InputLabel id="demo-simple-select-helper-label">{label}</InputLabel>
       <Select
         sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",

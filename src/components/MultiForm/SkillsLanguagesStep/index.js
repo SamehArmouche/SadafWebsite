@@ -1,7 +1,8 @@
 import {
   Grid,
   Fade,
-  Box
+  Box,
+  Typography
 } from "@mui/material";
 import * as React from 'react'
 import DataSelect from '../../../components/DataSelect'
@@ -11,8 +12,14 @@ import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
 import { studies, languages, talents, dialects } from '../../../helpers/data';
 import Input from '../../Input'
+import colors from '../../../assets/theme/colors/'
+
 const SkillsLanguagesStep = ({
-  handleSubmit
+  handleSubmit,
+  errors,
+  error,
+  errorMsg,
+  handleError
 }) => {
 
   const { state } = useLocation();
@@ -21,6 +28,7 @@ const SkillsLanguagesStep = ({
 
   const handleChange = (name,value) => {
     state.form[name]=value;
+    handleError(name,value)
     setForm(!form);
   };
   const [preparticipation, setPreparticipation] = React.useState(false);
@@ -30,10 +38,12 @@ const SkillsLanguagesStep = ({
       setPreparticipation(e.target.checked);
   };
 
-
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
-      <Box sx={{ flexGrow: 1, flexWrap: 'wrap',marginTop:{xs:0,md:10} }}>
+      <Box sx={{ flexGrow: 1, flexWrap: 'wrap' }}>
+          <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
+            {error && <Typography sx={{color:colors.error}}> {errorMsg} </Typography>}
+          </Grid>
         <Grid container spacing={0} sx={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
           
           <Grid item>
@@ -42,11 +52,12 @@ const SkillsLanguagesStep = ({
               noneItem={t('talent.stepper.buttons.none')}
               value={state?.form?.studies || ''}
               options={studies}
+              error={errors?.studies?.error} 
               onChange={(e)=>handleChange("studies",e.target.value)}
               t={t}/>
-            <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.languages.title"}  items={languages}/>
-            <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.dialects.title"}  items={dialects}/>
-            <MultipleSelect t={t} label={"talent.stepper.skillslanguagesstep.inputs.talents.title"} items={talents}/>
+            <MultipleSelect error={errors?.languages?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.languages.title"} name={"languages"}  items={languages} currentValues={state?.form?.languages}/>
+            <MultipleSelect error={errors?.dialects?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.dialects.title"}  name={"dialects"} items={dialects} currentValues={state?.form?.dialects}/>
+            <MultipleSelect error={errors?.talents?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.talents.title"} name={"talents"} items={talents} currentValues={state?.form?.talents}/>
           </Grid>
 
           <Grid item sx={{display:'flex',flexDirection:'column',alignItems:{xs:'center',md:"flex-start"}}}>

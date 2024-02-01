@@ -15,7 +15,7 @@ const options = [
 
 const studies = [
   {
-    value:"primary",
+    value:"ابتدائي",
     label:'talent.stepper.skillslanguagesstep.inputs.studies.primary'
   },
   {
@@ -45,19 +45,19 @@ const studies = [
 ]
 
 const languages = [
-  { value: 'arabic',
+  { value: 'عربي',
     label:'talent.stepper.skillslanguagesstep.inputs.languages.arabic'
   },
-  { value: 'english',
+  { value: 'إنجليزي',
     label:'talent.stepper.skillslanguagesstep.inputs.languages.english'
   },
-  { value: 'french',
+  { value: 'فرنسي',
     label:'talent.stepper.skillslanguagesstep.inputs.languages.french'
   },
-  { value: 'italian',
+  { value: 'إيطالي',
     label:'talent.stepper.skillslanguagesstep.inputs.languages.italian'
   },
-  { value: 'spanish',
+  { value: 'إسباني',
     label:'talent.stepper.skillslanguagesstep.inputs.languages.spanish'
   }
 ];
@@ -275,8 +275,15 @@ const fieldsMandatoryPersonalStep = [
 
 const fieldsMandatoryContactStep = [
   "phonenumber",
-  "fixnumber",
+  //"fixnumber",
   "phoneCode",
+]
+
+const fieldsMandatorySkillsStep = [
+  "studies",
+  "languages",
+  "talents",
+  "dialects"
 ]
 
 const countries = 
@@ -2037,5 +2044,5 @@ module.exports = {
   countries, options, studies, languages, talents,
   hairColors, eyeColors, skinColors, bodyTypes,
   dialects, categories, fieldsMandatoryPersonalStep,
-  fieldsMandatoryContactStep, steps
+  fieldsMandatoryContactStep, fieldsMandatorySkillsStep, steps
 }

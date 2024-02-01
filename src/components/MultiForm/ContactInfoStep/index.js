@@ -23,9 +23,9 @@ const ContactInfoStep = ({ handleSubmit, errors, handleError, error, errorMsg })
   const [form, setForm] = React.useState(false);
 
   const handleChange = (name,value, type) => {
-    handleError(name, value)
     if(type==='tel'&& value!==''){
       if(validatePhoneNumber(value)){
+        handleError(name, value)
         state.form[name]=value;
       }
     }else{
@@ -48,7 +48,7 @@ const ContactInfoStep = ({ handleSubmit, errors, handleError, error, errorMsg })
               <CodeCountrySelect  error={errors?.phoneCode?.error} lang={i18n.language} t={t} onChange={handleChange} value={"phoneCode"} defaultValue={state.form.phoneCode}/>
             </FormControl>
             <Input direction={"ltr"} type ={'tel'} preValue={state.form.phoneCode} error={errors?.phonenumber?.error} required={true} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
-            <Input direction={"ltr"} type ={'tel'} preValue={state.form.phoneCode} error={errors?.fixnumber?.error} required={true} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} /> 
+            <Input direction={"ltr"} type ={'tel'} preValue={state.form.phoneCode} error={errors?.fixnumber?.error} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} /> 
           </Grid>
 
           <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>

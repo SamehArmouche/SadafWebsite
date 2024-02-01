@@ -17,7 +17,7 @@ import BodyInfoStep from './BodyInfoStep';
 import OtherInfoStep from './OtherInfoStep';
 import ReviewInfo from './ReviewInfo';
 import { useTranslation } from 'react-i18next';
-import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep, steps } from '../../helpers/data'
+import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep, fieldsMandatorySkillsStep, steps } from '../../helpers/data'
 
 
 const MultiForm = () => {
@@ -41,6 +41,9 @@ const MultiForm = () => {
     }
     if(step===2){
       fieldsToValidate = fieldsMandatoryContactStep
+    }
+    if(step===3){
+      fieldsToValidate = fieldsMandatorySkillsStep
     }
 
     for (let index = 0; index < fieldsToValidate?.length; index++) {
@@ -69,7 +72,7 @@ const MultiForm = () => {
 
       case 1:
 
-        if(validateFields(1)){
+        if(validateFields(0)){
           setActiveStep((prevStep) => prevStep + 1);
         }else{
           setError(true)
@@ -78,7 +81,7 @@ const MultiForm = () => {
 
       case 2:
 
-        if(validateFields(2)){
+        if(validateFields(0)){
           setActiveStep((prevStep) => prevStep + 1);
         }else{
           setError(true)
@@ -87,7 +90,7 @@ const MultiForm = () => {
       
       case 3:
 
-        if(Object.values(state.form).length > 0 && validateFields(3)){
+        if(validateFields(3)){
           setActiveStep((prevStep) => prevStep + 1);
         }else{
           setError(true)
@@ -124,6 +127,7 @@ const MultiForm = () => {
   }
 
   const handleError = (name, value) => {
+    console.log(value)
     setErrors({...errors,[name]:{error:false}});
   }
 
@@ -136,7 +140,7 @@ const MultiForm = () => {
       case 2:
         return <ContactInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />;
       case 3:
-        return <SkillsLanguagesStep handleSubmit={handleSubmit} />;
+        return <SkillsLanguagesStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />;
       case 4:
         return <BodyInfoStep handleSubmit={handleSubmit} />;
       case 5:
