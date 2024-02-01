@@ -63,11 +63,13 @@ const SkillsLanguagesStep = ({
               t={t}/>
             <MultipleSelect error={errors?.languages?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.languages.title"} name={"languages"}  items={languages} currentValues={state?.form?.languages}/>
             <MultipleSelect error={errors?.dialects?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.dialects.title"}  name={"dialects"} items={dialects} currentValues={state?.form?.dialects}/>
-            <MultipleSelect error={errors?.talents?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.talents.title"} name={"talents"} items={talents} currentValues={state?.form?.talents}/>
           </Grid>
-
+          
+          <Grid item sx={{ display:'flex', justifyContent:{xs:'center',md:'flex-start'},alignItems:'center'}}>
+          <MultipleSelect error={errors?.talents?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.talents.title"} name={"talents"} items={talents} currentValues={state?.form?.talents}/>
+          </Grid>
           <Grid item sx={{ display:'flex', justifyContent:'center',m:1,alignItems:'center'}}>
-            <Divider  sx={{width:{xs:'80%',md:'46%'}}}  />
+            <Divider  sx={{width:{xs:'80%',md:'60%'}}}  />
           </Grid>
 
           <Grid item sx={{display:'flex',flexDirection:'column',alignItems:{xs:'center',md:"flex-start"}}}>
