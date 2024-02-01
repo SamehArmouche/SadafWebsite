@@ -51,7 +51,7 @@ const BodyInfoStep = ({
         setHealthcare(e.target.checked);
       }
   };
-  console.log(state.form)
+
   
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>

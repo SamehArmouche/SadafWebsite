@@ -17,7 +17,7 @@ import BodyInfoStep from './BodyInfoStep';
 import OtherInfoStep from './OtherInfoStep';
 import ReviewInfo from './ReviewInfo';
 import { useTranslation } from 'react-i18next';
-import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep, fieldsMandatorySkillsStep, fieldsMandatoryBodyStep, steps } from '../../helpers/data'
+import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep, fieldsMandatorySkillsStep, fieldsMandatoryBodyStep, fieldsMandatoryCategoryStep } from '../../helpers/data'
 
 
 const MultiForm = () => {
@@ -35,20 +35,7 @@ const MultiForm = () => {
   
   const validateFields = (step) => {
     let errorsFields = {}
-    let fieldsToValidate= null;
-    if(step===1){
-      fieldsToValidate = fieldsMandatoryPersonalStep;
-    }
-    if(step===2){
-      fieldsToValidate = fieldsMandatoryContactStep
-    }
-    if(step===3){
-      fieldsToValidate = fieldsMandatorySkillsStep
-    }
-    if(step===4){
-      fieldsToValidate = fieldsMandatoryBodyStep
-    }
-
+    let fieldsToValidate= formComponents()[step].mandatoryFields;
     for (let index = 0; index < fieldsToValidate?.length; index++) {
       if(!state.form.hasOwnProperty(fieldsToValidate[index])){
         errorsFields[fieldsToValidate[index]]={error:true}
@@ -57,68 +44,16 @@ const MultiForm = () => {
       }
       setErrors({...errors,...errorsFields});
     }
-
     return !Object.values(errorsFields).some(item => item.error === true);
   }
 
 
   const changeStep = () => {
     setError(false)
-    switch (activeStep) {
-      case 0:
-        if(Object.values(state.form).length > 5){
-          setActiveStep((prevStep) => prevStep + 1);
-        }else{
-          setError(true)
-        }
-        break;
-
-      case 1:
-
-        if(validateFields(0)){
-          setActiveStep((prevStep) => prevStep + 1);
-        }else{
-          setError(true)
-        }
-        break;
-
-      case 2:
-
-        if(validateFields(0)){
-          setActiveStep((prevStep) => prevStep + 1);
-        }else{
-          setError(true)
-        }
-        break;
-      
-      case 3:
-
-        if(validateFields(0)){
-          setActiveStep((prevStep) => prevStep + 1);
-        }else{
-          setError(true)
-        }
-        break;
-        
-      case 4:
-
-        if(validateFields(0)){
-          setActiveStep((prevStep) => prevStep + 1);
-        }else{
-          setError(true)
-        }
-        break;
-
-      case 5:
-        if(validateFields(5)){
-          setActiveStep((prevStep) => prevStep + 1);
-        }else{
-          setError(true)
-        }
-        break;
-
-      default:
-        break;
+    if(validateFields(activeStep)){
+      setActiveStep((prevStep) => prevStep + 1);
+    }else{
+      setError(true)
     }
   }
   
@@ -133,30 +68,53 @@ const MultiForm = () => {
     setErrors({...errors,[name]:{error:false}});
   }
 
-  const formContent = (step) => {
-    switch(step) {
-      case 0:
-        return <CategoryStep handleSubmit={handleSubmit} error={error} errorMsg={t("talent.stepper.category.error")}/>;
-      case 1:
-        return <PersonalInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />;
-      case 2:
-        return <ContactInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />;
-      case 3:
-        return <SkillsLanguagesStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />;
-      case 4:
-        return <BodyInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />;
-      case 5:
-        return <OtherInfoStep handleSubmit={handleSubmit} />;
-      default:
-        return <ReviewInfo />;
-    }
-  };
 
+  const formComponents = ()=>{ 
+    return [
+      {
+        'name':'Category',
+        'element': <CategoryStep handleSubmit={handleSubmit} error={error} errorMsg={t("talent.stepper.category.error")}/>,
+        'mandatoryFields':fieldsMandatoryCategoryStep
+      },
+      {
+        'name':'PersonalInfo',
+        'element': <PersonalInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />,
+        'mandatoryFields':fieldsMandatoryPersonalStep
+      },
+      {
+        'name':'ContactInfoStep',
+        'element': <ContactInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />,
+        'mandatoryFields':fieldsMandatoryContactStep
+      },
+      {
+        'name':'SkillsLanguagesStep',
+        'element':<SkillsLanguagesStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />,
+        'mandatoryFields':fieldsMandatorySkillsStep
+      },
+      {
+        'name':'BodyInfoStep',
+        'element': <BodyInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />,
+        'mandatoryFields':fieldsMandatoryBodyStep
+      },
+      {
+        'name':'OtherInfoStep',
+        'element': <OtherInfoStep handleSubmit={handleSubmit}/>,
+        'mandatoryFields':[]
+      },
+    
+      {
+        'name':'Review',
+        'element':<ReviewInfo />
+      }
+    ];
+  }
+
+  const formContent = (step) => { return formComponents()[step].element };
 
   return (
     <Box>
       <Typography sx={{display:{md:'none',xs:'auto'},fontSize:16,mt:2,mb:4}}>
-        {t(`talent.stepper.${steps[activeStep].toLowerCase()}.title`)}
+        {t(`talent.stepper.${formComponents()[activeStep].name.toLowerCase()}.title`)}
       </Typography>
       <Box sx={{alignItems:'center',display:'flex',justifyContent:'space-between',width:'100%',mt:{xs:0,md:5}}}>
         <Button
@@ -177,17 +135,22 @@ const MultiForm = () => {
             }
           }}
         >
-          {steps.map((label, index) => (
+          {formComponents().map((label, index) => 
+
+          {
+            return (
             <Step key={index}>
               <StepLabel>
                 <Typography style={{fontWeight:activeStep===index?'bold':''}}>
-                  {t(`talent.stepper.${label.toLowerCase()}.title`)}
+                  {t(`talent.stepper.${formComponents()[index]?.name.toLowerCase()}.title`)}
                 </Typography>
               </StepLabel>
             </Step>
-          ))}
+          )}
+          
+          )}
         </Stepper>
-        {activeStep === steps.length - 1 ? (
+        {activeStep === formComponents.length - 1 ? (
           <Button variant="menu">
             Submit
           </Button>

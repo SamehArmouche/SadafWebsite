@@ -26,7 +26,6 @@ function ContactUs() {
     setForm({...form, [name]: value});
     setErrors({...errors, [name]: handleError(value)});
   }
-  //console.log(errors)
 
   const onSubmit = async () => {
     if(Object.values(form).length<5 || Object.values(form).includes("") || !validateEmail(form['email'])){

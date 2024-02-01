@@ -55,7 +55,6 @@ export default function MultipleSelect({label, t , items, onChange, currentValue
           {
             onChange(name, [])
           }
-            //console.log(newInputValue)
 
         }}
         renderInput={(params) => (
