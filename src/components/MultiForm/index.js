@@ -17,7 +17,9 @@ import BodyInfoStep from './BodyInfoStep';
 import OtherInfoStep from './OtherInfoStep';
 import ReviewInfo from './ReviewInfo';
 import { useTranslation } from 'react-i18next';
-import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep, fieldsMandatorySkillsStep, fieldsMandatoryBodyStep, fieldsMandatoryCategoryStep } from '../../helpers/data'
+import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep,
+  fieldsMandatorySkillsStep, fieldsMandatoryBodyStep,
+  fieldsMandatoryCategoryStep, fieldsMandatoryOtherStep } from '../../helpers/data'
 
 
 const MultiForm = () => {
@@ -99,8 +101,8 @@ const MultiForm = () => {
       },
       {
         'name':'OtherInfoStep',
-        'element': <OtherInfoStep handleSubmit={handleSubmit}/>,
-        'mandatoryFields':[]
+        'element': <OtherInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />,
+        'mandatoryFields': fieldsMandatoryOtherStep
       },
     
       {

@@ -190,6 +190,10 @@
             "titlepass":"If there is a password for the video link, please write it here",
             "url":"Video Link",
             "password":"Password"
+          },
+          "errors":{
+            "filesize":"Image size is large, maximum limit is 5Mb",
+            "fileextension":"The file extension is ​​incorrect"
           }
         }
       },

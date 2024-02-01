@@ -11,10 +11,16 @@ import React from 'react';
 import { useLocation } from 'react-router-dom'
 import colors from '../../assets/theme/colors/'
 
-const ImagePicker = ({label, handleOnChange, image, field, align}) => {
+const ImagePicker = ({label, handleOnChange, image, field, align, error, errorMsg, errorEmpty}) => {
   
   return (
-    <Box sx={{backgroundColor:'black',width:300,display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',m:2,borderRadius:2}}>
+    <Box sx={{
+      boxShadow: `0 1px 6px 1px ${errorEmpty||error?'rgba(207, 87, 87, 0.3)':'transparent'}`,
+      backgroundColor:'black',width:300,height:210,display:'flex',
+      justifyContent:'center',alignItems:'center',flexDirection:'column',
+      m:2,borderRadius:2
+      
+      }}>
       <Grid item>
         <img
           style={{borderRadius:6,  opacity:image?1:0.4}}
@@ -33,18 +39,27 @@ const ImagePicker = ({label, handleOnChange, image, field, align}) => {
       />
       <Grid sx={{width:"100%",display:'flex',height:'100%',justifyContent:'space-between',pr:1,pl:1}}>
 
-      <Typography align={align}>{label}</Typography>
-      <label htmlFor={field} style={{height:34}}>
-        <Button
-          component="span"
-          label="Upload imagen"
-          sx={{p:0,m:0,justifyContent:'center',display:'flex'}}
-    
-        >
-        <ImageIcon  />
-        </Button>
-      </label>
+        <Grid item>
+          <Typography align={align}>{label}</Typography>
+          { 
+            error && 
+            <Typography align={align} sx={{color:colors.error,fontSize:12,mb:1}}>{errorMsg}</Typography>
+          }
+        </Grid>
+
+        <label htmlFor={field} style={{height:34}}>
+          <Button
+            component="span"
+            label="Upload imagen"
+            sx={{p:0,m:0,justifyContent:'center',display:'flex'}}
+      
+          >
+          <ImageIcon  />
+          </Button>
+        </label>
       </Grid>
+
+
     </Box>
   )
 }

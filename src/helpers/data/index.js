@@ -266,7 +266,7 @@ const fieldsMandatoryCategoryStep = [
   "category"
 ]
 const fieldsMandatoryPersonalStep = [
-  "firstname",
+  /*"firstname",
   "fathername",
   "lastname",
   "gender",
@@ -274,27 +274,33 @@ const fieldsMandatoryPersonalStep = [
   "birthday",
   "nacionality",
   "country",
-  "city"
+  "city"*/
 ]
 
 const fieldsMandatoryContactStep = [
-  "phonenumber",
-  "phoneCode"
+  /*"phonenumber",
+  "phoneCode",*/
 ]
 
 const fieldsMandatorySkillsStep = [
-  "studies",
+  /*"studies",
   "languages",
   "talents",
-  "dialects"
+  "dialects"*/
 ]
 const fieldsMandatoryBodyStep = [
-  "haircolor",
+  /*"haircolor",
   "eyecolor",
   "skincolor",
   "weight",
   "height",
-  "bodytype"
+  "bodytype"*/
+]
+
+const fieldsMandatoryOtherStep = [
+  "image1",
+  "image2",
+  "image3"
 ]
 
 const countries = 
@@ -2056,5 +2062,6 @@ module.exports = {
   hairColors, eyeColors, skinColors, bodyTypes,
   dialects, categories, fieldsMandatoryPersonalStep,
   fieldsMandatoryContactStep, fieldsMandatorySkillsStep,
-  fieldsMandatoryBodyStep, fieldsMandatoryCategoryStep
+  fieldsMandatoryBodyStep, fieldsMandatoryCategoryStep,
+  fieldsMandatoryOtherStep
 }
