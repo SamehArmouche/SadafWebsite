@@ -65,9 +65,10 @@ const ContactInfoStep = ({ handleSubmit, errors, handleError, error, errorMsg })
               onChange={handleChange}
               t={t}
             />
-            <SocialNetworksList/>
           </Grid>
-        
+          <Grid item sx={{justifyContent:{xs:"center",md:"flex-start"},display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0},flexWrap:'wrap'}}>
+            <SocialNetworksList label={t('talent.stepper.contactinfostep.inputs.links')}/>
+          </Grid>
       </Grid>
     </Box>
   </Fade>

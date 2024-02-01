@@ -109,10 +109,7 @@ const MultiForm = () => {
       }
     ];
 
-    if(state.form.category!=='Actor'){
-      return result.filter((e) => e.name!=="BodyInfoStep")
-    }
-    return result;
+    return state.form.category!=='Actor'? result.filter((e) => e.name!=="BodyInfoStep"):result;   
   }
 
   const formContent = (step) => { return formComponents()[step].element };
