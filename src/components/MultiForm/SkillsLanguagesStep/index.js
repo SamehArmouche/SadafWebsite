@@ -33,7 +33,7 @@ const SkillsLanguagesStep = ({
     setForm(!form);
   };
 
-  console.log(state.form)
+
   const [preparticipation, setPreparticipation] = React.useState(state?.form?.preparticipation==="نعم");
 
   const switchHandler = (e, field) => {

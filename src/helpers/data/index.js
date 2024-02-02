@@ -298,6 +298,9 @@ const fieldsMandatoryBodyStep = [
 ]
 
 const fieldsMandatoryOtherStep = [
+]
+
+const fieldsMandatoryActor = [
   "image1",
   "image2",
   "image3"
@@ -2063,5 +2066,5 @@ module.exports = {
   dialects, categories, fieldsMandatoryPersonalStep,
   fieldsMandatoryContactStep, fieldsMandatorySkillsStep,
   fieldsMandatoryBodyStep, fieldsMandatoryCategoryStep,
-  fieldsMandatoryOtherStep
+  fieldsMandatoryOtherStep, fieldsMandatoryActor
 }

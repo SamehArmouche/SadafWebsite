@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom'
 
 const ReviewInfo = () => {
   const { state } = useLocation();
-  console.log(state.form)
+  
   return (
     <>
       <Typography variant="overline" >
