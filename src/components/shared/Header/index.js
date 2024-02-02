@@ -92,7 +92,9 @@ function Header() {
   };*/
 
   const handleCloseNavMenu = () => {
-    setOpen(!isOpen)
+    if(isOpen){
+      setOpen(false)
+    }
     setAnchorElNav(null);
   };
 
