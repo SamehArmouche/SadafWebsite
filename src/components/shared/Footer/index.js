@@ -48,7 +48,9 @@ export default function Footer() {
         <InstagramIcon sx={{color:colors.divder,fontSize:26,p:2}} onClick={()=> openInNewTab(getUrl('4'))} />
       </Box>
       <Box sx={{width:'70%',justifyContent:'center',alignItems:'center'}}>
-        <h5 style={{color:colors.divder,margin:0}}>Powered by <a href="https://www.facebook.com/sameh.armouche.12/" style={{color:colors.divder}}>Sameh Armouche</a></h5>
+        <h5 style={{color:colors.divder,margin:0}}>Powered by 
+          <a href="https://www.facebook.com/sameh.armouche.12/" rel="noopener noreferrer" target="_blank" style={{color:colors.divder}}> Sameh Armouche</a>
+        </h5>
       </Box>
     </footer>
   );
