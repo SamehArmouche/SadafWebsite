@@ -246,5 +246,19 @@
       "400":"An error occurred, please try again later"
     }
   },
+  "service" :{
+    "title":"Available services",
+    "buttons":{
+      "back":"Back"
+    },
+    "form":{
+      "title":"Register your service with us",
+      "firstname":"First name",
+      "fathername": "Father name",
+      "lastname": "Last name",
+      "type":"Type service",
+      "companyName":"Company name"
+    }
+  },
   "loading":"Please wait ..."
 }
