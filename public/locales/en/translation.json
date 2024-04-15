@@ -249,15 +249,34 @@
   "service" :{
     "title":"Available services",
     "buttons":{
-      "back":"Back"
+      "back":"Back",
+      "register":"Register"
     },
     "form":{
       "title":"Register your service with us",
+      "inputs":{
       "firstname":"First name",
       "fathername": "Father name",
       "lastname": "Last name",
       "type":"Type service",
-      "companyName":"Company name"
+      "companyName":"Company name",
+      "companyNationality":"Company nationality",
+      "companyCountry":"Country",
+      "companyCity":"City",
+      "phonenumber":"Mobile number",
+      "email":"Email",
+      "phoneCode": "Code",
+      "website": "Website",
+      "communicationType": {
+        "title": "Preferred communication type",
+        "mobile":"Mobile",
+        "email":"Email",
+        "whatsapp":"WhatsApp"
+      },
+      "links":"Social media links",
+      "isSaudi":"Is the company Saudi?",
+      "about":"Tell us about the company"
+      }
     }
   },
   "loading":"Please wait ..."

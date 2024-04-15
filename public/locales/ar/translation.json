@@ -250,15 +250,34 @@
   "service" :{
     "title":"الخدمات المتوفرة",
     "buttons":{
-    "back":"الرجوع"
+    "back":"الرجوع",
+    "register":"تسجيل"
     },
     "form":{
       "title":"سجل معنا خدمتك",
-      "firstname":"الإسم الأول",
-      "fathername":"إسم الأب",
-      "lastname":"الإسم الأخير",
-      "type":"نوع الخدمة",
-      "companyName":"إسم الشركة"
+      "inputs":{
+        "firstname":"الإسم الأول",
+        "fathername":"إسم الأب",
+        "lastname":"الإسم الأخير",
+        "type":"نوع الخدمة",
+        "companyName":"إسم الشركة",
+        "companyNationality":"جنسية الشركة",
+        "companyCountry":"البلد",
+        "companyCity":"المدينة",
+        "phonenumber":"رقم الجوال",
+        "email":"البريد الإلكتروني",
+        "phoneCode": "الرمز الدولي",
+        "website": "الموقع الإلكتروني",
+        "communicationType":{
+            "title": "وسيلة الاتصال المفضلة",
+            "mobile":"الجوال",
+            "email":"البريد الإلكتروني",
+            "whatsapp":"الواتس اب"
+        },
+        "links":"مواقع التواصل الاجتماعي",
+        "isSaudi":"هل الشركة سعودية؟",
+        "about":"لمحة عن الشركة"
+      }
     }
   },
   "loading":"يرجى الإنتظار قليلا ..."

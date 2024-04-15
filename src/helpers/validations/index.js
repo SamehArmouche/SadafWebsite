@@ -31,10 +31,18 @@ const validateField = (form ,value, type)=>{
   }
 }
 
+const validateOneField = (value, type)=>{
+  if(value!==undefined){
+    if(value==='email')
+      return !validateEmail(value);
+    return !value.length>0
+  }
+}
+
 const validateSizeFile = (file) => {
   const MAX_FILE_SIZE = 1120 // 5MB
   const fileSizeKiloBytes = file.size / 1024
   return fileSizeKiloBytes < MAX_FILE_SIZE
 };
 
-module.exports = {validateEmail, validateField,validateNumber,validatePhoneNumber, validateSizeFile}
+module.exports = {validateEmail, validateField,validateNumber,validatePhoneNumber, validateSizeFile, validateOneField}

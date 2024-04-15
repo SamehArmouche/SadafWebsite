@@ -306,6 +306,20 @@ const fieldsMandatoryActor = [
   "image3"
 ]
 
+
+const fieldsMandatoryServiceForm = [
+  "firstname",
+  "fathername",
+  "lastname",
+  "type",
+  "companyName",
+  "website",
+  "email",
+  "about",
+  "phonenumber",
+  "phoneCode",
+]
+
 const countries = 
 [
     {
@@ -2066,5 +2080,6 @@ module.exports = {
   dialects, categories, fieldsMandatoryPersonalStep,
   fieldsMandatoryContactStep, fieldsMandatorySkillsStep,
   fieldsMandatoryBodyStep, fieldsMandatoryCategoryStep,
-  fieldsMandatoryOtherStep, fieldsMandatoryActor
+  fieldsMandatoryOtherStep, fieldsMandatoryActor,
+  fieldsMandatoryServiceForm
 }
