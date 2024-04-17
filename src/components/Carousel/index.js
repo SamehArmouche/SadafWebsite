@@ -79,8 +79,8 @@ function MyCarousel({items, type, handleChange}){
       }else{
         setCountPerSlide(4);
       }
+      setLoading(false);
       if(items.length>0){
-        setLoading(false);
         const count = Math.ceil(items.length/countPerSlide)
         const itemsPerSlide = []
         for(let i = 0; i<count ; i++){
@@ -95,6 +95,7 @@ function MyCarousel({items, type, handleChange}){
         {loading ? (
           <Loading style={{color: colors.primary}}/>
         ) : (
+          slides.length > 0 ? 
           <Carousel animation={"fade"} 
             navButtonsAlwaysVisible={true}
             navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
@@ -121,6 +122,7 @@ function MyCarousel({items, type, handleChange}){
                 slides.map(slide => <OneSlide key={slide} items ={slide}/>)
               }
           </Carousel>
+          : null
         )}
       </Box>
     );

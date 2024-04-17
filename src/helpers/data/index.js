@@ -318,6 +318,9 @@ const fieldsMandatoryServiceForm = [
   "about",
   "phonenumber",
   "phoneCode",
+  "companyNationality",
+  "companyCountry",
+  "companyCity"
 ]
 
 const countries = 

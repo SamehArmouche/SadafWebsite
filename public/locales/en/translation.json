@@ -210,7 +210,7 @@
   },
   "header": {
     "home": "Home",
-    "services":"Services",
+    "services":"Logistics services",
     "projects":"Projects",
     "awards":"Awards",
     "successes":"Successes",
@@ -277,6 +277,10 @@
       "isSaudi":"Is the company Saudi?",
       "about":"Tell us about the company"
       }
+    },
+    "response":{
+      "200":"Service registered successfully",
+      "400":"An error occurred, please try again later"
     }
   },
   "loading":"Please wait ..."

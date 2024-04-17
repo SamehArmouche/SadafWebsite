@@ -30,6 +30,24 @@ export const fetchServices = createAsyncThunk(
   }
 )
 
+export const registerService = createAsyncThunk(
+  'services/registerService',
+  async (service) =>{
+    const response = await fetch(`/sadaf/service`,{
+    method : 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify({ThirdPartyService:service})
+    });
+    const data = await response.json();
+    if(response.status!==200){
+      throw new Error(data.msg);
+    }
+    return data;
+  }
+)
+
 //////////////// Projects /////////////////////////////
 export const fetchProjects = createAsyncThunk(
   'projects/fetchProjects',

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Grid, Fade, Typography, Button} from '@mui/material';
 import { fetchServices } from '../../redux/thunks';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Carousel from '../../components/Carousel';
 import ServiceForm from '../../components/Services';
 import Details from '../../components/shared/Details';
@@ -12,24 +12,23 @@ function Services() {
   const dispatch: Dispatch = useDispatch();
   const [open, setOpen] = React.useState(false)
   const [service, setService ] = React.useState({});
+  const [services, setServices ] = React.useState({});
   const [showService, setShowService] = React.useState('root')
   const {t, i18n } = useTranslation();
-  const { services } = useSelector(
-    (state) => state.services
-  )
+
   const handleChange = (value) => {
+    
     setService(value)
     setOpen(!open)
   }
-  const onClick = (value) =>{
+  const onClick = async (value) =>{
+    const result = await dispatch(fetchServices())
+    setServices(result.payload);
     setShowService(value)
   }
 
 
 
-  React.useEffect(() => {
-    dispatch(fetchServices());
-  }, [dispatch]);
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
@@ -95,11 +94,12 @@ function Services() {
         {
           showService==='Our' &&
           <Grid container sx={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
-            <Button onClick={()=> onClick("root")} sx={{color:colors.primary,fontSize:19}}>{t('service.buttons.back')}</Button>
+            <Button onClick={()=> onClick("root")} sx={{color:colors.primary}}>{t('service.buttons.back')}</Button>
             <Carousel items={services} onClick={()=>setOpen(!open)} handleChange={handleChange} />
               <Details open={open} handleClose={()=> setOpen(!open)} 
                 title={`${service[`title_${i18n.language}`]}`}
-                description={`${service[`description_${i18n.language}`]}`}
+                description={service[`description_${i18n.language}`]}
+                direction={i18n.dir()}
                 img={`${service["img"]}`}
               /> 
           </Grid>
@@ -107,8 +107,8 @@ function Services() {
         {
           showService==='Third' &&
           <Grid container sx={{flexDirection:'column',justifyContent:'center',alignItems:'center',minHeight:'60vh'}}>
-            <Button onClick={()=> onClick("root")} sx={{color:colors.primary,fontSize:19}}> {t('service.buttons.back')}</Button>
-            <ServiceForm />
+            <Button onClick={()=> onClick("root")} sx={{color:colors.primary}}> {t('service.buttons.back')}</Button>
+            <ServiceForm onClick={onClick}/>
           </Grid>
         }
       </Grid>
@@ -117,12 +117,3 @@ function Services() {
 }
 
 export default Services;
-
-/**
- *       <Carousel items={services} onClick={()=>setOpen(!open)} handleChange={handleChange} />
-        <Details open={open} handleClose={()=> setOpen(!open)} 
-          title={`${service[`title_${i18n.language}`]}`}
-          description={`${service[`description_${i18n.language}`]}`}
-          img={`${service["img"]}`}
-        />
- */

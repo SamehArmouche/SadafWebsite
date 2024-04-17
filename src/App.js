@@ -32,6 +32,9 @@ function App() {
   const {loadingContactForm } = useSelector(
     (state) => state.contactForm
   )
+  const {loadingRegisterForm } = useSelector(
+    (state) => state.services
+  )
 
   const { t, i18n } = useTranslation();
   const theme = createTheme(styles(i18n));
@@ -44,7 +47,7 @@ function App() {
           sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1, backdropFilter: 'blur(3px)',
           flexDirection:'column',
           }}
-          open={loadingContactForm}>
+          open={loadingContactForm || loadingRegisterForm}>
           <Loading/>
           <h4 style={{color:colors.primary}}> {t('loading')} </h4>
         </Backdrop>

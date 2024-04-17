@@ -3,11 +3,12 @@ import {
   Dialog,
   DialogTitle,
   Box,
-  CardMedia
+  CardMedia,
+  Typography
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function Details({open, children, handleClickOpen, handleClose, title, height, description, img}) {
+export default function Details({open, children, handleClickOpen, handleClose, title, height, description, img, direction}) {
 
   return (
     <Dialog
@@ -43,7 +44,15 @@ export default function Details({open, children, handleClickOpen, handleClose, t
           {title}
         </DialogTitle>
         <DialogTitle id="responsive-dialog-title" sx={{fontWeight:'bold',fontSize:19}}>
-          {description}
+          {
+            Array.isArray(description)?
+            description?.map((d)=>{
+              return (
+                <Typography key={d}textAlign={direction==='ltr'?'left':'right'} sx={{mb:2}}><li>{d}</li></Typography>
+              )
+            })
+            : description
+          }
         </DialogTitle>
       </Box>
     </Dialog>
