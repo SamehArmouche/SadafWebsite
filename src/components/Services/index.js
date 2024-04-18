@@ -148,8 +148,8 @@ const ServiceForm = ({onClick}) => {
       </Grid>
   
       <Grid container sx={{justifyContent:'center'}}>
-        <Input error={errors?.email?.error} required={true} width={200} label={t('service.form.inputs.email')} handleChange={handleChange} name={'email'} value={form?.email} direction={"ltr"}/>
-        <Input error={errors?.website?.error} required={true} width={200} label={t('service.form.inputs.website')} handleChange={handleChange} name={'website'} value={form?.website} direction={"ltr"}/>
+        <Input error={errors?.email?.error} type={"email"} required={true} width={200} label={t('service.form.inputs.email')} handleChange={handleChange} name={'email'} value={form?.email} direction={"ltr"}/>
+        <Input error={errors?.website?.error} type={"url"} required={true} width={200} label={t('service.form.inputs.website')} handleChange={handleChange} name={'website'} value={form?.website} direction={"ltr"}/>
         <ComunicationTypeSelect 
           label={t('service.form.inputs.communicationType.title')}
           noneItem={t('talent.stepper.buttons.none')}

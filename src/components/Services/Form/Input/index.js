@@ -29,6 +29,8 @@ const Input = ({value, handleChange, label, name, mb=1,
         overflow: "unset",
       }*/
     }}
+    //inputProps={{ inputMode: 'numeric' }}
+    type={type}
     InputProps={{
       startAdornment: (
         preValue?
