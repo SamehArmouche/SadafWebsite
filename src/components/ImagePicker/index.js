@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 import ImageIcon from '@mui/icons-material/Image';
 import React from 'react';
-import { useLocation } from 'react-router-dom'
 import colors from '../../assets/theme/colors/'
 
 const ImagePicker = ({label, handleOnChange, image, field, align, error, errorMsg, errorEmpty}) => {

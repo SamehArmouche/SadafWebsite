@@ -1,10 +1,8 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Fade from '@mui/material/Fade';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { TransitionGroup } from 'react-transition-group';
 import XIcon from '@mui/icons-material/X';
@@ -18,10 +16,10 @@ import {
   FormControl,
   InputLabel,
   Select,
-  Box,
   MenuItem,
   TextField
 } from "@mui/material";
+
 const TikTokIcon = () => {
   return (
     <svg
@@ -44,9 +42,6 @@ const TYPES = [
   {value:'Youtube',icon:<YouTubeIcon sx={{mr:1}}/>},
   {value:'Other',icon:<HelpCenterIcon sx={{mr:1}}/>},
 ];
-
-
-
 
 export default function SocialNetworksList({label}) {
   const { state } = useLocation();

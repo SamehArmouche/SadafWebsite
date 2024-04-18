@@ -14,6 +14,8 @@ import { SnackbarProvider } from 'notistack';
 import { MaterialDesignContent } from 'notistack'
 import Loading from './components/Loading'
 import { useTranslation } from 'react-i18next';
+import * as React from 'react'
+import Welcome from './components/Welcome'
 
 const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
   '&.notistack-MuiContent-success': {
@@ -29,6 +31,7 @@ const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
 
 
 function App() {
+  const [load, setLoad] = React.useState(true);
   const {loadingContactForm } = useSelector(
     (state) => state.contactForm
   )
@@ -38,32 +41,44 @@ function App() {
 
   const { t, i18n } = useTranslation();
   const theme = createTheme(styles(i18n));
-  
+
+  React.useEffect(()=>{
+    setTimeout(() => {
+      setLoad(false);
+    }, "1000");
+
+  })
+
   return (
     <Fade in={true}>
       <div className="App">
-      <ThemeProvider theme={theme}>
-        <Backdrop
-          sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1, backdropFilter: 'blur(3px)',
-          flexDirection:'column',
-          }}
-          open={loadingContactForm || loadingRegisterForm}>
-          <Loading/>
-          <h4 style={{color:colors.primary}}> {t('loading')} </h4>
-        </Backdrop>
-          <SnackbarProvider maxSnack={1}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center',
+      {
+        load?
+        <Welcome/>
+        :
+        <ThemeProvider theme={theme}>
+          <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1, backdropFilter: 'blur(3px)',
+            flexDirection:'column',
             }}
-            autoHideDuration={3000}
-            Components={{
-              success: StyledMaterialDesignContent,
-              error: StyledMaterialDesignContent,
-            }}>
-            <AppContainer />
-          </SnackbarProvider>
-        </ThemeProvider>
+            open={loadingContactForm || loadingRegisterForm}>
+            <Loading/>
+            <h4 style={{color:colors.primary}}> {t('loading')} </h4>
+          </Backdrop>
+            <SnackbarProvider maxSnack={1}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+              autoHideDuration={3000}
+              Components={{
+                success: StyledMaterialDesignContent,
+                error: StyledMaterialDesignContent,
+              }}>
+              <AppContainer />
+            </SnackbarProvider>
+          </ThemeProvider>
+        }
       </div>
     </Fade>
   );

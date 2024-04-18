@@ -5,7 +5,6 @@ import {
 } from "@mui/material";
 import * as React from 'react'
 import colors from '../../assets/theme/colors/'
-import { useLocation } from 'react-router-dom'
 import { styled } from '@mui/material/styles';
 
 const Android12Switch = styled(Switch)(({ theme }) => ({
@@ -49,8 +48,6 @@ const Android12Switch = styled(Switch)(({ theme }) => ({
 
 
 const SwitchButton = ({label, handleChange, checked, field}) => {
-  const { state } = useLocation();
-
   return(
     <Box sx={{display:"flex",width:300,alignItems:'center'}}>
       <Android12Switch checked={checked} onChange={(e)=> {handleChange(e, field)}} />

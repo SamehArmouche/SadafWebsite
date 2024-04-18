@@ -1,18 +1,13 @@
 import {
   Typography,
-  List,
-  ListItem,
-  ListItemText,
   Grid,
   Fade
 } from '@mui/material';
 import colors from '../../../assets/theme/colors/'
 import { useLocation } from 'react-router-dom'
-import { useTranslation } from 'react-i18next';
 
 const ReviewInfo = () => {
   const { state } = useLocation();
-  const { t, i18n } = useTranslation();
 
   const item = (label) =>{
     let arrayAsString = state.form[label];
