@@ -10,10 +10,6 @@ function Layout() {
   const location = useLocation();
 
   const styleHome = {
-    backgroundImage:`url(/images/home.jpg)`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
     height: '100vh',
     p:0,
     m:0,
@@ -29,6 +25,7 @@ function Layout() {
   }
   const style = {
     height: '100vh',
+    backgroundColor:'#0A0A0A',
     p:0,
     m:0
   }
@@ -45,9 +42,17 @@ function Layout() {
   return (
     <Container         
       sx={getBackground} maxWidth="false">
+        {
+          location.pathname==="/" &&
+        <video id="background-video" playsInline loop autoPlay muted autobuffer={"true"}>
+          <source src="https://uploads-ssl.webflow.com/629a2cfb8f581b5d1399061e/629a2cfb8f581b4ee29906e8_%D8%B3%D8%B1%D9%8A%D8%B9%20%D8%B3%D8%B1%D9%8A%D8%B9%2039%20%D8%AB%D8%A7%D9%86%D9%8A%D8%A9-transcode.mp4" data-wf-ignore="true"/>
+          <source src="https://uploads-ssl.webflow.com/629a2cfb8f581b5d1399061e/629a2cfb8f581b4ee29906e8_%D8%B3%D8%B1%D9%8A%D8%B9%20%D8%B3%D8%B1%D9%8A%D8%B9%2039%20%D8%AB%D8%A7%D9%86%D9%8A%D8%A9-transcode.webm" data-wf-ignore="true"/>
+        </video>
+        }
+
       <React.Suspense fallback={<Loading/>}>
         <Header/>
-        <main style={{minHeight:'72vh'}}>
+        <main >
           <Outlet />
         </main>
         <Footer/>
