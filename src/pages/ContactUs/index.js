@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import { Button, Box, Typography, TextField } from '@mui/material';
+import { Button, Box, Typography, TextField, FormControl} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux'
 import colors from '../../assets/theme/colors';
@@ -8,6 +8,7 @@ import { sendContactForm } from '../../redux/thunks';
 import { useSnackbar } from 'notistack';
 import { useNavigate } from "react-router-dom";
 import {validateEmail} from '../../helpers/validations';
+import CountrySelect from '../../components/Contact/Country';
 
 function ContactUs() {
   const dispatch: Dispatch = useDispatch();
@@ -21,7 +22,7 @@ function ContactUs() {
   const handleClickVariant = (msg, variant) => {
     enqueueSnackbar(msg, { variant });
   };
-
+  
   const onChange = ({name, value}) => {
     setForm({...form, [name]: value});
     setErrors({...errors, [name]: handleError(value)});
@@ -86,16 +87,10 @@ function ContactUs() {
           //helperText={handleError("companyName")?t('contact.errors.empty'):""}
           autoComplete='nope'
         />
-        
-        <TextField id="filled-basic" label={t('contact.city')} variant="filled"
-          inputProps={{ style: { color: colors.primary } }}
-          error={handleError("city")}
-          onChange={(e) => {onChange({name:"city",value:e.target.value})}}
-          sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, m:1,width:{xs:'80%',md:'70%'}}}
-          required
-          //helperText={handleError("city")?t('contact.errors.empty'):""}
-          autoComplete='nope'
-        />
+      
+        <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'80%',md:350}}} required >
+          <CountrySelect error={handleError("country")} lang={i18n.language} t={t} onChange={onChange} value={"country"} defaultValue={form.country}/>
+        </FormControl>
         <TextField id="filled-basic" label={t('contact.email')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
           onChange={(e) => {onChange({name:"email",value:e.target.value})}}

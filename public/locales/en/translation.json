@@ -233,7 +233,7 @@
     "title":"Contact information",
     "fullname":"Full name",
     "companyName":"Company name",
-    "city":"City",
+    "country":"Country",
     "email":"Email",
     "msg":"Message text",
     "errors": {
