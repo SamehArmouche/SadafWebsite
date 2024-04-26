@@ -206,7 +206,8 @@
       "review":{
         "title":"Review information"
       }
-    }
+    },
+    "consent":"I confirm sharing my personal data"
   },
   "header": {
     "home": "Home",

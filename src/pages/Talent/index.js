@@ -1,9 +1,13 @@
 import * as React from 'react';
-import {Box, Typography, Grid, Slide, Button, TextField} from '@mui/material';
+import {Box, Typography, Grid, Slide, Button, TextField, Checkbox} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors';
 import {validateEmail} from '../../helpers/validations';
 import { useNavigate } from "react-router-dom";
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 const state = {
   form: {
@@ -17,8 +21,8 @@ function Talent() {
   const { t, i18n } = useTranslation();
   const [ form, setForm ]= React.useState({});
   const [ error, setError ] = React.useState(false);
+  const [ consent, setConsent ] = React.useState(false);
   const navigate = useNavigate(); 
-
   const handleError = (value)=>{
     return (form[value]!==undefined?!validateEmail(form[value]):false)
   }
@@ -58,33 +62,37 @@ function Talent() {
       <Box 
         border={1} 
         sx={{
-          backgroundColor:'black',width:{xs:'80%'},maxWidth:400,height:280,
+          backgroundColor:'black',width:{xs:'80%'},maxWidth:400,height:300,
           borderColor: 'rgba(247, 216, 159, 0.1)', borderWidth: '0.1em',borderRadius:1,
           alignItems:'center',display:'flex',
           justifyContent:'center',
           flexDirection:'column',
-          margin:2,
+          margin:0,
         }}
       >
         <Box sx={{width:'100%',justifyContent:'center',alignItems:'center',display:'flex',flexDirection:'column'
       }}>
         <TextField id="filled-basic" label={t('contact.email')} variant="filled"
           inputProps={{ style: { color: colors.primary } }}
-          error={handleError("email")}
-          onChange={(e) => { setForm({...form,"email": e.target.value}) }}
+          error={handleError("email") || error}
+          onChange={(e) => { setForm({...form,"email": e.target.value}); setError(false); }}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, mt:3.5,width:{xs:'80%',md:'70%'},direction:'ltr'}}
           required
           autoComplete='nope'
           helperText={handleError("email")?t('contact.errors.email'):""}
         />
-        <Box sx={{height:24,width:'100%',justifyContent:'center',display:'flex'}}>
-          {error &&
-          <Typography textAlign={"left"} sx={{fontSize:{xs:14,sm:16,color:colors.error},m:1}} >
-            {t('contact.errors.onsubmit')}
-          </Typography>
-        }
+        <Box sx={{width:300, display:'flex',alignItems:'center',opacity:0.5}}>
+        <Checkbox
+          icon={icon}
+          checkedIcon={checkedIcon}
+          checked={consent}
+          onChange={()=>setConsent(!consent)}
+        />
+        <Typography textAlign={"left"} sx={{fontSize:{xs:12,sm:14}}} >
+          {t('talent.consent')}
+        </Typography>
         </Box>
-          <Button variant="contact" onClick={onSubmit}>
+          <Button variant="contact" onClick={onSubmit} disabled={!consent}>
             {t('button.registerNow')}
           </Button>
         </Box>
