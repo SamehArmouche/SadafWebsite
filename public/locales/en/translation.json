@@ -10,14 +10,18 @@
         "types":{
           "Actor":"Actor",
           "Scriptwriter":"Scriptwriter",
-          "Montage":"Montage",
-          "Photography":"Photography",
+          "DialectChecker":"Dialect checker",
+          "PostProduction":"Post Production",
+          "LightingPhotography":"Lighting and Photography",
           "TVDirector":"TV Director",
+          "DesignBattlesStunts":"Design battles and stunts",
           "Music":"Music",
+          "Sound":"Sound",
           "Model":"Model",
           "VFXgraphics":"VFX graphics",
-          "Interiordesign":"Interior design",
-          "Other": "Other"
+          "Production":"Production",
+          "InteriorDesign":"Interior Design",
+          "Other":"Other"
         },
         "error":"Choose the category of talent"
       },
