@@ -11,7 +11,7 @@ import MultipleSelect from './MultipleSelect'
 import Switch from '../../../components/Switch'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
-import { studies, languages, talents, dialects } from '../../../helpers/data';
+import { studies, languages, dialects } from '../../../helpers/data';
 import Input from '../../Input'
 import colors from '../../../assets/theme/colors/'
 import ErrorIcon from '@mui/icons-material/Error';
@@ -71,10 +71,7 @@ const SkillsLanguagesStep = ({
             <MultipleSelect error={errors?.languages?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.languages.title"} name={"languages"}  items={languages} currentValues={state?.form?.languages}/>
             <MultipleSelect error={errors?.dialects?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.dialects.title"}  name={"dialects"} items={dialects} currentValues={state?.form?.dialects}/>
           </Grid>
-          
-          <Grid item sx={{ display:'flex', justifyContent:{xs:'center',md:'flex-start'},alignItems:'center'}}>
-          <MultipleSelect error={errors?.talents?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.talents.title"} name={"talents"} items={talents} currentValues={state?.form?.talents}/>
-          </Grid>
+        
           <Grid item sx={{ display:'flex', justifyContent:'center',m:1,alignItems:'center'}}>
             <Divider  sx={{width:{xs:'80%',md:'60%'}}}  />
           </Grid>

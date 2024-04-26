@@ -6,18 +6,16 @@ import {validateEmail} from '../../helpers/validations';
 import { useNavigate } from "react-router-dom";
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-const checkedIcon = <CheckBoxIcon fontSize="small" />;
-
-const state = {
-  form: {
-    email:'',
-
-  }
-}
-
 
 function Talent() {
+  const state = {
+    form: {
+      email:'',
+  
+    }
+  }  
+  const icon = <CheckBoxOutlineBlankIcon fontSize="small" sx={{opacity:0.9}}/>;
+  const checkedIcon = <CheckBoxIcon fontSize="small" />;
   const { t, i18n } = useTranslation();
   const [ form, setForm ]= React.useState({});
   const [ error, setError ] = React.useState(false);
@@ -81,14 +79,17 @@ function Talent() {
           autoComplete='nope'
           helperText={handleError("email")?t('contact.errors.email'):""}
         />
-        <Box sx={{width:300, display:'flex',alignItems:'center',opacity:0.5}}>
+        <Box sx={{width:300, display:'flex',alignItems:'center'}}>
         <Checkbox
+          sx={{
+            '&:hover': { bgcolor: 'transparent' },
+          }}
           icon={icon}
           checkedIcon={checkedIcon}
           checked={consent}
           onChange={()=>setConsent(!consent)}
         />
-        <Typography textAlign={"left"} sx={{fontSize:{xs:12,sm:14}}} >
+        <Typography textAlign={"left"} sx={{fontSize:{xs:12,sm:14},opacity:0.9}} >
           {t('talent.consent')}
         </Typography>
         </Box>
