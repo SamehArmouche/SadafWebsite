@@ -8,20 +8,22 @@
       "category":{
         "title":"النوع",
         "types":{
-          "Actor":"التمثيل",
-          "Scriptwriter":"كتابة السيناريو",
-          "DialectChecker":"مدقق لغوي",
-          "PostProduction":"بعد الانتاج",
-          "LightingPhotography":"الاضاءة و التصوير",
-          "TVDirector":"الاخراج",
-          "DesignBattlesStunts":"تصميم معارك و مجازفين",
-          "Music":"الموسيقى",
-          "Sound":"الصوت",
-          "Model":"الازياء",
-          "VFXgraphics":"جرافيكس VFX",
-          "Production":"الانتاج",
-          "InteriorDesign":"تصميم الديكور",
-          "Other":"أخرى"
+          "Actor":{
+            "title":"التمثيل"
+          },
+          "Scriptwriter":{"title":"كتابة السيناريو"},
+          "DialectChecker":{"title":"مدقق لغوي"},
+          "PostProduction":{"title":"بعد الانتاج"},
+          "LightingPhotography":{"title":"الاضاءة و التصوير"},
+          "TVDirector":{"title":"الاخراج"},
+          "DesignBattlesStunts":{"title":"تصميم معارك و مجازفين","sub":{"BattleDirector":"مخرج معارك","BattleDesigner":"مصمم معارك","Oars":"مجاذف"}},
+          "Music":{"title":"الموسيقى"},
+          "Sound":{"title":"الصوت"},
+          "Model":{"title":"الازياء"},
+          "VFXgraphics":{"title":"جرافيكس VFX"},
+          "Production":{"title":"الانتاج"},
+          "InteriorDesign":{"title":"تصميم الديكور"},
+          "Other":{"title":"أخرى"}
         },
         "error":"اختر فئة الموهبة"
       },

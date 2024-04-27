@@ -14,8 +14,8 @@ const Loading = () => {
         setProgress(0);
         setBuffer(10);
       } else {
-        const diff = Math.random() * 10;
-        const diff2 = Math.random() * 10;
+        const diff = Math.random() * 100;
+        const diff2 = Math.random() * 100;
         setProgress(progress + diff);
         setBuffer(progress + diff + diff2);
       }

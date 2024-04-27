@@ -5,9 +5,11 @@ import {
 } from "@mui/material";
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors/'
-const Category = ({handleSubmit, title, i, currentCat}) => {
+import DataSelect from './DataSelect'
+
+const Category = ({handleSubmit, title, i, currentCat, sub}) => {
   const { t } = useTranslation();
-  
+
   return (
     <Box
       sx={{
@@ -33,14 +35,35 @@ const Category = ({handleSubmit, title, i, currentCat}) => {
           bgcolor: 'primary.dark',
         },
       }}
-      onClick={()=>handleSubmit("category",title)}
+      //onClick={()=>handleSubmit("category",title)}
       >
-      <Typography sx={{fontSize:{xs:13,md:18},color: currentCat===title?"black":"inheret",}}>
-      {t(`talent.stepper.category.types.${title.replaceAll(" ","")}`)}
-      </Typography>
+      {
+        sub.length!==0 ?
+        <DataSelect  
+        //label={t(`talent.stepper.category.types.${title.replaceAll(" ","")}.title`)}
+        label={title.replaceAll(" ","")}
+        noneItem={t('talent.stepper.buttons.none')}
+        //value={state?.form?.haircolor || ''}
+        options={sub}
+        //error={errors?.haircolor?.error}
+        //onChange={(e)=>handleChange("haircolor",e.target.value)}
+        t={t}
+      />
+      : 
+        <Typography sx={{fontSize:{xs:13,md:18},color: currentCat===title?"black":"inheret",}}>
+        {t(`talent.stepper.category.types.${title.replaceAll(" ","")}.title`)}
+        </Typography>
+      }
+
     </Grid>
     </Box>
   )
 }
 
 export default Category
+
+/**
+ *       <Typography sx={{fontSize:{xs:13,md:18},color: currentCat===title?"black":"inheret",}}>
+      {t(`talent.stepper.category.types.${title.replaceAll(" ","")}`)}
+      </Typography>
+ */

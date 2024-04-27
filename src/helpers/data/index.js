@@ -213,20 +213,21 @@ const bodyTypes= [
 ];
 
 const categories = [
-  "Actor",
-  "Scriptwriter",
-  "DialectChecker",
-  "PostProduction",
-  "LightingPhotography",
-  "TVDirector",
-  "DesignBattlesStunts",
-  "Music",
-  "Sound",
-  "Model",
-  "VFXgraphics",
-  "Production",
-  "InteriorDesign",
-  "Other"
+  {main:"Actor",sub:[]},
+  {main:"Scriptwriter",sub:[]},
+  {main:"DialectChecker",sub:[]},
+  {main:"PostProduction",sub:[]},
+  {main:"LightingPhotography",sub:[]},
+  {main:"TVDirector",sub:[]},
+  {main:"DesignBattlesStunts",sub:["BattleDirector","BattleDesigner","Oars"]},
+  {main:"Music",sub:[]},
+  {main:"Sound",sub:[]},
+  {main:"Model",sub:[]},
+  {main:"VFXgraphics",sub:[]},
+  {main:"Production",sub:[]},
+  {main:"InteriorDesign",sub:[]},
+  {main:"Other",sub:[]}
+
 ]
 
 
