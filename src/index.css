@@ -53,3 +53,10 @@ code {
   top: 0;
   left: 0;
 }
+
+.img-item{
+  height: 200px;
+  width:300px;
+  object-fit:cover;
+  border-radius: 7px;
+}
