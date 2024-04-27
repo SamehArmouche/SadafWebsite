@@ -60,3 +60,33 @@ code {
   object-fit:cover;
   border-radius: 7px;
 }
+
+.img-sub{
+  
+  height: 70px;
+  width:135px;
+  object-fit:cover;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0,0.6);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb:hover {
+  background: #f7d89f;
+}
+
+/* Handle on hover */
+
+  ::-webkit-scrollbar-thumb {
+  background: rgba(247, 216, 159, 0.4);
+  
+}

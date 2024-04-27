@@ -101,6 +101,7 @@ function Services() {
                 description={service[`description_${i18n.language}`]}
                 direction={i18n.dir()}
                 img={`${service["img"]}`}
+                alt={"service"}
               /> 
           </Grid>
         }

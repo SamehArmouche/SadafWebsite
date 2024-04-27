@@ -8,7 +8,7 @@ import {
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function Details({open, children, handleClickOpen, handleClose, title, height, description, img, direction}) {
+export default function Details({open, children, handleClickOpen, handleClose, title, height, description, img, direction, alt}) {
 
   return (
     <Dialog
@@ -35,12 +35,13 @@ export default function Details({open, children, handleClickOpen, handleClose, t
               height={300}
               width={300}
               image={img}
-              alt="service_img"
-              sx={{borderRadius:2}}
+              alt={alt}
+              sx={alt==="service"?{borderRadius:2}:{borderTopLeftRadius:8,borderTopRightRadius:8}}
             >
             </CardMedia>
           }
-        <DialogTitle id="responsive-dialog-title" sx={{fontWeight:'bold',fontSize:19}}>
+          {children}
+        <DialogTitle id="responsive-dialog-title" sx={{fontWeight:'bold',fontSize:19,pt:4}}>
           {title}
         </DialogTitle>
         <DialogTitle id="responsive-dialog-title" sx={{fontWeight:'bold',fontSize:19}}>
