@@ -35,7 +35,7 @@ function Talent() {
     if(Object.values(form).length<1 || !validateEmail(form['email'])){
       setError(true)
     }else{
-      await dispatch(fetchCategories(2)).then((res)=>{
+      await dispatch(fetchCategories(form.email)).then((res)=>{
         state.categories=res.payload
       });
       state.form.email=form.email;
@@ -89,7 +89,8 @@ function Talent() {
           autoComplete='nope'
           helperText={handleError("email")?t('contact.errors.email'):""}
         />
-        <Box sx={{width:300, display:'flex',alignItems:'center'}}>
+        <Box sx={{width:'100%', display:'flex',alignItems:'center',justifyContent:'center'}}>
+          <Box sx={{display:'flex',alignItems:'center',width:{xs:'85%',md:'74%'}}}>
         <Checkbox
           sx={{
             '&:hover': { bgcolor: 'transparent' },
@@ -99,9 +100,10 @@ function Talent() {
           checked={consent}
           onChange={()=>setConsent(!consent)}
         />
-        <Typography textAlign={"left"} sx={{fontSize:{xs:12,sm:14},opacity:0.9}} >
+        <Typography textAlign={"left"} sx={{fontSize:13,opacity:0.9}} >
           {t('talent.consent')}
         </Typography>
+        </Box>
         </Box>
           <Button variant="contact" onClick={onSubmit} disabled={!consent}>
             {t('button.registerNow')}

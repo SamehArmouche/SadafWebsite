@@ -22,11 +22,12 @@ import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep,
   fieldsMandatoryCategoryStep, fieldsMandatoryOtherStep,
   fieldsMandatoryActor
  } from '../../helpers/data'
-
+ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 const MultiForm = () => {
   
-  const { t } = useTranslation();
+  const { t, i18n} = useTranslation();
   const { state } = useLocation();
   const [activeStep, setActiveStep] = useState(0);
   const [error, setError] = useState(false);
@@ -124,13 +125,6 @@ const MultiForm = () => {
         {t(`talent.stepper.${formComponents()[activeStep].name.toLowerCase()}.title`)}
       </Typography>
       <Box sx={{alignItems:'center',display:'flex',justifyContent:'space-between',width:'100%',mt:{xs:0,md:5}}}>
-        <Button
-          disabled={activeStep === 0}
-          onClick={handleBack}
-          variant="menu"
-        >
-          {t('talent.stepper.buttons.back')}
-        </Button>
         { state.form.category &&
             <Stepper
             activeStep={activeStep}
@@ -159,24 +153,34 @@ const MultiForm = () => {
             )}
           </Stepper>
         }
+
+      </Box>
+      <Grid container sx={{justifyContent:'center'}}>
+        <Grid
+          sx={{
+            padding: '20px', minHeight:"62vh"}}>
+          {formContent(activeStep)}
+        </Grid>
+        <Grid container sx={{justifyContent:'space-evenly'}}>
+        <Button
+          disabled={activeStep === 0}
+          onClick={handleBack}
+          variant="menu"
+          sx={{display:'flex'}}
+          startIcon={i18n.dir()==="ltr"?<ArrowForwardIosIcon sx={{m:1,width:'17px',opacity:activeStep === 0?0.4:1}}/>:< ArrowForwardIosIcon sx={{m:1,width:'17px',opacity:activeStep === 0?0.4:1}}/>}
+        >
+          {t('talent.stepper.buttons.back')}
+        </Button>
         {activeStep === formComponents.length - 1 ? (
           <Button variant="menu">
             Submit
           </Button>
         ) : (
-          <Button onClick={handleSubmit} variant="menu">
+          <Button onClick={handleSubmit} variant="menu" endIcon={i18n.dir()==="ltr"?<ArrowForwardIosIcon sx={{m:1,width:'17px'}}/>:<ArrowBackIosNewIcon sx={{m:1,width:'17px'}} />} 
+          sx={{display:'flex',alignItems:'center'}}>
           {t('talent.stepper.buttons.next')}
           </Button>
         ) }
-      </Box>
-      <Grid container sx={{justifyContent:'center'}}>
-        <Grid
-          
-          
-          sx={{
-            padding: '20px', minHeight:"62vh"}}
-        >
-          {formContent(activeStep)}
         </Grid>
       </Grid>
     </Box>
