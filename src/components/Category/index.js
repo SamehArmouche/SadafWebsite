@@ -9,8 +9,6 @@ import DataSelect from './DataSelect'
 
 const Category = ({handleSubmit, category, i, currentCat, sub, handleChange}) => {
   const { t } = useTranslation();
-
-  console.log("currentCat",currentCat)
   return (
     <Box
       sx={{
