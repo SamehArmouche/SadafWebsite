@@ -22,8 +22,8 @@ const Category = ({handleSubmit, category, i, currentCat, sub, handleChange}) =>
     >
     <Grid
       sx={{
-        width:{xs:75,md:130},
-        height:{xs:75,md:130},
+        width:{xs:100,md:130},
+        height:{xs:100,md:130},
         borderRadius:2,
         p:sub.length===0?1:0,
         justifyContent:'center',
