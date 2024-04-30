@@ -51,7 +51,7 @@ const CategoryStep = ({
 
           state.categories?.map((c, i)=>{
             return (
-              <Category handleSubmit={handleSubmit} key={i} i={i} title={c.name} currentCat={state?.form?.category} sub={c.sub_categroies} handleChange={handleChange}/>
+              <Category handleSubmit={handleSubmit} key={i} i={i} category={c.name} currentCat={state?.form?.category} sub={c.sub_categroies} handleChange={handleChange}/>
               )
             })
           }

@@ -10,7 +10,7 @@ import colors from '../../../../assets/theme/colors/'
 export default function ComunicationTypeSelect({onChange, value, label, noneItem, options, t}) {
   
   return (
-    <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:200}}} >
+    <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'73%',md:200}}} >
       <InputLabel id="demo-simple-select-helper-label" sx={{fontSize:12}}>{label}</InputLabel>
       <Select
         sx={{backgroundColor: "rgba(247, 216, 159, 0.1)",

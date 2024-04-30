@@ -7,8 +7,8 @@ import {
 } from "@mui/material";
 import colors from '../../../assets/theme/colors/'
 
-export default function DataSelect({onChange, value, label, options, t, error, backgroundColor}) {
-  
+export default function DataSelect({onChange,key, value, label, options, t, error, backgroundColor}) {
+
   return (
     <FormControl sx={{borderRadius:1,height:'100%',width:{xs:300,md:250}}} error={error} >
       <InputLabel id="demo-simple-select-helper-label" 
@@ -41,11 +41,12 @@ export default function DataSelect({onChange, value, label, options, t, error, b
             color: colors.primary,
           }
         }}
-        value={value || ''}
+        value={value}
+
         onChange={onChange}>
           {
             options.map((o)=>{
-              return <MenuItem key={o.key} value={o.value}>{t(`talent.stepper.category.types.${label}.sub.${o.key}`)}</MenuItem>
+              return <MenuItem key={o.key} value={o}>{t(`talent.stepper.category.types.${label}.sub.${o.key}`)}</MenuItem>
             })
           }
       </Select>

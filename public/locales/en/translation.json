@@ -11,8 +11,24 @@
           "Actor":{"title":"Actor"},
           "Scriptwriter":{"title":"Scriptwriter"},
           "DialectChecker":{"title":"Dialect checker"},
-          "PostProduction":{"title":"Post Production"},
-          "LightingPhotography":{"title":"Lighting and Photography"},
+          "PostProduction":{
+            "title":"Post Production",
+            "sub":{
+              "Montage":"Montage","MontageAssistant":"Montage Assistant",
+              "PostProducer":"Post Producer","ColorCorrection":"Color correction",
+              "Mixing":"Mixing","MusicalPreparation":"Musical preparation","VFXgraphics":"VFX graphics"
+            }
+          },
+          "LightingPhotography":{
+            "title":"Lighting and Photography",
+            "sub":{
+              "DirectorPhotography":"Director of photography","Photographer":"Photographer",
+              "CameramanAssistant":"Cameraman Assistant","FoxBowler":"Fox Bowler",
+              "LightingDirector":"Lighting director (gaffer)","LightingAssistant":"Lighting Assistant",
+              "Shario":"Shario","SharioAssistant":"Shario Assistant","BehindPhotography":"Behind the scenes photography",
+              "DIT":"DIT","LightingTechnician":"Lighting technician"
+            }
+          },
           "TVDirector":{"title":"TV Director"},
           "DesignBattlesStunts":{"title":"Design battles and stunts","sub":{"BattleDirector":"Battle Director","BattleDesigner":"Battle Designer","Oars":"Oars"}},
           "Music":{"title":"Music"},

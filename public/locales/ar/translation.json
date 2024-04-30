@@ -12,9 +12,25 @@
             "title":"التمثيل"
           },
           "Scriptwriter":{"title":"كتابة السيناريو"},
-          "DialectChecker":{"title":"مدقق لغوي"},
-          "PostProduction":{"title":"بعد الانتاج"},
-          "LightingPhotography":{"title":"الاضاءة و التصوير"},
+          "DialectChecker":{"title":"مدقق لهجة"},
+          "PostProduction":{
+            "title":"بعد الانتاج",
+            "sub":{
+              "Montage":"مونتاج","MontageAssistant":"مساعد مونتاج",
+              "PostProducer":"بوست بروديوسر","ColorCorrection":"تصحيح الوان",
+              "Mixing":"مكساج","MusicalPreparation":"اعداد موسيقي","VFXgraphics":"جرافيكس VFX"
+            }
+          },
+          "LightingPhotography":{
+            "title":"الاضاءة و التصوير",
+            "sub":{
+              "DirectorPhotography":"مدير  تصوير","Photographer":"مصور",
+              "CameramanAssistant":"مساعد مصور","FoxBowler":"فوكس بولر",
+              "LightingDirector":"مدير اضاءة ( جافر )","LightingAssistant":"مساعد اضاءة",
+              "Shario":"شاريو","SharioAssistant":"مساعد شاريو","BehindPhotography":"تصوير خلف الكواليس",
+              "DIT":"DIT","LightingTechnician":"فني اضاءة"
+            }
+          },
           "TVDirector":{"title":"الاخراج"},
           "DesignBattlesStunts":{"title":"تصميم معارك و مجازفين","sub":{"BattleDirector":"مخرج معارك","BattleDesigner":"مصمم معارك","Oars":"مجاذف"}},
           "Music":{"title":"الموسيقى"},
