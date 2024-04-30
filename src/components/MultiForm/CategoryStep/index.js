@@ -8,8 +8,8 @@ import {
 import Category from '../../Category'
 import { useLocation } from 'react-router-dom'
 import colors from '../../../assets/theme/colors/';
-import {categories} from '../../../helpers/data'
 import ErrorIcon from '@mui/icons-material/Error';
+import * as React from 'react';
 
 const CategoryStep = ({
   handleSubmit,
@@ -17,7 +17,14 @@ const CategoryStep = ({
   errorMsg
 }) => {
 
+  const [form, setForm] = React.useState(false);
   const { state } = useLocation();
+
+  const handleChange = (name,value) => {
+    state.form[name]=value;
+    setForm(!form);
+  };
+
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
       <Grid
@@ -42,9 +49,9 @@ const CategoryStep = ({
           <Grid sx={{display:'flex',width:'100%',flexWrap:'wrap',justifyContent:'center'}}>
           {
 
-          categories.map((c, i)=>{
+          state.categories?.map((c, i)=>{
             return (
-              <Category handleSubmit={handleSubmit} key={i} i={i} title={c.main} currentCat={state?.form?.category} sub={c.sub}/>
+              <Category handleSubmit={handleSubmit} key={i} i={i} title={c.name} currentCat={state?.form?.category} sub={c.sub_categroies} handleChange={handleChange}/>
               )
             })
           }

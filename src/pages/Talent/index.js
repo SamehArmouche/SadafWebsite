@@ -6,6 +6,8 @@ import {validateEmail} from '../../helpers/validations';
 import { useNavigate } from "react-router-dom";
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import { useDispatch } from 'react-redux'
+import { fetchCategories } from '../../redux/thunks';
 
 function Talent() {
   const state = {
@@ -21,6 +23,10 @@ function Talent() {
   const [ error, setError ] = React.useState(false);
   const [ consent, setConsent ] = React.useState(false);
   const navigate = useNavigate(); 
+  const dispatch: Dispatch = useDispatch();
+
+
+
   const handleError = (value)=>{
     return (form[value]!==undefined?!validateEmail(form[value]):false)
   }
@@ -29,12 +35,16 @@ function Talent() {
     if(Object.values(form).length<1 || !validateEmail(form['email'])){
       setError(true)
     }else{
+      await dispatch(fetchCategories(2)).then((res)=>{
+        state.categories=res.payload
+      });
+      state.form.email=form.email;
       state.form.email=form.email;
       state.form.diseases='لا';
       state.form.healthcare='لا';
       state.form.preparticipation='لا'
       state.form.cantravel='لا'
-      setError(false)
+      setError(false);
       navigate('/talents/register',
         {
           state:state

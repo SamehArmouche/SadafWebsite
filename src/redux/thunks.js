@@ -7,7 +7,6 @@ export const updateLanguage = createAsyncThunk(
     //const storage = JSON.parse(await localStorage.getItem("persist:root"))
 
     const data = {}
-    console.log("data")
     return data;
   }
 )
@@ -138,3 +137,22 @@ export const sendContactForm = createAsyncThunk(
     return data;
   }
 )
+
+//////////////// Talents /////////////////////////////
+export const fetchCategories = createAsyncThunk(
+  'talents/fetchCategories',
+  async (email) =>{
+    const response = await fetch(`/sadaf/categories/${email}`,{
+    method : 'GET',
+    headers: {
+      'Content-Type':'application/json'
+    }
+    });
+    const data = await response.json();
+    if(response.status!==200){
+      throw new Error(data.msg);
+    }
+    return data;
+  }
+)
+

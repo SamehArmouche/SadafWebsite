@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors/'
 import DataSelect from './DataSelect'
 
-const Category = ({handleSubmit, title, i, currentCat, sub}) => {
+const Category = ({handleSubmit, title, i, currentCat, sub, handleChange}) => {
   const { t } = useTranslation();
 
   return (
@@ -35,18 +35,17 @@ const Category = ({handleSubmit, title, i, currentCat, sub}) => {
           bgcolor: 'primary.dark',
         },
       }}
-      //onClick={()=>handleSubmit("category",title)}
+      onClick={()=> {if(sub.length===0) handleSubmit("category",title)}}
       >
       {
         sub.length!==0 ?
         <DataSelect  
-        //label={t(`talent.stepper.category.types.${title.replaceAll(" ","")}.title`)}
         label={title.replaceAll(" ","")}
         noneItem={t('talent.stepper.buttons.none')}
-        //value={state?.form?.haircolor || ''}
+        value={sub.find( (c) => c.key===currentCat)?currentCat:''}
+        backgroundColor={sub.find( (c) => c.key===currentCat)?colors.secondary:'transparent'}
         options={sub}
-        //error={errors?.haircolor?.error}
-        //onChange={(e)=>handleChange("haircolor",e.target.value)}
+        onChange={(e)=>handleSubmit("category",e.target.value)}
         t={t}
       />
       : 

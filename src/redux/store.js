@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {preferencesSlice} from './slices/preferencesSlice'
 import {servicesSlice} from './slices/servicesSlice'
+import {talentsSlice} from './slices/talentsSlice'
 import {projectsSlice} from './slices/projectsSlice'
 import {awardsSlice} from './slices/awardsSlice'
 import {successSlice} from './slices/successSlice'
@@ -34,6 +35,7 @@ export const store = configureStore({
     awards: awardsSlice.reducer,
     success: successSlice.reducer,
     informations: informationsSlice.reducer,
+    talents: talentsSlice.reducer,
     contactForm:contactFormSlice.reducer
   },
   devTools: process.env.NODE_ENV !== 'production',
