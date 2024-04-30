@@ -18,7 +18,7 @@
             "sub":{
               "Montage":"مونتاج","MontageAssistant":"مساعد مونتاج",
               "PostProducer":"بوست بروديوسر","ColorCorrection":"تصحيح الوان",
-              "Mixing":"مكساج","MusicalPreparation":"اعداد موسيقي","VFXgraphics":"جرافيكس VFX"
+              "Mixing":"مكساج","MusicalPreparation":"اعداد موسيقي","postVFXgraphics":"جرافيكس VFX"
             }
           },
           "LightingPhotography":{
@@ -31,11 +31,21 @@
               "DIT":"DIT","LightingTechnician":"فني اضاءة"
             }
           },
-          "TVDirector":{"title":"الاخراج"},
+          "TVDirector":{
+            "title":"الاخراج",
+            "sub":{
+              "TVDirector":"مخرج",
+              "FirstAssistantDirector":"مخرج مساعد أول",
+              "Clackett":"كلاكيت",
+              "ActorsCoach":"مدرب ممثلين",
+              "SecondAssistantDirector":"مخرج مساعد ثاتي",
+              "ActorManagement":"ادارة ممثل"
+            }
+          },
           "DesignBattlesStunts":{"title":"تصميم معارك و مجازفين","sub":{"BattleDirector":"مخرج معارك","BattleDesigner":"مصمم معارك","Oars":"مجاذف"}},
-          "Music":{"title":"الموسيقى"},
-          "Sound":{"title":"الصوت"},
-          "Model":{"title":"الازياء"},
+          "Music":{"title":"الموسيقى","sub":{"Composer":"مؤلف موسيقي","MusicPreparer":"معد موسيقي","MusicPlayer":"عازف"}},
+          "Sound":{"title":"الصوت","sub":{"SoundEngineer":"مهندس صوت","Boom":"بوم","VoiceAssistant":"مساعد صوت"}},
+          "Model":{"title":"الازياء","sub":{"ClothesDesigner":"مصمم ملابس","Stylist":"ستايلست","ClothesAssistant":"مساعد ملابس","ClothesSupervisor":"مشرف ملابس"}},
           "VFXgraphics":{"title":"جرافيكس VFX"},
           "Production":{"title":"الانتاج"},
           "InteriorDesign":{"title":"تصميم الديكور"},

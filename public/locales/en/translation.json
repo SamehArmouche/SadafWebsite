@@ -16,7 +16,7 @@
             "sub":{
               "Montage":"Montage","MontageAssistant":"Montage Assistant",
               "PostProducer":"Post Producer","ColorCorrection":"Color correction",
-              "Mixing":"Mixing","MusicalPreparation":"Musical preparation","VFXgraphics":"VFX graphics"
+              "Mixing":"Mixing","MusicalPreparation":"Musical preparation","postVFXgraphics":"VFX graphics"
             }
           },
           "LightingPhotography":{
@@ -29,11 +29,19 @@
               "DIT":"DIT","LightingTechnician":"Lighting technician"
             }
           },
-          "TVDirector":{"title":"TV Director"},
-          "DesignBattlesStunts":{"title":"Design battles and stunts","sub":{"BattleDirector":"Battle Director","BattleDesigner":"Battle Designer","Oars":"Oars"}},
-          "Music":{"title":"Music"},
-          "Sound":{"title":"Sound"},
-          "Model":{"title":"Model"},
+          "TVDirector":{"title":"TV Director",
+          "sub":{
+            "TVDirector":"TV Director",
+            "FirstAssistantDirector":"First Assistant Director",
+            "Clackett":"Clackett",
+            "ActorsCoach":"Actors Coach",
+            "SecondAssistantDirector":"Second Assistant Director",
+            "ActorManagement":"Actor Management"
+          }},
+          "DesignBattlesStunts":{"title":"Design battles and stunts","sub":{"BattleDirector":"Composer","BattleDesigner":"Battle Designer","Oars":"Oars"}},
+          "Music":{"title":"Music","sub":{"Composer":"Composer","MusicPreparer":"Music Preparer","MusicPlayer":"Music Player"}},
+          "Sound":{"title":"Sound","sub":{"SoundEngineer":"SoundEngineer","Boom":"Boom","VoiceAssistant":"Voice Assistant"}},
+          "Model":{"title":"Model","sub":{"ClothesDesigner":"Clothes Designer","Stylist":"Stylist","ClothesAssistant":"Clothes Assistant","ClothesSupervisor":"Clothes Supervisor"}},
           "VFXgraphics":{"title":"VFX graphics"},
           "Production":{"title":"Production"},
           "InteriorDesign":{"title":"Interior Design"},
