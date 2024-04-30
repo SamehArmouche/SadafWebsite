@@ -18,12 +18,15 @@ export default function DataSelect({onChange,key, value, label, options, t, erro
         sx={{height:'100%',
         width:'100%',
         alignItems:'center',
+        borderTopLeftRadius:6,
+        borderTopRightRadius:6,
         top:-16,
-        display:backgroundColor!=='transparent'?'none':'flex',
+        display:'flex',//backgroundColor!=='transparent'?'none':'flex',
         justifyContent:'center',
         whiteSpace: "unset",
-        color: backgroundColor!=='transparent'?'transparent !important':colors.primary,
-        fontSize:{xs:13,md:18}
+        color: backgroundColor!=='transparent'?'black':colors.primary,
+        backgroundColor:backgroundColor,
+        fontSize:{xs:backgroundColor!=='transparent'?11:14,md:backgroundColor!=='transparent'?14:18}
         }}
         onClick={()=>{console.log("here"); setOpen(!open)}}
       >{t(`talent.stepper.category.types.${label}.title`)}</Box>
@@ -40,7 +43,7 @@ export default function DataSelect({onChange,key, value, label, options, t, erro
             p:0,
             alignItems:'center',
             justifyContent:'center',
-            fontSize:{xs:13,md:18},
+            fontSize:{xs:14,md:18},
             whiteSpace: "unset",
 
           },
