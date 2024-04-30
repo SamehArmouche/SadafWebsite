@@ -32,10 +32,10 @@ export default function MultipleSelect({label, t , items, onChange, currentValue
         disableCloseOnSelect
         renderTags={(value, getTagProps) =>
           value?.map((option, index) => (
-            <Chip variant="outlined" sx={{backgroundColor:"rgba(247, 216, 159, 0.3)",direction:'ltr',border:0,fontFamily:'Cairo'}} label={t(option.label)} {...getTagProps({ index })} />
+            <Chip variant="outlined" sx={{backgroundColor:"rgba(247, 216, 159, 0.3)",direction:'ltr',border:0,fontFamily:'Cairo'}} label={option.label?t(option.label):option} {...getTagProps({ index })} />
           ))
         }
-        onChange={(event, value,i,j) => onChange(name, value,i,j) }
+        //onChange={(event, value,i,j) => onChange(name, value,i,j) }
         
         renderOption={(props, option, { selected }) => (
           <li {...props}>

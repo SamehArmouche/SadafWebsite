@@ -104,7 +104,7 @@ const MultiForm = () => {
       {
         'name':'OtherInfoStep',
         'element': <OtherInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />,
-        'mandatoryFields': state.form.category==='Actor'? fieldsMandatoryActor : fieldsMandatoryOtherStep
+        'mandatoryFields': state.form.category?.key==='Actor'? fieldsMandatoryActor : fieldsMandatoryOtherStep
       },
     
       {
@@ -113,7 +113,7 @@ const MultiForm = () => {
       }
     ];
 
-    return state.form.category!=='Actor'? result.filter((e) => e.name!=="BodyInfoStep"):result;   
+    return state.form.category?.key!=='Actor'? result.filter((e) => e.name!=="BodyInfoStep"):result;   
   }
 
   const formContent = (step) => { return formComponents()[step].element };
