@@ -26,11 +26,12 @@ const Category = ({handleSubmit, title, i, currentCat, sub, handleChange}) => {
         width:{xs:75,md:130},
         height:{xs:75,md:130},
         borderRadius:2,
+        p:sub.length===0?1:0,
         justifyContent:'center',
         alignItems:'center',
         display:'flex',
         m:1,
-        bgcolor: 'primary.main',
+        bgcolor: currentCat===title?colors.secondary:colors.hover,
         '&:hover': {
           bgcolor: 'primary.dark',
         },
