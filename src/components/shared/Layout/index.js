@@ -13,6 +13,8 @@ function Layout() {
     height: '100vh',
     p:0,
     m:0,
+    
+    justifyContent:'center'
   }
   const styleTalent = {
     backgroundImage:`url(/images/talent.jpg)`,
@@ -52,7 +54,7 @@ function Layout() {
 
       <React.Suspense fallback={<Loading/>}>
         <Header/>
-        <main >
+        <main style={{justifyContent:'center',display:'flex'}} >
           <Outlet />
         </main>
         <Footer/>
