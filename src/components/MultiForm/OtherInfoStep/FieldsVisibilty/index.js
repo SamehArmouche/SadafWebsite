@@ -4,16 +4,16 @@ const imagesPickerVisibilty = [
 
 const AboutVisibilty = [
   "Actor",
-  "Interior design",
-  "TV Director"
+  "InteriorDesign",
+  "TVDirector"
 ]
 
 export const checkVisibility = (category, type) =>{
   switch (type) {
     case "imagesPicker":
-      return imagesPickerVisibilty.includes(category)
+      return imagesPickerVisibilty.includes(category.key)
     case "about":
-      return AboutVisibilty.includes(category)
+      return AboutVisibilty.includes(category.key)
     default:
       return false
   }

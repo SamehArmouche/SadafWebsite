@@ -239,7 +239,8 @@
         "none": "None"
       },
       "review":{
-        "title":"Review information"
+        "title":"Last Step",
+        "msg":"When you click on the submit button, your application will be registered with us and you will receive a message on your email."
       }
     },
     "consent":"I confirm sharing my personal data"

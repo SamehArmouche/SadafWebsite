@@ -116,9 +116,10 @@ const PersonalInfoStep = ({
               <CssMobileDatePicker
                 format="DD/MM/YYYY"
                 sx={{direction:'ltr'}}
-
+                required
                 slotProps ={{
                   textField: {
+                    required:true,
                     variant: 'outlined',
                     error: errors?.birthday?.error?errors.birthday.error:false
                   },
@@ -131,7 +132,7 @@ const PersonalInfoStep = ({
                 }}
 
 
-                defaultValue={state?.form?.birthday?dayjs(state?.form?.birthday):''}
+                defaultValue={state?.form?.birthday?dayjs(state?.form?.birthday):null}
                 label={t('talent.stepper.personalinfo.inputs.birthday')}
                 onChange={(e) => handleChange("birthday",e.format("YYYY-MM-DD"))}
               />

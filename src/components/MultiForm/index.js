@@ -40,7 +40,7 @@ const MultiForm = () => {
   
   const validateFields = (step) => {
     let errorsFields = {}
-    let fieldsToValidate = formComponents()[step].mandatoryFields;
+    let fieldsToValidate = formComponents()[step]?.mandatoryFields;
     for (let index = 0; index < fieldsToValidate?.length; index++) {
       if(!state.form.hasOwnProperty(fieldsToValidate[index])){
         errorsFields[fieldsToValidate[index]]={error:true}
@@ -117,17 +117,19 @@ const MultiForm = () => {
     return state.form.category?.key!=='Actor'? result.filter((e) => e.name!=="BodyInfoStep"):result;   
   }
 
-  const formContent = (step) => { return formComponents()[step].element };
+  const formContent = (step) => { return formComponents()[step]?.element };
 
+  //console.log(formComponents().length)
   return (
     <Box>
       <Typography sx={{display:{md:'none',xs:'auto'},fontSize:16,mt:2}}>
-        {t(`talent.stepper.${formComponents()[activeStep].name.toLowerCase()}.title`)}
+        {t(`talent.stepper.${formComponents()[activeStep]?.name?.toLowerCase()}.title`)}
       </Typography>
       <Box sx={{alignItems:'center',display:'flex',justifyContent:'space-between',width:'100%',mt:{xs:0,md:5}}}>
         { state.form.category &&
             <Stepper
             activeStep={activeStep}
+            
             orientation="horizontal"
             sx={{
               display:{xs:'none',md:'flex'},
@@ -137,6 +139,7 @@ const MultiForm = () => {
               }
             }}
           >
+            
             {formComponents().map((label, index) => 
 
             {
@@ -144,7 +147,7 @@ const MultiForm = () => {
               <Step key={index}>
                 <StepLabel>
                   <Typography style={{fontWeight:activeStep===index?'bold':''}}>
-                    {t(`talent.stepper.${formComponents()[index]?.name.toLowerCase()}.title`)}
+                    {t(`talent.stepper.${formComponents()[index]?.name?.toLowerCase()}.title`)}
                   </Typography>
                 </StepLabel>
               </Step>
@@ -171,9 +174,9 @@ const MultiForm = () => {
         >
           {t('talent.stepper.buttons.back')}
         </Button>
-        {activeStep === formComponents.length - 1 ? (
+        {activeStep === formComponents().length - 1 ? (
           <Button variant="menu">
-            Submit
+            {t('talent.stepper.buttons.submit')}
           </Button>
         ) : (
           <Button onClick={handleSubmit} variant="menu" endIcon={i18n.dir()==="ltr"?<ArrowForwardIosIcon sx={{m:1,width:'17px'}}/>:<ArrowBackIosNewIcon sx={{m:1,width:'17px'}} />} 

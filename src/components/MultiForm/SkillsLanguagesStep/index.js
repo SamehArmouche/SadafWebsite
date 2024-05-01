@@ -31,14 +31,6 @@ const SkillsLanguagesStep = ({
     state.form[name]=value;
     handleError(name,value)
     setForm(!form);
-    console.log("name:",name)
-    
-    console.log("value:",value)
-    
-    console.log("i:",i)
-    
-    console.log("j:",j)
-
   };
 
 

@@ -1,15 +1,58 @@
 import {
   Typography,
   Grid,
-  Fade
+  Fade,
+  Box
 } from '@mui/material';
 import colors from '../../../assets/theme/colors/'
-import { useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
+import ErrorIcon from '@mui/icons-material/Error';
+import reviewAnimated from "../../../assets/reviewAnimated.json";
+import Lottie from "lottie-react";
+
 
 const ReviewInfo = () => {
-  const { state } = useLocation();
+  const { t, i18n} = useTranslation();
 
-  const item = (label) =>{
+  return (
+    <Fade  in={true} mountOnEnter unmountOnExit>
+      <Grid container sx={{width:'100%',display:'flex',justifyContent:'center',flexDirection:'column',pt:5}}>
+        {/*
+          <Grid container sx={{width:'90%',backgroundColor:'black',m:{xs:1,md:4}}}>
+            {Object.keys(state.form).map(element=> item(element))}
+          </Grid>
+          */
+        }
+        <Fade  in={true} mountOnEnter unmountOnExit>
+          <Box sx={{
+            display:'flex',justifyContent:'center',
+            flexDirection:'row',backgroundColor:colors.hover
+            ,borderRadius:2,p:2,maxWidth:'100%',
+            
+            }}>
+              <Box>
+              <Typography sx={{m:1,textAlign:i18n.dir()!=='ltr'?'right':'left',fontSize:16}}> {t('talent.stepper.review.msg')}</Typography>
+              </Box>
+              <Box>
+                <ErrorIcon sx={{fontSize:17,mt:1.8}}/>
+              </Box>
+          </Box>
+        </Fade>
+        <Grid container sx={{
+          justifyContent:'center',
+          width:'100%'
+        }}>
+          <Lottie animationData={reviewAnimated} loop={true} style={{width:350,opacity:0.2}} />
+        </Grid>
+      </Grid>
+    </Fade>
+  )
+}
+
+export default ReviewInfo
+
+/**
+ *   const item = (label) =>{
     let arrayAsString = state.form[label];
     if(Array.isArray(state.form[label])){
       arrayAsString = (state.form[label].map(e => e.value).toString().replaceAll(","," - "))
@@ -34,19 +77,4 @@ const ReviewInfo = () => {
         </Grid>
       )
   }
-
-
-  return (
-    <Fade  in={true} mountOnEnter unmountOnExit>
-      <Grid container sx={{height:'100%',width:'100%',display:'flex',justifyContent:'center',flexDirection:'row'}}>
-        {
-          <Grid container sx={{width:'90%',backgroundColor:'black',m:{xs:1,md:4}}}>
-            {Object.keys(state.form).map(element=> item(element))}
-          </Grid>
-        }
-      </Grid>
-    </Fade>
-  )
-}
-
-export default ReviewInfo
+ */
