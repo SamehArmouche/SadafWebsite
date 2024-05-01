@@ -43,7 +43,14 @@
           "Sound":{"title":"Sound","sub":{"SoundEngineer":"SoundEngineer","Boom":"Boom","VoiceAssistant":"Voice Assistant"}},
           "Model":{"title":"Model","sub":{"ClothesDesigner":"Clothes Designer","Stylist":"Stylist","ClothesAssistant":"Clothes Assistant","ClothesSupervisor":"Clothes Supervisor"}},
           "VFXgraphics":{"title":"VFX graphics"},
-          "Production":{"title":"Production"},
+          "Production":{"title":"Production",
+          "sub":{
+            "Producer":"Producer","ProductionCoordinator":"Production Coordinator","ProductionManager":"Production Manager",
+            "LineProducer":"Line Producer","ProductionAssistant":"Production Assistant","Driver":"Driver",
+            "EatingDrinkingResponsable":"Eating and drinking Responsable","ProductionDesigner":"Production Designer","LocationManager":"Location Manager",
+            "PhotographyLocationManager":"Photography Location Manager","ProductionAccountant":"Production Accountant","BuffetWorker":"Buffet Worker"
+            }
+          },
           "InteriorDesign":{"title":"Interior Design"},
           "Other":{"title":"Other"}
         },

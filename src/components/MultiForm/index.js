@@ -121,7 +121,7 @@ const MultiForm = () => {
 
   return (
     <Box>
-      <Typography sx={{display:{md:'none',xs:'auto'},fontSize:16,mt:2,mb:4}}>
+      <Typography sx={{display:{md:'none',xs:'auto'},fontSize:16,mt:2}}>
         {t(`talent.stepper.${formComponents()[activeStep].name.toLowerCase()}.title`)}
       </Typography>
       <Box sx={{alignItems:'center',display:'flex',justifyContent:'space-between',width:'100%',mt:{xs:0,md:5}}}>
@@ -167,7 +167,7 @@ const MultiForm = () => {
           onClick={handleBack}
           variant="menu"
           sx={{display:'flex'}}
-          startIcon={i18n.dir()==="ltr"?<ArrowForwardIosIcon sx={{m:1,width:'17px',opacity:activeStep === 0?0.4:1}}/>:< ArrowForwardIosIcon sx={{m:1,width:'17px',opacity:activeStep === 0?0.4:1}}/>}
+          startIcon={i18n.dir()==="ltr"?<ArrowBackIosNewIcon sx={{m:1,width:'17px',opacity:activeStep === 0?0.4:1}}/>:< ArrowForwardIosIcon sx={{m:1,width:'17px',opacity:activeStep === 0?0.4:1}}/>}
         >
           {t('talent.stepper.buttons.back')}
         </Button>

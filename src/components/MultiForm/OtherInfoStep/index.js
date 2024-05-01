@@ -32,7 +32,7 @@ const OtherInfoStep = ({
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
       <Box sx={{ flexGrow: 1, flexWrap: 'wrap' }}>
-        <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
+        <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:20}}>
           {error && 
             <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
               <Typography sx={{color:colors.error,m:1}}> {errorMsg}</Typography>

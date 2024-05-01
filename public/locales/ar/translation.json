@@ -47,7 +47,14 @@
           "Sound":{"title":"الصوت","sub":{"SoundEngineer":"مهندس صوت","Boom":"بوم","VoiceAssistant":"مساعد صوت"}},
           "Model":{"title":"الازياء","sub":{"ClothesDesigner":"مصمم ملابس","Stylist":"ستايلست","ClothesAssistant":"مساعد ملابس","ClothesSupervisor":"مشرف ملابس"}},
           "VFXgraphics":{"title":"جرافيكس VFX"},
-          "Production":{"title":"الانتاج"},
+          "Production":{"title":"الانتاج",
+          "sub":{
+            "Producer":"بروديوسر","ProductionCoordinator":"منسق انتاج","ProductionManager":"مدير انتاج",
+            "LineProducer":"لاين بروديوسر","ProductionAssistant":"مساعد انتاج","Driver":"سائق",
+            "EatingDrinkingResponsable":"مسؤول أكل و شرب","ProductionDesigner":"منفذ انتاج","LocationManager":"مدير موقع",
+            "PhotographyLocationManager":"مسؤول مواقع تصوير","ProductionAccountant":"محاسب انتاج","BuffetWorker":"عامل بوفيه"
+            }
+          },
           "InteriorDesign":{"title":"تصميم الديكور"},
           "Other":{"title":"أخرى"}
         },

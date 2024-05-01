@@ -37,7 +37,7 @@ const CategoryStep = ({
           alignItems:'center',
           flexDirection:'column'
         }}>
-          <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:40}}>
+        <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:20}}>
             {error && 
               <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
                 <Typography sx={{color:colors.error,m:1}}> {errorMsg}</Typography>
