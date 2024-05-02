@@ -13,13 +13,15 @@ import colors from '../../assets/theme/colors/'
 const ImagePicker = ({label, handleOnChange, image, field, align, error, errorMsg, errorEmpty}) => {
   
   return (
+
     <Box sx={{
       boxShadow: `0 1px 6px 1px ${errorEmpty||error?'rgba(207, 87, 87, 0.3)':'transparent'}`,
-      backgroundColor:'black',width:300,height:210,display:'flex',
+      backgroundColor:'black',width:300,height:190,display:'flex',
       justifyContent:'center',alignItems:'center',flexDirection:'column',
       m:2,borderRadius:2
       
       }}>
+      <label htmlFor={field} style={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
       <Grid item>
         <img
           style={{borderRadius:6,  opacity:image?1:0.4}}
@@ -46,7 +48,7 @@ const ImagePicker = ({label, handleOnChange, image, field, align, error, errorMs
           }
         </Grid>
 
-        <label htmlFor={field} style={{height:34}}>
+        
           <Button
             component="span"
             label="Upload imagen"
@@ -55,11 +57,11 @@ const ImagePicker = ({label, handleOnChange, image, field, align, error, errorMs
           >
           <CloudUploadIcon  />
           </Button>
-        </label>
+
       </Grid>
-
-
+      </label>
     </Box>
+
   )
 }
 
