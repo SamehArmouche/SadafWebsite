@@ -4,6 +4,10 @@
   },
   "talent": {
     "title":"Al-Sadaf Company is a Saudi production company that was established in 1988 AD, and has so far produced more than 300 projects, over a period of 30 years. It has been considered the most powerful and influential company in the Arabic content industry around the world.",
+    "response":{
+      "200":"You have been registered successfully",
+      "400":"An error occurred, please try again later"
+    },
     "stepper" : {
       "category":{
         "title":"Category",
@@ -102,6 +106,7 @@
       "skillslanguagesstep":{
         "title":"Skills and languages",
         "inputs": {
+          "work":"Work",
           "studies":{
               "title": "Educational level",
               "primary":"Primary",

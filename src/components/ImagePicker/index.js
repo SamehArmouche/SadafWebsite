@@ -6,7 +6,7 @@ import {
   Box,
   Grid
 } from "@mui/material";
-import ImageIcon from '@mui/icons-material/Image';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import React from 'react';
 import colors from '../../assets/theme/colors/'
 
@@ -53,7 +53,7 @@ const ImagePicker = ({label, handleOnChange, image, field, align, error, errorMs
             sx={{p:0,m:0,justifyContent:'center',display:'flex'}}
       
           >
-          <ImageIcon  />
+          <CloudUploadIcon  />
           </Button>
         </label>
       </Grid>

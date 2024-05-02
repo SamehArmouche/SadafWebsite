@@ -15,6 +15,7 @@ import { studies, languages, dialects } from '../../../helpers/data';
 import Input from '../../Input'
 import colors from '../../../assets/theme/colors/'
 import ErrorIcon from '@mui/icons-material/Error';
+import {checkVisibility} from '../../../helpers/FieldsVisibilty'
 
 const SkillsLanguagesStep = ({
   handleSubmit,
@@ -71,14 +72,22 @@ const SkillsLanguagesStep = ({
               t={t}/>
             <MultipleSelect error={errors?.languages?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.languages.title"} name={"languages"}  items={languages} currentValues={state?.form?.languages}/>
             <MultipleSelect error={errors?.dialects?.error} t={t} onChange={handleChange} label={"talent.stepper.skillslanguagesstep.inputs.dialects.title"}  name={"dialects"} items={dialects} currentValues={state?.form?.dialects}/>
+            <Input 
+                  handleChange={handleChange} name ={"work"} 
+                  value = {state.form?.work} 
+                  required={true}
+                  label={t('talent.stepper.skillslanguagesstep.inputs.work')} /> 
           </Grid>
         
           <Grid item sx={{ display:'flex', justifyContent:'center',m:1,alignItems:'center'}}>
             <Divider  sx={{width:{xs:'80%',md:'60%'}}}  />
           </Grid>
 
-          <Grid item sx={{display:'flex',flexDirection:'column',alignItems:{xs:'center',md:"flex-start"}}}>
+          <Grid item sx={{display:'flex',flexDirection:'column',alignItems:{xs:'center',sm:'flex-start',md:"flex-start"}}}>
+          {
+            checkVisibility(state.form.category, "canTravel") &&
             <Switch label={t("talent.stepper.skillslanguagesstep.inputs.cantravel.title")} handleChange={switchHandler} field={"cantravel"}  checked={state?.form?.cantravel==="نعم"}/>
+          }
             <Switch label={t("talent.stepper.skillslanguagesstep.inputs.preparticipation.title")} handleChange={switchHandler} field={"preparticipation"}  checked={state?.form?.preparticipation==="نعم"}/>
           </Grid>
           

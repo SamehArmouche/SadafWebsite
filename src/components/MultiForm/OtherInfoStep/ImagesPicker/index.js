@@ -23,7 +23,7 @@ const ImagesPicker = ({ errors, handleError, error}) => {
     if (newImage) {
       var value = field;
       if(validateSizeFile(newImage)){
-        state.form[field]= URL.createObjectURL(newImage);
+        state.form[field]= {localUrl:URL.createObjectURL(newImage),file:event.target.files[0]};
         handleError(field, newImage)
         setImages({...images, [field]: URL.createObjectURL(newImage)});
         setErrorsFile({...errorsFile, [value]: ''})
@@ -42,20 +42,20 @@ const ImagesPicker = ({ errors, handleError, error}) => {
     <ImagePicker 
       errorEmpty={errors?.image1?.error} error={errorsFile.image1==='fileSize'} 
       errorMsg={t("talent.stepper.otherinfostep.inputs.errors.filesize")}
-      label={t("talent.stepper.otherinfostep.inputs.image1")} handleOnChange={handleOnChangeImage} 
-      image={state?.form?.image1} field={"image1"} align={i18n.dir()==="rtl"?"right":"left"}
+      label={t("talent.stepper.otherinfostep.inputs.image1")+" *"} handleOnChange={handleOnChangeImage} 
+      image={state?.form?.image1?.localUrl} field={"image1"} align={i18n.dir()==="rtl"?"right":"left"}
     />
     <ImagePicker 
       errorEmpty={errors?.image2?.error} error={errorsFile.image2==='fileSize'}
       errorMsg={t("talent.stepper.otherinfostep.inputs.errors.filesize")} 
-      label={t("talent.stepper.otherinfostep.inputs.image2")} handleOnChange={handleOnChangeImage}
-      image={state?.form?.image2} field={"image2"} align={i18n.dir()==="rtl"?"right":"left"}
+      label={t("talent.stepper.otherinfostep.inputs.image2")+" *"} handleOnChange={handleOnChangeImage}
+      image={state?.form?.image2?.localUrl} field={"image2"} align={i18n.dir()==="rtl"?"right":"left"}
     />
     <ImagePicker 
       errorEmpty={errors?.image3?.error} error={errorsFile.image3==='fileSize'}
       errorMsg={t("talent.stepper.otherinfostep.inputs.errors.filesize")}
-      label={t("talent.stepper.otherinfostep.inputs.image3")} handleOnChange={handleOnChangeImage}
-      image={state?.form?.image3} field={"image3"} align={i18n.dir()==="rtl"?"right":"left"}
+      label={t("talent.stepper.otherinfostep.inputs.image3")+" *"} handleOnChange={handleOnChangeImage}
+      image={state?.form?.image3?.localUrl} field={"image3"} align={i18n.dir()==="rtl"?"right":"left"}
     />
   </Grid>
   )

@@ -11,7 +11,7 @@ import Input from '../../Input'
 import colors from '../../../assets/theme/colors/'
 import ErrorIcon from '@mui/icons-material/Error';
 import ImagesPicker from './ImagesPicker'
-import {checkVisibility} from './FieldsVisibilty'
+import {checkVisibility} from '../../../helpers/FieldsVisibilty'
 
 const OtherInfoStep = ({
   handleSubmit, errors,
@@ -53,6 +53,7 @@ const OtherInfoStep = ({
                 name ={"video"} 
                 width={400}
                 mb={5}
+                required={true}
                 direction={'ltr'}
                 value = {state.form?.video}
                 helperText={t('talent.stepper.otherinfostep.inputs.video.title')}
@@ -76,6 +77,7 @@ const OtherInfoStep = ({
                   name ={"about"} 
                   multiline={true}
                   width={'100%'}
+                  required={true}
                   value = {state.form?.about}
                   label={t('talent.stepper.otherinfostep.inputs.about')} />
               </Grid>

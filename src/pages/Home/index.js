@@ -21,7 +21,7 @@ function Home() {
           </Typography>
         </Grid>
         <Grid item xs={8} sx={{p:0}}>
-          <Button variant="home" onClick={()=> {navigate("/talents")}}>
+          <Button variant="home" onClick={()=> {navigate("/talents")}} sx={{fontSize:{xs:16,md:22},width:{md:220,xs:160}}}>
             {t('button.joinUs')}
           </Button>
         </Grid>

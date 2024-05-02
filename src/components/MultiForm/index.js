@@ -8,7 +8,7 @@ import {
   Button,
   Typography
 } from '@mui/material';
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import CategoryStep from './CategoryStep';
 import PersonalInfoStep from './PersonalInfoStep';
 import ContactInfoStep from './ContactInfoStep';
@@ -22,8 +22,13 @@ import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep,
   fieldsMandatoryCategoryStep, fieldsMandatoryOtherStep,
   fieldsMandatoryActor
  } from '../../helpers/data'
- import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
- import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import convertImageToBase64 from '../../helpers/convertImageToBase64'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { useDispatch } from 'react-redux'
+import { useSnackbar } from 'notistack';
+import { registerTalent } from '../../redux/thunks';
+import colors from '../../assets/theme/colors/'
 
 const MultiForm = () => {
   
@@ -32,7 +37,10 @@ const MultiForm = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [error, setError] = useState(false);
   const [errors, setErrors] = useState({});
-  
+  const dispatch: Dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate(); 
+
   const handleBack = () => {
     setActiveStep((prevStep) => prevStep - 1);
     setError(false)
@@ -105,7 +113,7 @@ const MultiForm = () => {
       {
         'name':'OtherInfoStep',
         'element': <OtherInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />,
-        'mandatoryFields': state.form.category?.key==='Actor'? fieldsMandatoryActor : fieldsMandatoryOtherStep
+        'mandatoryFields': state?.form?.category?.key==='Actor'? fieldsMandatoryActor : fieldsMandatoryOtherStep
       },
     
       {
@@ -114,19 +122,57 @@ const MultiForm = () => {
       }
     ];
 
-    return state.form.category?.key!=='Actor'? result.filter((e) => e.name!=="BodyInfoStep"):result;   
+    return state?.form?.category?.key!=='Actor'? result.filter((e) => e.name!=="BodyInfoStep"):result;   
   }
 
   const formContent = (step) => { return formComponents()[step]?.element };
 
-  //console.log(formComponents().length)
+  const handleClickVariant = (msg, variant) => {
+    enqueueSnackbar(msg, { variant });
+  };
+
+  const buildRequestBody = () =>{
+    //state.form.dialects= 
+    let result = JSON.parse(JSON.stringify(state.form))
+
+    const buildArray = (array) =>{
+      let result = ''
+      if(array!==undefined)
+        Object.values(array).map((v,i)=>{
+          result+=v["value"]+(i<Object.values(array).length-1?' - ':'');
+          return result;
+        });
+      return result
+    }
+
+    result.dialects = buildArray(state.form?.dialects);
+    result.category = state.form?.category.value;
+    result.languages = buildArray(state.form?.languages);
+    result.fixnumber = '+'+ state.form.phoneCode+ " " + state.form.fixnumber;
+    result.phonenumber = '+'+state.form.phoneCode+ " " + state.form.phonenumber;
+
+    return result;
+    
+  }
+
+  const onRegister = async () => {
+
+    const result = await dispatch(registerTalent(buildRequestBody()));
+    if(!result.error){
+      handleClickVariant(t('talent.response.200'),'success');
+      
+      navigate('/')
+    }else{
+      handleClickVariant(t('talent.response.400'),'error')
+    }
+  }
   return (
     <Box>
       <Typography sx={{display:{md:'none',xs:'auto'},fontSize:16,mt:2}}>
         {t(`talent.stepper.${formComponents()[activeStep]?.name?.toLowerCase()}.title`)}
       </Typography>
       <Box sx={{alignItems:'center',display:'flex',justifyContent:'space-between',width:'100%',mt:{xs:0,md:5}}}>
-        { state.form.category &&
+        { state?.form.category &&
             <Stepper
             activeStep={activeStep}
             
@@ -164,7 +210,7 @@ const MultiForm = () => {
             padding: '20px', minHeight:"62vh"}}>
           {formContent(activeStep)}
         </Grid>
-        <Grid container sx={{justifyContent:'space-evenly'}}>
+        <Grid container sx={{justifyContent:'space-between',width:320}}>
         <Button
           disabled={activeStep === 0}
           onClick={handleBack}
@@ -175,7 +221,7 @@ const MultiForm = () => {
           {t('talent.stepper.buttons.back')}
         </Button>
         {activeStep === formComponents().length - 1 ? (
-          <Button variant="menu">
+          <Button variant="menu" sx={{backgroundColor:colors.divder,width:100,borderRadius:10}} onClick={onRegister}>
             {t('talent.stepper.buttons.submit')}
           </Button>
         ) : (

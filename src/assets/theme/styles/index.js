@@ -179,6 +179,7 @@ const styles = (i18n) => ({
             border:0,
             display: 'block',
             fontSize:"16px",
+            height:40,
           },
         },
         {
