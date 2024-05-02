@@ -231,6 +231,21 @@
             "url":"Video Link",
             "password":"Password"
           },
+          "paragraph":{
+            "title":"Paragraph of no more than 250 words",
+            "Scriptwriter":"explaining your screenwriting experience and the reasons you wanted to tell the story / the reasons that inspired you to tell the story.",
+            "DialectChecker":"discussing the techniques you use to modify sounds and their effectiveness in supporting the narrative.",
+            "PostProduction":"discussing the techniques you use to modify sounds and their effectiveness in supporting the narrative.",
+            "LightingPhotography":"explaining the techniques you use to take photos and videos.",
+            "TVDirector":"explaining the impact of directing styles on storytelling, and describing the style you would like to display on screens.",
+            "DesignBattlesStunts":"explaining the most important points that must be focused on when designing the décor in order to convey the idea or feelings present in the story of the film or series.",
+            "Music":"explaining why you chose the music and what techniques you use to memorize or feel the piece you are playing.",
+            "Sound":"explaining some of the wardrobe formats that you will use to suit or present to the audience the characters mentioned in the attached file, whether they are items from your own collection or clothing and accessories formats you found online or in print.",
+            "Model":"explaining some of the wardrobe formats that you will use to suit or present to the audience the characters mentioned in the attached file, whether they are items from your own collection or clothing and accessories formats you found online or in print.",
+            "VFXgraphics":"explaining your experience related to the field, and what motivates you to work in it.",
+            "Production":"in which you tell about your experience in production, whether in a professional, school, or personal environment.",
+            "InteriorDesign":"explaining the most important points that must be focused on when designing the décor in order to convey the idea or feelings present in the story of the film or series."
+          },
           "errors":{
             "filesize":"Image size is large, maximum limit is 5Mb",
             "fileextension":"The file extension is ​​incorrect"

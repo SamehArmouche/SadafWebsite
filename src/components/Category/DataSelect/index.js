@@ -28,7 +28,7 @@ export default function DataSelect({onChange,key, value, label, options, t, erro
         backgroundColor:backgroundColor,
         fontSize:{xs:backgroundColor!=='transparent'?11:14,md:backgroundColor!=='transparent'?14:18}
         }}
-        onClick={()=>{console.log("here"); setOpen(!open)}}
+        onClick={()=>{setOpen(!open)}}
       >{t(`talent.stepper.category.types.${label}.title`)}</Box>
       <Select
       open={open}

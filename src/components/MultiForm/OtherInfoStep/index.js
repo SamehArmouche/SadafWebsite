@@ -2,7 +2,8 @@ import {
   Grid,
   Fade,
   Typography,
-  Box
+  Box,
+  Divider
 } from "@mui/material";
 import React from 'react';
 import { useLocation } from 'react-router-dom'
@@ -69,19 +70,39 @@ const OtherInfoStep = ({
                 helperText={t('talent.stepper.otherinfostep.inputs.video.titlepass')}
                 label={t('talent.stepper.otherinfostep.inputs.video.password')} />
             </Grid>
+
+              <Divider  sx={{width:{xs:'80%',md:'60%'},m:2}}  />
+                {
+                checkVisibility(state.form.category, "paragraph") &&
+                  <Grid sx={{width:'100%',display:'flex',flexWrap:'wrap',justifyContent:{xs:'center',md:'flex-start'}}}>
+                    <Input 
+                      handleChange={handleChange}
+                      name ={"about"} 
+                      multiline={true}
+                      width={'100%'}
+                      required={true}
+                      value = {state.form?.about}
+                      label={t('talent.stepper.otherinfostep.inputs.about')} />
+                  </Grid>
+                }
+
+          </Grid>
+          <Grid>
             {
-            checkVisibility(state.form.category, "about") &&
+            checkVisibility(state.form.category, "paragraph") &&
               <Grid sx={{width:'100%',display:'flex',flexWrap:'wrap',justifyContent:{xs:'center',md:'flex-start'}}}>
-                <Input 
-                  handleChange={handleChange}
-                  name ={"about"} 
-                  multiline={true}
-                  width={'100%'}
-                  required={true}
-                  value = {state.form?.about}
-                  label={t('talent.stepper.otherinfostep.inputs.about')} />
+              <Input 
+              handleChange={handleChange}
+              name ={"paragraph"} 
+              multiline={true}
+              width={'100%'}
+              required={true}
+              value = {state.form?.paragraph}
+              label ={t("talent.stepper.otherinfostep.inputs.paragraph.title")}
+              helperText={t(`talent.stepper.otherinfostep.inputs.paragraph.${state.form.category.parent}`)}
+              />
               </Grid>
-          }
+            }
           </Grid>
         </Grid>
       </Box>
@@ -90,3 +111,20 @@ const OtherInfoStep = ({
 }
 
 export default OtherInfoStep
+
+/**
+ *           {
+            checkVisibility(state.form.category, "paragraph") &&
+              <Grid sx={{maxWidth:600,display:'flex',flexWrap:'wrap',justifyContent:{xs:'center',md:'flex-start'},backgroundColor:'red'}}>
+                <Input 
+                  handleChange={handleChange}
+                  name ={"paragraph"} 
+                  multiline={true}
+                  width={'50%'}
+                  required={true}
+                  value = {state.form?.paragraph}
+                  helperText={t(`talent.stepper.otherinfostep.inputs.paragraph.${state.form.category.key}`)}
+                  />
+              </Grid>
+          }
+ */

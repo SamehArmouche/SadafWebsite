@@ -35,7 +35,7 @@ const Category = ({handleSubmit, category, i, currentCat, sub, handleChange}) =>
           bgcolor: 'primary.dark',
         },
       }}
-      onClick={()=> {if(sub.length===0) handleSubmit("category",{key:category.key,value:category.value})}}
+      onClick={()=> {if(sub.length===0) handleSubmit("category",{parent:category.key,key:category.key,value:category.value})}}
       >
       {
         sub.length!==0 ?
@@ -45,7 +45,7 @@ const Category = ({handleSubmit, category, i, currentCat, sub, handleChange}) =>
         value={sub.find( (c) => c.key===currentCat?.key)?sub.find( (c) => c.key===currentCat?.key):''}
         backgroundColor={sub.find( (c) => c.key===currentCat?.key)?colors.secondary:'transparent'}
         options={sub}
-        onChange={(e)=>handleSubmit("category",e.target.value)}
+        onChange={(e)=>handleSubmit("category",{...e.target.value,"parent":category.key})}
         t={t}
       />
       : 
