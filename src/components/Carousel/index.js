@@ -104,24 +104,36 @@ function MyCarousel({items, type, handleChange}){
                   color:"black",
               }
             }} 
-          navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
-            style: {
-                bottom: 4,
-                top: 'unset',
-            }
-          }}
-          sx={{
-            width:"100%",height:type==="success"?250:350,
-            justifyContent:'center',
-            display:'flex',
-            flexDirection:'column',
-            alignItems:'center',
-            top:20
-            }}>
+            navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
+              style: {
+                  bottom: 4,
+                  top: 'unset',
+              }
+            }}
+            indicatorIconButtonProps={{
+              style: {
+                  padding: '1px',    // 1
+                  color: 'blue'       // 3
+                  ,opacity:0.5
+              }
+            }}
+            activeIndicatorIconButtonProps={{
+              style: {
+                  opacity:1
+              }
+            }}
+            sx={{
+              width:"100%",height:type==="success"?250:350,
+              justifyContent:'center',
+              display:'flex',
+              flexDirection:'column',
+              alignItems:'center',
+              top:20
+              }}>
               {
                 slides.map(slide => <OneSlide key={slide} items ={slide}/>)
               }
-          </Carousel>
+            </Carousel>
           : null
         )}
       </Box>

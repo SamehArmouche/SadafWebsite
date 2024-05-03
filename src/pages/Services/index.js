@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Grid, Fade, Typography, Button} from '@mui/material';
+import {Grid, Fade, Typography } from '@mui/material';
 import { fetchServices } from '../../redux/thunks';
 import { useDispatch } from 'react-redux'
 import Carousel from '../../components/Carousel';
@@ -7,13 +7,15 @@ import ServiceForm from '../../components/Services';
 import Details from '../../components/shared/Details';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors';
+import Loading from '../../components/Loading'
 
 function Services() {
   const dispatch: Dispatch = useDispatch();
   const [open, setOpen] = React.useState(false)
   const [service, setService ] = React.useState({});
   const [services, setServices ] = React.useState({});
-  const [showService, setShowService] = React.useState('root')
+  const [showService, setShowService] = React.useState('Our');
+  const [loading, setLoading] = React.useState(false)
   const {t, i18n } = useTranslation();
 
   const handleChange = (value) => {
@@ -22,27 +24,34 @@ function Services() {
     setOpen(!open)
   }
   const onClick = async (value) =>{
-    const result = await dispatch(fetchServices())
-    setServices(result.payload);
     setShowService(value)
   }
+
+
+  React.useEffect(() => {
+    setLoading(true);
+    dispatch(fetchServices()).then((r)=>{setServices(r.payload); setLoading(false);})
+  }, [dispatch]);
 
 
 
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
-      <Grid item sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',minHeight:'72vh',width:'100%',flexDirection:{xs:'column',md:'row'}}}>
+      <Grid item sx={{
+        pt:5,justifyContent:'cesnter',alignItems:'center',display:'flex',
+        minHeight:'72vh',width:'100%',flexDirection:{xs:'column',md:'column'}
+        }}>
         {
-          showService==='root' && 
-          <>
+          
+          <Grid container sx={{justifyContent:'center'}}>
           <Grid 
           sx={{
-            width: 250,
-            height: 150,
+            width: 230,
+            height: 50,
             p:2,
-            m:2,
-            backgroundColor: colors.hover,
+            m:1,
+            backgroundColor: showService==='Our'?colors.hover:colors.background,
             borderRadius:2,
             alignItems:'center',
             justifyContent:'center',
@@ -54,7 +63,7 @@ function Services() {
           }}
           
           onClick={()=>onClick("Our")}>
-            <Typography sx={{fontSize:20}}>
+            <Typography sx={{}}>
             {t('service.title')}
             </Typography>
             
@@ -62,16 +71,15 @@ function Services() {
           <Grid 
           
           sx={{
-            width: 250,
-            height: 150,
+            width: 230,
+            height: 50,
             m:1,
             p:2,
-            backgroundColor: colors.hover,
+            backgroundColor: showService==='Third'?colors.hover:colors.background,
             borderRadius:2,
             alignItems:'center',
             justifyContent:'center',
             display:'flex',
-            boxShadow: '0px 5px 22px rgba(0, 0, 0, 0.04), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.03)',
             '&:hover': {
               backgroundColor:colors.hover,
               opacity: [0.9, 0.8, 0.7],
@@ -79,35 +87,35 @@ function Services() {
           }}
           
           onClick={()=>onClick("Third")}>
-            <Typography sx={{fontSize:20}}>
+            <Typography sx={{}}>
             {t('service.form.title')}
             </Typography>
             
           </Grid>
-          </>
+          </Grid>
         }
 
-        {
-          showService==='Our' &&
-          <Grid container sx={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
-            <Button onClick={()=> onClick("root")} sx={{color:colors.primary}}>{t('service.buttons.back')}</Button>
-            <Carousel items={services} onClick={()=>setOpen(!open)} handleChange={handleChange} />
-              <Details open={open} handleClose={()=> setOpen(!open)} 
-                title={`${service[`title_${i18n.language}`]}`}
-                description={service[`description_${i18n.language}`]}
-                direction={i18n.dir()}
-                img={`${service["img"]}`}
-                alt={"service"}
-              /> 
+          <Grid container sx={{height:'100%',justifyContent:'center',alignItems:'center',width:showService==='Our'?'80%':'100%'}}>
+            {loading && <Loading style={{color: colors.primary}}/>}
+            {
+              showService==='Our' && !loading &&
+              <>
+                <Carousel items={services} onClick={()=>setOpen(!open)} handleChange={handleChange} />
+                  <Details open={open} handleClose={()=> setOpen(!open)} 
+                    title={`${service[`title_${i18n.language}`]}`}
+                    description={service[`description_${i18n.language}`]}
+                    direction={i18n.dir()}
+                    img={`${service["img"]}`}
+                    alt={"service"}
+                  /> 
+              </>
+            }
+
+            {
+              showService==='Third'&& !loading &&
+                <ServiceForm onClick={onClick}/>
+            }
           </Grid>
-        }
-        {
-          showService==='Third' &&
-          <Grid container sx={{flexDirection:'column',justifyContent:'center',alignItems:'center',minHeight:'60vh'}}>
-            <Button onClick={()=> onClick("root")} sx={{color:colors.primary}}> {t('service.buttons.back')}</Button>
-            <ServiceForm onClick={onClick}/>
-          </Grid>
-        }
       </Grid>
     </Fade>
   );
