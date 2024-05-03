@@ -224,6 +224,14 @@
           "image1":"Long full body selfie",
           "image2":"Selfie from head to waist",
           "image3":"Close-to-face selfie without filter",
+          "file":{
+            "Scriptwriter":{"title":"Sample text for any of the following - no more than 5 pages", "description":"A presentation file (film treatment) for a feature film, a short film script, or taking a scene from an Arabic series and rewriting the text while changing the classification and ending."},
+            "LightingPhotography":{"title":"A file of five photos taken by you.", "description":""},
+            "DesignBattlesStunts":{"title":"Portfolio contains previous works.", "description":""},
+            "Model":{"title":"A portfolio that includes previous work in clothing coordination.", "description":""},
+            "Production":{"title":"A file containing previous work, including shooting schedules, budgets, etc.", "description":""},
+            "InteriorDesign":{"title":"", "description":""}
+          },
           "about":"Talk about your self ...",
           "video":{
             "title":"You can put a link to the video clip, it will increase your chances of acceptance",

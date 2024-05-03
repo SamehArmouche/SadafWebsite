@@ -27,6 +27,15 @@ const ParagraphVisibilty = [
   "InteriorDesign"
 ]
 
+const FileVisibilty = [
+  "Scriptwriter",
+  "LightingPhotography",
+  "DesignBattlesStunts",
+  "Model",
+  "Production",
+  "InteriorDesign"
+]
+
 export const checkVisibility = (category, type) =>{
   switch (type) {
     case "imagesPicker":
@@ -37,6 +46,8 @@ export const checkVisibility = (category, type) =>{
       return CanTravelVisibilty.includes(category.parent)
     case "paragraph":
       return ParagraphVisibilty.includes(category.parent)
+    case "file":
+      return FileVisibilty.includes(category.parent)
     default:
       return false
   }

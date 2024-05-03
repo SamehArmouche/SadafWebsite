@@ -12,6 +12,7 @@ import Input from '../../Input'
 import colors from '../../../assets/theme/colors/'
 import ErrorIcon from '@mui/icons-material/Error';
 import ImagesPicker from './ImagesPicker'
+import FilesPicker from './FilesPicker'
 import {checkVisibility} from '../../../helpers/FieldsVisibilty'
 
 const OtherInfoStep = ({
@@ -103,7 +104,11 @@ const OtherInfoStep = ({
               />
               </Grid>
             }
+            {
+              checkVisibility(state.form.category, "file") && <FilesPicker  errors={errors} handleError={handleError}/>
+            }
           </Grid>
+
         </Grid>
       </Box>
     </Fade>
@@ -111,20 +116,3 @@ const OtherInfoStep = ({
 }
 
 export default OtherInfoStep
-
-/**
- *           {
-            checkVisibility(state.form.category, "paragraph") &&
-              <Grid sx={{maxWidth:600,display:'flex',flexWrap:'wrap',justifyContent:{xs:'center',md:'flex-start'},backgroundColor:'red'}}>
-                <Input 
-                  handleChange={handleChange}
-                  name ={"paragraph"} 
-                  multiline={true}
-                  width={'50%'}
-                  required={true}
-                  value = {state.form?.paragraph}
-                  helperText={t(`talent.stepper.otherinfostep.inputs.paragraph.${state.form.category.key}`)}
-                  />
-              </Grid>
-          }
- */

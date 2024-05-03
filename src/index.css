@@ -69,6 +69,14 @@ code {
   border-radius: 7px;
 }
 
+.img-ads{
+  
+  height: 70px;
+  width:135px;
+  object-fit:cover;
+  border-radius: 7px;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   height: 3px;
