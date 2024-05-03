@@ -32,15 +32,14 @@ function Services() {
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
-      <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',minHeight:'72vh',width:'100%'}}>
+      <Grid item sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',minHeight:'72vh',width:'100%',flexDirection:{xs:'column',md:'row'}}}>
         {
           showService==='root' && 
           <>
           <Grid 
           sx={{
             width: 250,
-            maxWidth: 250,
-            height: 250,
+            height: 150,
             p:2,
             m:2,
             backgroundColor: colors.hover,
@@ -64,8 +63,7 @@ function Services() {
           
           sx={{
             width: 250,
-            maxWidth: 250,
-            height: 250,
+            height: 150,
             m:1,
             p:2,
             backgroundColor: colors.hover,
