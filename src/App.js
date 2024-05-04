@@ -39,6 +39,10 @@ function App() {
     (state) => state.services
   )
 
+  const {loadingRegisterTalent } = useSelector(
+    (state) => state.talents
+  )
+
   const { t, i18n } = useTranslation();
   const theme = createTheme(styles(i18n));
 
@@ -61,7 +65,7 @@ function App() {
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1, backdropFilter: 'blur(3px)',
             flexDirection:'column',
             }}
-            open={loadingContactForm || loadingRegisterForm}>
+            open={loadingContactForm || loadingRegisterForm || loadingRegisterTalent}>
             <Loading/>
             <h4 style={{color:colors.primary}}> {t('loading')} </h4>
           </Backdrop>

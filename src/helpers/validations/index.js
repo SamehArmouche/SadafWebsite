@@ -45,4 +45,12 @@ const validateSizeFile = (file) => {
   return fileSizeKiloBytes < MAX_FILE_SIZE
 };
 
-module.exports = {validateEmail, validateField,validateNumber,validatePhoneNumber, validateSizeFile, validateOneField}
+const validateExtensionFile = (ext, type) => {
+  if(type==='images')
+    return ['.jpg','.jpeg','.png'].filter(i => i===ext ).length>0;
+  if(type==='file')
+    return [".pdf",".pptx",".ppt",".xlsx",".xls",".docx",".doc",".txt"].filter(i => i===ext ).length>0;
+  return false
+};
+
+module.exports = {validateEmail, validateField,validateNumber,validatePhoneNumber, validateSizeFile, validateOneField, validateExtensionFile}

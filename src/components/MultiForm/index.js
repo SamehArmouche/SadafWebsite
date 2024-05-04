@@ -21,8 +21,7 @@ import { fieldsMandatoryPersonalStep, fieldsMandatoryContactStep,
   fieldsMandatorySkillsStep, fieldsMandatoryBodyStep,
   fieldsMandatoryCategoryStep, fieldsMandatoryOtherStep,
   fieldsMandatoryActor
- } from '../../helpers/data'
-import convertImageToBase64 from '../../helpers/convertImageToBase64'
+ } from '../../helpers/data';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useDispatch } from 'react-redux'
@@ -131,10 +130,8 @@ const MultiForm = () => {
     enqueueSnackbar(msg, { variant });
   };
 
-  const buildRequestBody = () =>{
-    //state.form.dialects= 
+  const buildRequestBody = async () =>{
     let result = JSON.parse(JSON.stringify(state.form))
-
     const buildArray = (array) =>{
       let result = ''
       if(array!==undefined)
@@ -144,28 +141,34 @@ const MultiForm = () => {
         });
       return result
     }
-
     result.dialects = buildArray(state.form?.dialects);
     result.category = state.form?.category.value;
     result.languages = buildArray(state.form?.languages);
-    result.fixnumber = '+'+ state.form.phoneCode+ " " + state.form.fixnumber;
+    result.fixnumber =  state.form.fixnumber!==undefined?'+'+state.form.phoneCode+ " " + state.form.fixnumber:'';
     result.phonenumber = '+'+state.form.phoneCode+ " " + state.form.phonenumber;
-
+    result.image1=result.image1?.file;
+    result.image2=result.image2?.file;
+    result.image3=result.image3?.file;
+    result.links=JSON.stringify(result.links);
+    result.file=result.file?.file
     return result;
     
   }
 
   const onRegister = async () => {
-
-    const result = await dispatch(registerTalent(buildRequestBody()));
+    const result = await dispatch(registerTalent({talent:await buildRequestBody(),parentCat:state.form.category.parent}));
     if(!result.error){
       handleClickVariant(t('talent.response.200'),'success');
-      
-      navigate('/')
+      navigate('/',
+        {
+          state:{}
+        }
+        )
     }else{
       handleClickVariant(t('talent.response.400'),'error')
     }
   }
+
   return (
     <Box>
       <Typography sx={{display:{md:'none',xs:'auto'},fontSize:16,mt:2}}>

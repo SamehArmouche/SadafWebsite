@@ -249,14 +249,15 @@ const fieldsMandatoryPersonalStep = [
 
 const fieldsMandatoryContactStep = [
   /*"phonenumber",
+  //"fixnumber",
   "phoneCode",*/
 ]
 
 const fieldsMandatorySkillsStep = [
   /*"studies",
   "languages",
-  "talents",
-  "dialects"*/
+  "dialects",
+  "work"*/
 ]
 const fieldsMandatoryBodyStep = [
   /*"haircolor",

@@ -43,7 +43,7 @@ function Talent() {
       state.form.diseases='لا';
       state.form.healthcare='لا';
       state.form.preparticipation='لا'
-      state.form.cantravel='لا'
+      state.form.can_travel='لا'
       setError(false);
       navigate('/talents/register',
         {

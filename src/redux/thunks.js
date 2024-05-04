@@ -158,13 +158,13 @@ export const fetchCategories = createAsyncThunk(
 
 export const registerTalent = createAsyncThunk(
   'talents/registerTalent',
-  async (talent) =>{
+  async (body) =>{
     const response = await fetch(`/sadaf/registerTalent`,{
     method : 'POST',
     headers: {
       'Content-Type':'application/json'
     },
-    body: JSON.stringify({Talent:talent}),
+    body: JSON.stringify({Talent:body.talent,parentCat:body.parentCat}),
     });
     const data = await response.json();
     if(response.status!==200){

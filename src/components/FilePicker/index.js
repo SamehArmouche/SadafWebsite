@@ -22,7 +22,7 @@ const FilePicker = ({label, handleOnChange, field, align, error, errorMsg, error
       <label htmlFor={field} style={{display:'flex',justifyContent:'center',flexDirection:'column',width:'100%',height:'100%'}}>
         <input
           color="primary"
-          accept = {ext}
+          accept=".pdf,.csv,.pptx,.ppt,.xlsx,.xls,.docx,.doc"
           type="file"
           onChange={(e) => handleOnChange(e, field)}
           id={field}

@@ -10,5 +10,5 @@ async function getBase64(file) {
 }
 
 export default async function convertImageToBase64(target: any) {
-  return await getBase64(target).catch(err=> {return;})
+  return await getBase64(target.files[0]).catch(err=> {return;})
 };

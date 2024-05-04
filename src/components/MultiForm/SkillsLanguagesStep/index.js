@@ -76,6 +76,7 @@ const SkillsLanguagesStep = ({
                   handleChange={handleChange} name ={"work"} 
                   value = {state.form?.work} 
                   required={true}
+                  error={errors?.work?.error}
                   label={t('talent.stepper.skillslanguagesstep.inputs.work')} /> 
           </Grid>
         
@@ -85,8 +86,8 @@ const SkillsLanguagesStep = ({
 
           <Grid item sx={{display:'flex',flexDirection:'column',alignItems:{xs:'center',sm:'flex-start',md:"flex-start"}}}>
           {
-            checkVisibility(state.form.category, "canTravel") &&
-            <Switch label={t("talent.stepper.skillslanguagesstep.inputs.cantravel.title")} handleChange={switchHandler} field={"cantravel"}  checked={state?.form?.cantravel==="نعم"}/>
+            checkVisibility(state.form.category, "can_travel") &&
+            <Switch label={t("talent.stepper.skillslanguagesstep.inputs.cantravel.title")} handleChange={switchHandler} field={"can_travel"}  checked={state?.form?.can_travel==="نعم"}/>
           }
             <Switch label={t("talent.stepper.skillslanguagesstep.inputs.preparticipation.title")} handleChange={switchHandler} field={"preparticipation"}  checked={state?.form?.preparticipation==="نعم"}/>
           </Grid>
