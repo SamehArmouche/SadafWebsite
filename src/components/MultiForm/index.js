@@ -71,7 +71,14 @@ const MultiForm = () => {
   
   const handleSubmit = (name,value) =>{
     if(name && value){
-      state.form[name]=value
+      let result = JSON.parse(JSON.stringify(state.form));
+      state.form={}
+      state.form[name]=value;
+      state.from.email=result.email;
+      state.form.diseases='لا';
+      state.form.healthcare='لا';
+      state.form.preparticipation='لا'
+      state.form.can_travel='لا'
     }
     changeStep();
   }

@@ -40,16 +40,16 @@ const validateOneField = (value, type)=>{
 }
 
 const validateSizeFile = (file) => {
-  const MAX_FILE_SIZE = 1120 // 5MB
+  const MAX_FILE_SIZE = 2000 // 2MB
   const fileSizeKiloBytes = file.size / 1024
   return fileSizeKiloBytes < MAX_FILE_SIZE
 };
 
 const validateExtensionFile = (ext, type) => {
   if(type==='images')
-    return ['.jpg','.jpeg','.png'].filter(i => i===ext ).length>0;
+    return ['.jpg','.jpeg','.png'].filter(i => i===ext.toLowerCase() ).length>0;
   if(type==='file')
-    return [".pdf",".pptx",".ppt",".xlsx",".xls",".docx",".doc",".txt"].filter(i => i===ext ).length>0;
+    return [".pdf",".pptx",".ppt",".xlsx",".xls",".docx",".doc",".txt"].filter(i => i===ext.toLowerCase() ).length>0;
   return false
 };
 

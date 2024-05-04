@@ -35,15 +35,11 @@ function Talent() {
     if(Object.values(form).length<1 || !validateEmail(form['email'])){
       setError(true)
     }else{
+      state.from={};
       await dispatch(fetchCategories(form.email)).then((res)=>{
         state.categories=res.payload
       });
       state.form.email=form.email;
-      state.form.email=form.email;
-      state.form.diseases='لا';
-      state.form.healthcare='لا';
-      state.form.preparticipation='لا'
-      state.form.can_travel='لا'
       setError(false);
       navigate('/talents/register',
         {

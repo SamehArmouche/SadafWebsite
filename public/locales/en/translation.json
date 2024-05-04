@@ -255,7 +255,7 @@
             "InteriorDesign":"explaining the most important points that must be focused on when designing the décor in order to convey the idea or feelings present in the story of the film or series."
           },
           "errors":{
-            "filesize":"File size is large, maximum limit is 5Mb",
+            "filesize":"File size is large, maximum limit is 2MB",
             "fileextension":"The file extension is ​​incorrect"
           }
         }
