@@ -74,7 +74,7 @@ const MultiForm = () => {
       let result = JSON.parse(JSON.stringify(state.form));
       state.form={}
       state.form[name]=value;
-      state.from.email=result.email;
+      state.form.email=result.email;
       state.form.diseases='لا';
       state.form.healthcare='لا';
       state.form.preparticipation='لا'
@@ -143,7 +143,7 @@ const MultiForm = () => {
       let result = ''
       if(array!==undefined)
         Object.values(array).map((v,i)=>{
-          result+=v["value"]+(i<Object.values(array).length-1?' - ':'');
+          result+= (v["value"]!==undefined? v["value"]:v) + (i<Object.values(array).length-1?' - ':'');
           return result;
         });
       return result

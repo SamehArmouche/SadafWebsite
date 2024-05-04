@@ -54,8 +54,8 @@ const ContactInfoStep = ({ handleSubmit, errors, handleError, error, errorMsg })
             <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:300,md:150}}} required >
               <CodeCountrySelect  error={errors?.phoneCode?.error} lang={i18n.language} t={t} onChange={handleChange} value={"phoneCode"} defaultValue={state.form.phoneCode}/>
             </FormControl>
-            <Input direction={"ltr"} type ={'tel'} preValue={state.form.phoneCode} error={errors?.phonenumber?.error} required={true} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
-            <Input direction={"ltr"} type ={'tel'} preValue={state.form.phoneCode} error={errors?.fixnumber?.error} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} /> 
+            <Input direction={"ltr"} type ={'tel'} preValue={state.form?.phonenumber?.length>0?state.form.phoneCode:''} error={errors?.phonenumber?.error} required={true} handleChange={handleChange} name ={"phonenumber"} value = {state.form?.phonenumber} label={t('talent.stepper.contactinfostep.inputs.phonenumber')} />
+            <Input direction={"ltr"} type ={'tel'} preValue={state.form?.fixnumber?.length>0?state.form.phoneCode:''} error={errors?.fixnumber?.error} handleChange={handleChange} name ={"fixnumber"} value = {state.form?.fixnumber} label={t('talent.stepper.contactinfostep.inputs.fixnumber')} /> 
           </Grid>
 
           <Grid sx={{ display:'flex', m:1, justifyContent:'center'}}>
