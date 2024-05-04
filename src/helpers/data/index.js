@@ -154,40 +154,40 @@ const hairColors = [
 
 const eyeColors = [
   { value: 'أسود',
-    label:'talent.stepper.bodyinfostep.inputs.eyecolors.black'
+    label:'talent.stepper.bodyinfostep.inputs.eyescolor.black'
   },
   { value: 'عسلي',
-    label:'talent.stepper.bodyinfostep.inputs.eyecolors.hazelbrown'
+    label:'talent.stepper.bodyinfostep.inputs.eyescolor.hazelbrown'
   },
   { value: 'بندقي',
-    label:'talent.stepper.bodyinfostep.inputs.eyecolors.hazelnut'
+    label:'talent.stepper.bodyinfostep.inputs.eyescolor.hazelnut'
   },
   { value: 'أخضر',
-    label:'talent.stepper.bodyinfostep.inputs.eyecolors.green'
+    label:'talent.stepper.bodyinfostep.inputs.eyescolor.green'
   },
   { value: 'أزرق',
-    label:'talent.stepper.bodyinfostep.inputs.eyecolors.blue'
+    label:'talent.stepper.bodyinfostep.inputs.eyescolor.blue'
   },
   { value: 'رمادي',
-    label:'talent.stepper.bodyinfostep.inputs.eyecolors.grey'
+    label:'talent.stepper.bodyinfostep.inputs.eyescolor.grey'
   },
   { value: 'أخرى',
-    label:'talent.stepper.bodyinfostep.inputs.eyecolors.other'
+    label:'talent.stepper.bodyinfostep.inputs.eyescolor.other'
   }
 ];
 
 const skinColors= [
   { value: 'أبيض',
-    label:'talent.stepper.bodyinfostep.inputs.skincolors.white'
+    label:'talent.stepper.bodyinfostep.inputs.color.white'
   },
   { value: 'أسمر',
-    label:'talent.stepper.bodyinfostep.inputs.skincolors.brown'
+    label:'talent.stepper.bodyinfostep.inputs.color.brown'
   },
   { value: 'قمحي',
-    label:'talent.stepper.bodyinfostep.inputs.skincolors.wheat'
+    label:'talent.stepper.bodyinfostep.inputs.color.wheat'
   },
   { value: 'أخرى',
-    label:'talent.stepper.bodyinfostep.inputs.skincolors.other'
+    label:'talent.stepper.bodyinfostep.inputs.color.other'
   }
 ];
 
@@ -242,7 +242,7 @@ const fieldsMandatoryPersonalStep = [
   "gender",
   "relationship",
   "birthday",
-  "nacionality",
+  "nationality",
   "country",
   "city"*/
 ]
@@ -261,8 +261,8 @@ const fieldsMandatorySkillsStep = [
 ]
 const fieldsMandatoryBodyStep = [
   /*"haircolor",
-  "eyecolor",
-  "skincolor",
+  "eyescolor",
+  "color",
   "weight",
   "height",
   "bodytype"*/

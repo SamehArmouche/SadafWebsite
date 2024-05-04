@@ -50,7 +50,7 @@ export default function CountrySelect({lang, t, onChange, value, defaultValue, e
           {...params}
           error={error}
           required 
-          label={value==="nacionality"?t('talent.stepper.personalinfo.inputs.nacionality'):t('talent.stepper.personalinfo.inputs.address.country')}
+          label={value==="nationality"?t('talent.stepper.personalinfo.inputs.nationality'):t('talent.stepper.personalinfo.inputs.address.country')}
           inputProps={{
             ...params.inputProps,
             autoComplete: 'new-password',

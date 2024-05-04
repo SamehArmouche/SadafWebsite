@@ -45,7 +45,7 @@ const ImagesPicker = ({ errors, handleError, error}) => {
 
   };
 
-  console.log(errorsFile.image1)
+
   return (
     <Grid item sx={{display:'flex',flexWrap:'wrap',justifyContent:'center'}}>
     <ImagePicker 

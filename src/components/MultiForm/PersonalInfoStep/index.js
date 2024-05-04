@@ -142,7 +142,7 @@ const PersonalInfoStep = ({
 
           <Grid item>
             <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:153}}} required >
-              <CountrySelect error={errors?.nacionality?.error} lang={i18n.language} t={t} onChange={handleChange} value={"nacionality"} defaultValue={state.form.nacionality}/>
+              <CountrySelect error={errors?.nationality?.error} lang={i18n.language} t={t} onChange={handleChange} value={"nationality"} defaultValue={state.form.nationality}/>
             </FormControl>
             <FormControl sx={{borderRadius:1,m:1,height:55,width:{xs:'85%',md:250}}} required >
               <CountrySelect error={errors?.country?.error} lang={i18n.language} t={t} onChange={handleChange} value={"country"} defaultValue={state.form.country}/>

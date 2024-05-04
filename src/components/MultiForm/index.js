@@ -151,6 +151,7 @@ const MultiForm = () => {
     result.image3=result.image3?.file;
     result.links=JSON.stringify(result.links);
     result.file=result.file?.file
+    delete result['phoneCode']
     return result;
     
   }

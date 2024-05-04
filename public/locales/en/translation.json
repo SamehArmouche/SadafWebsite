@@ -79,7 +79,7 @@
             "divorced": "Divorced",
             "widowed": "Widowed" 
           },
-          "nacionality": "Nacionality",
+          "nationality": "Nationality",
           "address":{
             "country": "Country of Residence",
             "city" : "City"
@@ -181,7 +181,7 @@
             "white":"White",
             "shaved":"Bold/Shaved"
           },
-          "eyecolors":{
+          "eyescolor":{
             "title": "Eyes color",
             "black":"Black",
             "hazelbrown":"Hazel Brown",
@@ -191,7 +191,7 @@
             "grey":"Grey",
             "other":"Other"
           },
-          "skincolors":{
+          "color":{
             "title": "Skin Colour",
             "white":"White",
             "brown":"Brown",

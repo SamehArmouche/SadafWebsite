@@ -78,21 +78,21 @@ const BodyInfoStep = ({
               t={t}
             />
             <DataSelect  
-              label={t('talent.stepper.bodyinfostep.inputs.eyecolors.title')} 
+              label={t('talent.stepper.bodyinfostep.inputs.eyescolor.title')} 
               noneItem={t('talent.stepper.buttons.none')}
-              value={state?.form?.eyecolor || ''}
+              value={state?.form?.eyescolor || ''}
               options={eyeColors}
-              error={errors?.eyecolor?.error}
-              onChange={(e)=>handleChange("eyecolor",e.target.value)}
+              error={errors?.eyescolor?.error}
+              onChange={(e)=>handleChange("eyescolor",e.target.value)}
               t={t}
             />
             <DataSelect  
-              label={t('talent.stepper.bodyinfostep.inputs.skincolors.title')} 
+              label={t('talent.stepper.bodyinfostep.inputs.color.title')} 
               noneItem={t('talent.stepper.buttons.none')}
-              value={state?.form?.skincolor || ''}
+              value={state?.form?.color || ''}
               options={skinColors}
-              error={errors?.skincolor?.error}
-              onChange={(e)=>handleChange("skincolor",e.target.value)}
+              error={errors?.color?.error}
+              onChange={(e)=>handleChange("color",e.target.value)}
               t={t}
             />
           </Grid>

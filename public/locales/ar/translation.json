@@ -83,7 +83,7 @@
             "divorced": "مطلق/ة",
             "widowed": "أرمل/ة" 
           },
-          "nacionality": "الجنسية",
+          "nationality": "الجنسية",
           "address":{
             "country": "بلد الإقامة",
             "city" : "المدينة"
@@ -186,7 +186,7 @@
             "white":"أبيض",
             "shaved":"أصلع/محلوق"
           },
-          "eyecolors":{
+          "eyescolor":{
             "title": "لون العينين",
             "black":"أسود",
             "hazelbrown":"عسلي",
@@ -196,7 +196,7 @@
             "grey":"رمادي",
             "other":"أخرى"
           },
-          "skincolors":{
+          "color":{
             "title": "لون البشرة",
             "white":"أبيض",
             "brown":"أسمر",
