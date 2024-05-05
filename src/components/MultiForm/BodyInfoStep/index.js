@@ -48,7 +48,7 @@ const BodyInfoStep = ({
     else
       {
         if(value==='لا')
-          handleChange("healthcareDetails", '')
+          handleChange("healthcare_details", '')
         setHealthcare(e.target.checked);
       }
   };
@@ -137,8 +137,8 @@ const BodyInfoStep = ({
             <Fade  in={true} mountOnEnter unmountOnExit>
               <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex',pl:{xs:0.5,md:0},pr:{xs:0.5,md:0}}}>
                 <Input 
-                  handleChange={handleChange} multiline={true} name ={"healthcareDetails"} 
-                  value = {state.form?.healthcareDetails}
+                  handleChange={handleChange} multiline={true} name ={"healthcare_details"} 
+                  value = {state.form?.healthcare_details}
                   width={'100%'}
                   label={t('talent.stepper.bodyinfostep.inputs.healthcare.details')} /> 
               </Grid>

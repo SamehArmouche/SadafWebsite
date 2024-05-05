@@ -43,6 +43,7 @@ const Input = ({value, handleChange, label, name, mb=1,
         overflow: "unset",
       }*/
     }}
+    type={type==='number'?"tel":type}
     required={required}
     autoComplete='nope'
   />

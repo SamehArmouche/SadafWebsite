@@ -43,7 +43,7 @@ const SkillsLanguagesStep = ({
     handleChange(field, value)
     if(field==='preparticipation'){
       if(value==='لا')
-        handleChange("preparticipationDetails", '')
+        handleChange("preparticipation_details", '')
       setPreparticipation(e.target.checked);
     }
   };
@@ -96,8 +96,8 @@ const SkillsLanguagesStep = ({
             <Fade  in={true} mountOnEnter unmountOnExit>
               <Grid item sx={{justifyContent:{xs:'center',md:"flex-start"},display:'flex',pl:{xs:0.5,md:0},pr:{xs:0.5,md:0}}}>
                 <Input 
-                  handleChange={handleChange} multiline={true} name ={"preparticipationDetails"} 
-                  value = {state.form?.preparticipationDetails} 
+                  handleChange={handleChange} multiline={true} name ={"preparticipation_details"} 
+                  value = {state.form?.preparticipation_details} 
                   width={'100%'}
                   label={t('talent.stepper.skillslanguagesstep.inputs.preparticipation.details')} /> 
               </Grid>

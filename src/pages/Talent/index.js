@@ -82,6 +82,7 @@ function Talent() {
           onChange={(e) => { setForm({...form,"email": e.target.value}); setError(false); }}
           sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1, mt:3.5,width:{xs:'80%',md:'70%'},direction:'ltr'}}
           required
+          type={"email"}
           autoComplete='nope'
           helperText={handleError("email")?t('contact.errors.email'):""}
         />

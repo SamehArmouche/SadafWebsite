@@ -141,24 +141,33 @@ const MultiForm = () => {
     let result = JSON.parse(JSON.stringify(state.form))
     const buildArray = (array) =>{
       let result = ''
-      if(array!==undefined)
+      if(array!==undefined){
+        result+='{'
         Object.values(array).map((v,i)=>{
-          result+= (v["value"]!==undefined? v["value"]:v) + (i<Object.values(array).length-1?' - ':'');
+          result+= (v["value"]!==undefined? v["value"]:v) + (i<Object.values(array).length-1?',':'}');
           return result;
         });
+      }else{
+        return "{}";
+      }
+
       return result
     }
+
     result.dialects = buildArray(state.form?.dialects);
+    result.parent_category=state.form?.category.parent;
     result.category = state.form?.category.value;
     result.languages = buildArray(state.form?.languages);
     result.fixnumber =  state.form.fixnumber!==undefined?'+'+state.form.phoneCode+ " " + state.form.fixnumber:'';
-    result.phonenumber = '+'+state.form.phoneCode+ " " + state.form.phonenumber;
+    result.phonenumber = state.form.phonenumber!==undefined?'+'+state.form.phoneCode+ " " + state.form.phonenumber:'';
     result.image1=result.image1?.file;
     result.image2=result.image2?.file;
     result.image3=result.image3?.file;
     result.links=JSON.stringify(result.links);
-    result.file=result.file?.file
-    delete result['phoneCode']
+    if(result.file?.file)
+      result.file=result.file?.file
+    delete result['phoneCode'];
+    Object.keys(result).forEach(key => result[key] === undefined && delete result[key])
     return result;
     
   }

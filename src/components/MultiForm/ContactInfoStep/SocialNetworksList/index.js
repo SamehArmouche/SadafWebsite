@@ -78,7 +78,7 @@ export default function SocialNetworksList({label}) {
         <TextField id="filled-basic" label={"Link"} variant="filled"
           inputProps={{ style: { color: colors.primary }}}
           //value={value || ''}
-          
+          type={"url"}
           //error={handleError("companyName")}
           onChange={(e) => {state.form['links'] = {...state.form['links'],[item.value]:e.target.value}}}
           //sx={{backgroundColor:'rgba(247, 216, 159, 0.1)',borderRadius:1,m:1,height:55,maxwidth:300, direction:'ltr',width:{xs:300,md:150}}}

@@ -63,7 +63,7 @@ const ContactInfoStep = ({ handleSubmit, errors, handleError, error, errorMsg })
           </Grid>
 
           <Grid item sx={{justifyContent:{xs:"center",md:"flex-start"},display:'flex',pr:{xs:2,md:0},pl:{xs:2,md:0},flexWrap:'wrap'}}>
-            <Input direction={"ltr"} required={true} handleChange={handleChange}  name ={"website"} value = {state.form?.website} label={t('talent.stepper.contactinfostep.inputs.website')} />
+            <Input direction={"ltr"} required={true} handleChange={handleChange}  type={"url"} name ={"website"} value = {state.form?.website} label={t('talent.stepper.contactinfostep.inputs.website')} />
             <ComunicationTypeSelect  
               label={t('talent.stepper.contactinfostep.inputs.communicationType.title')} 
               noneItem={t('talent.stepper.buttons.none')}

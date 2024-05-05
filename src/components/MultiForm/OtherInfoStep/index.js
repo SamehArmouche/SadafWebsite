@@ -63,11 +63,11 @@ const OtherInfoStep = ({
                 
               <Input 
                 handleChange={handleChange}
-                name ={"videoPassword"} 
+                name ={"video_pass"} 
                 width={299}
                 mb={4}
                 direction={'ltr'}
-                value = {state.form?.videoPassword}
+                value = {state.form?.video_pass}
                 helperText={t('talent.stepper.otherinfostep.inputs.video.titlepass')}
                 label={t('talent.stepper.otherinfostep.inputs.video.password')} />
             </Grid>
