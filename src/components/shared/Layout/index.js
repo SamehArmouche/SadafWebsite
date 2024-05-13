@@ -5,7 +5,7 @@ import Footer from '../Footer';
 import Loading from '../../Loading';
 import React from "react";
 import { Outlet, useLocation } from 'react-router-dom'
-
+//import video from '../../../../public/background.mp4'
 function Layout() {
   const location = useLocation();
 
@@ -47,8 +47,7 @@ function Layout() {
         {
           location.pathname==="/" &&
         <video id="background-video" playsInline loop autoPlay muted autobuffer={"true"}>
-          <source src="https://uploads-ssl.webflow.com/629a2cfb8f581b5d1399061e/629a2cfb8f581b4ee29906e8_%D8%B3%D8%B1%D9%8A%D8%B9%20%D8%B3%D8%B1%D9%8A%D8%B9%2039%20%D8%AB%D8%A7%D9%86%D9%8A%D8%A9-transcode.mp4" data-wf-ignore="true"/>
-          <source src="https://uploads-ssl.webflow.com/629a2cfb8f581b5d1399061e/629a2cfb8f581b4ee29906e8_%D8%B3%D8%B1%D9%8A%D8%B9%20%D8%B3%D8%B1%D9%8A%D8%B9%2039%20%D8%AB%D8%A7%D9%86%D9%8A%D8%A9-transcode.webm" data-wf-ignore="true"/>
+          <source src="/background.mp4" data-wf-ignore="true"/>
         </video>
         }
 

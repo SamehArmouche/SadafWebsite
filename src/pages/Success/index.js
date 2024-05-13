@@ -1,35 +1,13 @@
 import * as React from 'react';
-import {Grid, Fade} from '@mui/material';
-import { fetchSuccess } from '../../redux/thunks';
-import { useDispatch, useSelector } from 'react-redux'
-import Carousel from '../../components/Carousel';
-import Details from '../../components/shared/Details';
+import {Grid, Fade, Typography} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 function Success() {
-  const dispatch: Dispatch = useDispatch();
-  const [open, setOpen] = React.useState(false)
-  const [s, setS ] = React.useState({});
-  const { i18n } = useTranslation();
-  const { success } = useSelector(
-    (state) => state.success
-  )
-  const handleChange = (value) => {
-    setS(value)
-    setOpen(!open)
- }
-  React.useEffect(() => {
-    dispatch(fetchSuccess());
-  }, [dispatch]);
-
+  const { t, i18n } = useTranslation();
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
-      <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',minHeight:'72vh',width:'80%'}}>
-      <Carousel items={success} onClick={()=>setOpen(!open)} handleChange={handleChange} />
-        <Details open={open} handleClose={()=> setOpen(!open)} 
-          title={`${s['count']} ${s[`title_${i18n.language}`]}`}
-          description={`${s[`description_${i18n.language}`]}`}
-        />
+      <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',minHeight:'72vh',width:'80%',maxWidth:1050}}>
+        <Typography sx={{fontSize:20,textAlign:i18n.language==='ar'?'right':'left'}}>{t("aboutus.title")}</Typography>
       </Grid>
     </Fade>
   );

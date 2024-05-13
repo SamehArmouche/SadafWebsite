@@ -12,7 +12,7 @@ export default function MyCard({item, handleChange, alt, i18n, i, loadingData}) 
 
   const onLoad = setTimeout(() => {
     setHasImageLoaded(true)
-  }, 1100);
+  }, 800);
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit timeout={(200)+50*parseInt(i)}>

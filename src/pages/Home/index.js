@@ -29,7 +29,7 @@ function Home() {
       </Slide>
 
       <Grid container sx={{p:{xs:0,md:0},width:"100%",minHeight:150,alignItems:'center'}}>
-        <Ads t={t} i18n={i18n}/>
+
       </Grid>
     
     </Box>

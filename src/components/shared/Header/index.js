@@ -120,12 +120,13 @@ function Header() {
 
   return (
     <AppBar position="static" sx={{backgroundColor:'transparent', boxShadow:0}} >
-      <Box sx={{justifyContent:'center',display:{xs:'none',md:'flex'},opacity:0.8}}>
-        <img src = {"/images/logo.png"}  alt={"sadaf logo"} onClick={()=>handleRoute("home")} style={{height:20,paddingTop:18}}></img> 
-      </Box>
-      <Container sx={{justifyContent:{ xs: 'left', md: 'center' },display:'flex',marginTop:2}}>
+
+      <Container sx={{justifyContent:{ xs: 'left', md: 'center' },display:'flex',marginTop:{xs:2,md:5}}}>
 
         <Toolbar disableGutters sx={{width:'100%',display:'flex' ,justifyContent:'space-between'}}>
+          <Box sx={{justifyContent:'center',display:{xs:'none',md:'flex'},opacity:1,alignItems:'center'}}>
+            <img src = {"/images/logo.png"}  alt={"sadaf logo"} onClick={()=>handleRoute("home")} style={{height:50}}></img> 
+          </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },maxWidth:74,maxHeight:40}}>
             <IconButton
               aria-controls="menu-appbar"
@@ -179,7 +180,7 @@ function Header() {
           <Box sx={{padding:0,display: { xs: 'flex', md: 'none'}}} >
             <Typography sx={{fontSize: 20}}> {getCurrentPageName()!==""?t(`header.${getCurrentPageName()}`):""} </Typography>
           </Box>
-          <Box sx={{marginTop:1}} >
+          <Box sx={{marginTop:0}} >
             <React.Fragment>
               <Button variant="menu" {...bindTrigger(popupState)}>
                 {t(`dropdown.lang`)}

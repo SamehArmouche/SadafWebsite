@@ -49,18 +49,21 @@ const ImagesPicker = ({ errors, handleError, error}) => {
   return (
     <Grid item sx={{display:'flex',flexWrap:'wrap',justifyContent:'center'}}>
     <ImagePicker 
+      i={1}
       errorEmpty={errors?.image1?.error} error={errorsFile.image1} 
       errorMsg={errorsFile.image1?t(`talent.stepper.otherinfostep.inputs.errors.${errorsFile.image1.toLowerCase()}`):''}
       label={t("talent.stepper.otherinfostep.inputs.image1")+" *"} handleOnChange={handleOnChangeImage} 
       image={state?.form?.image1?.localUrl} field={"image1"} align={i18n.dir()==="rtl"?"right":"left"}
     />
     <ImagePicker 
+      i={2}
       errorEmpty={errors?.image2?.error} error={errorsFile.image2} 
       errorMsg={errorsFile.image2?t(`talent.stepper.otherinfostep.inputs.errors.${errorsFile.image2.toLowerCase()}`):''}
       label={t("talent.stepper.otherinfostep.inputs.image2")+" *"} handleOnChange={handleOnChangeImage}
       image={state?.form?.image2?.localUrl} field={"image2"} align={i18n.dir()==="rtl"?"right":"left"}
     />
     <ImagePicker 
+      i={3}
       errorEmpty={errors?.image3?.error} error={errorsFile.image3} 
       errorMsg={errorsFile.image3?t(`talent.stepper.otherinfostep.inputs.errors.${errorsFile.image3.toLowerCase()}`):''}
       label={t("talent.stepper.otherinfostep.inputs.image3")+" *"} handleOnChange={handleOnChangeImage}

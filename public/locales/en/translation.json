@@ -55,7 +55,16 @@
             "PhotographyLocationManager":"Photography Location Manager","ProductionAccountant":"Production Accountant","BuffetWorker":"Buffet Worker"
             }
           },
-          "InteriorDesign":{"title":"Interior Design"},
+          "InteriorDesign":{"title":"Interior Design",
+          "sub":{
+            "ProductionDicorDesigner":"Production Dicor Designer",
+            "EngineerDicor":"Engineer Dicor",
+            "DecorativeSet":"Decorative Set",
+            "AccessoriesResponsible":"Accessories Responsible",
+            "AccessoryPurchases":"Accessory Purchases",
+            "DecorationAssistant":"Decoration Assistant",
+            "AccessoryAssistant":"Accessory Assistant"
+          }},
           "Other":{"title":"Other"}
         },
         "error":"Choose the category of talent"
@@ -278,7 +287,7 @@
     "services":"Logistics services",
     "projects":"Projects",
     "awards":"Awards",
-    "successes":"Successes",
+    "successes":"About us",
     "talents":"Talent",
     "contact":"Contact us"
   },
@@ -347,6 +356,9 @@
       "200":"Service registered successfully",
       "400":"An error occurred, please try again later"
     }
+  },
+  "aboutus":{
+    "title":"A Saudi production company that was established in the year 1988 AD. It is one of the most important arms of the MBC Group and specializes in audio and visual production and creating creative dramatic content through the production of high-quality content. It has so far produced more than 326 projects over more than 35 years and is considered the most powerful leading and influential company in the content industry. Al Arabi has won many awards throughout its long career for the distinguished works it has produced, and Al Sadaf is committed to providing the highest standards of quality in its productions."
   },
   "loading":"Please wait ..."
 }

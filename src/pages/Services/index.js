@@ -100,7 +100,7 @@ function Services() {
             {
               showService==='Our' && !loading &&
               <>
-                <Carousel items={services} onClick={()=>setOpen(!open)} handleChange={handleChange} />
+                <Carousel items={services?services:[]} onClick={()=>setOpen(!open)} handleChange={handleChange} />
                   <Details open={open} handleClose={()=> setOpen(!open)} 
                     title={`${service[`title_${i18n.language}`]}`}
                     description={service[`description_${i18n.language}`]}

@@ -10,7 +10,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import React from 'react';
 import colors from '../../assets/theme/colors/'
 
-const ImagePicker = ({label, handleOnChange, image, field, align, error, errorMsg, errorEmpty}) => {
+const ImagePicker = ({label, handleOnChange, image, field, align, error, errorMsg, errorEmpty, i}) => {
   
   return (
 
@@ -24,10 +24,10 @@ const ImagePicker = ({label, handleOnChange, image, field, align, error, errorMs
       <label htmlFor={field} style={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
       <Grid item>
         <img
-          style={{borderRadius:6,  opacity:image?1:0.4}}
+          style={{borderRadius:6,  opacity:image?1:1}}
           className="img-upload"
           alt={'default picker'}
-          src={image || '/images/default.png' }
+          src={image?image:i?`/images/default${i}.png`:'/images/default.png' }
         />
       </Grid>
       <input

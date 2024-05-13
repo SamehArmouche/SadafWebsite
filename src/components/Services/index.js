@@ -1,4 +1,4 @@
-import {Grid, Typography, Button, Divider, FormControl } from '@mui/material';
+import {Grid, Typography, Button, Divider, FormControl, Fade } from '@mui/material';
 import colors from '../../assets/theme/colors/'
 import { useTranslation } from 'react-i18next';
 import * as React from 'react'
@@ -112,6 +112,7 @@ const ServiceForm = ({onClick}) => {
 
 
   return (
+    <Fade  in={true} mountOnEnter unmountOnExit>
     <Grid container sx={{flexDirection:'row',p:1,justifyContent:'center',width:{md:800}}}>
       <Grid container sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'row',minHeight:40}}>
         {errorMsg.length>0 &&
@@ -186,6 +187,7 @@ const ServiceForm = ({onClick}) => {
           {t('service.buttons.register')}
         </Button>
     </Grid>
+    </Fade>
   )
 }
 

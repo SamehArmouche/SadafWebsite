@@ -57,7 +57,7 @@ function ContactUs() {
       <Box 
       border={1} 
       sx={{
-        backgroundColor:'black',width:{xs:'80%'},mt:3,height:'76%',maxWidth:500,
+        backgroundColor:'black',width:{xs:'80%'},mt:3,maxWidth:500,
         borderColor: 'rgba(247, 216, 159, 0.1)', borderWidth: '0.1em',borderRadius:1,
         alignItems:'center',display:'flex',
         flexDirection:'column'
