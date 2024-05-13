@@ -10,7 +10,7 @@ function MyCarousel({items, type, handleChange}){
     const { i18n } = useTranslation();
     const [loading, setLoading] = React.useState(true);
     const [slides, setSlides] = React.useState([]);
-    const [countPerSlide, setCountPerSlide] = React.useState(4);
+    const [countPerSlide, setCountPerSlide] = React.useState(3);
     const [windowSize, setWindowSize] = React.useState([
       window.innerWidth,
       window.innerHeight,
@@ -30,12 +30,12 @@ function MyCarousel({items, type, handleChange}){
 
     const MyCard = (props) => {
       return (
-        <Card sx={{maxWidth:500,borderRadius:2,margin:2,backgroundColor:'black'}} onClick={()=>handleChange(props.item)}>
+        <Card sx={{width:500,borderRadius:2,margin:2,backgroundColor:'black'}} onClick={()=>handleChange(props.item)}>
           { props.item.img ? 
             <CardActionArea>
               <CardMedia
                 component="img"
-                height={300}
+                height={270}
                 width={300}
                 image={props.item.img}
                 alt="service_img"
@@ -77,7 +77,7 @@ function MyCarousel({items, type, handleChange}){
       if(windowSize[0]<600){
         setCountPerSlide(1);
       }else{
-        setCountPerSlide(4);
+        setCountPerSlide(3);
       }
       setLoading(false);
       if(items.length>0){
@@ -106,7 +106,7 @@ function MyCarousel({items, type, handleChange}){
             }} 
             navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
               style: {
-                  bottom: 4,
+                  bottom: 20,
                   top: 'unset',
               }
             }}
@@ -127,8 +127,7 @@ function MyCarousel({items, type, handleChange}){
               justifyContent:'center',
               display:'flex',
               flexDirection:'column',
-              alignItems:'center',
-              top:20
+              alignItems:'center'
               }}>
               {
                 slides.map(slide => <OneSlide key={slide} items ={slide}/>)
