@@ -127,7 +127,7 @@ function Header() {
           <Box sx={{justifyContent:'center',display:{xs:'none',md:'flex'},opacity:1,alignItems:'center'}}>
             <img src = {"/images/logo.png"}  alt={"sadaf logo"} onClick={()=>handleRoute("home")} style={{height:50}}></img> 
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },maxWidth:74,maxHeight:40}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },maxWidth:74,maxHeight:40,alignItems:'center'}}>
             <IconButton
               aria-controls="menu-appbar"
               aria-haspopup="true"
