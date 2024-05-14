@@ -49,29 +49,32 @@ const OtherInfoStep = ({
             <ImagesPicker errors={errors} handleError={handleError} />
           }
           <Grid item sx={{display:'flex',flexWrap:'wrap',justifyContent:'center'}}>
-            <Grid sx={{width:'100%',display:'flex',flexWrap:'wrap',justifyContent:{xs:'center',md:'flex-start'}}}>
-              <Input 
-                handleChange={handleChange}
-                name ={"video"} 
-                width={400}
-                mb={5}
-                required={true}
-                direction={'ltr'}
-                value = {state.form?.video}
-                helperText={t('talent.stepper.otherinfostep.inputs.video.title')}
-                label={t('talent.stepper.otherinfostep.inputs.video.url')} />
-                
-              <Input 
-                handleChange={handleChange}
-                name ={"video_pass"} 
-                width={299}
-                mb={4}
-                direction={'ltr'}
-                value = {state.form?.video_pass}
-                helperText={t('talent.stepper.otherinfostep.inputs.video.titlepass')}
-                label={t('talent.stepper.otherinfostep.inputs.video.password')} />
-            </Grid>
-
+            
+            {
+              checkVisibility(state.form.category, "videoUrl") &&
+                <Grid sx={{width:'100%',display:'flex',flexWrap:'wrap',justifyContent:{xs:'center',md:'flex-start'}}}>
+                  <Input 
+                    handleChange={handleChange}
+                    name ={"video"} 
+                    width={400}
+                    mb={5}
+                    required={true}
+                    direction={'ltr'}
+                    value = {state.form?.video}
+                    helperText={t('talent.stepper.otherinfostep.inputs.video.title')}
+                    label={t('talent.stepper.otherinfostep.inputs.video.url')} />
+                    
+                  <Input 
+                    handleChange={handleChange}
+                    name ={"video_pass"} 
+                    width={299}
+                    mb={4}
+                    direction={'ltr'}
+                    value = {state.form?.video_pass}
+                    helperText={t('talent.stepper.otherinfostep.inputs.video.titlepass')}
+                    label={t('talent.stepper.otherinfostep.inputs.video.password')} />
+              </Grid>
+            }
               <Divider  sx={{width:{xs:'80%',md:'60%'},m:2}}  />
                 {
                 checkVisibility(state.form.category, "paragraph") &&

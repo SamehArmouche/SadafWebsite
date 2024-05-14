@@ -36,6 +36,19 @@ const FileVisibilty = [
   "InteriorDesign"
 ]
 
+const VideoUrlVisibilty = [
+  "Actor",
+  "PostProduction",
+  "LightingPhotography",
+  "TVDirector",
+  "DesignBattlesStunts",
+  "Music",
+  "Model",
+  "Sound",
+  "Production",
+  "InteriorDesign"
+]
+
 export const checkVisibility = (category, type) =>{
   switch (type) {
     case "imagesPicker":
@@ -48,6 +61,8 @@ export const checkVisibility = (category, type) =>{
       return ParagraphVisibilty.includes(category.parent)
     case "file":
       return FileVisibilty.includes(category.parent)
+    case "videoUrl":
+      return VideoUrlVisibilty.includes(category.parent)
     default:
       return false
   }
