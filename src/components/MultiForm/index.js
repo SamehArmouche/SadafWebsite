@@ -166,6 +166,8 @@ const MultiForm = () => {
     result.links=JSON.stringify(result.links);
     if(result.file?.file)
       result.file=result.file?.file
+    if(result.cv?.file)
+      result.cv=result.cv?.file
     delete result['phoneCode'];
     Object.keys(result).forEach(key => result[key] === undefined && delete result[key])
     return result;
