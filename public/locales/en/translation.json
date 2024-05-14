@@ -241,6 +241,10 @@
             "Production":{"title":"A file containing previous work, including shooting schedules, budgets, etc.", "description":""},
             "InteriorDesign":{"title":"", "description":""}
           },
+          "cv":{
+            "title":"Resume (CV)",
+            "description":"Please attach your CV so that we can review it."
+          },
           "about":"Talk about your self ...",
           "video":{
             "title":"You can put a link to the video clip, it will increase your chances of acceptance",
@@ -265,7 +269,8 @@
           },
           "errors":{
             "filesize":"File size is large, maximum limit is 2MB",
-            "fileextension":"The file extension is ​​incorrect"
+            "fileextension":"The file extension is ​​incorrect, must be (pdf, doc, docx)",
+            "imageextension":"​​Incorrect extension, must be (jpg, jpeg, png)"
           }
         }
       },

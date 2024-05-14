@@ -7,7 +7,7 @@ import NotFound from './NotFound'
 import Services from './Services'
 import Projects from './Projects'
 import Awards from './Awards'
-import Success from './Success'
+import AboutUs from './AboutUs'
 import Home from './Home'
 import ContactUs from './ContactUs'
 import Talent from './Talent'
@@ -22,7 +22,7 @@ const AppContainer = () => (
       <Route path="/services" element={<Services />} />
       <Route path="/projects" element={<Projects />} />
       <Route path="/awards" element={<Awards />} />
-      <Route path="/aboutus" element={<Success />} />
+      <Route path="/aboutus" element={<AboutUs />} />
       <Route path="/talents" element={<Talent />} />
       <Route path="/talents/register" element={<RegisterTalent />} />
       <Route path="/contact" element={<ContactUs />} />

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Grid, Fade, Typography} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-function Success() {
+function AboutUs() {
   const { t, i18n } = useTranslation();
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
@@ -13,4 +13,4 @@ function Success() {
   );
 }
 
-export default Success;
+export default AboutUs;

@@ -32,7 +32,8 @@ const ImagePicker = ({label, handleOnChange, image, field, align, error, errorMs
       </Grid>
       <input
         color="primary"
-        accept="image/*"
+        //accept="image/*"
+        accept=".jpg,.jpeg,.png"
         type="file"
         onChange={(e) => handleOnChange(e, field)}
         id={field}

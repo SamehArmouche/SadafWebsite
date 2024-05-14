@@ -32,7 +32,7 @@ const ImagesPicker = ({ errors, handleError, error}) => {
       }
       else if(!validateExtensionFile(ext,"images")){
         state.form[field]= '';
-        setErrorsFile({...errorsFile, [value]: 'fileextension'})
+        setErrorsFile({...errorsFile, [value]: 'imageextension'})
         setImages({...images, [field]: ''});
       }
       else{

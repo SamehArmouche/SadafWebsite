@@ -59,8 +59,23 @@ const FilesPicker = ({ errors, handleError, error}) => {
           :state.form?.file?.file?.fileName
         }
         handleOnChange={handleOnChangeImage} 
-        image={state?.form?.file?.localUrl} field={"file"} align={i18n.dir()==="rtl"?"right":"left"}
+        field={"file"} align={i18n.dir()==="rtl"?"right":"left"}
       />
+
+      <FilePicker 
+        errorEmpty={errors?.cv?.error} error={errorsFile.cv} 
+        errorMsg={errorsFile.cv?t(`talent.stepper.otherinfostep.inputs.errors.${errorsFile.cv.toLowerCase()}`):''}
+        label={t(`talent.stepper.otherinfostep.inputs.cv.title`)} 
+        description=
+        {
+          !state.form?.cv?.file?.fileName?
+          t(`talent.stepper.otherinfostep.inputs.cv.description`)
+          :state.form?.cv?.file?.fileName
+        }
+        handleOnChange={handleOnChangeImage} 
+        field={"cv"} align={i18n.dir()==="rtl"?"right":"left"}
+      />
+
     </Grid>
   )
 }
