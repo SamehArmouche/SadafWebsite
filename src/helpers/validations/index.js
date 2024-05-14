@@ -49,7 +49,7 @@ const validateExtensionFile = (ext, type) => {
   if(type==='images')
     return ['.jpg','.jpeg','.png'].filter(i => i===ext.toLowerCase() ).length>0;
   if(type==='file')
-    return [".pdf",".pptx",".ppt",".xlsx",".xls",".docx",".doc",".txt"].filter(i => i===ext.toLowerCase() ).length>0;
+    return [".pdf",".docx",".doc"].filter(i => i===ext.toLowerCase() ).length>0;
   return false
 };
 
