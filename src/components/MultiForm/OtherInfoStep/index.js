@@ -51,7 +51,7 @@ const OtherInfoStep = ({
           <Grid item sx={{display:'flex',flexWrap:'wrap',justifyContent:'center'}}>
             
             {
-              checkVisibility(state.form.category, "videoUrl") &&
+              checkVisibility(state.form.category, "video") &&
                 <Grid sx={{width:'100%',display:'flex',flexWrap:'wrap',justifyContent:{xs:'center',md:'flex-start'}}}>
                   <Input 
                     handleChange={handleChange}

@@ -36,7 +36,7 @@ const FileVisibilty = [
   "InteriorDesign"
 ]
 
-const VideoUrlVisibilty = [
+const VideoVisibilty = [
   "Actor",
   "PostProduction",
   "LightingPhotography",
@@ -61,8 +61,8 @@ export const checkVisibility = (category, type) =>{
       return ParagraphVisibilty.includes(category.parent)
     case "file":
       return FileVisibilty.includes(category.parent)
-    case "videoUrl":
-      return VideoUrlVisibilty.includes(category.parent)
+    case "video":
+      return VideoVisibilty.includes(category.parent)
     default:
       return false
   }
