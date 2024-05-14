@@ -20,7 +20,7 @@ import {
 } from 'material-ui-popup-state/hooks'
 import { useTheme } from '@mui/material/styles';
 import { Turn as Hamburger } from 'hamburger-react'
-const pages = ['Home','Talents','Services','Projects','Awards','Successes','Contact'];
+const pages = ['Home','Talents','Services','Projects','Awards','AboutUs','Contact'];
 
 
 

@@ -22,7 +22,7 @@ const AppContainer = () => (
       <Route path="/services" element={<Services />} />
       <Route path="/projects" element={<Projects />} />
       <Route path="/awards" element={<Awards />} />
-      <Route path="/successes" element={<Success />} />
+      <Route path="/aboutus" element={<Success />} />
       <Route path="/talents" element={<Talent />} />
       <Route path="/talents/register" element={<RegisterTalent />} />
       <Route path="/contact" element={<ContactUs />} />
