@@ -62,7 +62,7 @@ const CategoryStep = ({
           }
           </Grid>
 
-        <Grid sx={{display:'flex',width:'80%',flexWrap:'wrap',justifyContent:'flex-start',maxWidth:'90%',opacity:0.6}}>
+        <Grid sx={{display:'flex',width:'82%',flexWrap:'wrap',justifyContent:'flex-start',maxWidth:'90%',opacity:0.6}}>
           <Typography sx={{textAlign:i18n.dir()!=='ltr'?'right':'left',p:1}} >{t("talent.stepper.category.registered")}</Typography>
           <Grid sx={{display:'flex'}}>
             {
