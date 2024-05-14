@@ -67,7 +67,8 @@
           }},
           "Other":{"title":"Other"}
         },
-        "error":"Choose the category of talent"
+        "error":"Choose the category of talent",
+        "registered":"Pre-registered categories via your email :"
       },
       "personalinfo":{
         "title": "Personal info",

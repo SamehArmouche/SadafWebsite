@@ -37,7 +37,8 @@ function Talent() {
     }else{
       state.from={};
       await dispatch(fetchCategories(form.email)).then((res)=>{
-        state.categories=res.payload
+        state.categories=res.payload.categories
+        state.registeredCategories=res.payload.registered
       });
       state.form.email=form.email;
       setError(false);

@@ -3,13 +3,13 @@ import { fetchCategories, registerTalent } from '../thunks'
 
 export const talentsSlice = createSlice({
   name: 'talents',
-  initialState: {categories: [], loadingCategories: false, error: null, loadingRegisterTalent:false, msg:''},
+  initialState: {data: [], loadingCategories: false, error: null, loadingRegisterTalent:false, msg:''},
   extraReducers: (builder)=>{
     builder.addCase(fetchCategories.pending, (state) =>{
       state.loadingCategories = true;
     })
     .addCase(fetchCategories.fulfilled, (state, action) =>{
-      state.categories = action.payload;
+      state.data = action.payload;
       state.loadingCategories = false;
     })
     .addCase(fetchCategories.rejected, (state, action) =>{
