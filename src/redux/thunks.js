@@ -15,7 +15,7 @@ export const updateLanguage = createAsyncThunk(
 export const fetchServices = createAsyncThunk(
   'services/fetchServices',
   async () =>{
-    const response = await fetch(`/sadaf/service`,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/service`,{
     method : 'GET',
     headers: {
       'Content-Type':'application/json'
@@ -32,7 +32,7 @@ export const fetchServices = createAsyncThunk(
 export const registerService = createAsyncThunk(
   'services/registerService',
   async (service) =>{
-    const response = await fetch(`/sadaf/service`,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/service`,{
     method : 'POST',
     headers: {
       'Content-Type':'application/json'
@@ -51,7 +51,7 @@ export const registerService = createAsyncThunk(
 export const fetchProjects = createAsyncThunk(
   'projects/fetchProjects',
   async () =>{
-    const response = await fetch(`/sadaf/project`,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/project`,{
     method : 'GET',
     headers: {
       'Content-Type':'application/json'
@@ -69,7 +69,7 @@ export const fetchProjects = createAsyncThunk(
 export const fetchAwards = createAsyncThunk(
   'awards/fetchAwards',
   async () =>{
-    const response = await fetch(`/sadaf/award`,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/award`,{
     method : 'GET',
     headers: {
       'Content-Type':'application/json'
@@ -87,7 +87,7 @@ export const fetchAwards = createAsyncThunk(
 export const fetchSuccess = createAsyncThunk(
   'success/fetchSuccess',
   async () =>{
-    const response = await fetch(`/sadaf/success`,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/success`,{
     method : 'GET',
     headers: {
       'Content-Type':'application/json'
@@ -105,7 +105,7 @@ export const fetchSuccess = createAsyncThunk(
 export const fetchInformations = createAsyncThunk(
   'informations/fetchInformations',
   async () =>{
-    const response = await fetch(`/sadaf/information`,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/information`,{
     method : 'GET',
     headers: {
       'Content-Type':'application/json'
@@ -123,7 +123,7 @@ export const fetchInformations = createAsyncThunk(
 export const sendContactForm = createAsyncThunk(
   'contactForm/sendContactForm',
   async (message) =>{
-    const response = await fetch(`/sadaf/message`,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/message`,{
     method : 'POST',
     headers: {
       'Content-Type':'application/json'
@@ -142,7 +142,7 @@ export const sendContactForm = createAsyncThunk(
 export const fetchCategories = createAsyncThunk(
   'talents/fetchCategories',
   async (email) =>{
-    const response = await fetch(`/sadaf/categories/${email}`,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/categories/${email}`,{
     method : 'GET',
     headers: {
       'Content-Type':'application/json'
@@ -159,7 +159,7 @@ export const fetchCategories = createAsyncThunk(
 export const registerTalent = createAsyncThunk(
   'talents/registerTalent',
   async (body) =>{
-    const response = await fetch(`/sadaf/registerTalent`,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/registerTalent`,{
     method : 'POST',
     headers: {
       'Content-Type':'application/json'
