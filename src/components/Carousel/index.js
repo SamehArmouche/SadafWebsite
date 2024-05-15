@@ -7,7 +7,7 @@ import colors from '../../assets/theme/colors/'
 
 function MyCarousel({items, type, handleChange}){
 
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [loading, setLoading] = React.useState(true);
     const [slides, setSlides] = React.useState([]);
     const [countPerSlide, setCountPerSlide] = React.useState(3);
@@ -133,7 +133,7 @@ function MyCarousel({items, type, handleChange}){
                 slides.map(slide => <OneSlide key={slide} items ={slide}/>)
               }
             </Carousel>
-          : null
+          : <Typography>{t('construction')}</Typography>
         )}
       </Box>
     );
