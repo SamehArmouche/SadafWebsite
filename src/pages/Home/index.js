@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Box, Typography, Grid, Slide, Button} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
-import Ads from '../../components/Ads'
+
 function Home() {
   
   const { t, i18n } = useTranslation();
