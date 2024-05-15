@@ -58,7 +58,6 @@ function App() {
               success: StyledMaterialDesignContent,
               error: StyledMaterialDesignContent,
             }}>
-            <AppContainer />
           </SnackbarProvider>
         </ThemeProvider>
       </div>
