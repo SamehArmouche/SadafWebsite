@@ -30,9 +30,7 @@ const ParagraphVisibilty = [
 const FileVisibilty = [
   "Scriptwriter",
   "LightingPhotography",
-  "DesignBattlesStunts",
   "Model",
-  "Production",
   "InteriorDesign"
 ]
 
