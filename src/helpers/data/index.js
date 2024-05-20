@@ -236,7 +236,7 @@ const fieldsMandatoryCategoryStep = [
   "category"
 ]
 const fieldsMandatoryPersonalStep = [
-  /*"firstname",
+  "firstname",
   "fathername",
   "lastname",
   "gender",
@@ -244,37 +244,37 @@ const fieldsMandatoryPersonalStep = [
   "birthday",
   "nationality",
   "country",
-  "city"*/
+  "city"
 ]
 
 const fieldsMandatoryContactStep = [
-  /*"phonenumber",
+  "phonenumber",
   //"fixnumber",
-  "phoneCode",*/
+  "phoneCode"
 ]
 
 const fieldsMandatorySkillsStep = [
-  /*"studies",
+  "studies",
   "languages",
   "dialects",
-  "work"*/
+  "work"
 ]
 const fieldsMandatoryBodyStep = [
-  /*"haircolor",
+  "haircolor",
   "eyescolor",
   "color",
   "weight",
   "height",
-  "bodytype"*/
+  "bodytype"
 ]
 
 const fieldsMandatoryOtherStep = [
 ]
 
 const fieldsMandatoryActor = [
-  /*"image1",
+  "image1",
   "image2",
-  "image3"*/
+  "image3"
 ]
 
 
