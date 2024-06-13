@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import Loading from '../Loading'
-import {Box, CardActionArea, Typography, CardMedia, Card } from '@mui/material';
+import {Box, CardActionArea, Typography, CardMedia, Card, Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors/'
 
@@ -30,21 +30,42 @@ function MyCarousel({items, type, handleChange}){
 
     const MyCard = (props) => {
       return (
-        <Card sx={{width:500,borderRadius:2,margin:2,backgroundColor:'black'}} onClick={()=>handleChange(props.item)}>
+        <Card sx={{width:"410px",borderRadius:2,margin:2,backgroundColor:'black'}} onClick={()=>handleChange(props.item)}>
           { props.item.img ? 
             <CardActionArea>
-              <CardMedia
+              <img
                 component="img"
-                height={270}
-                width={300}
-                image={props.item.img}
+                className='img-service'
+                src={props.item.img}
                 alt="service_img"
                 sx={{borderRadius:2}}
               >
-              </CardMedia>
-              <Typography sx={{fontSize:30,position:"absolute",bottom:-5,backgroundColor:colors.background,borderRadius:0,width:"100%"}} gutterBottom>
-                {`${props.item[`title_${i18n.language}`]}`}
-              </Typography>
+              </img>
+              <Grid
+              
+              sx={{
+                backgroundColor:colors.background,
+                borderRadius:0,
+                width:"100%",height:80,
+                justifyContent:'center',
+                display:'flex',
+                alignItems:'center',
+              }}
+              
+              >
+                <Typography 
+                  sx={{fontSize:22,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    display: '-webkit-box',
+                    WebkitLineClamp: '2',
+                    WebkitBoxOrient: 'vertical',
+                    
+                  }} gutterBottom>
+                  {`${props.item[`title_${i18n.language}`]}`}
+                </Typography>
+              </Grid>
+
             </CardActionArea>
           :
           <CardActionArea>

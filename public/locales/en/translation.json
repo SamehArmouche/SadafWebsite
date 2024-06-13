@@ -1,6 +1,7 @@
 {
   "home": {
-    "title": "Be the star of the future, Talent Road, the largest Arab project to discover actresses and actors"
+    "title": "Be the future star!",
+    "subtitle":"\" Talent  Road \" is the largest Arab project to discover actors, actresses, and professionals in all professions in the film and television industry."
   },
   "talent": {
     "title":"Al-Sadaf Company is a Saudi production company that was established in 1988 AD, and has so far produced more than 300 projects, over a period of 30 years. It has been considered the most powerful and influential company in the Arabic content industry around the world.",
@@ -116,7 +117,7 @@
       "skillslanguagesstep":{
         "title":"Skills and languages",
         "inputs": {
-          "work":"Work",
+          "work":"Current work",
           "studies":{
               "title": "Educational level",
               "primary":"Primary",
@@ -290,7 +291,7 @@
   },
   "header": {
     "home": "Home",
-    "services":"Logistics services",
+    "services":"Our services",
     "projects":"Projects",
     "awards":"Awards",
     "aboutus":"About us",
@@ -333,7 +334,7 @@
       "register":"Register"
     },
     "form":{
-      "title":"Register your service with us",
+      "title":"Register with us to serve you as a supplier",
       "inputs":{
       "firstname":"First name",
       "fathername": "Father name",

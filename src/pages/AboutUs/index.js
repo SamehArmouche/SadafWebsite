@@ -10,7 +10,7 @@ function AboutUs() {
         <Grid item sx={{height:'80%',alignItems:'center',display:'flex',justifyContent:'space-evenly',flexDirection:'column'}}>
 
           <Grid item sx={{justifyContent:{xs:'center',md:'flex-start'},display:'flex',opacity:1,alignItems:'center',pb:{md:0,xs:8},width:'100%'}}>
-            <img src = {"/images/logo.png"}  alt={"sadaf logo"} style={{height:100}}></img> 
+            {/*--<img src = {"/images/logo.png"}  alt={"sadaf logo"} style={{height:100}}></img>*/} 
           </Grid>
           <Typography sx={{fontSize:{md:20,xs:16},textAlign:i18n.language==='ar'?'right':'left'}}>{t("aboutus.title")}</Typography>
         

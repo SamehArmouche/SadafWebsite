@@ -87,7 +87,7 @@ function Services() {
           }}
           
           onClick={()=>onClick("Third")}>
-            <Typography sx={{}}>
+            <Typography sx={{fontSize:12}}>
             {t('service.form.title')}
             </Typography>
             

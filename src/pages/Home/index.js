@@ -8,30 +8,26 @@ function Home() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   return (
-    <Box sx={{minHeight:'72vh',alignItems:'center',justifyContent:'space-between',display:'flex',flexDirection:'column',width:'80%'}}>
-      <Grid sx={{display:'block',minHeight:150,width:'100%'}}>
-      
-      </Grid>
+    <Box sx={{minHeight:'72vh',alignItems:'center',justifyContent:'center',display:'flex',flexDirection:'column',width:'80%'}}>
+
 
       <Slide direction={i18n.language==="ar"?"left":"right"} in={true} mountOnEnter unmountOnExit>
-      <Grid container sx={{p:{xs:0,md:0},width:"100%",minHeight:150}}>
-        <Grid item sx={{p:0}}>
+      <Grid container sx={{p:2,width:"100%",height:'60%',m:2,justifyContent:'flex-end',flexDirection:'column'}}>
+        <Grid item sx={{p:0,width:"100%"}}>
           <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{fontSize:{xs:18,md:25}}}>
             {t('home.title')}
           </Typography>
+          <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{fontSize:{xs:13,md:20}}}>
+            {t('home.subtitle')}
+          </Typography>
         </Grid>
-        <Grid item xs={8} sx={{p:0}}>
+        <Grid item  sx={{p:0}}>
           <Button variant="home" onClick={()=> {navigate("/talents")}} sx={{fontSize:{xs:16,md:22},width:{md:220,xs:160}}}>
             {t('button.joinUs')}
           </Button>
         </Grid>
       </Grid>
-      </Slide>
-
-      <Grid container sx={{p:{xs:0,md:0},width:"100%",minHeight:150,alignItems:'center'}}>
-
-      </Grid>
-    
+      </Slide>    
     </Box>
   );
 }

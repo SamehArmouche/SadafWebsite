@@ -13,6 +13,8 @@ function Layout() {
     height: '100vh',
     p:0,
     m:0,
+    borderColor:'red',
+    borderWidth:20,
     
     justifyContent:'center'
   }
@@ -27,7 +29,7 @@ function Layout() {
   }
   const style = {
     height: '100vh',
-    backgroundColor:'#0A0A0A',
+    backgroundColor:'#1A1917',
     p:0,
     m:0
   }

@@ -125,7 +125,7 @@ function Header() {
 
         <Toolbar disableGutters sx={{width:'100%',display:'flex' ,justifyContent:'space-between'}}>
           <Box sx={{justifyContent:'center',display:{xs:'none',md:'flex'},opacity:1,alignItems:'center'}}>
-            <img src = {"/images/logo.png"}  alt={"sadaf logo"} onClick={()=>handleRoute("home")} style={{height:50}}></img> 
+            <img src = {"/images/logo.png"}  alt={"sadaf logo"} onClick={()=>handleRoute("home")} style={{height:65}}></img> 
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },maxWidth:74,maxHeight:40,alignItems:'center'}}>
             <IconButton
