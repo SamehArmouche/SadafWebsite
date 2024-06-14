@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import Loading from '../Loading'
-import {Box, CardActionArea, Typography, CardMedia, Card, Grid } from '@mui/material';
+import {Box, CardActionArea, Typography, Card, Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors/'
 
