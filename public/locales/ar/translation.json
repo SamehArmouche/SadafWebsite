@@ -122,6 +122,7 @@
       "skillslanguagesstep":{
         "title":"المهارات واللغات",
         "inputs": {
+          "work":"العمل الحالي",
           "studies":{
               "title": "المستوى التعليمي",
               "primary":"إبتدائي",
