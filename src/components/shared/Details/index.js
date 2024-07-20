@@ -8,7 +8,7 @@ import {
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function Details({open, children, handleClickOpen, handleClose, title, height, description, img, direction, alt}) {
+export default function Details({open, children, handleClickOpen, handleClose, title, height, description, img, direction, alt, children2}) {
 
   return (
     <Dialog
@@ -41,20 +41,21 @@ export default function Details({open, children, handleClickOpen, handleClose, t
             </CardMedia>
           }
           {children}
-        <DialogTitle id="responsive-dialog-title" sx={{fontWeight:'bold',fontSize:19,pt:4}}>
+        <DialogTitle id="responsive-dialog-title" sx={{fontWeight:'bold',fontSize:21,padding:"24px 24px 16px"}}>
           {title}
         </DialogTitle>
-        <DialogTitle id="responsive-dialog-title" sx={{fontWeight:'bold',fontSize:19}}>
+        <DialogTitle id="responsive-dialog-title" sx={{fontSize:18,textAlign:"justify"}}>
           {
             Array.isArray(description)?
             description?.map((d)=>{
               return (
-                <Typography key={d}textAlign={direction==='ltr'?'left':'right'} sx={{mb:2}}><li>{d}</li></Typography>
+                <Typography key={d} textAlign={direction==='ltr'?'left':'right'} sx={{mb:2}}><li>{d}</li></Typography>
               )
             })
             : description
           }
         </DialogTitle>
+        {children2}
       </Box>
     </Dialog>
   );

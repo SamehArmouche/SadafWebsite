@@ -36,7 +36,7 @@ const MultiForm = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [error, setError] = useState(false);
   const [errors, setErrors] = useState({});
-  const dispatch: Dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate(); 
 
@@ -87,7 +87,6 @@ const MultiForm = () => {
     setErrors({...errors,[name]:{error:false}});
   }
 
-
   const formComponents = ()=>{ 
     let result =
     [
@@ -119,7 +118,7 @@ const MultiForm = () => {
       {
         'name':'OtherInfoStep',
         'element': <OtherInfoStep handleSubmit={handleSubmit} errors={errors} handleError={handleError} error={error} errorMsg={t("talent.stepper.personalinfo.error")} />,
-        'mandatoryFields': state?.form?.category?.key==='Actor'? fieldsMandatoryActor : fieldsMandatoryOtherStep
+        'mandatoryFields': state?.form?.category?.key==='Actor'? fieldsMandatoryActor : state?.form?.category?.key==='Other'? fieldsMandatoryOtherStep:[]
       },
     
       {
@@ -127,6 +126,14 @@ const MultiForm = () => {
         'element':<ReviewInfo />
       }
     ];
+
+    /*if(state?.form?.category?.key!=='Actor'){
+      if(state?.form?.category?.key!=='Other'){
+        return  result.filter((e) => e.name!=="BodyInfoStep")
+      }else{
+        return  result.filter((e) => e.name!=="BodyInfoStep" && e.name!=="OtherInfoStep" )
+      }
+    }*/
 
     return state?.form?.category?.key!=='Actor'? result.filter((e) => e.name!=="BodyInfoStep"):result;   
   }
@@ -229,7 +236,7 @@ const MultiForm = () => {
       <Grid container sx={{justifyContent:'center'}}>
         <Grid
           sx={{
-            padding: '20px', minHeight:"62vh"}}>
+            padding: '20px', minHeight:"62vh",width:'100%'}}>
           {formContent(activeStep)}
         </Grid>
         <Grid container sx={{justifyContent:'space-between',width:320}}>

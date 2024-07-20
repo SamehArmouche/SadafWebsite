@@ -18,7 +18,7 @@ import { useSnackbar } from 'notistack';
 
 const ServiceForm = ({onClick}) => {
   const { t, i18n } = useTranslation();
-  const dispatch: Dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [form, setForm] = React.useState({links:[],isSaudi:'لا'});
   const [links, setLinks] = React.useState([]);
   const [errors, setErrors] = React.useState({});

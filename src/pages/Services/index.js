@@ -10,7 +10,7 @@ import colors from '../../assets/theme/colors';
 import Loading from '../../components/Loading'
 
 function Services() {
-  const dispatch: Dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false)
   const [service, setService ] = React.useState({});
   const [services, setServices ] = React.useState({});

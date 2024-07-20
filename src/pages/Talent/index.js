@@ -23,9 +23,7 @@ function Talent() {
   const [ error, setError ] = React.useState(false);
   const [ consent, setConsent ] = React.useState(false);
   const navigate = useNavigate(); 
-  const dispatch: Dispatch = useDispatch();
-
-
+  const dispatch = useDispatch();
 
   const handleError = (value)=>{
     return (form[value]!==undefined?!validateEmail(form[value]):false)
@@ -67,7 +65,7 @@ function Talent() {
       <Box 
         border={1} 
         sx={{
-          backgroundColor:'black',width:{xs:'80%'},maxWidth:400,height:300,
+          backgroundColor:'black',width:{xs:'80%'},maxWidth:400,height:350,
           borderColor: 'rgba(247, 216, 159, 0.1)', borderWidth: '0.1em',borderRadius:1,
           alignItems:'center',display:'flex',
           justifyContent:'center',

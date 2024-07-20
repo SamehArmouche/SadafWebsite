@@ -10,7 +10,7 @@ import Loading from '../../components/Loading'
 
 
 function Awards() {
-  const dispatch: Dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false)
   const [award, setAward] = React.useState({});
   const { i18n } = useTranslation();
