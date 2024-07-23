@@ -11,7 +11,7 @@ import {validateEmail} from '../../helpers/validations';
 import CountrySelect from '../../components/Contact/Country';
 
 function ContactUs() {
-  const dispatch: Dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const [ form, setForm ] = React.useState({});
   const [ error, setError ] = React.useState(false);

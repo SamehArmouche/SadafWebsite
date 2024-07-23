@@ -269,6 +269,7 @@ const fieldsMandatoryBodyStep = [
 ]
 
 const fieldsMandatoryOtherStep = [
+  "other_desc"
 ]
 
 const fieldsMandatoryActor = [

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import Loading from '../Loading'
-import {Box, CardActionArea, Typography, CardMedia, Card, Grid } from '@mui/material';
+import {Box, CardActionArea, Typography, Card, Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors/'
 
 function MyCarousel({items, type, handleChange}){
 
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
     const [loading, setLoading] = React.useState(true);
     const [slides, setSlides] = React.useState([]);
     const [countPerSlide, setCountPerSlide] = React.useState(3);
@@ -116,7 +116,6 @@ function MyCarousel({items, type, handleChange}){
         {loading ? (
           <Loading style={{color: colors.primary}}/>
         ) : (
-          slides.length > 0 ? 
           <Carousel animation={"fade"} 
             navButtonsAlwaysVisible={true}
             navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
@@ -154,7 +153,6 @@ function MyCarousel({items, type, handleChange}){
                 slides.map(slide => <OneSlide key={slide} items ={slide}/>)
               }
             </Carousel>
-          : <Typography>{t('construction')}</Typography>
         )}
       </Box>
     );

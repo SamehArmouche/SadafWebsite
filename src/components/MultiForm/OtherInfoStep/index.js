@@ -33,7 +33,7 @@ const OtherInfoStep = ({
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
-      <Box sx={{ flexGrow: 1, flexWrap: 'wrap' }}>
+      <Box sx={{ flexGrow: 1, flexWrap: 'wrap'}}>
         <Grid sx={{display:'flex',width:'100%',justifyContent:'center',height:20}}>
           {error && 
             <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
@@ -77,7 +77,7 @@ const OtherInfoStep = ({
             }
               <Divider  sx={{width:{xs:'80%',md:'60%'},m:2}}  />
                 {
-                checkVisibility(state.form.category, "paragraph") &&
+                checkVisibility(state.form.category, "about") &&
                   <Grid sx={{width:'100%',display:'flex',flexWrap:'wrap',justifyContent:{xs:'center',md:'flex-start'}}}>
                     <Input 
                       handleChange={handleChange}
@@ -109,6 +109,22 @@ const OtherInfoStep = ({
             }
             {
               checkVisibility(state.form.category, "file") && <FilesPicker  errors={errors} handleError={handleError}/>
+            }
+            
+            {
+            checkVisibility(state.form.category, "other_desc") &&
+              <Grid sx={{width:'100%',display:'flex',flexWrap:'wrap',justifyContent:{xs:'center',md:'flex-start'}}}>
+              <Input 
+              handleChange={handleChange}
+              name ={"other_desc"} 
+              width={'100%'}
+              required={true}
+              value = {state.form?.other_desc}
+              label ={t("talent.stepper.otherinfostep.inputs.other_desc.title")}
+              error={errors?.other_desc?.error}
+              //helperText={t(`talent.stepper.otherinfostep.inputs.other_desc.${state.form.category.parent}`)}
+              />
+              </Grid>
             }
           </Grid>
 

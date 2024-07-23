@@ -1,21 +1,21 @@
 import * as React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import Loading from '../Loading'
-import {Box, CardActionArea, Card } from '@mui/material';
+import {Box, Grid, CardActionArea, Card, Typography } from '@mui/material';
 import colors from '../../assets/theme/colors/'
 
 const items = [
-  {img:"https://variety.com/wp-content/uploads/2020/05/netflix-logo.png"},
+  {img:"https://storage.googleapis.com/sadaf-website-content/projects/project_32.jpg"},
   
-  {img:"https://static.s3.shahid.mbc.net/rebranding/promo/src/images/ogimage-black.jpg"},
+  {img:"https://storage.googleapis.com/sadaf-website-content/projects/project_28.jpg"},
   
-  {img:"https://www.thehandbook.com/cdn-cgi/image/width=300,height=300,fit=cover,q=80,format=webp/https://files.thehandbook.com/uploads/2021/02/aauvwng9jzwu3kefl54jzi2n8qbgck12nqcdfgvckejasqs800-c-k-c0x00ffffff-no-rj.jpg"},
+  {img:"https://storage.googleapis.com/sadaf-website-content/projects/project_23.jpg"},
   
-  {img:"https://vid.alarabiya.net/images/2023/01/29/6c5bb09c-ac03-4208-aaad-5dca112f8fa1/6c5bb09c-ac03-4208-aaad-5dca112f8fa1.jpg?crop=4:3&width=1200"},
+  {img:"https://storage.googleapis.com/sadaf-website-content/projects/project_24.jpg"},
   
-  {img:"https://argaamplus.s3.amazonaws.com/6a34dc31-fd85-4d73-8643-8575aae16f12.png"}
+  {img:"https://storage.googleapis.com/sadaf-website-content/projects/project_25.jpg"}
 ]
-const Ads = ({i18n, t,  handleChange, type}) =>{
+const Ads = ({i18n, t,  handleChange, type, cat}) =>{
   const perslide= 5
   const [loading, setLoading] = React.useState(true);
   const [slides, setSlides] = React.useState([]);
@@ -82,11 +82,13 @@ const Ads = ({i18n, t,  handleChange, type}) =>{
   },[windowSize, countPerSlide])
 
   return (
-    <Box sx={{width:'100%',maxHeight:200}}>
+    <Box sx={{width:'100%',maxWidth:780,maxHeight:200,justifyContent:'center'}}>
       {loading ? (
         <Loading style={{color: colors.primary}}/>
       ) : (
         slides?.length > 0 ? 
+        <Grid style={{}}>
+        <Typography sx={{textAlign:i18n.dir()!=='ltr'?'right':'left',p:1}}>{cat}</Typography>
         <Carousel animation={"slide"} 
           navButtonsAlwaysVisible={true}
           navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
@@ -136,9 +138,10 @@ const Ads = ({i18n, t,  handleChange, type}) =>{
           top:0
           }}>
             {
-              slides.map(slide => <OneSlide key={slide} items ={slide}/>)
+              slides.sort( () => .5 - Math.random() ).map(slide => <OneSlide key={slide} items ={slide}/>)
             }
         </Carousel>
+        </Grid>
         : null
       )}
     </Box>

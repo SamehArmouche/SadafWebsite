@@ -28,7 +28,7 @@ export default function Footer() {
       window.open(url, "_blank", "noreferrer");
   };
 
-  const dispatch: Dispatch = useDispatch();
+  const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchInformations());
   }, [dispatch]);

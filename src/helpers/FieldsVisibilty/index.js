@@ -47,6 +47,10 @@ const VideoVisibilty = [
   "InteriorDesign"
 ]
 
+const OtherDescVisibilty = [
+  "Other"
+]
+
 export const checkVisibility = (category, type) =>{
   switch (type) {
     case "imagesPicker":
@@ -61,6 +65,8 @@ export const checkVisibility = (category, type) =>{
       return FileVisibilty.includes(category.parent)
     case "video":
       return VideoVisibilty.includes(category.parent)
+    case "other_desc":
+      return OtherDescVisibilty.includes(category.parent)
     default:
       return false
   }
