@@ -1,153 +1,73 @@
-import * as React from 'react';
-import Carousel from 'react-material-ui-carousel'
-import Loading from '../Loading'
-import {Box, Grid, CardActionArea, Card, Typography } from '@mui/material';
-import colors from '../../assets/theme/colors/'
+import {Box, Typography, Grid, Slide, Button} from '@mui/material';
 
-const items = [
-  {img:"https://storage.googleapis.com/sadaf-website-content/projects/project_32.jpg"},
+
+
+const images = [
+  {img:"https://variety.com/wp-content/uploads/2020/05/netflix-logo.png"},
   
-  {img:"https://storage.googleapis.com/sadaf-website-content/projects/project_28.jpg"},
+  {img:"https://static.s3.shahid.mbc.net/rebranding/promo/src/images/ogimage-black.jpg"},
   
-  {img:"https://storage.googleapis.com/sadaf-website-content/projects/project_23.jpg"},
+  {img:"https://www.thehandbook.com/cdn-cgi/image/width=300,height=300,fit=cover,q=80,format=webp/https://files.thehandbook.com/uploads/2021/02/aauvwng9jzwu3kefl54jzi2n8qbgck12nqcdfgvckejasqs800-c-k-c0x00ffffff-no-rj.jpg"},
   
-  {img:"https://storage.googleapis.com/sadaf-website-content/projects/project_24.jpg"},
+  {img:"https://vid.alarabiya.net/images/2023/01/29/6c5bb09c-ac03-4208-aaad-5dca112f8fa1/6c5bb09c-ac03-4208-aaad-5dca112f8fa1.jpg?crop=4:3&width=1200"},
   
-  {img:"https://storage.googleapis.com/sadaf-website-content/projects/project_25.jpg"}
+  {img:"https://argaamplus.s3.amazonaws.com/6a34dc31-fd85-4d73-8643-8575aae16f12.png"}
 ]
-const Ads = ({i18n, t,  handleChange, type, cat}) =>{
-  const perslide= 5
-  const [loading, setLoading] = React.useState(true);
-  const [slides, setSlides] = React.useState([]);
-  const [countPerSlide, setCountPerSlide] = React.useState(perslide);
-  const [windowSize, setWindowSize] = React.useState([
-    window.innerWidth,
-    window.innerHeight,
-  ]);
+const Ads = ({i18n, t}) =>{
 
-  React.useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowSize([window.innerWidth, window.innerHeight]);
-    };
 
-    window.addEventListener('resize', handleWindowResize);
+  return(
+    <Box 
+    sx={{backgroundColor:'rgba(0,0,0,0)',
+    display:'flex',alignItems:"center",width:'100%',
+    height:100,m:0,borderRadius:2,
+    justifyContent:'center'
+    
+    }}>
+  <Grid sx={{ overflowY: 'scroll',display:'flex',flexDirection:'row',minHeight:100,alignItems:'center',backgroundColor:'rgba(10, 10, 10, 0)'}} >
+  {
+    images.map((i,e)=>{
 
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, []);
-
-  const MyCard = (props) => {
-    return (
-      <Card sx={{borderRadius:2,margin:2,backgroundColor:'transparent',opacity:0.9}} onClick={()=>handleChange(props.item)}>
-        <CardActionArea >
+        return (
+          <Grid key = {e} 
+          sx={{mr:2,ml:2,backgroundColor:'grey',borderRadius:2,display:'flex',height:'100%',
+          boxShadow:'0px 0px 9px rgba(247, 216, 159, 0.1)',
+        }}
+            /*onClick={()=> {
+              setActualImg(i.img)
+            }}*/
+          >
           <img
-            component="img"
-            className="img-ads"
-            src={props.item.img}
-            alt="ads" 
+            src={i.img}
+            alt={"alt"}
+            className={"img-sub"}
+
           >
           </img>
-        </CardActionArea>
-      </Card>
-    );
+          </Grid>
+        )
+    })
   }
-
-  const OneSlide = (props) =>{
-    return (
-      <Box sx={{width:'100%',justifyContent:'center',flexDirection:'row',display:'flex'}}>
-        {
-          props.items.map( (item, i) => {  return( <MyCard key={i} item={item} /> ); })
-        }
-      </Box>
-    )
-  }
-
-  React.useEffect(()=>{
-    setLoading(true);
-    if(windowSize[0]<700){
-      setCountPerSlide(2);
-    }else{
-      setCountPerSlide(perslide);
-    }
-    setLoading(false);
-    if(items?.length>0){
-      const count = Math.ceil(items?.length/countPerSlide)
-      const itemsPerSlide = []
-      for(let i = 0; i<count ; i++){
-        itemsPerSlide.push(items?.slice(0+(i*countPerSlide),countPerSlide+(i*countPerSlide)))
-      }
-      setSlides(itemsPerSlide)
-    }
-  },[windowSize, countPerSlide])
-
-  return (
-    <Box sx={{width:'100%',maxWidth:780,maxHeight:200,justifyContent:'center'}}>
-      {loading ? (
-        <Loading style={{color: colors.primary}}/>
-      ) : (
-        slides?.length > 0 ? 
-        <Grid style={{}}>
-        <Typography sx={{textAlign:i18n.dir()!=='ltr'?'right':'left',p:1}}>{cat}</Typography>
-        <Carousel animation={"slide"} 
-          navButtonsAlwaysVisible={true}
-          navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
-            style: {
-                backgroundColor: "transparent",
-                width:22,
-                height:22,
-                opacity:0.4,
-                margin:0,
-                left:0,
-                color:"black",
-            }
-          }} 
-        navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
-          style: {
-              bottom: 12,
-              display:countPerSlide!==items.length?'block':'none',
-              top: 'unset'
-          }
-        }}
-        indicatorIconButtonProps={{
-          style: {
-              padding: '1px',    // 1
-              color: 'blue'       // 3
-              ,opacity:0.5
-          }
-      }}
-      activeIndicatorIconButtonProps={{
-          style: {
-              opacity:1
-          }
-      }}
-      indicatorContainerProps={{
-          style: {
-              marginTop: '0px', // 5
-              display:countPerSlide!==items.length?'block':'none'
-
-          }
-  
-      }}
-        sx={{
-          width:"100%",
-          justifyContent:'center',
-          display:'flex',
-          flexDirection:'column',
-          alignItems:'center',
-          top:0
-          }}>
-            {
-              slides.sort( () => .5 - Math.random() ).map(slide => <OneSlide key={slide} items ={slide}/>)
-            }
-        </Carousel>
-        </Grid>
-        : null
-      )}
-    </Box>
-  );
-
+  </Grid>
+  </Box>
+  )
 
 }
 
 export default Ads
+
+
+
+/**
+ *     <Box 
+      sx={{backgroundColor:'rgba(0,0,0,0.2)',
+      display:'flex',justifyContent:'center',
+      alignItems:"center",width:'100%',
+      height:100,m:0,borderRadius:2,
+      
+      }}>
+      <Typography sx={{fontSize:{xs:18,md:25}}}>
+        {"Ads"}
+      </Typography>
+  </Box>
+ */

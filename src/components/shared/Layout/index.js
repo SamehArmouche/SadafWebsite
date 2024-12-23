@@ -27,6 +27,17 @@ function Layout() {
     p:0,
     m:0,
   }
+
+  const styleService = {
+    backgroundImage:`url(/images/services.png)`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '100vh',
+    p:0,
+    m:0,
+  }
+
   const style = {
     height: '100vh',
     backgroundColor:'#1A1917',
@@ -34,12 +45,17 @@ function Layout() {
     m:0
   }
   const getBackground = () =>{
-    if(location.pathname==="/"){
-      return styleHome;
-    }else if(location.pathname==="/talents"){
-      return styleTalent
-    }else{
-      return style;
+
+
+    switch (location.pathname) {
+      case "/":
+        return styleHome;
+      case "/services":
+        return styleService;
+      case "/talents":
+        return styleTalent;
+      default:
+        return style;
     }
   }
 

@@ -1,6 +1,7 @@
 import colors from '../colors'
 
 const styles = (i18n) => ({
+  
   palette: {
     action: {
         selectedOpacity:0.1,
@@ -23,6 +24,25 @@ const styles = (i18n) => ({
           backgroundColor: "black", // updated backgroundColor
         },
       }},
+    },
+    
+    MuiTab: {
+      styleOverrides: {
+        root:{
+
+          color:colors.primary,
+
+          "&:hover": {
+            backgroundColor: colors.hover,
+          },
+          "&.Mui-selected": {
+            backgroundColor: "rgba(0,0,0,0.2)",
+            color: colors.primary,
+            fontWeight:'bold',
+            borderRadius: "0px"
+          }
+        }
+      }
     },
     MuiTableCell: {
       styleOverrides:{

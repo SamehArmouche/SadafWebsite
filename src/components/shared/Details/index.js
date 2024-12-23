@@ -6,14 +6,25 @@ import {
   CardMedia,
   Typography
 } from '@mui/material'
+import * as React from 'react';
 import CloseIcon from '@mui/icons-material/Close';
+import Slide from '@mui/material/Slide';
 
-export default function Details({open, children, handleClickOpen, handleClose, title, height, description, img, direction, alt, children2}) {
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
+export default function Details({
+  fullScreen=false,open, children, 
+  handleClickOpen, handleClose, title, height, description, img, direction, alt,
+  children2, buttons}) {
 
   return (
     <Dialog
       open={open}
       onClose={handleClose}
+      fullScreen={fullScreen}
+      TransitionComponent={Transition}
       aria-labelledby="responsive-dialog-title"
       slotProps={{
         backdrop: {
@@ -28,12 +39,15 @@ export default function Details({open, children, handleClickOpen, handleClose, t
           <Button variant="menu"autoFocus onClick={handleClose} sx={{display:'flex',height:40}} >
             <CloseIcon   onClick={handleClose}/>
           </Button>
+            {
+              buttons
+            }
         </Box>
         {img &&
             <CardMedia
               component="img"
-              height={300}
-              width={300}
+              height={alt==="service"?250:300}
+              width={alt==="service"?150:300}
               image={img}
               alt={alt}
               sx={alt==="service"?{borderRadius:2}:{borderTopLeftRadius:8,borderTopRightRadius:8}}

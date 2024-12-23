@@ -4,6 +4,7 @@ import {servicesSlice} from './slices/servicesSlice'
 import {talentsSlice} from './slices/talentsSlice'
 import {projectsSlice} from './slices/projectsSlice'
 import {awardsSlice} from './slices/awardsSlice'
+import {featuresSlice} from './slices/featuresSlice'
 import {successSlice} from './slices/successSlice'
 import {informationsSlice} from './slices/informationsSlice'
 import {contactFormSlice} from './slices/contactFormSlice'
@@ -33,6 +34,7 @@ export const store = configureStore({
     services: servicesSlice.reducer,
     projects: projectsSlice.reducer,
     awards: awardsSlice.reducer,
+    features: featuresSlice.reducer,
     success: successSlice.reducer,
     informations: informationsSlice.reducer,
     talents: talentsSlice.reducer,

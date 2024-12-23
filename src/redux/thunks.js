@@ -174,3 +174,20 @@ export const registerTalent = createAsyncThunk(
   }
 )
 
+//////////////// Features /////////////////////////////
+export const fetchFeatures = createAsyncThunk(
+  'features/fetchFeatures',
+  async () =>{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/feature`,{
+    method : 'GET',
+    headers: {
+      'Content-Type':'application/json'
+    }
+    });
+    const data = await response.json();
+    if(response.status!==200){
+      throw new Error(data.msg);
+    }
+    return data;
+  }
+)
