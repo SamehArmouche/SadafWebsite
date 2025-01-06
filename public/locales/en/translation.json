@@ -342,11 +342,14 @@
     "buttons":{
       "back":"Back",
       "register":"Register",
+      "request":"Send request",
       "explore":"Explore more"
     },
     "form":{
       "title":"Register with us to serve you as a supplier",
+      "requestTitle":"Request services",
       "inputs":{
+      "fullname":"Full name",
       "firstname":"First name",
       "fathername": "Father name",
       "lastname": "Last name",
@@ -367,8 +370,25 @@
       },
       "links":"Social media links",
       "isSaudi":"Is the company Saudi?",
-      "about":"Tell us about the company"
-      }
+      "about":"Tell us about the company",
+      "services":"Required services",
+      "details":"Please provide as much detail as possible about the service you require",
+      "projectTimeLines":{
+        "title":"Project timeline",
+        "lessOneMonth":"Less than 1 month",
+        "fromOneMonthToThree":"From 1 to 3 month",
+        "moreThreeMonth":"More than 3 month"
+      },
+      "priorityLevels":{
+        "title":"Priority Level",
+        "low":"Low",
+        "medium":"Medium",
+        "high":"High",
+        "urgent":"Urgent"
+      },
+      "deadline":"Deadline"
+      },
+      "error":"Make sure to fill out all required fields"
     },
     "response":{
       "200":"Service registered successfully",

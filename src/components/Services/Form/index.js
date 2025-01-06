@@ -1,19 +1,19 @@
 import {Grid, Typography, Button, Divider, FormControl, Fade } from '@mui/material';
-import colors from '../../assets/theme/colors/'
+import colors from '../../../assets/theme/colors'
 import { useTranslation } from 'react-i18next';
 import * as React from 'react'
-import Input from './Form/Input'
-import CodeCountrySelect from './Form/CodeCountrySelect'
-import CountrySelect from './Form/CountrySelect'
-import ComunicationTypeSelect from './Form/ComunicationTypeSelect'
-import SocialNetworksList from './Form/SocialNetworksList'
-import { validatePhoneNumber } from '../../helpers/validations';
-import { fieldsMandatoryServiceForm } from '../../helpers/data';
-import { options } from '../../helpers/data';
-import Switch from '../../components/Switch'
+import Input from './Input'
+import CodeCountrySelect from './CodeCountrySelect'
+import CountrySelect from './CountrySelect'
+import ComunicationTypeSelect from './ComunicationTypeSelect'
+import SocialNetworksList from './SocialNetworksList'
+import { validatePhoneNumber } from '../../../helpers/validations';
+import { fieldsMandatoryServiceForm } from '../../../helpers/data';
+import { options } from '../../../helpers/data';
+import Switch from '../../Switch'
 import ErrorIcon from '@mui/icons-material/Error';
 import { useDispatch } from 'react-redux'
-import { registerService } from '../../redux/thunks';
+import { registerService } from '../../../redux/thunks';
 import { useSnackbar } from 'notistack';
 
 const ServiceForm = ({onClick}) => {

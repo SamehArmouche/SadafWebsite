@@ -3,7 +3,7 @@ import {Grid, Fade, Typography,Container,Grow, Button} from '@mui/material';
 import { fetchServices, fetchFeatures } from '../../redux/thunks';
 import { useDispatch } from 'react-redux'
 import Carousel from '../../components/Carousel';
-import ServiceForm from '../../components/Services';
+import RequestForm from '../../components/Services/RequestForm';
 import ArrowCircleLeftRoundedIcon from '@mui/icons-material/ArrowCircleLeftRounded';
 import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
 import Details from '../../components/shared/Details';
@@ -89,6 +89,7 @@ function Services() {
   const [value, setValue] = React.useState(0);
   const [selected, setSelected] = React.useState(false);
   const [checked, setChecked] = React.useState(true);
+  const [allServices, setAllServices ] = React.useState([]);
 
   const back = ()=>{
     setSelected(true)
@@ -142,6 +143,7 @@ function Services() {
   React.useEffect(() => {
     setLoading(true);
     dispatch(fetchServices()).then((r)=>{
+      setAllServices(getAllServices(r.payload));
       setServices(r.payload); 
       if(r.payload)
         setService(r.payload[0]); 
@@ -163,6 +165,10 @@ function Services() {
 
   }
 
+  const scrollToBottom = () => {
+    ref?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   React.useEffect(() => {
       const handle = setInterval(() => {
           if(selected===false && isVisible){
@@ -183,6 +189,23 @@ function Services() {
       };                          
   }, [selected, service, services, isVisible]);
 
+
+  const getAllServices = (data) =>{
+
+
+    let result = []
+    if(data.length>0){
+        data.map((c)=>{
+          result.push(c.services);
+        });
+        if(result.length>0){
+          return result.flat(1);
+        }
+
+    }
+
+    return []
+  }
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
@@ -210,7 +233,74 @@ function Services() {
             </Typography>
             
           </Grid>
-          <Grid sx={{minHeight:"2px",backgroundColor:colors.hover,width:'100%',maxWidth:"1600px"}}></Grid>
+
+
+
+            <Grid ref={ref} container sx={{minHeight:"20vh",width:'100%',p:0,justifyContent:'center',flexDirection:'row',marginTop:5,marginBottom:5}}>
+            { isVisible &&
+              <Grid container sx={{width:'100%',maxWidth:"1600px",minHeight:'200px', flexDirection:'row',backgroundColor:'',justifyContent:"center",pt:0}}>
+                <Fade in={true} mountOnEnter unmountOnExit timeout={(200)+800}>
+                <Box sx={{ bgcolor: 'transparent',width:"100%",p:0,display:'flex',flexDirection:'column'}}>
+                  <Tabs
+                      sx={{display:"flex",justifyContent:'center', backgroundColor:"rgba(0,0,0,0.7)",borderRadius:1,width:"100%",alignSelf:'center'
+                        ,flexDirection: i18n.dir()!=='ltr'?"row-reverse":'',
+
+                      }}
+
+                      TabScrollButtonProps={{ disabled: false }}
+                      value={value}
+                      onChange={handleChange}
+                      variant="scrollable"
+                      scrollButtons="auto"
+                      allowScrollButtonsMobile
+                      >
+                    {!loading && services?.map((c)=>{
+                      return <Tab  sx={{fontSize:12
+                        
+                      }}  label={`${c[`title_${i18n.language}`]}`}  key={c.id} {...a11yProps(c.id)}  />
+                    })}
+
+                  </Tabs>
+                  <CustomTabPanel sx={{padding:2, zIndex:1}} value={value} index={value} checked={checked}>
+                    {!loading &&
+                      <div style={{position:"relative", textAlign:'center', color:colors.primary,display:'flex'}}>
+                      <img alt="service" className={"img-service"} src={service.img} >
+                      </img>
+                      
+                        <div style={{position:'absolute', top:8, right:i18n.dir()!=='ltr'?16:'', left :i18n.dir()==='ltr'?16:''}}>
+                          <Typography sx={{fontSize:40}}>{`${service[`title_${i18n.language}`]}`}</Typography> 
+                        </div>
+                        <div style={{
+                          width:"100%",  
+                          position: "absolute",
+                          top: "70%",
+                          left: "50%",
+                          height:'50%',
+                          display:'flex',
+                          flexDirection:'row',
+                          transform: "translate(-50%, -50%)"
+                          }}>
+                            <Grid sx={{ 
+                              overflowY: 'scroll',display:'flex',flexDirection:'row',
+                              width:'100%',
+                              height:'100%',alignItems:'center',backgroundColor:'rgba(0, 0, 0, 0)'}} >
+                              {service?.services?.map((a,i)=>{
+                                return(<ServiceCard key={a.id} item={a}t={t} handleChange={()=>handleChangee(a)}  i18n={i18n} i={i} />)
+                              })}
+                            </Grid>
+                        </div>
+                      </div>
+                    }
+                  </CustomTabPanel>
+                </Box>
+            </Fade>
+          </Grid>
+          
+}
+
+
+          <Grid sx={{minHeight:"2px",backgroundColor:colors.hover,width:'100%',maxWidth:"1600px",mt:10}}></Grid>
+          
           <Grid container sx={{width:'100%',p:0, flexDirection:'column',justifyContent:'flex-end'}}>
             <Typography sx={{
               fontSize:{md:28,xs:22},
@@ -218,7 +308,7 @@ function Services() {
               width:'100%'
               ,background:`linear-gradient(${i18n.dir()==='rtl'?'to right':'to left'}, rgba(247, 216, 159, 0.0) 0%,rgba(247, 216, 159, 0.2) 80%)`
               ,borderRadius:1,
-              mb:1,
+              mt:1,
               p:1,
               maxWidth:"1600px",
               fontWeight:'bold',
@@ -228,12 +318,13 @@ function Services() {
           </Grid>
 
 
-            <Grid ref={ref} container sx={{minHeight:"20vh",width:'100%',p:0,justifyContent:'center',flexDirection:'row',marginTop:7,marginBottom:7}}>
-              { isVisible &&
+          </Grid>
+
+          <Grid container sx={{width:'100%',p:0, flexDirection:'row',justifyContent:'center'}}>
+          { 
                 features?.map((f,i)=>{
 
-                  return <Fade key={i} in={true} mountOnEnter unmountOnExit timeout={(200)+200*parseInt(i)}>
-                  <Box
+                  return <Box
 
                   key={f.id}
                   sx={{backgroundColor:'rgba(0,0,0,0)'
@@ -251,110 +342,66 @@ function Services() {
                     <img src={f.img} alt={'feature-img'} className={"img-feature"}/>
                     <Typography sx={{fontSize:13,m:2}}>{`${f[`title_${i18n.language}`]}`}</Typography>
                   </Box>
-                  </Fade> 
+
                 })
               }
+          
           </Grid>
           <Grid sx={{minHeight:"2px",backgroundColor:colors.hover,width:'100%',maxWidth:"1600px"}}></Grid>
-
-          { isVisible &&
-          <Grid container sx={{width:'100%',maxWidth:"1600px",minHeight:'200px', flexDirection:'row',backgroundColor:'',justifyContent:"center",pt:0}}>
-            <Fade in={true} mountOnEnter unmountOnExit timeout={(200)+800}>
-            <Box sx={{ bgcolor: 'transparent',width:"100%",p:0,display:'flex',flexDirection:'column'}}>
-              <Tabs
-                  sx={{display:"flex",justifyContent:'center', backgroundColor:"rgba(0,0,0,0.7)",borderRadius:1,width:"100%",alignSelf:'center'
-                    ,flexDirection: i18n.dir()!=='ltr'?"row-reverse":'',
-
-                  }}
-
-                  TabScrollButtonProps={{ disabled: false }}
-                  value={value}
-                  onChange={handleChange}
-                  variant="scrollable"
-                  scrollButtons="auto"
-                  allowScrollButtonsMobile
-                  >
-                {!loading && services?.map((c)=>{
-                  return <Tab  sx={{fontSize:12
+          {
+            service.services && 
+            <Details fullScreen={true} open={open} handleClose={()=> setOpen(!open)} 
+                img={se['img']} 
+                title={`${se[`title_${i18n.language}`]}`}
+                description={`${se[`description_${i18n.language}`]}`}
+                alt={'service'}
+                buttons={
+                  <Grid sx={{
                     
-                  }}  label={`${c[`title_${i18n.language}`]}`}  key={c.id} {...a11yProps(c.id)}  />
-                })}
+                    width:'100%',
+                    display:'flex',
+                    justifyContent:'space-between',
+                    flexDirection: i18n.dir()!=='ltr'?"row-reverse":'row',
 
-              </Tabs>
 
 
-              
-              <CustomTabPanel sx={{padding:2, zIndex:1}} value={value} index={value} checked={checked}>
-                {!loading &&
-                  <div style={{position:"relative", textAlign:'center', color:colors.primary,display:'flex'}}>
-                  <img alt="service" className={"img-service"} src={service.img} >
-                  </img>
-                  
-                    <div style={{position:'absolute', top:8, right:i18n.dir()!=='ltr'?16:'', left :i18n.dir()==='ltr'?16:''}}>
-                      <Typography sx={{fontSize:40}}>{`${service[`title_${i18n.language}`]}`}</Typography> 
-                    </div>
-
-                    <div style={{
-                      width:"100%",  
-                      position: "absolute",
-                      top: "70%",
-                      left: "50%",
-                      height:'50%',
-                      display:'flex',
-                      flexDirection:'row',
-                      transform: "translate(-50%, -50%)"
-                      }}>
-                        <Grid sx={{ 
-                          overflowY: 'scroll',display:'flex',flexDirection:'row',
-                          width:'100%',
-                          height:'100%',alignItems:'center',backgroundColor:'rgba(0, 0, 0, 0)'}} >
-                          {service?.services?.map((a,i)=>{
-                            return(<ServiceCard key={a.id} item={a}t={t} handleChange={()=>handleChangee(a)}  i18n={i18n} i={i} />)
-                          })}
-                        </Grid>
-                    </div>
-                  </div>
+                  }}>
+                  <Button variant="menu"autoFocus  disabled={newIndex()===-1} sx={{display:'flex',height:60,
+                        justifyContent:'space-between',flexDirection:'column'}} onClick={()=>{back()}}>
+                    {t('talent.stepper.buttons.back')}
+                    <ArrowCircleLeftRoundedIcon sx={{color:newIndex()!==-1? colors.primary:colors.hover}} />
+                  </Button>
+                  <Button variant="menu"autoFocus   disabled={newIndex(true)===-1} sx={{display:'flex',height:60,
+                        justifyContent:'space-between',flexDirection:'column-reverse'}} onClick={()=>{next()}}>
+                    <ArrowCircleRightRoundedIcon  sx={{color:newIndex(true)!==-1? colors.primary:colors.hover}}/>
+                    {t('talent.stepper.buttons.next')}
+                  </Button>
+                  </Grid>
                 }
-              </CustomTabPanel>
+              />
+          }
+
+            <Box
+
+
+            sx={{backgroundColor:'rgba(200,0,0,0)'
+              ,maxWidth:'1600px',
+              mt:2,
+              mb:2,
+              borderRadius:2,
+              border:'1px solid',
+              borderColor:"rgba(247, 216, 159, 0)",
+              alignItems:'center',
+              display:'flex',
+              flexDirection:'column'
+
+            }}
+            >
+
+              <RequestForm services={allServices} onSucesss={scrollToBottom} />
             </Box>
-            </Fade>
-          </Grid>
-}
 
-
-                  {
-                    service.services && 
-                    <Details fullScreen={true} open={open} handleClose={()=> setOpen(!open)} 
-                        img={se['img']} 
-                        title={`${se[`title_${i18n.language}`]}`}
-                        description={`${se[`description_${i18n.language}`]}`}
-                        alt={'service'}
-                        buttons={
-                          <Grid sx={{
-                            
-                            width:'100%',
-                            display:'flex',
-                            justifyContent:'space-between',
-                            flexDirection: i18n.dir()!=='ltr'?"row-reverse":'row',
-
-
-
-                          }}>
-                          <Button variant="menu"autoFocus  disabled={newIndex()===-1} sx={{display:'flex',height:60,
-                                justifyContent:'space-between',flexDirection:'column'}} onClick={()=>{back()}}>
-                            {t('talent.stepper.buttons.back')}
-                            <ArrowCircleLeftRoundedIcon sx={{color:newIndex()!==-1? colors.primary:colors.hover}} />
-                          </Button>
-                          <Button variant="menu"autoFocus   disabled={newIndex(true)===-1} sx={{display:'flex',height:60,
-                                justifyContent:'space-between',flexDirection:'column-reverse'}} onClick={()=>{next()}}>
-                            <ArrowCircleRightRoundedIcon  sx={{color:newIndex(true)!==-1? colors.primary:colors.hover}}/>
-                            {t('talent.stepper.buttons.next')}
-                          </Button>
-                          </Grid>
-                        }
-                      />
-
-                  }
+      
       </Grid>
     </Fade>
   );

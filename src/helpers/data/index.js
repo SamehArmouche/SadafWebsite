@@ -212,6 +212,33 @@ const bodyTypes= [
   }
 ];
 
+const projectTimeLines = [
+  { value: 'أقل من شهر واحد',
+    label:'service.form.inputs.projectTimeLines.lessOneMonth'
+  },
+  { value: 'من شهر إلى 3 أشهر',
+    label:'service.form.inputs.projectTimeLines.fromOneMonthToThree'
+  },
+  { value: 'أكثر من 3 أشهر',
+    label:'service.form.inputs.projectTimeLines.moreThreeMonth'
+  }
+];
+
+const priorityLevels = [
+  { value: 'منخفض',
+    label:'service.form.inputs.priorityLevels.low'
+  },
+  { value: 'متوسط',
+    label:'service.form.inputs.priorityLevels.medium'
+  },
+  { value: 'عالي',
+    label:'service.form.inputs.priorityLevels.high'
+  },
+  { value: 'عاجل',
+    label:'service.form.inputs.priorityLevels.urgent'
+  }
+];
+
 const categories = [
   {main:"Actor",sub:[]},
   {main:"Scriptwriter",sub:[]},
@@ -295,8 +322,31 @@ const fieldsMandatoryServiceForm = [
   "companyCity"
 ]
 
+
+const fieldsMandatoryReqServiceForm = [
+  "fullname",
+  "companyName",
+  "services",
+  "timeline",
+  "priority",
+  "deadline",
+  "email",
+  "details",
+  "phonenumber",
+  "phoneCode",
+  "companyCountry",
+  "companyCity"
+]
+
 const countries = 
 [
+    {
+      "english_name": "Saudi Arabia",
+      "arabic_name": "السعودية",
+      "alpha2_code": "SA",
+      "alpha3_code": "SAU",
+      "phone_code": "966"
+    },
     {
       "english_name": "Afghanistan",
       "arabic_name": "أفغانستان",
@@ -1663,13 +1713,6 @@ const countries =
       "phone_code": "239"
     },
     {
-      "english_name": "Saudi Arabia",
-      "arabic_name": "السعودية",
-      "alpha2_code": "SA",
-      "alpha3_code": "SAU",
-      "phone_code": "966"
-    },
-    {
       "english_name": "Senegal",
       "arabic_name": "السنغال",
       "alpha2_code": "SN",
@@ -2056,5 +2099,5 @@ module.exports = {
   fieldsMandatoryContactStep, fieldsMandatorySkillsStep,
   fieldsMandatoryBodyStep, fieldsMandatoryCategoryStep,
   fieldsMandatoryOtherStep, fieldsMandatoryActor,
-  fieldsMandatoryServiceForm
+  fieldsMandatoryServiceForm, projectTimeLines, priorityLevels, fieldsMandatoryReqServiceForm
 }

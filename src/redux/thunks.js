@@ -47,6 +47,26 @@ export const registerService = createAsyncThunk(
   }
 )
 
+
+export const requestService = createAsyncThunk(
+  'services/requestService',
+  async (requestService) =>{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/sadaf/service/request`,{
+    method : 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify({RequestService:requestService})
+    });
+    const data = await response.json();
+    if(response.status!==200){
+      throw new Error(data.msg);
+    }
+    return data;
+  }
+)
+
+
 //////////////// Projects /////////////////////////////
 export const fetchProjects = createAsyncThunk(
   'projects/fetchProjects',
