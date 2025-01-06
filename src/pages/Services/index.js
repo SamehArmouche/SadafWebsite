@@ -195,7 +195,7 @@ function Services() {
 
     let result = []
     if(data.length>0){
-        data.map((c)=>{
+        data.forEach((c)=>{
           result.push(c.services);
         });
         if(result.length>0){

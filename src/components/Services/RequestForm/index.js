@@ -121,7 +121,7 @@ const ReuquestForm = ({onSucesss, services}) => {
       let requestBody = JSON.parse(JSON.stringify(form));
       let services = []
       form.services.forEach((s)=>{
-        services.push(s.value.title_en)
+        services.push(s.value.title_ar)
       });
       requestBody.services= buildArray(services);;
       requestBody.phonenumber = form.phonenumber!==undefined?'+'+form.phoneCode+ " " + form.phonenumber:'';
