@@ -143,7 +143,6 @@ const ReuquestForm = ({onSucesss, services}) => {
 
 
   return (
-    <Fade  in={true} mountOnEnter unmountOnExit>
       <Grid item xs={7} sx={{p:0,justifyContent:'center',alignItems:'center',display:'flex',width:'100%'}}>
         <Box 
         border={1} 
@@ -239,7 +238,6 @@ const ReuquestForm = ({onSucesss, services}) => {
             </Button>
         </Box>
       </Grid>
-    </Fade>
   )
 }
 

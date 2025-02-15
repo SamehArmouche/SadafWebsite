@@ -331,19 +331,30 @@
     }
   },
   "project" :{
+    "title":"Projects",
+    "subtitle":"View our projects",
     "author":"Author : ",
     "actors":"Actors : ",
     "year":"Year : ",
     "type":"Type : ",
-    "client":"Client : "
+    "client":"Client : ",
+    "buttons":{
+      "view":"View"
+    }
   },
   "service" :{
     "title":"Our \nServices",
+    "subtitle":{
+      "1":"Our services are in your hands!",
+      "2":"Choose the service that suits you and let us creative with you."
+    },
     "buttons":{
+      "ourServices":"Our Services",
       "back":"Back",
       "register":"Register",
       "request":"Send request",
-      "explore":"Explore more"
+      "explore":"Explore more",
+      "requestTitle":"Request service"
     },
     "form":{
       "title":"Register with us to serve you as a supplier",

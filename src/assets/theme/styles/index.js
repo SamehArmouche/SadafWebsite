@@ -1,3 +1,4 @@
+import { fontWeight, height, maxWidth, width } from '@mui/system';
 import colors from '../colors'
 
 const styles = (i18n) => ({
@@ -178,7 +179,21 @@ const styles = (i18n) => ({
         }
       } ,
       variants: [
-
+        {
+          props: { variant: 'serviceRequest' },
+          style: {
+            backgroundColor:'rgba(247, 216, 159, 0.1)',
+            color:colors.primary,
+            border:0,
+            height:40,
+            padding:0,
+            width:130,
+            fontWeight:'bold',
+            //borderRadius:20,
+            display: 'block',
+            fontSize:"16px",
+          },
+        },
         {
           props: { variant: 'dashed' },
           style: {

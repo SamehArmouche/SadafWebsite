@@ -22,7 +22,6 @@ code {
 }
 .css-1urjo1s-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
   padding: 7.5px 4px 7.5px 5px;
-  color: rgba(247, 216, 159, 1);
 }
 
 .img-upload{
@@ -53,6 +52,77 @@ code {
   top: 0;
   left: 0;
 }
+
+
+#project-video{
+  object-fit:fill;
+  width: 250px;
+  height: 143px;
+
+  opacity: 0.7;
+  background-color: rgba(247, 216, 159, 0.2);
+}
+
+#project-video-detail{
+  object-fit:fill;
+  height: 65vh;
+  width: 100vw;
+}
+.video-container {
+  background-color: black; /* Fondo negro para el contenedor */
+  position: relative; /* Permite posicionar el overlay sobre el video */
+}
+.gradient-overlay {
+  position: absolute; /* Permite posicionar la capa encima del video */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; /* Cubre todo el área del video */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0)70%, rgba(0, 0, 0, 1) 100%); /* Degradado de transparente a negro */
+  pointer-events: none; /* Asegura que los clics pasen al video debajo */
+}
+
+.button-overlay {
+  position: absolute; /* Permite posicionar la capa encima del video */
+  top: 50%;
+  left: 50%;
+  background-color: rgba(0,0,0,0.5);
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  height: 50px;
+}
+
+.button-overlay-close{
+  position: absolute; /* Permite posicionar la capa encima del video */
+  background-color: rgba(0,0,0,0.5);
+  width: 30px;
+  top: 0%;
+  left: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  height: 30px;
+}
+
+.project-img{
+  width:100%;
+  height: 100%;
+  object-fit:cover;
+  opacity: 0.5;
+  
+}
+
+.client-img{
+  height: 25px;
+  object-fit:cover;
+  opacity: 0.7;
+  border-radius:2px ;
+}
+
 
 .img-item{
   height: 200px;
@@ -120,12 +190,6 @@ code {
 }
 
 
-.project-img{
-  width:100%;
-  height: 100%;
-  object-fit:cover;
-  border-radius: 7px;
-}
 
 
 .scroll {
