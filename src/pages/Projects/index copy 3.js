@@ -2,8 +2,8 @@ import * as React from 'react';
 import {Grid, Fade, Typography } from '@mui/material';
 import { fetchProjects } from '../../redux/thunks';
 import { useDispatch, useSelector } from 'react-redux'
-import Details from '../../components/Projects/Details';
-import ProjectCard from '../../components/Projects/ProjectCard';
+import Details from '../../components/shared/Details';
+import ProjectCard from '../../components/ProjectCard';
 import { useTranslation } from 'react-i18next';
 import Loading from '../../components/Loading';
 import colors from '../../assets/theme/colors';
@@ -22,8 +22,15 @@ function Projects() {
     (state) => state.projects
   )
 
+  const handleChanglePage = (event, newPage) => {
+  if(newPage){
+    setActualPage(newPage);
+  }
+
+  };
+
   const handleChange = (value) => {
-    setActualImg(value.video_url)
+    setActualImg(value.img)
     setProject(value)
     setOpen(!open)
  }
@@ -34,40 +41,25 @@ function Projects() {
 
   return (
     <Fade  in={true} mountOnEnter unmountOnExit>
-      <Grid item xs={7} sx={{alignItems:'center',display:'flex',minHeight:'72vh', flexDirection:'column',pt:{md:5,xs:0}}}>
-
-        <Grid container sx={{backgroundColor:'transparent',minWidth:300,justifyContent:'center'}}>
-          <Typography sx={{fontSize:{md:35,xs:28},fontWeight:'bold',padding:2}}>{t('project.title')}</Typography>
-          <Typography sx={{fontSize:{md:20,xs:13,alignSelf:'end',padding:2}}}>{t('project.subtitle')}</Typography>                  
-        </Grid>
-
-        {
-          <Grid container sx={{justifyContent:'center'}}>
+      <Grid item xs={7} sx={{justifyContent:'center',alignItems:'center',display:'flex',minHeight:'72vh',width:'80%', flexDirection:'column',pt:10}}>
+        <Grid container sx={{maxWidth:1000,justifyContent:'center', height:'100%'}}>
           {
           loadingProjects ? <Loading style={{color: colors.primary}}/>
           :
-          <Grid container sx={{justifyContent:'center',alignItems:'center',pt:5,pb:5}}>
+          <Grid container sx={{maxWidth:1000,justifyContent:'center',alignItems:'center'}}>
           {
             projects?.slice((actualPage - 1) * maxPerPage,maxPerPage* actualPage).map((a,i)=>{
-              return(<ProjectCard key={a.id} item={a} handleChange={handleChange} t={t}  i18n={i18n} i={i} />)
+              return(<ProjectCard key={a.id} item={a} handleChange={handleChange}  i18n={i18n} i={i} />)
             })}
           </Grid>
           }
         </Grid>
-        
-        }
-
-          {
+        {
           open && 
           <Details open={open} handleClose={()=> setOpen(!open)} 
           title={`${project[`title_${i18n.language}`]}`}
           description={`${project[`description_${i18n.language}`]}`}
           img={actualImg}
-          fullScreen={true}
-          client_url={project['client_url']}
-          client_logo_url={project['client_logo_url']}
-          t={t}
-          i18n={i18n}
           children2={
             <Grid sx={{justifyContent:'flex-start', display:'flex',flexDirection:'column'}}>
               <Grid sx={{flexDirection:'row',display:'flex',textAlign:i18n.dir()!=='ltr'?'right':'left',pr:3,pl:3,pb:0.5,pt:0.5}}>
@@ -84,6 +76,12 @@ function Projects() {
               <Typography sx={{fontWeight:'bold',whiteSpace: "nowrap",overflow:'visible'}} >{t("project.actors")}</Typography>
                 <Typography sx={{ml:1,mr:1}}>{`${project[`actors_${i18n.language}`]}`}</Typography>
               </Grid>
+
+              <Grid sx={{flexDirection:'row',display:'flex',textAlign:i18n.dir()!=='ltr'?'right':'left',pr:3,pl:3,pb:0.5,pt:0.5}}>
+                <Typography sx={{fontWeight:'bold',whiteSpace: "nowrap",overflow:'visible'}} >{t("project.client")}</Typography>
+                <Typography sx={{ml:1,mr:1}}>{`${project[`client`]}`}</Typography>
+              </Grid>
+
               <Grid sx={{flexDirection:'row',display:'flex',textAlign:i18n.dir()!=='ltr'?'right':'left',pr:3,pl:3,pb:0.5,pt:0.5}}>
                 <Typography sx={{fontWeight:'bold',whiteSpace: "nowrap",overflow:'visible'}}>{t("project.year")}</Typography>
                 <Typography sx={{ml:1,mr:1}}>{`${project[`year`]}`}</Typography>
@@ -93,8 +91,38 @@ function Projects() {
             >
           </Details>
         }
-
-
+        <Grid style={{display:'flex',width:'100%', justifyContent:'center', alignItems:'center'}}>
+          <ToggleButtonGroup
+            value={actualPage}
+            exclusive
+            onChange={handleChanglePage}
+            sx={{mt:2,flexWrap: "wrap",backgroundColor:'transparent',borderRadius:0,diplay:'flex',
+              justifyContent:'center'
+            }}
+          >
+            {
+              [...Array(Math.ceil(projects.length/maxPerPage)).keys()].reverse().map((a,i)=>{
+                return( 
+                      <ToggleButton 
+                        sx={{
+                          width:40,
+                          height:40,
+                          borderRadius:2,
+                          color:colors.primary,
+                          "&.MuiToggleButton-root.Mui-selected": {
+                            borderRadius:2,
+                            color:colors.primary,
+                            fontWeight:'bold',
+                            backgroundColor: colors.hover
+                          },
+                        }}
+                        key={i}value={i+1} aria-label={`page ${i+1}`}>
+                        {i+1}
+                      </ToggleButton>);
+                })
+            }
+          </ToggleButtonGroup>
+        </Grid>
       </Grid>
     </Fade>
   );
