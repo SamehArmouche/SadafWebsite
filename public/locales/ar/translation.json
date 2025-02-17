@@ -338,12 +338,13 @@
   },
   "project" :{
     "title":"الأعمال",
-    "subtitle":"عرض أعمالنا",
-    "author":"فكرة : ",
+    "subtitle":"أعمالنا",
+    "author":"الكاتب : ",
     "actors":"الممثلين : ",
     "year":"سنة : ",
     "type":" النوع : ",
     "client":" شركة الإنتاح : ",
+    "directors":"المخرج :",
     "buttons":{
       "view":"عرض"
     }

@@ -332,12 +332,13 @@
   },
   "project" :{
     "title":"Projects",
-    "subtitle":"View our projects",
+    "subtitle":"Our Projects",
     "author":"Author : ",
     "actors":"Actors : ",
     "year":"Year : ",
     "type":"Type : ",
     "client":"Client : ",
+    "directors":"Director : ",
     "buttons":{
       "view":"View"
     }

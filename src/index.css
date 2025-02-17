@@ -56,17 +56,17 @@ code {
 
 #project-video{
   object-fit:fill;
-  width: 250px;
-  height: 143px;
+  width: 375px;
+  height: 240px;
 
   opacity: 0.7;
   background-color: rgba(247, 216, 159, 0.2);
 }
 
 #project-video-detail{
-  object-fit:fill;
-  height: 65vh;
-  width: 100vw;
+  object-fit:cover;
+  height: 55vh;
+  width: 100%;
 }
 .video-container {
   background-color: black; /* Fondo negro para el contenedor */
@@ -117,7 +117,7 @@ code {
 }
 
 .client-img{
-  height: 25px;
+  height: 20px;
   object-fit:cover;
   opacity: 0.7;
   border-radius:2px ;

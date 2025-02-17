@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Grid, Fade, Typography } from '@mui/material';
+import {Grid, Fade, Typography, Button } from '@mui/material';
 import { fetchProjects } from '../../redux/thunks';
 import { useDispatch, useSelector } from 'react-redux'
 import Details from '../../components/Projects/Details';
@@ -7,8 +7,7 @@ import ProjectCard from '../../components/Projects/ProjectCard';
 import { useTranslation } from 'react-i18next';
 import Loading from '../../components/Loading';
 import colors from '../../assets/theme/colors';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import CloseIcon from '@mui/icons-material/Close';
 
 function Projects() {
   const dispatch = useDispatch();
@@ -16,8 +15,6 @@ function Projects() {
   const [project, setProject] = React.useState({});
   const { i18n, t} = useTranslation();
   const [actualImg, setActualImg]= React.useState("");
-  const maxPerPage = 12;
-  const [actualPage, setActualPage]= React.useState(1);
   const { loadingProjects, projects } = useSelector(
     (state) => state.projects
   )
@@ -37,18 +34,17 @@ function Projects() {
       <Grid item xs={7} sx={{alignItems:'center',display:'flex',minHeight:'72vh', flexDirection:'column',pt:{md:5,xs:0}}}>
 
         <Grid container sx={{backgroundColor:'transparent',minWidth:300,justifyContent:'center'}}>
-          <Typography sx={{fontSize:{md:35,xs:28},fontWeight:'bold',padding:2}}>{t('project.title')}</Typography>
-          <Typography sx={{fontSize:{md:20,xs:13,alignSelf:'end',padding:2}}}>{t('project.subtitle')}</Typography>                  
+          <Typography sx={{fontSize:{md:35,xs:28},fontWeight:'bold',padding:2}}>{t('project.subtitle')}</Typography>              
         </Grid>
-
         {
           <Grid container sx={{justifyContent:'center'}}>
           {
           loadingProjects ? <Loading style={{color: colors.primary}}/>
           :
-          <Grid container sx={{justifyContent:'center',alignItems:'center',pt:5,pb:5}}>
+          <Grid container sx={{justifyContent:{md:'flex-start',sm:'center',xs:'center'},alignItems:'center',pt:0,pb:0,maxWidth:"1150px"}}>
           {
-            projects?.slice((actualPage - 1) * maxPerPage,maxPerPage* actualPage).map((a,i)=>{
+            !open &&
+            projects?.map((a,i)=>{
               return(<ProjectCard key={a.id} item={a} handleChange={handleChange} t={t}  i18n={i18n} i={i} />)
             })}
           </Grid>
@@ -56,12 +52,13 @@ function Projects() {
         </Grid>
         
         }
-
+        <Grid container sx={{justifyContent:{md:'flex-start',sm:'center',xs:'center'},alignItems:'center',pt:0,pb:5,maxWidth:"1150px"}}>
           {
           open && 
           <Details open={open} handleClose={()=> setOpen(!open)} 
           title={`${project[`title_${i18n.language}`]}`}
           description={`${project[`description_${i18n.language}`]}`}
+          category={`${project[`category_${i18n.language}`]}`}
           img={actualImg}
           fullScreen={true}
           client_url={project['client_url']}
@@ -71,29 +68,29 @@ function Projects() {
           children2={
             <Grid sx={{justifyContent:'flex-start', display:'flex',flexDirection:'column'}}>
               <Grid sx={{flexDirection:'row',display:'flex',textAlign:i18n.dir()!=='ltr'?'right':'left',pr:3,pl:3,pb:0.5,pt:0.5}}>
-              <Typography sx={{fontWeight:'bold',whiteSpace: "nowrap",overflow:'visible'}} >{t("project.type")}</Typography>
-                <Typography sx={{ml:1,mr:1}} >{`${project[`type_${i18n.language}`]}`}</Typography>
+              <Typography sx={{fontWeight:'bold',whiteSpace: "nowrap",overflow:'visible',color:'white'}} >{t("project.directors")}</Typography>
+              <Typography sx={{ml:1,mr:1,color:'white'}}>{`${project[`directors_${i18n.language}`]}`}</Typography>
               </Grid>
 
               <Grid sx={{flexDirection:'row',display:'flex',textAlign:i18n.dir()!=='ltr'?'right':'left',pr:3,pl:3,pb:0.5,pt:0.5}}>
-              <Typography sx={{fontWeight:'bold',whiteSpace: "nowrap",overflow:'visible'}} >{t("project.author")}</Typography>
-                <Typography sx={{ml:1,mr:1}}>{`${project[`author_${i18n.language}`]}`}</Typography>
+              <Typography sx={{fontWeight:'bold',whiteSpace: "nowrap",overflow:'visible',color:'white'}} >{t("project.author")}</Typography>
+                <Typography sx={{ml:1,mr:1,color:'white'}}>{`${project[`author_${i18n.language}`]}`}</Typography>
               </Grid>
 
               <Grid sx={{flexDirection:'row',display:'flex',textAlign:i18n.dir()!=='ltr'?'right':'left',pr:3,pl:3,pb:0.5,pt:0.5}}>
-              <Typography sx={{fontWeight:'bold',whiteSpace: "nowrap",overflow:'visible'}} >{t("project.actors")}</Typography>
-                <Typography sx={{ml:1,mr:1}}>{`${project[`actors_${i18n.language}`]}`}</Typography>
+              <Typography sx={{fontWeight:'bold',whiteSpace: "nowrap",overflow:'visible',color:'white'}} >{t("project.actors")}</Typography>
+                <Typography sx={{ml:1,mr:1,color:'white'}}>{`${project[`actors_${i18n.language}`]}`}</Typography>
               </Grid>
               <Grid sx={{flexDirection:'row',display:'flex',textAlign:i18n.dir()!=='ltr'?'right':'left',pr:3,pl:3,pb:0.5,pt:0.5}}>
-                <Typography sx={{fontWeight:'bold',whiteSpace: "nowrap",overflow:'visible'}}>{t("project.year")}</Typography>
-                <Typography sx={{ml:1,mr:1}}>{`${project[`year`]}`}</Typography>
+                <Typography sx={{color:'white',mb:1}}>{`${project[`year`]}`}</Typography>
               </Grid>
             </Grid>
           } 
             >
           </Details>
+         
         }
-
+ </Grid>
 
       </Grid>
     </Fade>

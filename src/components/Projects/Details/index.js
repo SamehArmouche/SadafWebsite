@@ -1,23 +1,21 @@
 import {
   Button,
-  Dialog,
+  Grow,
   DialogTitle,
-  Box,
   Grid,
   Typography
 } from '@mui/material'
 import * as React from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import PauseIcon from '@mui/icons-material/Pause';
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function Details({
   fullScreen=false,open, children, i18n,client_url, client_logo_url,
-  handleClickOpen, handleClose, title, height, description, img, direction, alt,
+  handleClickOpen, category,handleClose, title, height, description, img, direction, alt,
   children2, buttons, t}) {
   const [videoRef] = React.useState(React.createRef());
   const [played, setPlayed] = React.useState(false);
@@ -34,21 +32,13 @@ export default function Details({
   }
 
   return (
-    <Dialog
-      open={open}
-      onClose={handleClose}
-      fullScreen={fullScreen}
-      TransitionComponent={Transition}
-      aria-labelledby="responsive-dialog-title"
-      slotProps={{
-        backdrop: {
-          sx: {
-            backdropFilter: "blur(3px)"
-          },
-        },
-      }}
-    >
-      <Box sx={{backgroundColor:"black",borderRadius:2}}>
+        <Grow
+          mountOnEnter 
+          unmountOnExit
+          in={true}
+          style={{ transformOrigin: '0 0 0' }}
+          {...{ timeout: (700) }}>
+      <Grid  conttainer sx={{backgroundColor:"black",borderRadius:2}}>
         {img &&
           <div className="video-container">
 
@@ -56,44 +46,44 @@ export default function Details({
               ref={videoRef}
                 id="project-video-detail"  
                 playsInline 
-                loop>
-                <source src={img} type="video/mp4"/>
+                controls
+                autoPlay>
+                <source src={img} 
+
+                type="video/mp4"/>
             </video>
             <div className="gradient-overlay"></div>
-            <div className="button-overlay-close">
-              <Button variant="menu"autoFocus onClick={handleClose} sx={{display:'flex',height:30}} >
-                <CloseIcon   onClick={handleClose}/>
-              </Button>
-            </div>
-            <div className="button-overlay">
-                <Button autoFocus onClick={handlePlay} sx={{display:'flex',height:40,borderRadius:100}} >
-                  {
-                    !played?
-                    <PlayArrowIcon  />:
-                    <PauseIcon  />
-                    }
+              <div className="button-overlay-close">
+                <Button variant="menu"autoFocus onClick={handleClose} sx={{display:'flex',height:30}} >
+                  <CloseIcon   onClick={handleClose}/>
                 </Button>
-                </div>
+              </div>
             </div>
+
          }
           {children}
-        <DialogTitle id="responsive-dialog-title" sx={{fontWeight:'bold',fontSize:31,padding:"24px 24px 16px",
-          textAlign:i18n.dir()!=='ltr'?'right':'left',
-          display:'flex',
-          alignItems:'center'
-        }}>
-          {title}
+            <DialogTitle id="responsive-dialog-title" sx={{
+              
+              textAlign:i18n.dir()!=='ltr'?'right':'left',
+              display:'flex',
+              flexDirection:'column'
+            }}>
+              <Grid sx={{flexDirection:'row',display:'flex',alignItems:'center'}}>
+                <Typography sx={{fontSize:31,fontWeight:'bold'}} >{title}</Typography>
+                <Typography sx={{color:'white',mr:2,ml:2}} >{category}</Typography>
 
-          <Grid onClick= {(()=> window.open(client_url, '_blank').focus())} sx={{flexDirection:'row',display:'flex',textAlign:i18n.dir()!=='ltr'?'right':'left',pr:3,pl:3,pb:0.5,pt:0.5}}>
-                <img src={client_logo_url}
-                  alt={"alt"}
-                  className={"client-img"}
-                />
+              </Grid>
+              <Grid onClick= {(()=> window.open(client_url, '_blank').focus())} 
+                sx={{flexDirection:'row',display:'flex',textAlign:i18n.dir()!=='ltr'?'right':'left',pt:4}}>
+                  <img src={client_logo_url}
+                    alt={"alt"}
+                    style={{alignSelf:'center'}}
+                    className={"client-img"}
+                  />
               </Grid>
 
-
-        </DialogTitle>
-        <DialogTitle id="responsive-dialog-title" sx={{fontSize:18,textAlign:"justify"}}>
+          </DialogTitle>
+        <DialogTitle id="responsive-dialog-title" sx={{fontSize:22,textAlign:"justify",color:'white'}}>
           {
             Array.isArray(description)?
             description?.map((d)=>{
@@ -105,7 +95,7 @@ export default function Details({
           }
         </DialogTitle>
         {children2}
-      </Box>
-    </Dialog>
+      </Grid>
+      </Grow>
   );
 }
