@@ -19,11 +19,29 @@ function Projects() {
     (state) => state.projects
   )
 
-  const handleChange = (value) => {
+  const projectRefs = React.useRef([]); // Refs para los proyectos
+
+  const handleChange = (value, index) => {
+    setProject(value);
+    setOpen(true);
     setActualImg(value.video_url)
-    setProject(value)
-    setOpen(!open)
- }
+  };
+
+  const handleClose = (index) => {
+    setOpen(false);
+    setTimeout(() => {
+      // Hacemos scroll al proyecto seleccionado
+      projectRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
+    }, 0);
+    // No necesito scroll al cerrar, ya lo manejamos en handleChange
+  };
+
+  const getRef = (event, i) =>{
+    if(event){
+      projectRefs.current[i] = event;
+      return projectRefs.current[i]
+    }
+  }
 
   React.useEffect(() => {
     dispatch(fetchProjects());
@@ -45,7 +63,12 @@ function Projects() {
           {
             !open &&
             projects?.map((a,i)=>{
-              return(<ProjectCard key={a.id} item={a} handleChange={handleChange} t={t}  i18n={i18n} i={i} />)
+
+              return (
+                <div ref={el => getRef(el, a.id)} key={a.id}>
+                  <ProjectCard item={a} handleChange={() => handleChange(a, a.id)} t={t} i18n={i18n} i={i}  />
+                </div>
+              );
             })}
           </Grid>
           }
@@ -55,7 +78,7 @@ function Projects() {
         <Grid container sx={{justifyContent:{md:'flex-start',sm:'center',xs:'center'},alignItems:'center',pt:0,pb:5,maxWidth:"1150px"}}>
           {
           open && 
-          <Details open={open} handleClose={()=> setOpen(!open)} 
+          <Details open={open}   handleClose={() => handleClose(project['id'])}
           title={`${project[`title_${i18n.language}`]}`}
           description={`${project[`description_${i18n.language}`]}`}
           category={`${project[`category_${i18n.language}`]}`}

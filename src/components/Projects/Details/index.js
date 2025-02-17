@@ -38,7 +38,7 @@ export default function Details({
           in={true}
           style={{ transformOrigin: '0 0 0' }}
           {...{ timeout: (700) }}>
-      <Grid  conttainer sx={{backgroundColor:"black",borderRadius:2}}>
+      <Grid sx={{backgroundColor:"black",borderRadius:2}}>
         {img &&
           <div className="video-container">
 

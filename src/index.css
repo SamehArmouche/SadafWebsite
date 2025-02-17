@@ -64,7 +64,6 @@ code {
 }
 
 #project-video-detail{
-  object-fit:cover;
   height: 55vh;
   width: 100%;
 }
