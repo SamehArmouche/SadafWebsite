@@ -20,8 +20,8 @@ const Ads = ({i18n, t}) =>{
     <Box 
     sx={{backgroundColor:'rgba(0,0,0,0)',
     display:'flex',alignItems:"center",width:'100%',
-    m:0,borderRadius:2,
-    justifyContent:'center',
+    height:100,m:0,borderRadius:2,
+    justifyContent:'center'
     
     }}>
   <Grid sx={{ overflowY: 'scroll',display:'flex',flexDirection:'row',minHeight:100,alignItems:'center',backgroundColor:'rgba(10, 10, 10, 0)'}} >
@@ -30,28 +30,20 @@ const Ads = ({i18n, t}) =>{
 
         return (
           <Grid key = {e} 
-          sx={{m:2,backgroundColor:'grey',borderRadius:2,display:'flex',height:'100%',
+          sx={{mr:2,ml:2,backgroundColor:'grey',borderRadius:2,display:'flex',height:'100%',
           boxShadow:'0px 0px 9px rgba(247, 216, 159, 0.1)',
         }}
             /*onClick={()=> {
               setActualImg(i.img)
             }}*/
           >
+          <img
+            src={i.img}
+            alt={"alt"}
+            className={"img-sub"}
 
-
-            <Box
-              component="img"
-              className={"img-sub"}
-              sx={{
-              height: {md:"250px",xs:"200px"},
-              width:{md:"215px",xs:"110px"},
-                  content: {
-                      xs: `url(${i.img})`, //img src from xs up to md
-                      md: `url(${i.img})`,  //img src from md and up
-                  }
-              }}
-              alt="Ads"
-            />
+          >
+          </img>
           </Grid>
         )
     })

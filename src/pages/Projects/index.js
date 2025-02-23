@@ -7,7 +7,7 @@ import ProjectCard from '../../components/Projects/ProjectCard';
 import { useTranslation } from 'react-i18next';
 import Loading from '../../components/Loading';
 import colors from '../../assets/theme/colors';
-import CloseIcon from '@mui/icons-material/Close';
+
 
 function Projects() {
   const dispatch = useDispatch();

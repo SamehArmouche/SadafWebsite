@@ -1,42 +1,19 @@
 import * as React from 'react';
-import {Grid, Fade, Typography,Container,Grow, Button} from '@mui/material';
+import {Grid, Fade, Typography, Grow, Button} from '@mui/material';
 import { fetchServices, fetchFeatures } from '../../redux/thunks';
 import { useDispatch } from 'react-redux'
-import Carousel from '../../components/Carousel';
 import RequestForm from '../../components/Services/RequestForm';
 import ArrowCircleLeftRoundedIcon from '@mui/icons-material/ArrowCircleLeftRounded';
 import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
 import Details from '../../components/shared/Details';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors';
-import Loading from '../../components/Loading'
-
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import ServiceCard from '../../components/ServiceCard';
-
-export function useIsVisible(ref) {
-  const [isIntersecting, setIntersecting] = React.useState(false);
-
-    React.useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) =>{
-      setTimeout(() => {
-        setIntersecting(entry.isIntersecting);
-      }, "0");
-
-    }
-    );
-
-    observer.observe(ref.current);
-    return () => {
-      observer.disconnect();
-    };
-  }, [ref]);
-
-  return isIntersecting;
-}
+import { useIsVisible } from '../../helpers/usIsInvisible';
 
 function CustomTabPanel(props) {
   const { children, value, index, checked, ...other } = props;
@@ -83,12 +60,12 @@ function Services() {
   const [se, setSe ] = React.useState({});
   const [services, setServices ] = React.useState([]);
   const [features, setFeatures ] = React.useState([]);
-  const [showService, setShowService] = React.useState('Our');
+  //const [showService, setShowService] = React.useState('Our');
   const [loading, setLoading] = React.useState(false)
   const {t, i18n } = useTranslation();
   const [value, setValue] = React.useState(0);
   const [selected, setSelected] = React.useState(false);
-  const [checked, setChecked] = React.useState(true);
+  const [checked] = React.useState(true);
   const [allServices, setAllServices ] = React.useState([]);
 
   const back = ()=>{
@@ -98,9 +75,6 @@ function Services() {
       setSe(services[value].services[index]);
     }
   }
-
-
-
 
   const next = ()=>{
     setSelected(true)
@@ -135,9 +109,10 @@ function Services() {
     setSe(value)
     setOpen(!open)
   }
-  const onClick = async (value) =>{
+  
+  /*const onClick = async (value) =>{
     setShowService(value)
-  }
+  }*/
 
 
   React.useEffect(() => {

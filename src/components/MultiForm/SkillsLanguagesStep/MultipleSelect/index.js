@@ -60,6 +60,12 @@ export default function MultipleSelect({label, t , items, onChange, currentValue
         renderInput={(params) => (
           <TextField
             {...params}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                color:'rgba(247, 216, 159, 1)',
+                //padding: "7.5px 4px 7.5px 5px"
+              }
+            }}
             required 
             label={t(label)}
             error={error}

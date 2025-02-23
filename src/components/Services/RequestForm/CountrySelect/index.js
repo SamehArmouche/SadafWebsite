@@ -48,6 +48,12 @@ export default function CountrySelect({lang, t, label, onChange, value, defaultV
         return (
         <TextField
           {...params}
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              color:'rgba(247, 216, 159, 1)',
+              //padding: "7.5px 4px 7.5px 5px"
+            }
+          }}
           error={error}
           required 
           label={label}

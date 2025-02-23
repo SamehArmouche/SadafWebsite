@@ -1,7 +1,13 @@
 {
   "home": {
     "title": "Be the future star!",
-    "subtitle":"\" Talent  Road \" is the largest Arab project to discover actors, actresses, and professionals in all professions in the film and television industry."
+    "subtitle":"\" Talent  Road \" is the largest Arab project to discover actors, actresses, and professionals in all professions in the film and television industry.",
+    "top5":"Top 5 TV Shows Today",
+    "clients":"Who We Work With",
+    "contact":{
+      "title":"READY TO KNOW MORE",
+      "description":"Please complete the form to receive more information about Sadaf Logistics and Production solutions."
+    }
   },
   "talent": {
     "title":"We invite you to join our talent team and be part of the stars of the future!",
