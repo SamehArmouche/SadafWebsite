@@ -3,11 +3,13 @@ import {Typography, Grid, Button} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
 import Ads from '../../components/Ads';
-import TopFive from '../../components/TopFive';
-import { fetchProjects } from '../../redux/thunks';
+import TopFive from '../../components/TopFiveV2';
+import { fetchProjects, fetchServices } from '../../redux/thunks';
 import { useDispatch, useSelector } from 'react-redux';
-import Clients from '../../components/Clients';
+import Clients from '../../components/ClientsV2';
 import ContactUs from '../../components/Contact/ContactUs';
+import MyCarousel from '../../components/Services/Carousel';
+import { useLocation } from 'react-router-dom';
 const items = [ 
   {
     logo_url:"https://storage.googleapis.com/sadaf-website-content/clients/MBC_1.png",
@@ -44,13 +46,30 @@ function Home() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const contactRef = React.useRef(null);
+  const { ref } = location.state || {}; // Accede al estado enviado
   const { projects } = useSelector(
     (state) => state.projects
+  )
+  const { services } = useSelector(
+    (state) => state.services
   )
   
   React.useEffect(() => {
     dispatch(fetchProjects());
-  }, [dispatch]);
+    dispatch(fetchServices());
+    if(ref){
+      contactRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    }else{
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+
+  }, [dispatch, location.state]);
 
   return (
       <Grid container sx={{
@@ -71,10 +90,11 @@ function Home() {
           padding:2,
           width:{md:'50%',xs:'100%'}
         }}>
-          <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{fontSize:{xs:18,md:25}, fontWeight:'bold'}}>
+          <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{
+            fontSize:{md:55,xs:28}, fontWeight:'bold'}}>
             {t('home.title')}
           </Typography>
-          <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{fontSize:{xs:13,md:20}, fontWeight:'bold'}}>
+          <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{fontSize:{md:24,xs:15}, fontWeight:'bold'}}>
             {t('home.subtitle')}
           </Typography>
           <Grid item  sx={{p:0}}>
@@ -93,35 +113,52 @@ function Home() {
           borderRadius:2,
           minHeight:'20vh'
         }}>
-          <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{
+          <Typography textAlign={i18n.language==="ar"?"right":"left"} sx={{
             fontWeight:'bold',
             color:'white',
+            width:'100%',
             m:2,
-            fontSize:{xs:10,md:15}}}>
+            fontSize:{xs:10,md:18}}}>
             {t('home.top5')}
           </Typography>
           <TopFive items={projects}/>
+        </Grid>
+        <Grid container sx={{p:0,backgroundColor:'rgba(0, 0, 0, 0)',width:'100%',
+          borderRadius:2,
+          minHeight:'20vh'
+        }}>
+          <Typography textAlign={i18n.language==="ar"?"right":"left"} sx={{
+            fontWeight:'bold',
+            color:'white',
+            width:'100%',
+            m:2,
+            fontSize:{xs:10,md:18}}}>
+            {t('home.services')}
+          </Typography>
+          <MyCarousel items={services}  onClick={()=>navigate("/services")}/>
         </Grid>
 
         <Grid container sx={{p:0,backgroundColor:'rgba(0, 0, 0, 0)',width:'100%',
           borderRadius:2,
           minHeight:'15vh'
         }}>
-          <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{
+          <Typography textAlign={i18n.language==="ar"?"right":"left"}sx={{
             fontWeight:'bold',
             color:'white',
+            width:'100%',
             m:2,
-            fontSize:{xs:10,md:15}}}>
+            fontSize:{xs:10,md:18}}}>
             {t('home.clients')}
           </Typography>
           <Clients items={items}/>
         </Grid>
-        <Grid container sx={{p:0,backgroundColor:'rgba(0, 0, 0, 0)',width:'100%',
-          borderRadius:2, justifyContent:'center'
-        }}>
-          <ContactUs/>
-        </Grid>
 
+        {<Grid container ref={contactRef} sx={{p:0,backgroundColor:'rgba(0, 0, 0, 0)',width:'100%',
+          borderRadius:2, justifyContent:'center',minHeight:'15vh'
+        }}>
+          <ContactUs  />
+        </Grid>
+        }
     </Grid>
   );
 }

@@ -111,7 +111,7 @@ function ContactUs() {
           autoComplete='nope'
         />
         <Grid  container sx={{width:'100%',justifyContent:'center',display:'flex'}}>
-          <Typography textAlign={i18n.dir()==="rtl"?"right":"left"} sx={{fontSize:{xs:12,sm:13},maxWidth:350}} >
+          <Typography textAlign={i18n.dir()==="rtl"?"right":"left"} sx={{fontSize:{xs:12,sm:13},maxWidth:{md:'70%',xs:'80%'}}} >
             {t('home.contact.description')}
           </Typography>
           {error &&

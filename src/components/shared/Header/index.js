@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
+import Slide from '@mui/material/Slide';
 //import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 //import Tooltip from '@mui/material/Tooltip';
@@ -20,6 +21,7 @@ import {
 } from 'material-ui-popup-state/hooks'
 import { useTheme } from '@mui/material/styles';
 import { Turn as Hamburger } from 'hamburger-react'
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 const pages = ['Home','AboutUs','Talents','Services','Projects','Awards','Contact'];
 
 
@@ -70,7 +72,8 @@ function Header() {
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const { t, i18n } = useTranslation();
-  const [isOpen, setOpen] = React.useState(false)
+  const [isOpen, setOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
   const popupState = usePopupState({ variant: 'popover', popupId: 'demoMenu' })
   const theme = useTheme();
   document.body.dir = i18n.dir();
@@ -109,19 +112,46 @@ function Header() {
     setAnchorElUser(null);
   };*/
 
-  const handleRoute = (route) =>{
-    if(route.toLowerCase()==="home"){
-      navigate(`/`);
-    }else{
-      navigate(`/${route.replace(" ","").toLowerCase()}`);
+
+
+  React.useEffect(() => { 
+
+    function handleScroll() {
+      const newScrollPosition = window.scrollY;
+
+      if(newScrollPosition>1){
+        setIsScrolled(true);
+        console.log(newScrollPosition)
+      }else{
+        setIsScrolled(false);
+      }
+    }
+    
+    window.addEventListener('scroll', handleScroll, {passive: true});
+
+  }, []);
+
+  const handleRoute = (route) => {
+
+    if (route.toLowerCase() === "home") {
+      navigate(`/`, { state: {ref:null} });
+    }
+    else if(route.toLowerCase()==="contact"){
+      navigate(`/`, { state: {ref:route} });
+    }
+    else {
+      navigate(`/${route.replace(" ", "").toLowerCase()}`);
     }
     handleCloseNavMenu();
   }
 
   return (
-    <AppBar position="static" sx={{backgroundColor:'transparent', boxShadow:0}} >
+    <AppBar position="fixed" 
+     sx={{ boxShadow:0, backgroundColor:isScrolled?'#1A1917':'transparent',borderRadius:0,
+      animation: isScrolled?"mymove 0.25s":"mymove1 0.25s",
+     }} >
 
-      <Container sx={{justifyContent:{ xs: 'left', md: 'center' },display:'flex',marginTop:{xs:2,md:5}}}>
+      <Container sx={{justifyContent:{ xs: 'left', md: 'center' },display:'flex',marginTop:{xs:2,md:2}}}>
 
         <Toolbar disableGutters sx={{width:'100%',display:'flex' ,justifyContent:'space-between'}}>
           <Box sx={{justifyContent:'center',display:{xs:'none',md:'flex'},opacity:1,alignItems:'center'}}>
@@ -156,8 +186,8 @@ function Header() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={(e)=>{handleRoute(page)}}
+              {pages.map((page, i) => (
+                <MenuItem key={i} onClick={(e)=>{handleRoute(page)}}
                 selected={`/${page.toLowerCase()}` === window.location.pathname}
                 >
                   <Typography textAlign="center"> {t(`header.${page.toLowerCase()}`)}</Typography>

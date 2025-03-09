@@ -71,7 +71,7 @@ function Layout() {
 
       <React.Suspense fallback={<Loading/>}>
         <Header/>
-        <main style={{justifyContent:'center',display:'flex'}} >
+        <main style={{justifyContent:'center',display:'flex',paddingTop:"15vh"}} >
           <Outlet />
         </main>
         <Footer/>

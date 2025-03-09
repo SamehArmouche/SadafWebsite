@@ -52,7 +52,7 @@ export default function Details({
 
                 type="video/mp4"/>
             </video>
-            <div className="gradient-overlay"></div>
+            <div className="video-gradient-overlay"></div>
               <div className="button-overlay-close">
                 <Button variant="menu"autoFocus onClick={handleClose} sx={{display:'flex',height:30}} >
                   <CloseIcon   onClick={handleClose}/>

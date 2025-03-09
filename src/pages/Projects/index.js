@@ -59,7 +59,7 @@ function Projects() {
           {
           loadingProjects ? <Loading style={{color: colors.primary}}/>
           :
-          <Grid container sx={{justifyContent:{md:'flex-start',sm:'center',xs:'center'},alignItems:'center',pt:0,pb:0,maxWidth:"1150px"}}>
+          <Grid container sx={{justifyContent:{md:'center',sm:'center',xs:'center'},alignItems:'center',pt:0,pb:0,maxWidth:"1150px"}}>
           {
             !open &&
             projects?.map((a,i)=>{

@@ -71,6 +71,17 @@ code {
   background-color: black; /* Fondo negro para el contenedor */
   position: relative; /* Permite posicionar el overlay sobre el video */
 }
+
+.video-gradient-overlay {
+  position: absolute; /* Permite posicionar la capa encima del video */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; /* Cubre todo el área del video */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0)70%, rgba(0, 0, 0, 1) 100%); /* Degradado de transparente a negro */
+  pointer-events: none; /* Asegura que los clics pasen al video debajo */
+}
+
 .gradient-overlay {
   position: absolute; /* Permite posicionar la capa encima del video */
   top: 0;
@@ -167,11 +178,53 @@ code {
 ::-webkit-scrollbar {
   width: 0px;
   height: 3px;
+  display: none;
 }
+
+
+
+
+@keyframes loading {
+0% {
+  background-color: rgba(247, 216, 159, 0.4);
+}
+40% {
+  background-color: rgba(247, 216, 159, 0.4);
+}
+70% {
+  background-color: rgba(247, 216, 159, 0.1);
+}
+90% {
+  background-color: rgba(247, 216, 159, 0.4);
+}
+}
+
+.loadingImg{
+  background-color:rgba(247, 216, 159, 0.4);
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-name: loading;
+
+}
+
+
+
+@keyframes mymove {
+  from {background-color: transparent;}
+  to {background-color: #1A1917;}
+}
+
+@keyframes mymove1 {
+  from {background-color: #1A1917;}
+  to {background-color: transparent;}
+}
+
+
 
 /* Track */
 ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0,0.6);
+  display: none;
 }
 
 /* Handle */
