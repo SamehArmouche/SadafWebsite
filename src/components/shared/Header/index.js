@@ -121,7 +121,7 @@ function Header() {
 
       if(newScrollPosition>1){
         setIsScrolled(true);
-        console.log(newScrollPosition)
+        //console.log(newScrollPosition)
       }else{
         setIsScrolled(false);
       }
