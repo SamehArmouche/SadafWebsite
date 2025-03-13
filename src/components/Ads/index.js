@@ -87,7 +87,7 @@ const Ads = ({ i18n, t }) => {
                 height: { md: "450px", xs: "200px" },
                 width: { md: "315px", xs: "130px" },
                 objectFit:'cover',
-                borderRadius: 10,
+                borderRadius: {md:10,xs:5},
                 content: {
                   xs: `url(${i.img})`, //img src from xs up to md
                   md: `url(${i.img})`,  //img src from md and up
@@ -101,7 +101,7 @@ const Ads = ({ i18n, t }) => {
                 position: 'absolute',
                 top: 0, left: 0,
                 width: '100%', height: '100%',
-                borderRadius: 10,
+                borderRadius: {md:10,xs:5}
                 //background: 'linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)',
               }}
             />

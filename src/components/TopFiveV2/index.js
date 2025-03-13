@@ -22,15 +22,17 @@ const TopFive = ({ items }) => {
               style={{ transformOrigin: '0 0 0' }}
               {...{ timeout: (i * 500) }}
               key={i}>
-              <Grid sx={{ justifyContent: 'center', display: 'flex', p: 2 }}>
+              <Grid sx={{ justifyContent: 'center', display: 'flex', p: {md:1,xs:2} ,width:{md:200,xs:130},height:{md:300,xs:180}}}>
                 <Grid container
                   sx={{
                     position: 'relative', // Contenedor relativo
-                    height: { md: "160px", xs: "100px" },
-                    width: { md: "130px", xs: "80px" },
+                    //height: { md: "160px", xs: "100px" },
+                    //width: { md: "130px", xs: "80px" },
+                    width:'100%',
+                    height:'100%',
                     backgroundColor: 'black',
                     textAlign: 'center',
-                    borderRadius:2,
+                    borderRadius:8,
                     overflow: 'visible', // Permitir desbordamiento visible
                   }}
                 >
@@ -42,7 +44,7 @@ const TopFive = ({ items }) => {
                       height: "100%",
                       width: "100%",
                       objectFit: 'cover',
-                      borderRadius:2
+                      borderRadius:8
                     }}
                   />
                   <Typography
@@ -52,7 +54,7 @@ const TopFive = ({ items }) => {
                       fontSize: {md:90,xs:50},
                       //fontWeight:'bold',
                       position: 'absolute', // Posicionamiento absoluto
-                      top: {md:'75%',xs:'75%'}, // Ajustar para desbordar
+                      top: {md:'85%',xs:'85%'}, // Ajustar para desbordar
                       left: {md:'0%',xs:'0%'},
                       transform: 'translate(-50%, -50%)', // Ajuste para que sobresalga
                       color: 'white',

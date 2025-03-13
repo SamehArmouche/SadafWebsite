@@ -38,18 +38,19 @@ function MyCarousel({items, onClick}){
           in={true}
           style={{ transformOrigin: '0 0 0' }}
           {...{ timeout: (props.i*500) }}>
-          <Grid sx={{backgroundColor:'transparent',justifyContent:'center',display:'flex',m:0}}>
-            
-            <CardActionArea onClick= {onClick} >
+          {/* <Grid sx={{backgroundColor:'transparent',justifyContent:'center',display:'flex',m:0}}> */}
+            <Grid sx={{ justifyContent: 'center', display: 'flex', backgroundColor:'black',m: {md:1,xs:2}}}>
+            <CardActionArea sx = {{width:{md:200,xs:130},height:{md:180,xs:150}}} onClick= {onClick} >
               
             <Grid 
               container
               sx={{
                 borderRadius:1,
                 backgroundColor:'transparent',
-                height: {md:"120px",xs:"90px"},
-                width:{md:"180px",xs:"90px"},
-                m:1,
+                width:'100%',
+                height:'100%',
+                //height: {md:"120px",xs:"90px"},
+                //width:{md:"180px",xs:"90px"},
                 //filter: 'grayscale(100%)',
                 objectFit:'cover',
                 content: {
@@ -120,7 +121,8 @@ function MyCarousel({items, onClick}){
     },[items, windowSize, countPerSlide, isVisible])
 
     return (
-      <Box ref={ref} sx={{width:{xs:'100%',md:'100%'}}}>
+      <Box ref={ref} sx={{width:{xs:'100%',md:'100%'}, height:{md:260,xs:260},justifyContent:'center',
+      alignItems:'center'}}>
         {loading ? (
           <Loading style={{color: colors.primary}}/>
         ) : (
@@ -137,12 +139,13 @@ function MyCarousel({items, onClick}){
             }} 
             navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
               style: {
-                  bottom: 20,
+                  bottom: 22,
                   top: 'unset',
               }
             }}
             indicatorIconButtonProps={{
               style: {
+                  bottom: -30,
                   padding: '1px',    // 1
                   color: 'blue',       // 3
                   opacity:0.5
@@ -155,10 +158,11 @@ function MyCarousel({items, onClick}){
             }}
             sx={{
               width:"100%",
-              justifyContent:'center',
+              height:'100%',
               display:'flex',
               flexDirection:'column',
-              alignItems:'center'
+              alignItems:'center',
+              m:0
               }}>
               {
                 slides.map(slide => <OneSlide key={slide}  items ={slide}/>)
