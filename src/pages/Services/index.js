@@ -194,6 +194,7 @@ function Services() {
   return (
       <Grid item sx={{
         margin:"0px",
+        maxWidth:"1150px",
         padding:"0px",alignItems:'center',display:'flex',
         width:'80%',flexDirection:{xs:'column',md:'column'}
         }}>
@@ -214,6 +215,8 @@ function Services() {
               textAlign:'center'}}>
               
             </Typography>*/}
+                <Fade  in={true} mountOnEnter unmountOnExit   style={{ transformOrigin: '0 0 0' }}
+                {...{ timeout: (500) }}>
             <Grid sx={{width:'100%',
               flexDirection:'column',
               borderRadius:1,
@@ -236,10 +239,11 @@ function Services() {
                 <Button variant="serviceRequest"                 
                   sx={{
                     m:0.5,
+                    
                     backgroundColor:colors.primary,
                     color:'black',
                     '&:hover': {
-                      //backgroundColor:'rgba(255,0,0,0.5)'
+                      backgroundColor:colors.hover,
                     }
                     //background:`linear-gradient(to top, rgba(247, 216, 159, 1) 0%,rgba(247, 216, 159, 1) 100%)`
                   }}
@@ -249,12 +253,14 @@ function Services() {
                 </Grid>
 
             </Grid>
+            </Fade>
           </Grid>
+
 
 
             <Grid  container ref={ref} sx={{width:'100%',p:0,justifyContent:'center',flexDirection:'row',marginTop:0,marginBottom:5,minHeight:'300px'}}>
                 { isVisible &&
-                <Grid container sx={{width:'100%',maxWidth:"1600px",minHeight:'200px', flexDirection:'row',justifyContent:"center",pt:0}}>
+                <Grid container sx={{width:'100%',minHeight:'200px', flexDirection:'row',justifyContent:"center",pt:0}}>
                   <Fade in={true} mountOnEnter unmountOnExit timeout={(200)+800}>
                   <Box sx={{ bgcolor: 'transparent',width:"100%",p:0,display:'flex',flexDirection:'column'}}>
                     <Tabs
@@ -316,7 +322,7 @@ function Services() {
 
             {
             service.services && 
-            <Details fullScreen={true} open={open} handleClose={()=> setOpen(!open)} 
+            <Details fullScreen={false} open={open} handleClose={()=> setOpen(!open)} 
                 img={se['img']} 
                 title={`${se[`title_${i18n.language}`]}`}
                 description={`${se[`description_${i18n.language}`]}`}

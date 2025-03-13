@@ -60,8 +60,8 @@ const TopFive = ({ items }) => {
                       justifyContent: 'center',
                       alignSelf: 'center',
                       color: "black",
-                      "-webkit-text-stroke": "0.06rem rgba(255,255,255,1)",
-                      "text-shadow": "0 0 1.5rem rgba(0,0,0,1)",
+                      WebkitTextStroke: "0.06rem rgba(255,255,255,1)",
+                      textShadow: "0 0 1.5rem rgba(0,0,0,1)",
                     }}
                   >
                     {i + 1}

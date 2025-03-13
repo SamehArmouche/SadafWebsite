@@ -188,7 +188,7 @@ function Header() {
             >
               {pages.map((page, i) => (
                 <MenuItem key={i} onClick={(e)=>{handleRoute(page)}}
-                selected={`/${page.toLowerCase()}` === window.location.pathname}
+                selected={`/${page.toLowerCase()}` === window.location.pathname || (`${page.toLowerCase()}` === "home" && window.location.pathname ==='/')}
                 >
                   <Typography textAlign="center"> {t(`header.${page.toLowerCase()}`)}</Typography>
                 </MenuItem>
@@ -198,7 +198,7 @@ function Header() {
           <Box sx={{display: { xs: 'none', md: 'flex'},width:"100%",justifyContent:'center'}}>
             {pages.map((page) => (
               <MenuItem variant="menu"
-                selected={`/${page.toLowerCase()}` === window.location.pathname}
+              selected={`/${page.toLowerCase()}` === window.location.pathname || (`${page.toLowerCase()}` === "home" && window.location.pathname ==='/')}
                 sx={{borderRadius:1}}
                 key={page}
                 onClick={(e)=>{handleRoute(page)}}

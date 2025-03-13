@@ -75,7 +75,7 @@ export default function ProjectCard({item, handleChange, alt, i18n, i, loadingDa
             justifyContent:'center',
             flexDirection:'column',
             borderRadius:1,
-            backgroundColor:"rgba(0,0,0,0.25)",
+            backgroundColor:"rgba(0,0,0,0.35)",
         }}>
           <Typography 
             textAlign={i18n.dir()!=='ltr'?'right':'left'}

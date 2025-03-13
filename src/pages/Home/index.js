@@ -10,6 +10,8 @@ import Clients from '../../components/ClientsV2';
 import ContactUs from '../../components/Contact/ContactUs';
 import MyCarousel from '../../components/Services/Carousel';
 import { useLocation } from 'react-router-dom';
+import colors from '../../assets/theme/colors';
+
 const items = [ 
   {
     logo_url:"https://storage.googleapis.com/sadaf-website-content/clients/MBC_1.png",
@@ -78,7 +80,10 @@ function Home() {
         padding:"0px",alignItems:'center',display:'flex',
         width:'100%',
         maxWidth:'1150px',flexDirection:{xs:'column',md:'row'},
-        }}>
+        
+        }}
+        
+        >
           
       <Grid container sx={{
         height:'90vh',
@@ -91,14 +96,29 @@ function Home() {
           width:{md:'50%',xs:'100%'}
         }}>
           <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{
-            fontSize:{md:55,xs:28}, fontWeight:'bold'}}>
+            fontSize:{md:55,xs:28}, fontWeight:'bold',color:'white'}}>
             {t('home.title')}
           </Typography>
-          <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{fontSize:{md:24,xs:15}, fontWeight:'bold'}}>
+          <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{fontSize:{md:24,xs:15},color:'white', fontWeight:'bold'}}>
             {t('home.subtitle')}
           </Typography>
           <Grid item  sx={{p:0}}>
-            <Button variant="home" onClick={()=> {navigate("/talents")}} sx={{fontSize:{xs:16,md:22},width:{md:220,xs:160}}}>
+            <Button variant="serviceRequest"                 
+                  sx={{
+                    mb:2,
+                    mt:{md:8,xs:2},
+                    fontSize:{xs:16,md:22},
+                    backgroundColor:colors.primary,
+                    color:'black',
+                    width:{md:220,xs:160},
+                    borderRadius:10,
+                    '&:hover': {
+                      backgroundColor:colors.hover
+                    }
+                    //background:`linear-gradient(to top, rgba(247, 216, 159, 1) 0%,rgba(247, 216, 159, 1) 100%)`
+                  }}onClick={()=> {navigate("/talents")}} 
+                  //sx={{fontSize:{xs:16,md:22},width:{md:220,xs:160}}}
+                  >
             {t('button.joinUs')}
             </Button> 
           </Grid>
@@ -123,8 +143,9 @@ function Home() {
           </Typography>
           <TopFive items={projects}/>
         </Grid>
-        <Grid container sx={{p:0,backgroundColor:'rgba(0, 0, 0, 0)',width:'100%',
+        <Grid container sx={{backgroundColor:'rgba(0, 0, 0, 0)',width:'100%',
           borderRadius:2,
+          pb:3,
           minHeight:'20vh'
         }}>
           <Typography textAlign={i18n.language==="ar"?"right":"left"} sx={{

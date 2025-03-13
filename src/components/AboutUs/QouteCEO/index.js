@@ -19,6 +19,13 @@ const QouteCEO = ({t, i18n}) =>{
   const isVisible = useIsVisible(ref);
   
   return(
+<Grow
+  mountOnEnter
+  unmountOnExit
+  in={true}
+  style={{ transformOrigin: '0 0 0' }}
+  {...{ timeout: (500) }}
+  >
     <Grid 
     container
     ref={ref}
@@ -33,7 +40,7 @@ const QouteCEO = ({t, i18n}) =>{
       <Grid 
       container
         sx={{
-          pb:3,pt:3,mb:1,mt:1, width:'100%',
+          mb:1,mt:1, width:'100%',
           //ml:10,
           //borderTopLeftRadius: 20,
          // borderBottomLeftRadius: 20,
@@ -45,8 +52,10 @@ const QouteCEO = ({t, i18n}) =>{
         <Grid
           component="img"
           sx={{
-            width:{md:'320px',xs:"200px"},
-            height:{md:'320px',xs:"200px"},
+            // width:{md:'320px',xs:"200px"},
+            // height:{md:'320px',xs:"200px"},
+            width:'100%',
+            maxWidth:{md:400,xs:'60%'},
             objectFit:'cover',
             pl:{md:2,xs:0},
             pr:{md:2,xs:0},
@@ -61,7 +70,7 @@ const QouteCEO = ({t, i18n}) =>{
 
 
         <Grid sx={{backgroundColor:'transparent'
-          ,display:'flex',maxWidth:{md:"70%",xs:"100%"},flexDirection:'column'}}>
+          ,display:'flex',maxWidth:{md:"60%",xs:"100%"},flexDirection:'column'}}>
           <Typography textAlign={i18n.dir()==="rtl"?"right":"left"} sx={{
             color:"black",
             //background:`-webkit-linear-gradient(425deg, rgba(0,0,0,1) 0%,rgba(247, 216, 159, 1) 40%)`,
@@ -78,7 +87,7 @@ const QouteCEO = ({t, i18n}) =>{
         <Typography textAlign={i18n.dir()==="rtl"?"justify":"justify"} sx={{
           color:"black",
           m:1,
-          fontSize:{md:15,xs:12},
+          fontSize:{md:18,xs:12},
           maxWidth:'700px',
           height:'55%',
           }}> {`${info[`body_${i18n.language}`]}`}</Typography>
@@ -88,7 +97,7 @@ const QouteCEO = ({t, i18n}) =>{
         <Typography textAlign={i18n.dir()==="rtl"?"justify":"justify"} sx={{
           color:"black",
           m:1,
-          fontSize:{md:13,xs:10},
+          fontSize:{md:16,xs:10},
           maxWidth:'700px'
 
           }}> {`${info[`footer_${i18n.language}`]}`}</Typography>
@@ -105,6 +114,7 @@ const QouteCEO = ({t, i18n}) =>{
 
 
     </Grid>
+    </Grow>
   )
 }
 
