@@ -34,7 +34,7 @@ export default function ServiceCard({item, handleChange, alt, i18n,t, i, loading
         paddingRight:2,
         paddingLeft:2,
         flexDirection:'column',
-        minWidth:160}} 
+        minWidth:{md:260,xs:160}}} 
         onClick={()=>handleChange()}>
           <Typography 
             textAlign={i18n.dir()==='ltr'?'left':'right'}

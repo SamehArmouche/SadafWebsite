@@ -207,11 +207,67 @@ code {
 ::-webkit-scrollbar {
   width: 0px;
   height: 3px;
-  display: none;
+}
+
+.container {
+  display: flex;
+  max-width:none !important;
+  align-items: center;
+  width: 100% !important;
+  position: relative;
+  justify-content: center;
+  margin:0px !important;
+}
+
+.lista-horizontal {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
 
 
 
+.boton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 1);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Aumenta la duración de la transición */
+  z-index: 1; /* Asegura que los botones estén sobre la lista */
+}
+
+.boton-izquierda {
+  display:flex;
+  align-content:center;
+  justify-content:center;
+  align-items:center;
+  border-radius: 0.5rem;
+  left: 0px; /* Ajusta según sea necesario */
+  position:absolute;
+  font-size: 25px;
+}
+
+.boton-derecha {
+  display:flex;
+  align-content:center;
+  justify-content:center;
+  align-items:center;
+  border-radius: 0.5rem;
+  right: 0px; /* Ajusta según sea necesario */
+  position:absolute;
+  font-size: 25px;
+}
+
+.oculto {
+  opacity: 0; /* Cambia la opacidad para ocultar */
+  pointer-events: none; /* Evita que el botón sea clickeable */
+  transform: scale(0.9); /* Añade una transformación para hacer el botón más pequeño al ocultarse */
+}
 
 @keyframes loading {
 0% {

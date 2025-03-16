@@ -39,29 +39,32 @@ const Ads = ({ i18n, t }) => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Ajusta la velocidad de desplazamiento
+    const walk = (x - startX) * 2;
     carouselRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  const openUrl = (url) =>{
+  const openUrl = (url) => {
     if(url){
       window.open(url, '_blank').focus()
     }
-  }
+  };
 
   return (
-    <Box
-      sx={{
-        backgroundColor: 'rgba(0,0,0,0)',
-        display: 'flex', alignItems: "center", width: '100%',
-        m: 0, borderRadius: {md:10,xs:5},
-        justifyContent: 'center',
-      }}
-    >
+    <Box sx={{
+      backgroundColor: 'rgba(0,0,0,0)',
+      display: 'flex', alignItems: "center", width: '100%',
+      m: 0, borderRadius: {md:10,xs:5},
+      justifyContent: 'center',
+    }}>
       <Grid
         ref={carouselRef}
         sx={{
-          overflowX: 'auto', cursor: 'grab',borderRadius: {md:10,xs:5}, display: 'flex', flexDirection: 'row',
+          overflowX: 'scroll', // Habilita el desplazamiento
+          scrollbarWidth: 'none', // Firefox
+          '&::-webkit-scrollbar': { // Webkit (Chrome, Safari)
+            display: 'none',
+          },
+          cursor: 'grab', borderRadius: {md:10,xs:5}, display: 'flex', flexDirection: 'row',
           minHeight: 100, alignItems: 'center', backgroundColor: 'rgba(10, 10, 10, 0)',
           '&:active': { cursor: 'grabbing' }
         }}
@@ -71,40 +74,32 @@ const Ads = ({ i18n, t }) => {
         onMouseMove={handleMouseMove}
       >
         {images.map((i, e) => (
-          <Grid key={e}
-            sx={{
-              backdropFilter: "blur(10px)",
-              backgroundColor:'rgba(0,0,0,0.2)',
-              m: 2, borderRadius: {md:10,xs:5}, display: 'flex', height: '100%',
-              boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.7)',
-              position: 'relative' // Asegúrate de que el Grid sea relativo para posicionar el overlay.
-            }}
-          >
-            <Box
-              onClick= {()=> openUrl(i.url)} 
-              component="img"
+          <Grid key={e} sx={{
+            backdropFilter: "blur(10px)",
+            backgroundColor:'rgba(0,0,0,0.2)',
+            m: 2, borderRadius: {md:10,xs:5}, display: 'flex', height: '100%',
+            boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.7)',
+            position: 'relative'
+          }}>
+            <Box onClick={()=> openUrl(i.url)} component="img"
               sx={{
                 height: { md: "450px", xs: "200px" },
                 width: { md: "315px", xs: "130px" },
                 objectFit:'cover',
                 borderRadius: {md:10,xs:5},
                 content: {
-                  xs: `url(${i.img})`, //img src from xs up to md
-                  md: `url(${i.img})`,  //img src from md and up
+                  xs: `url(${i.img})`,
+                  md: `url(${i.img})`,
                 }
               }}
               alt="Ads"
             />
-            <Box 
-              sx={{
-                // Overlay con gradiente lineal.
-                position: 'absolute',
-                top: 0, left: 0,
-                width: '100%', height: '100%',
-                borderRadius: {md:10,xs:5}
-                //background: 'linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)',
-              }}
-            />
+            <Box sx={{
+              position: 'absolute',
+              top: 0, left: 0,
+              width: '100%', height: '100%',
+              borderRadius: {md:10,xs:5}
+            }} />
           </Grid>
         ))}
       </Grid>

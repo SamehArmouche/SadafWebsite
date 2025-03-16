@@ -81,6 +81,7 @@ const AnimatedNumber = ({ index, style }) => {
       className="animated-number"
       sx={{
         width: '100%',
+        direction:'ltr',
         height: '100%',
         fontWeight: 'bold',
         justifyContent: 'center',

@@ -22,7 +22,7 @@ const TopFive = ({ items }) => {
               style={{ transformOrigin: '0 0 0' }}
               {...{ timeout: (i * 500) }}
               key={i}>
-              <Grid sx={{ justifyContent: 'center', display: 'flex', p: {md:1,xs:2} ,width:{md:200,xs:130},height:{md:300,xs:180}}}>
+              <Grid sx={{ justifyContent: 'center', display: 'flex', p: {md:1,xs:2} ,width:{md:200,xs:130},height:{md:270,xs:180}}}>
                 <Grid container
                   sx={{
                     position: 'relative', // Contenedor relativo

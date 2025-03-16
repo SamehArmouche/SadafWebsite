@@ -15,20 +15,22 @@ function AboutUs() {
 
           backgroundColor:'transparent'
         }}>
-          <Grid item sx={{justifyContent:{xs:'space-evenly',md:'space-evenly'},display:'flex',opacity:1,alignItems:'center',pb:{md:3,xs:8},width:'100%',
-            minHeight:'100vh',
+          <Grid item sx={{justifyContent:{xs:'space-between',md:'space-evenly'},display:'flex',opacity:1,alignItems:'center',pb:{md:3,xs:8},width:'100%',
+    
             flexDirection:'column',
             backgroundColor:'transparent'
             }}>
             {/*--<img src = {"/images/logo.png"}  alt={"sadaf logo"} style={{height:100}}></img>*/} 
             <Typography textAlign={i18n.dir()==="rtl"?"right":"left"}
-           sx={{fontSize:{md:20,xs:16},color:'white'}}>{t("aboutus.title")}</Typography>
+                sx={{fontSize:{md:50,xs:35},color:'white',pb:8, width:'100%',fontWeight:'bold'}}>{t("header.aboutus")}</Typography>
+            <Typography textAlign={i18n.dir()==="rtl"?"right":"left"}
+                sx={{fontSize:{md:20,xs:16},color:'white',pb:20}}>{t("aboutus.title")}</Typography>
           <QouteCEO i18n={i18n} t={t}/>
           </Grid>
 
           <Grid item sx={{justifyContent:{xs:'center',md:'flex-start'},display:'flex',opacity:1,pb:{md:0,xs:8},width:'100%',
           justifyContent:'center',
-          minHeight:'40vh',
+          
           flexDirection:'column',
         
         backgroundColor:'transparent'

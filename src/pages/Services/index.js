@@ -106,6 +106,7 @@ function Services() {
 
   
   const handleChangee = (value) => {
+    setSelected(true)
     setSe(value)
     setOpen(!open)
   }
@@ -353,7 +354,7 @@ function Services() {
               />
           }
 
-            <Grid sx={{minHeight:"2px",backgroundColor:colors.hover,width:'100%',maxWidth:"1600px",mt:1}}></Grid>
+            <Grid sx={{minHeight:"2px",backgroundColor:colors.hover,width:'100%',maxWidth:"1150px",mt:1}}></Grid>
           
           <Grid container sx={{width:'100%',p:0, flexDirection:'column',justifyContent:'flex-end'}}>
             <Typography sx={{
@@ -364,7 +365,7 @@ function Services() {
               ,borderRadius:1,
               mt:1,
               p:1,
-              maxWidth:"1600px",
+              maxWidth:"1150px",
               fontWeight:'bold',
               textAlign:i18n.dir()!=='ltr'?'right':'left'}}>
               {t('feature.title')}
@@ -398,12 +399,12 @@ isVisibleFeatures &&
               }
           </Grid>
 
-          <Grid sx={{minHeight:"2px",backgroundColor:colors.hover,width:'100%',maxWidth:"1600px",mt:2}}></Grid>
+          <Grid sx={{minHeight:"2px",backgroundColor:colors.hover,width:'100%',maxWidth:"1150px",mt:2}}></Grid>
             <Box
               
               ref={refForm}
             sx={{backgroundColor:'rgba(200,0,0,0)'
-              ,maxWidth:'1600px',
+              ,maxWidth:'1150px',
               minHeight:'85vh',
               mt:2,
               mb:2,

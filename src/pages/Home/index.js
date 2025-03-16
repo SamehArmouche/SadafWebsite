@@ -3,7 +3,7 @@ import {Typography, Grid, Button} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
 import Ads from '../../components/Ads';
-import TopFive from '../../components/TopFiveV2';
+import TopTen from '../../components/TopTen';
 import { fetchProjects, fetchServices } from '../../redux/thunks';
 import { useDispatch, useSelector } from 'react-redux';
 import Clients from '../../components/ClientsV2';
@@ -141,7 +141,7 @@ function Home() {
             fontSize:{xs:10,md:18}}}>
             {t('home.top5')}
           </Typography>
-          <TopFive items={projects}/>
+          <TopTen items={projects}/>
         </Grid>
         <Grid container sx={{backgroundColor:'rgba(0, 0, 0, 0)',width:'100%',
           borderRadius:2,

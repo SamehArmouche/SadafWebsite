@@ -29,7 +29,7 @@ const QouteCEO = ({t, i18n}) =>{
     <Grid 
     container
     ref={ref}
-    sx={{width:'100%',p:0, flexDirection:'row',alignItems:'center',justifyContent:{md:'flex-end',xs:'center'}
+    sx={{width:'100%',mb:20, flexDirection:'row',alignItems:'center',justifyContent:{md:'flex-end',xs:'center'}
     
     ,background:`linear-gradient(${i18n.dir()==='rtl'?'to right':'to left'}, rgba(255,255,255,0.9) 0%,rgba(247, 216, 159, 1) 80%)`,
     
@@ -70,7 +70,7 @@ const QouteCEO = ({t, i18n}) =>{
 
 
         <Grid sx={{backgroundColor:'transparent'
-          ,display:'flex',maxWidth:{md:"60%",xs:"100%"},flexDirection:'column'}}>
+          ,display:'flex',maxWidth:{md:"1150px",xs:"100%"},flexDirection:'column'}}>
           <Typography textAlign={i18n.dir()==="rtl"?"right":"left"} sx={{
             color:"black",
             //background:`-webkit-linear-gradient(425deg, rgba(0,0,0,1) 0%,rgba(247, 216, 159, 1) 40%)`,
