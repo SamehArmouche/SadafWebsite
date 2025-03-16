@@ -94,7 +94,7 @@ function MyCarousel({items, onClick}){
 
     const OneSlide = (props) =>{
       return (
-        <Box sx={{width:'100%',justifyContent:{md:props.items.length==1?'center':'space-between',xs:'center'},flexDirection:'row',display:'flex'}}>
+        <Box sx={{width:'100%',justifyContent:{md:props.items.length==1?'center':'space-between',xs:'center'},flexDirection:'row',display:'flex',m:0.5}}>
           {
             isVisible && props.items.map( (item, i) => {  return( <MyCard key={i} i={i} item={item} /> ); })
           }
@@ -105,7 +105,7 @@ function MyCarousel({items, onClick}){
     React.useEffect(()=>{
       setLoading(true);
       if(windowSize[0]<600){
-        setCountPerSlide(3);
+        setCountPerSlide(2);
       }else{
         setCountPerSlide(5);
       }

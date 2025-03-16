@@ -64,7 +64,7 @@ function MyCarousel({items}){
     const OneSlide = (props) =>{
       return (
         <Box sx={{width:'100%',justifyContent:{
-          md:props.items.length==1?'center':'space-between',xs:'center'},flexDirection:'row',display:'flex'}}>
+          md:props.items.length==1?'center':'space-between',xs:'center'},flexDirection:'row',display:'flex',m:0.5}}>
           {
             isVisible && props.items.map( (item, i) => {  return( <MyCard key={i} i={i} item={item} /> ); })
           }
