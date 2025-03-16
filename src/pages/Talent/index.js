@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box, Typography, Grid, Grow, Button, TextField, Checkbox} from '@mui/material';
+import {Box, Typography, Grid, Fade, Button, TextField, Checkbox} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import colors from '../../assets/theme/colors';
 import {validateEmail} from '../../helpers/validations';
@@ -50,29 +50,33 @@ function Talent() {
   }
 
   return (
-    <Box sx={{minHeight:'72vh',alignItems:'center',justifyContent:'center',display:'flex',flexDirection:{xs:'column',md:'row'},width:'100%'}}>
-                  <Grow
+    <Fade
   mountOnEnter
   unmountOnExit
   in={true}
   style={{ transformOrigin: '0 0 0' }}
   {...{ timeout: (500) }}>
-      <Grid container sx={{margin:0,mt:{xs:5,md:0},marginBottom:5 ,justifyContent:'center'}}>
+    <Box sx={{minHeight:'72vh',alignItems:'center',justifyContent:'center',display:'flex',flexDirection:{xs:'column',md:'row'},width:'90%'
+    ,maxWidth:'1150px'
+    }}>
 
-          <Grid item sx={{p:0,width:{xs:'90%',md:500}}}>
-            <Typography textAlign={"justify"} sx={{fontSize:{xs:18,md:25},pl:2,pr:2}}>
+      <Grid container sx={{margin:0,mt:{xs:5,md:0},marginBottom:5 }}>
+
+          <Grid item sx={{p:0,width:{xs:'100%'}}}>
+            <Typography textAlign={i18n.language!=="ar"?"left":"right"} 
+            sx={{fontSize:{md:50,xs:28},pl:2,pr:2,fontWeight:'bold'}}>
               {t('talent.title')}
             </Typography>
           </Grid>
 
       </Grid>
-      </Grow>  
+
        
-      <Grid container sx={{margin:0,p:{xs:0,md:0} ,justifyContent:'center'}}>
+      <Grid container sx={{margin:0,p:{xs:0,md:0} ,justifyContent:{md:'end',xs:'center'}}}>
         <Box 
           border={1} 
           sx={{
-            backgroundColor:'black',width:{xs:'80%'},maxWidth:400,height:350,
+            backgroundColor:'black',width:{xs:'100%'},maxWidth:400,height:350,
             borderColor: 'rgba(247, 216, 159, 0.1)', borderWidth: '0.1em',borderRadius:1,
             alignItems:'center',display:'flex',
             justifyContent:'center',
@@ -117,6 +121,7 @@ function Talent() {
 
       </Grid>
     </Box>
+    </Fade>
   );
 }
 
