@@ -79,7 +79,8 @@ function Home() {
         minHeight:"100vh",
         padding:"0px",alignItems:'center',display:'flex',
         width:'100%',
-        maxWidth:'1150px',flexDirection:{xs:'column',md:'row'},
+        justifyContent:'center',
+        flexDirection:{xs:'column',md:'row'},
         
         }}
         
@@ -87,13 +88,14 @@ function Home() {
           
       <Grid container sx={{
         height:'90vh',
+        maxWidth:'1150px',
         backgroundColor:'transparent',p:0, flexDirection:'row',alignContent:'center',justifyContent:'center'}}>
         <Grid item sx={{p:0,
           backgroundColor:'transparent',
           justifyContent:'center',
           alignContent:'center',
           padding:2,
-          width:{md:'50%',xs:'100%'}
+          width:{md:'50%',xs:'100%'},
         }}>
           <Typography textAlign={i18n.language!=="ar"?"left":"right"} sx={{
             fontSize:{md:55,xs:28}, fontWeight:'bold',color:'white'}}>
@@ -131,7 +133,8 @@ function Home() {
   
         <Grid container sx={{p:0,backgroundColor:'rgba(0, 0, 0, 0)',width:'100%',
           borderRadius:2,
-          minHeight:'20vh'
+          minHeight:'20vh',
+          maxWidth:'1200px'
         }}>
           <Typography textAlign={i18n.language==="ar"?"right":"left"} sx={{
             fontWeight:'bold',
@@ -141,12 +144,13 @@ function Home() {
             fontSize:{xs:10,md:18}}}>
             {t('home.top5')}
           </Typography>
-          <TopTen items={projects}/>
+          <TopTen items={projects} direction={i18n.dir()}/>
         </Grid>
         <Grid container sx={{backgroundColor:'rgba(0, 0, 0, 0)',width:'100%',
           borderRadius:2,
           pb:3,
-          minHeight:'20vh'
+          minHeight:'20vh',
+          maxWidth:'1150px'
         }}>
           <Typography textAlign={i18n.language==="ar"?"right":"left"} sx={{
             fontWeight:'bold',
@@ -161,7 +165,8 @@ function Home() {
 
         <Grid container sx={{p:0,backgroundColor:'rgba(0, 0, 0, 0)',width:'100%',
           borderRadius:2,
-          minHeight:'15vh'
+          minHeight:'15vh',
+          maxWidth:'1150px'
         }}>
           <Typography textAlign={i18n.language==="ar"?"right":"left"}sx={{
             fontWeight:'bold',

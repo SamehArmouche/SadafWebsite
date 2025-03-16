@@ -30,11 +30,11 @@ function Awards() {
   return (
   <Grid container sx={{p:6,justifyContent:'center',alignItems:'center',display:'flex',minHeight:'72vh',maxWidth:'100%'}}>
 
-    <Grid container sx={{maxWidth:1000,justifyContent:'center'}}>
+    <Grid container sx={{maxWidth:"1150px",justifyContent:'center'}}>
     {
       loadingAwards ? <Loading style={{color: colors.primary}}/>
       :
-      <Grid container sx={{maxWidth:1000,justifyContent:'center'}}>
+      <Grid container sx={{maxWidth:"1150px",justifyContent:{md:'start',sm:'center',xs:'center'}}}>
       {awards?.map((a,i)=>{
         return(
           <MyCard key={a.id} handleChange={handleChange} alt={"award"} item = {a} i={i} i18n={i18n} />

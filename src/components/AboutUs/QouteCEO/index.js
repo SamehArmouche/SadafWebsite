@@ -11,7 +11,7 @@ const info = {
     footer_en:"Hassan Assiri",
     footer_ar:"حسن عسيري",
     
-    img_url:"https://storage.googleapis.com/sadaf-website-content/information/hassan1.png"
+    img_url:"https://storage.googleapis.com/sadaf-website-content/information/hassan3.png"
 }
 
 const QouteCEO = ({t, i18n}) =>{
@@ -30,6 +30,7 @@ const QouteCEO = ({t, i18n}) =>{
     container
     ref={ref}
     sx={{width:'100%',mb:20, flexDirection:'row',alignItems:'center',justifyContent:{md:'flex-end',xs:'center'}
+    //background:`linear-gradient(${i18n.dir()==='rtl'?'to right':'to left'}, rgba(247, 216, 159, 0.1) 30%,rgba(247, 216, 159, 0.5) 100%)`,
     
     ,background:`linear-gradient(${i18n.dir()==='rtl'?'to right':'to left'}, rgba(255,255,255,0.9) 0%,rgba(247, 216, 159, 1) 80%)`,
     

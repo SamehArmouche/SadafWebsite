@@ -46,7 +46,7 @@ import React, { useState, useEffect } from 'react';
   
 
 
-const AnimatedNumber = ({ index, style }) => {
+const AnimatedNumber = ({ index, style, i18n }) => {
   const [currentNumbers, setCurrentNumbers] = useState(Array.from(String(index), () => ""));
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const AnimatedNumber = ({ index, style }) => {
         } else {
           startDigit += 1;
         }
-      }, 60);
+      }, 70);
 
       intervals.push(interval);
     });
@@ -84,9 +84,10 @@ const AnimatedNumber = ({ index, style }) => {
         direction:'ltr',
         height: '100%',
         fontWeight: 'bold',
-        justifyContent: 'center',
+        justifyContent: i18n.dir()==="rtl"?'start':'end',
         m: 0,
-        p: 0,
+        pr:0.5,
+        pl:0.5,
         ...style,
       }}
     >

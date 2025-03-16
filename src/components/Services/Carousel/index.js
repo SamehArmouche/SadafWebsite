@@ -40,7 +40,7 @@ function MyCarousel({items, onClick}){
           {...{ timeout: (props.i*500) }}>
           {/* <Grid sx={{backgroundColor:'transparent',justifyContent:'center',display:'flex',m:0}}> */}
             <Grid sx={{ justifyContent: 'center', display: 'flex', backgroundColor:'black',m: {md:1,xs:2}}}>
-            <CardActionArea sx = {{width:{md:200,xs:130},height:{md:180,xs:150}}} onClick= {onClick} >
+            <CardActionArea sx = {{width:{md:200,xs:180},height:{md:180,xs:160}}} onClick= {onClick} >
               
             <Grid 
               container
@@ -79,11 +79,12 @@ function MyCarousel({items, onClick}){
                     display: '-webkit-box',
                     WebkitLineClamp: '2',
                     height:'40px',
-                    width:{md:"180px",xs:"90px"},
+                    width:{md:"180px",xs:"170px"},
                     WebkitBoxOrient: 'vertical',
                     
                   }} gutterBottom>
-                  {`${props.item[`title_${i18n.language}`]} ${props.item[`title_${i18n.language}`]}`}
+                    
+                  {`${props.item[`title_${i18n.language}`]}`}
                 </Typography>
                 </Grid>
             </CardActionArea>

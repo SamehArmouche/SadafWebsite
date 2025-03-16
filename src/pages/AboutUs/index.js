@@ -15,7 +15,7 @@ function AboutUs() {
 
           backgroundColor:'transparent'
         }}>
-          <Grid item sx={{justifyContent:{xs:'space-between',md:'space-evenly'},display:'flex',opacity:1,alignItems:'center',pb:{md:3,xs:8},width:'100%',
+          <Grid item sx={{justifyContent:{xs:'space-between',md:'space-evenly'},display:'flex',opacity:1,alignItems:'center',pb:{md:3,xs:0},width:'100%',
     
             flexDirection:'column',
             backgroundColor:'transparent'

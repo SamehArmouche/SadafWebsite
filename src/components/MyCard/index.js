@@ -1,4 +1,4 @@
-import {Grid, Fade, CardActionArea, Typography} from '@mui/material';
+import {Grid, Grow, CardActionArea, Typography} from '@mui/material';
 import colors from '../../assets/theme/colors';
 import Skeleton from '@mui/material/Skeleton';
 import React from 'react';
@@ -12,17 +12,27 @@ export default function MyCard({item, handleChange, alt, i18n, i, loadingData}) 
 
   const onLoad = setTimeout(() => {
     setHasImageLoaded(true)
-  }, 800);
+  }, 200);
 
   return (
-    <Fade  in={true} mountOnEnter unmountOnExit timeout={(200)+50*parseInt(i)}>
-      <Grid  item sx={{maxWidth:300,borderRadius:2,margin:2}} onClick={()=>handleChange(item)}>
+    <Grow
+      mountOnEnter 
+      unmountOnExit
+      in={true}
+      style={{ transformOrigin: '0 0 0' }}
+      {...{ timeout: (i*500) }}
+      key={i}>
+      <Grid  item sx={{borderRadius:2,m:0.3}} onClick={()=>handleChange(item)}>
       { (!hasImageLoaded || loadingData) && <Skeleton variant="rectangular" height={'200px'} width={'300px'} animation={"wave"} sx={{borderRadius:2}} />}
-        <CardActionArea sx={{display:!hasImageLoaded?'none':''}}>
+        <CardActionArea sx={{display:!hasImageLoaded?'none':'',width:375,height:240,borderRadius:1}}>
           <img
             src={item.img}
             alt={alt}
-            className={"img-item"}
+            style={{
+              width:'100%',
+              height:'100%'
+            }}
+
             onLoad={() => onLoad}
           >
           </img>
@@ -33,6 +43,7 @@ export default function MyCard({item, handleChange, alt, i18n, i, loadingData}) 
               display:'flex',
               justifyContent:'center',
               alignItems:'center',
+              
               p:2,
               backgroundColor:colors.background,position:"absolute",width:'100%',height:60,
             }}>
@@ -47,7 +58,7 @@ export default function MyCard({item, handleChange, alt, i18n, i, loadingData}) 
           </Grid>
         </CardActionArea>
       </Grid>
-    </Fade>
+    </Grow>
   )
 }
 
