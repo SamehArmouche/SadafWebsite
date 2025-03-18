@@ -88,7 +88,7 @@ function Home() {
         borderRadius: 2, minHeight: '20vh', maxWidth: '1200px'
       }}>
         <Typography textAlign={i18n.language === "ar" ? "right" : "left"} sx={{
-          fontWeight: 'bold', color: 'white', width: '100%', m: 2, fontSize: { xs: 10, md: 18 }
+          fontWeight: 'bold', color: 'white', width: '100%', ml: 3,mb:2,mt:2,mr:3, fontSize: { xs: 10, md: 18 }
         }}>
           {t('home.top5')}
         </Typography>
