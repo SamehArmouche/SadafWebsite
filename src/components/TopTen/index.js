@@ -148,17 +148,19 @@ const TopTen = ({ items, direction = 'ltr' }) => {
                   <Typography
                     noWrap
                     sx={{
+                      fontFamily:'Alexandria',
                       display: loadingStates[i] ? 'none' : 'block',
                       fontSize: { md: 90, xs: 50 },
                       position: 'absolute',
+                      fontWeight:'500',
                       top: { md: '85%', xs: '85%' },
                       left: { md: '0%', xs: '0%' },
                       transform: 'translate(-50%, -50%)',
-                      color: 'white',
+                      color: 'rgba(255,255,255,0.7)',
+                      //color:'black',
                       justifyContent: 'center',
                       alignSelf: 'center',
-                      color: 'black',
-                      WebkitTextStroke: '0.06rem rgba(255,255,255,1)',
+                      //WebkitTextStroke: '0.06rem rgba(255,255,255,0.8)',
                       textShadow: '0 0 1.5rem rgba(0,0,0,1)',
                     }}
                   >

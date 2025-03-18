@@ -58,7 +58,7 @@ export default function Details({
         <DialogTitle id="responsive-dialog-title" sx={{fontWeight:'bold',fontSize:21,padding:"24px 24px 16px"}}>
           {title}
         </DialogTitle>
-        <DialogTitle id="responsive-dialog-title" sx={{fontSize:18,textAlign:"justify"}}>
+        <DialogTitle id="responsive-dialog-title" sx={{fontSize:18,textAlign:"start"}}>
           {
             Array.isArray(description)?
             description?.map((d)=>{

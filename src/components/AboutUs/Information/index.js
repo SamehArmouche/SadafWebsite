@@ -62,13 +62,13 @@ const Information = ({items, i18n, t}) =>{
         <Typography sx={{fontSize:{md:35,xs:25},fontWeight:'bold',textAlign:'start', color:'white'}}>  {t("aboutus.numbers")}</Typography>
       </Grid>
 
-      <Grid container sx={{backgroundColor:'rgba(22,33,220,0)',height:'100%',p:0,justifyContent:{md:'end',xs:'start'}}}>
+      <Grid container sx={{backgroundColor:'rgba(22,33,220,0)',height:'100%',p:0,justifyContent:{md:'end',sm:'center',xs:'center'}}}>
       {isVisible && 
         informations.map((item,i)=>{
           return(
             <Grid item key = {i} sx={{
               backgroundColor:'rgba(0,0,0,0)',
-              width:{md:135,xs:110},
+              width:{md:135,xs:90},
               borderRadius:2,p:2,m:0.5,alignItems:'end',justifyContent:'center'
               ,display:'flex',flexDirection:'column'}}>
               {item.icon}

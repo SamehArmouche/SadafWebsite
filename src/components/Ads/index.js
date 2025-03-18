@@ -74,14 +74,16 @@ const Ads = ({ i18n, t }) => {
         onMouseMove={handleMouseMove}
       >
         {images.map((i, e) => (
-          <Grid key={e} sx={{
+          <Grid key={e} 
+          onClick={()=> openUrl(i.url)} 
+          sx={{
             backdropFilter: "blur(10px)",
             backgroundColor:'rgba(0,0,0,0.2)',
             m: 2, borderRadius: {md:10,xs:5}, display: 'flex', height: '100%',
             boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.7)',
             position: 'relative'
           }}>
-            <Box onClick={()=> openUrl(i.url)} component="img"
+            <Box component="img"
               sx={{
                 height: { md: "450px", xs: "200px" },
                 width: { md: "315px", xs: "130px" },

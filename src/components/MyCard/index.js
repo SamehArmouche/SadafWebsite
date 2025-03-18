@@ -51,7 +51,9 @@ export default function MyCard({item, handleChange, alt, i18n, i, loadingData}) 
               sx={{
                 fontSize:21,
                 overflow: "hidden",
-                textOverflow: "ellipsis" 
+                textOverflow: "ellipsis",
+                color:'white',
+                fontWeight:'bold'
               }} gutterBottom>
               {`${item[`title_${i18n.language}`]}`}
             </Typography>
